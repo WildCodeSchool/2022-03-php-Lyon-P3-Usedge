@@ -21,7 +21,7 @@ class TemplateIcons
     private string $icon;
 
     #[ORM\OneToMany(mappedBy: 'icon', targetEntity: ResearchTemplate::class)]
-    private ArrayCollection $researchTemplates;
+    private Collection $researchTemplates;
 
     public function __construct()
     {

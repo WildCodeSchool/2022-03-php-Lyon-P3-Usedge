@@ -29,7 +29,7 @@ class TemplateStatus
     private string $icon;
 
     #[ORM\OneToMany(mappedBy: 'status', targetEntity: ResearchTemplate::class)]
-    private ArrayCollection $researchTemplates;
+    private Collection $researchTemplates;
 
     public function __construct()
     {
