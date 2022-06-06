@@ -3,10 +3,9 @@
 namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class ResearchTemplateFixtures extends Fixture implements DependentFixtureInterface
+class ResearchTemplateFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
@@ -14,13 +13,5 @@ class ResearchTemplateFixtures extends Fixture implements DependentFixtureInterf
         // $manager->persist($product);
 
         $manager->flush();
-    }
-
-    public function getDependencies()
-    {
-        return [
-            TemplateIconsFixtures::class,
-            TemplateStatusFixtures::class,
-        ];
     }
 }

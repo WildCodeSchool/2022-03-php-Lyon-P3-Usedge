@@ -26,13 +26,6 @@ class ResearchTemplate
     #[Assert\NotBlank(message: 'This field is mandatory.')]
     private string $description;
 
-    #[ORM\ManyToOne(targetEntity: TemplateIcons::class, inversedBy: 'researchTemplates')]
-    #[ORM\JoinColumn(nullable: false)]
-    private TemplateIcons $icon;
-
-    #[ORM\ManyToOne(targetEntity: TemplateStatus::class, inversedBy: 'researchTemplates')]
-    private TemplateStatus $status;
-
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'This field is mandatory.')]
     #[Assert\Length(
@@ -40,6 +33,21 @@ class ResearchTemplate
         maxMessage: 'Maximum length is 255 characters.'
     )]
     private string $coach;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'This field is mandatory.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum length is 255 characters.'
+    )]
+    private string $icon;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum length is 255 characters.'
+    )]
+    private string $status;
 
     public function getId(): ?int
     {
@@ -70,30 +78,6 @@ class ResearchTemplate
         return $this;
     }
 
-    public function getIcon(): ?TemplateIcons
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(?TemplateIcons $icon): self
-    {
-        $this->icon = $icon;
-
-        return $this;
-    }
-
-    public function getStatus(): ?TemplateStatus
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?TemplateStatus $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
     public function getCoach(): ?string
     {
         return $this->coach;
@@ -102,6 +86,30 @@ class ResearchTemplate
     public function setCoach(string $coach): self
     {
         $this->coach = $coach;
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
