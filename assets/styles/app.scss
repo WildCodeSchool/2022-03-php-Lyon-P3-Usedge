@@ -10,8 +10,10 @@ $primary-blue-4:#F4F7FD;
 $primary-blue-5:#12033B;
 $primary-grey-1: #676874;
 $primary-grey-4: #ADADB5;
+$primary-grey-5: #E1E1E1;
 $primary-dark-1: #1B1B1B;
 $primary-white-1: #FFFFFF;
+$primary-white-2: #FAFAFB;
 
 //var secondary colors
 $secondary-orange-1: #FFA94F;
@@ -36,9 +38,22 @@ $font-weight-600: 600;
 $border-radius-10: 10px;
 $border-radius-20: 20px;
 
+// @mixin
+@mixin myButton ($bg, $c, $br, $b, $ff, $fs, $fw) {
+
+    background: $bg;
+    color: $c;
+    border-radius: $br;
+    border: $b;
+    font-family: $ff;
+    font-size: $fs;
+    font-weight: $fw;
+} 
+
 .main {
     display: flex;
     gap: 40px;
+    background: $primary-white-2;
     .header {
         display: flex;
         justify-content: space-between;
@@ -62,15 +77,10 @@ $border-radius-20: 20px;
             }
         }
         .view-session {
-            background: $primary-blue-2;
-            color: $primary-blue-1;
+            @include myButton($primary-blue-2, $primary-blue-1, $border-radius-10, 0, $text-font, $font-size-14, $font-weight-600);
             width: 190px;
             height: 42px;
-            border-radius: $border-radius-10;
             border: 0;
-            font-family: $text-font;
-            font-size: $font-size-14;
-            font-weight: $font-weight-600;
         }
     }
     .page-content{
@@ -88,7 +98,7 @@ $border-radius-20: 20px;
             align-items: flex-start;
             width: 81vw;
             height: 20vh;
-            padding: 29px;
+            padding: 29px 29px 29px 55px;
             background: $primary-blue-4;   
             border: 1px solid $primary-blue-1;
             border-radius: $border-radius-10;
@@ -101,6 +111,18 @@ $border-radius-20: 20px;
                 text-align: left;
                 &:first-child {
                     margin-bottom: 20px;
+                }
+                &:nth-child(2) {
+                    margin-left: 2px;
+                }
+                &:nth-child(3) {
+                    margin-left: 4px;
+                }
+                &:nth-child(4) {
+                    margin-left: 5px;
+                }
+                &:nth-child(5) {
+                    margin-left: 6px;
                 }
             }
             .search-label {
@@ -168,16 +190,50 @@ $border-radius-20: 20px;
         .research-list {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            flex-wrap: nowrap;
             width: 100%;
             .requests-list {
                 display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                width: 100%;
+                flex-direction: column;
+                width: 50%;
+                border-radius: $border-radius-20;
+                background: $primary-white-1;
+                padding: 35px;
+                gap: 20px;
+                margin-right: 20px;
+                .requests-header {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    width: 100%;
+                    border-bottom: 1px solid $primary-grey-5;
+                    padding-bottom: 20px;
+                    p {
+                        margin: 0;
+                    }
+                    #create-request {
+                        display: flex;
+                        align-self: flex-end;
+                        @include myButton($primary-blue-1, $primary-white-1, $border-radius-10, 0, $text-font, $font-size-14, $font-weight-600);
+                        text-align: center;
+                        padding: 12px;
+                        width: 199px;
+                        height: 42px;
+                    }
+                }
             }
             .plans-list {
-                display: none;
+                @extend .requests-list;
+                margin: 0;
+                .plans-header {
+                    @extend .requests-header;
+                        #create-plans{
+                        @extend #create-request;
+                        width: 180px;
+                    }
+                }
             }
         }
     }
