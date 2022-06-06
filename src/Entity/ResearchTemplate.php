@@ -75,7 +75,7 @@ class ResearchTemplate
         return $this->icon;
     }
 
-    public function setIcon(?TemplateIcons $icon): self
+    public function setIcon(TemplateIcons $icon): self
     {
         $this->icon = $icon;
 
@@ -87,7 +87,7 @@ class ResearchTemplate
         return $this->status;
     }
 
-    public function setStatus(?TemplateStatus $status): self
+    public function setStatus(TemplateStatus $status): self
     {
         $this->status = $status;
 
