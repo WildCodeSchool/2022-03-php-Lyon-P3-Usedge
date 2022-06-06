@@ -1,7 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home
+{% endblock %}
 
 {% block body %}
+	<aside class="sidebar">
+		<nav></nav>
+	</aside>
+    
+	<div class="main-container">
 
+		<section class="header-container">
+			<p class="location-text">RESEARCH CENTER/ALL TEMPLATES</p>
+			<p>
+				<h1 class="new-template-title">Create a new template</h1>
+			</p>
+		</section>
+
+		<div class="secondary-container">
+			<div>
+				<section class="frame-1123">
+					<h2>Request template name</h2>
+					<p>Status of this request*</p>
+				</section>
+				<section class="components-available">
+					<h2>Elements available for your request</h2>
+					<p>Select here the elements your team could use.</p>
+				</section>
+			</div>
+			<section class="form-builder">
+				<h2>No elements have been added to this request template.</h2>
+				<p>Use the elements ont he left side to add some elements to this form.</p>
+			</section>
+		</div>
+	</div>
 {% endblock %}
