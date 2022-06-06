@@ -33,6 +33,14 @@ class ResearchTemplate
     #[ORM\ManyToOne(targetEntity: TemplateStatus::class, inversedBy: 'researchTemplates')]
     private TemplateStatus $status;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'This field is mandatory.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum length is 255 characters.'
+    )]
+    private string $coach;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -82,6 +90,18 @@ class ResearchTemplate
     public function setStatus(?TemplateStatus $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCoach(): ?string
+    {
+        return $this->coach;
+    }
+
+    public function setCoach(string $coach): self
+    {
+        $this->coach = $coach;
 
         return $this;
     }
