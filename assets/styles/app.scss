@@ -157,6 +157,8 @@ $border-radius-20: 20px;
                     background-position-x: 12px;
                     background-color: $primary-white-1;
                     padding: 0px 0px 0px 26px;
+                    border-radius: 8px;
+                    border: 0;
                }
                #Project {
                     @extend select;
@@ -185,7 +187,7 @@ $border-radius-20: 20px;
             .requests-list {
                 display: flex;
                 flex-direction: column;
-                width: 50%;
+                width: 100%;
                 border-radius: $border-radius-20;
                 background: $primary-white-1;
                 padding: 35px;
@@ -216,8 +218,36 @@ $border-radius-20: 20px;
                         padding: 12px;
                     }
                 }
+                .sort-by {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    p {
+                        display: flex;
+                        align-self: center;
+                        @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-1);
+                        padding-right: 20px;
+                        background-image: url(../images/icons/arrow.png);
+                        background-repeat: no-repeat;
+                        background-position-y: center;
+                        background-position-x: right;
+                        background-color: $primary-white-1;
+                    }
+                    .sort-choice {
+                        width: 70%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        .status {
+                            margin-right: 90px;
+                        }
+                    }
+                   
+                }
             }
             .plans-list {
+                display: none;
                 @extend .requests-list;
                 margin: 0;
                 .plans-header {
