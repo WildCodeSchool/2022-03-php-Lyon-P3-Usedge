@@ -47,7 +47,7 @@ class ResearchTemplate
         max: 255,
         maxMessage: 'Maximum length is 255 characters.'
     )]
-    private string $status;
+    private ?string $status;
 
     public function getId(): ?int
     {
