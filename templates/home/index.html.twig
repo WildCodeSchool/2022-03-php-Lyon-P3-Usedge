@@ -3,10 +3,63 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <div class="mt-5">
-        <h1 class="text-dark">
-            Let's start coding&nbsp;&#129304;
-        </h1>
-    </div>
-    <p class="text-center">Hello</p>
+   <main class="main">
+        <div class="sidebar">
+            <img src="{{ asset('build/images/sidebar.png') }}" alt=""/>
+        </div>
+        <div class="page-content">
+            {% include "_header.html.twig" %}
+            <div class="search-engine">
+               <p>Find a request in the list</p>
+               <div class="search-label">
+                    <p>Elements to display</p>
+                    <p>Project</p>
+                    <p>Owner</p>
+                    <p>Assigned coach</p>
+                    <p>Creation date</p>
+                </div>
+                <form method="post">
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="reasearch-plans" id="reasearch-plans">
+                            <label for="reasearch-plans">reasearch-plans</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="reasearch-requests" id="reasearch-requests" checked>
+                            <label for="reasearch-requests">reasearch-requests</label>
+                        </div>
+                    </div>
+                    <select name="Project" id="Project">
+                        <option value="">Select a project</option>
+                    </select>
+                    
+                    <select name="Owner" id="Owner">
+                        <option value="">Select an owner</option>
+                    </select>
+
+                    <select name="Assigned-coach" id="Assigned-coach">
+                        <option value="">Select an owner</option>
+                    </select>
+
+                    <input type="date" name="Creation-date" id="Creation-date">
+                </form>
+            </div>
+            <div class="research-list">
+                <div class="requests-list" id="requests-list">
+                    <div>
+                        <p>Research requests</p>
+                        <p>You can view here all the research requests submitted</p>
+                    </div>
+                    <button class="create-request">+ Create a research request</button>
+                </div>
+                <div class="plans-list" id="plans-list">
+                    <div>
+                        <p></p>
+                        <p></p>
+                        <button class="create-request">+ Create a research plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}

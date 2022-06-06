@@ -1,1 +1,184 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+// var primary colors
+$primary-blue-1:#6580FF;
+$primary-blue-2:#ECEFFF;
+$primary-blue-3:#1D2A78;
+$primary-blue-4:#F4F7FD;
+$primary-blue-5:#12033B;
+$primary-grey-1: #676874;
+$primary-grey-4: #ADADB5;
+$primary-dark-1: #1B1B1B;
+$primary-white-1: #FFFFFF;
+
+//var secondary colors
+$secondary-orange-1: #FFA94F;
+$secondary-red-1: #EA6061;
+$secondary-green-1: #71D68F;
+
+// var font-family
+$title-font: 'League Spartan', sans-serif;
+$text-font: 'Source Sans Pro', sans-serif;
+
+// var font-size
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+
+//var font-weight
+$font-weight-400: 400;
+$font-weight-600: 600;
+
+//var border-radius
+$border-radius-10: 10px;
+$border-radius-20: 20px;
+
+.main {
+    display: flex;
+    gap: 40px;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 4%;
+        .header-title {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            p {
+                margin: 0;
+                color: $primary-blue-5;
+                font-size: $font-size-18;
+                font-family: $title-font;
+                font-weight: $font-weight-600;
+                &:first-child {
+                    font-size: $font-size-12;
+                    color: $primary-grey-4;
+                    font-family: 'Source Sans Pro', sans-serif;
+                }
+            }
+        }
+        .view-session {
+            background: $primary-blue-2;
+            color: $primary-blue-1;
+            width: 190px;
+            height: 42px;
+            border-radius: $border-radius-10;
+            border: 0;
+            font-family: $text-font;
+            font-size: $font-size-14;
+            font-weight: $font-weight-600;
+        }
+    }
+    .page-content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 0px;
+        gap: 20px;
+        width: 81vw;
+        height: 100vh;
+        .search-engine {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+            width: 81vw;
+            height: 20vh;
+            padding: 29px;
+            background: $primary-blue-4;   
+            border: 1px solid $primary-blue-1;
+            border-radius: $border-radius-10;
+            p {
+                margin: 0;
+                color: $primary-blue-5;
+                font-family: $text-font;
+                font-size: $font-size-18;
+                font-weight: $font-weight-600;
+                text-align: left;
+                &:first-child {
+                    margin-bottom: 20px;
+                }
+            }
+            .search-label {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                p {
+                    width: 18%;
+                    color: $primary-dark-1;
+                    font-family: $text-font;
+                    font-size: $font-size-14;
+                    font-weight: $font-weight-600;
+                    &:first-child {
+                        margin-bottom: 20px;
+                        width: 266px;
+                    }
+                }
+            }
+            form {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+               .checkbox {
+                   display: flex;
+                   gap: 20px;
+                   label {
+                        color: $primary-blue-3;
+                        font-family: $text-font;
+                        font-size: $font-size-14;
+                        font-weight: $font-weight-600;
+                   }
+               }
+               select {
+                   width: 14vw;
+                   height: 42px;
+                   background-repeat: no-repeat;
+                   background-position-y: center;
+                   background-position-x: 12px;
+                   background-color: $primary-white-1;
+                   padding: 0px 0px 0px 26px;
+               }
+               #Project {
+                    @extend select;
+                    background-image: url(../images/project.png);
+               }
+               #Owner {
+                    @extend select;
+                    background-image: url(../images/owner.png);
+               }
+               #Assigned-coach {
+                   @extend #Owner;
+               }
+               #Creation-date {
+                    @extend select;
+                    width: 14vw;
+                    height: 42px;
+                    background-image: url(../images/date.png);
+                    padding: 0px 0px 0px 32px;
+               }
+            }
+        }
+        .research-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            .requests-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .plans-list {
+                display: none;
+            }
+        }
+    }
+}
