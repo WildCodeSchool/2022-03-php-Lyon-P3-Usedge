@@ -45,9 +45,13 @@ class Component
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class)]
     private Collection $answers;
 
+    #[ORM\OneToMany(mappedBy: 'component', targetEntity: TemplateComponent::class)]
+    private Collection $templateComponents;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
+        $this->templateComponents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,6 +155,36 @@ class Component
             // set the owning side to null (unless already changed)
             if ($answer->getQuestion() === $this) {
                 $answer->setQuestion(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TemplateComponent>
+     */
+    public function getTemplateComponents(): Collection
+    {
+        return $this->templateComponents;
+    }
+
+    public function addTemplateComponent(TemplateComponent $templateComponent): self
+    {
+        if (!$this->templateComponents->contains($templateComponent)) {
+            $this->templateComponents[] = $templateComponent;
+            $templateComponent->setComponent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTemplateComponent(TemplateComponent $templateComponent): self
+    {
+        if ($this->templateComponents->removeElement($templateComponent)) {
+            // set the owning side to null (unless already changed)
+            if ($templateComponent->getComponent() === $this) {
+                $templateComponent->setComponent(null);
             }
         }
 
