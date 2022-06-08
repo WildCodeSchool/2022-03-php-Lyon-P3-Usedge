@@ -294,7 +294,7 @@ $border-radius-20: 20px;
     font-weight: 600;
     font-size: 18px;
     line-height: 20px;
-    letter-spacing: -0.8px;    
+    letter-spacing: -0.8px;
     color: #1D2A78;
 }
 
@@ -304,6 +304,35 @@ $border-radius-20: 20px;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    letter-spacing: 0.116667px;
+    color: #676874;
+}
+
+.need-help-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 5px;
+    width: 112px;
+    height: 42px;
+    background: #F1F1F5;
+    border-radius: 10px;
+}
+
+.need-help-container img {
+    width: 12.74px;
+    height: 12.36px;
+}
+
+.need-help-container p {
+    margin: auto;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;    
     letter-spacing: 0.116667px;    
     color: #676874;
 }
