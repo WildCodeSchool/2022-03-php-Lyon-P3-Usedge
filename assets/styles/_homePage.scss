@@ -33,14 +33,14 @@
         align-items: flex-start;
         padding: 35px 0px;
         gap: 20px;
-        @include dimension(81vw, 100vh);
+        width: 1572px;
         .search-engine {
             display: flex;
             flex-direction: column;
             justify-content: start;
             align-items: flex-start;
-            @include dimension(81vw, 20vh);
-            padding: 29px 29px 29px 55px;
+            @include dimension(1572px, 157pxvh);
+            padding: 29px;
             background: $primary-blue-4;   
             border: 1px solid $primary-blue-1;
             border-radius: $border-radius-10;
@@ -49,19 +49,7 @@
                 @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-5);
                 text-align: left;
                 &:first-child {
-                    margin-bottom: 20px;
-                }
-                &:nth-child(2) {
-                    margin-left: 2px;
-                }
-                &:nth-child(3) {
-                    margin-left: 4px;
-                }
-                &:nth-child(4) {
-                    margin-left: 5px;
-                }
-                &:nth-child(5) {
-                    margin-left: 6px;
+                    margin-bottom: 10px;
                 }
             }
             .search-label {
@@ -70,10 +58,10 @@
                 flex-direction: row;
                 gap: 20px;
                 p {
-                    width: 18%;
+                    width: 286.8px;
                     @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
                     &:first-child {
-                        margin-bottom: 20px;
+                        margin-bottom: 10px;
                         width: 266px;
                     }
                 }
@@ -93,7 +81,7 @@
                }
                select {
                     @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
-                    @include dimension(14vw, 42px);
+                    @include dimension(286.8px, 42px);
                     background-repeat: no-repeat;
                     background-position-y: center;
                     background-position-x: 12px;
@@ -196,7 +184,7 @@
                         width: 70%;
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-evenly;
+                        justify-content: space-between;
                     }
                 }  
                 .result {
@@ -225,7 +213,7 @@
                         width: 70%;
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-evenly;
+                        justify-content: space-between;
                     }
                 }
                 

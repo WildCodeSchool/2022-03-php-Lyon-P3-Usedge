@@ -12,7 +12,8 @@ if (plans.checked == false && requests.checked == true || requests.checked == fa
         if(requests.checked == true){
             plansList.style.display = 'flex';
             requestsList.style.display = 'flex';
-            requestsList.style.marginRight = '20px';
+            requestsList.style.width = '49%';
+            plansList.style.width = '49%';
             for (let i = 0; i < sortByChoice.length; i++) {
                 const element = sortByChoice[i];
                 element.style.display = 'none';
@@ -32,6 +33,8 @@ if (plans.checked == false && requests.checked == true || requests.checked == fa
                 const element = viewChoice[i];
                 element.style.display = 'flex';
             }
+            requestsList.style.width = '100%';
+            plansList.style.width = '100%';
         
         }
     } 
@@ -40,7 +43,8 @@ if (plans.checked == false && requests.checked == true || requests.checked == fa
         if(plans.checked == true){
             plansList.style.display = 'flex';
             requestsList.style.display = 'flex';
-            requestsList.style.marginRight = '20px';
+            requestsList.style.width = '49%';
+            plansList.style.width = '49%';
             for (let i = 0; i < sortByChoice.length; i++) {
                 const element = sortByChoice[i];
                 element.style.display = 'none';
@@ -60,6 +64,8 @@ if (plans.checked == false && requests.checked == true || requests.checked == fa
                 const element = viewChoice[i];
                 element.style.display = 'flex';
             }
+            requestsList.style.width = '100%';
+            plansList.style.width = '100%';
         }
     }
 }
