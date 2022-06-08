@@ -52,6 +52,8 @@ $border-radius-20: 20px;
 }
 
 .location-text {
+    margin-top: 38px;
+    margin-bottom: 5px;
     font-family: 'Source Sans Pro';
     font-weight: 600;
     font-size: 12px;
@@ -61,6 +63,7 @@ $border-radius-20: 20px;
 }
 
 .new-template-title {
+    margin-bottom: 20px;
     font-family: $title-font;
     font-style: normal;
     font-weight: 600;
@@ -74,7 +77,7 @@ $border-radius-20: 20px;
     display: flex;
     flex-direction: row;
     gap: 20px;
-    background-color: #9cabf0;
+    background-color: #FAFAFB;
     height: 100%;
 }
 
@@ -196,7 +199,7 @@ $border-radius-20: 20px;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #ECEFFF;
-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .component-picture-1 {
@@ -245,6 +248,38 @@ border-radius: 10px;
     line-height: 15px;
     letter-spacing: 0.116667px;
     color: #ADADB5;
+}
+
+.form-builder {
+    margin-right: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 50px 35px;
+    width: 1122px;
+    height: 950px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.form-builder h2 {
+    font-family: $title-font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.8px;    
+    color: #1D2A78;
+}
+
+.form-builder p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.116667px;    
+    color: #676874;
 }
 
 //End style for /research-template/add
