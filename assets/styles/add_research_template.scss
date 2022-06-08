@@ -162,6 +162,38 @@ $border-radius-20: 20px;
     border-radius: 8px;
 }
 
+.status-list-select-2 {
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 12px;
+    background-color: $primary-white-1;
+    background-size: 10px;
+    padding-left: 25px;
+    width: 355px;
+    height: 42px;
+    border: 1px solid #ECEFFF;
+    border-radius: 8px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.116667px;
+    color: #676874;
+}
+
+.bg-green-dot {
+    background-image: url(../images/icons/green-dot.png);
+}
+
+.bg-grey-dot {
+    background-image: url(../images/icons/grey-dot.png);
+}
+
+.bg-red-dot {
+    background-image: url(../images/icons/red-dot.png);
+}
+
 .status-list-select-img-1 {
     height: 10px;
 }
@@ -332,8 +364,8 @@ $border-radius-20: 20px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 18px;    
-    letter-spacing: 0.116667px;    
+    line-height: 18px;
+    letter-spacing: 0.116667px;
     color: #676874;
 }
 
