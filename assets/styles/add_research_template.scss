@@ -1,0 +1,182 @@
+// var primary colors
+$primary-blue-1: #6580FF;
+$primary-blue-2: #ECEFFF;
+$primary-blue-3: #1D2A78;
+$primary-blue-4: #F4F7FD;
+$primary-blue-5: #12033B;
+$primary-grey-1: #676874;
+$primary-grey-4: #ADADB5;
+$primary-dark-1: #1B1B1B;
+$primary-white-1: #FFFFFF;
+
+//var secondary colors
+$secondary-orange-1: #FFA94F;
+$secondary-red-1: #EA6061;
+$secondary-green-1: #71D68F;
+
+// var font-family
+$title-font: 'League Spartan', sans-serif;
+$text-font: 'Source Sans Pro', sans-serif;
+
+// var font-size
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+
+//var font-weight
+$font-weight-400: 400;
+$font-weight-600: 600;
+
+//var border-radius
+$border-radius-10: 10px;
+$border-radius-20: 20px;
+
+
+//Begin style for /research-template/add
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    background-color: #FAFAFB;
+}
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-text {
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.116667px;
+    color: #ADADB5;
+}
+
+.new-template-title {
+    font-family: $title-font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.8px;
+    color: #12033B;
+}
+
+.tird-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: #9cabf0;
+    height: 100%;
+}
+
+.fourth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.frame-1123 {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 35px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.status-container-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.status-container-1 h2 {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0.116667px;
+    color: #1D2A78;
+}
+
+.status-container-1 p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.116667px;
+    color: #1B1B1B;
+}
+
+.status-container-2 p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.116667px;
+    color: #1B1B1B;
+}
+
+.status-list-select {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 12px 0px 12px 12px;
+    gap: 5px;
+    width: 355px;
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #ECEFFF;
+    border-radius: 8px;
+}
+
+.status-list-select p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.116667px;
+    color: #676874;
+}
+
+.components-available {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.components-available h2 {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0.116667px;
+    color: #1D2A78;
+}
+
+.components-available p {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0.116667px;
+color: #676874;
+}
+
+
+//End style for /research-template/add
