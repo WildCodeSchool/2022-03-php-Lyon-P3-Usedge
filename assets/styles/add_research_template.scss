@@ -58,23 +58,23 @@ $border-radius-20: 20px;
 .location-text {
     margin-top: 38px;
     margin-bottom: 5px;
-    font-family: 'Source Sans Pro';
-    font-weight: 600;
-    font-size: 12px;
+    font-family: $text-font;
+    font-weight: $font-weight-600;
+    font-size: $font-size-12;
     line-height: 15px;
     letter-spacing: 0.116667px;
-    color: #ADADB5;
+    color: $primary-grey-4;
 }
 
 .new-template-title {
     margin-bottom: 20px;
     font-family: $title-font;
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: $font-weight-600;
+    font-size: $font-size-18;
     line-height: 20px;
     letter-spacing: -0.8px;
-    color: #12033B;
+    color: $primary-blue-5;
 }
 
 .tird-container {
@@ -95,8 +95,8 @@ $border-radius-20: 20px;
     display: flex;
     flex-direction: column;
     padding: 25px 35px;
-    background: #FFFFFF;
-    border-radius: 10px;
+    background: $primary-white-1;
+    border-radius: $border-radius-10;
 }
 
 .status-container-1 {
@@ -107,13 +107,13 @@ $border-radius-20: 20px;
 }
 
 .status-container-1 h2 {
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: $font-weight-600;
+    font-size: $font-size-18;
     line-height: 23px;
     letter-spacing: 0.116667px;
-    color: #1D2A78;
+    color: $primary-blue-3;
 }
 
 .status-container-1 div {
@@ -129,23 +129,23 @@ $border-radius-20: 20px;
 
 .status-container-1 p {
     margin: auto;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-12;
     line-height: 15px;
     letter-spacing: 0.116667px;
-    color: #1B1B1B;
+    color: $primary-dark-1;
 }
 
 .status-container-2 p {
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: $font-weight-600;
+    font-size: $font-size-14;
     line-height: 18px;
     letter-spacing: 0.116667px;
-    color: #1B1B1B;
+    color: $primary-dark-1;
 }
 
 .status-container-2 span {
@@ -153,20 +153,6 @@ $border-radius-20: 20px;
 }
 
 .status-list-select {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    padding: 12px 0px 12px 12px;
-    gap: 5px;
-    width: 355px;
-    height: 42px;
-    background: #FFFFFF;
-    border: 1px solid #ECEFFF;
-    border-radius: 8px;
-}
-
-.status-list-select-2 {
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 12px;
@@ -175,15 +161,15 @@ $border-radius-20: 20px;
     padding-left: 25px;
     width: 355px;
     height: 42px;
-    border: 1px solid #ECEFFF;
+    border: 1px solid $primary-blue-2;
     border-radius: 8px;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-14;
     line-height: 18px;
     letter-spacing: 0.116667px;
-    color: #676874;
+    color: $primary-grey-1;
 }
 
 .bg-green-dot {
@@ -208,13 +194,13 @@ $border-radius-20: 20px;
 
 .status-list-select p {
     padding-left: 5px;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-14;
     line-height: 18px;
     letter-spacing: 0.116667px;
-    color: #676874;
+    color: $primary-grey-1;
     flex-grow: 1;
 }
 
@@ -223,29 +209,29 @@ $border-radius-20: 20px;
     flex-direction: column;
     align-items: flex-start;
     padding: 35px;
-    background: #FFFFFF;
-    border-radius: 10px;
+    background: $primary-white-1;
+    border-radius: $border-radius-10;
 }
 
 .components-available h2 {
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: $font-weight-600;
+    font-size: $font-size-18;
     line-height: 23px;
     letter-spacing: 0.116667px;
-    color: #1D2A78;
+    color: $primary-blue-3;
 }
 
 .components-available p {
     margin-bottom: 20px;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-16;
     line-height: 20px;
     letter-spacing: 0.116667px;
-    color: #676874;
+    color: $primary-grey-1;
 }
 
 .components {
@@ -260,8 +246,8 @@ $border-radius-20: 20px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #ECEFFF;
-    border-radius: 10px;
+    border: 1px solid $primary-blue-2;
+    border-radius: $border-radius-10;
 }
 
 .component-picture-1 {
@@ -273,7 +259,7 @@ $border-radius-20: 20px;
     width: 50px;
     margin: 10px;
     background: #F0F2FF;
-    border-radius: 10px;
+    border-radius: $border-radius-10;
 }
 
 .component-picture-2 {
@@ -292,24 +278,24 @@ $border-radius-20: 20px;
 
 .component-title h3 {
     margin-bottom: 5px;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-16;
     line-height: 20px;
     letter-spacing: 0.116667px;
-    color: #1D2A78;
+    color: $primary-blue-3;
 }
 
 .component-title p {
     margin-bottom: 5px;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-12;
     line-height: 15px;
     letter-spacing: 0.116667px;
-    color: #ADADB5;
+    color: $primary-grey-4;
 }
 
 .form-builder {
@@ -320,28 +306,28 @@ $border-radius-20: 20px;
     padding: 50px 50px 35px;
     width: 1122px;
     height: 950px;
-    background: #FFFFFF;
-    border-radius: 10px;
+    background: $primary-white-1;
+    border-radius: $border-radius-10;
 }
 
 .form-builder h2 {
     font-family: $title-font;
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: $font-weight-600;
+    font-size: $font-size-18;
     line-height: 20px;
     letter-spacing: -0.8px;
-    color: #1D2A78;
+    color: $primary-blue-3;
 }
 
 .form-builder p {
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-400;
+    font-size: $font-size-16;
     line-height: 20px;
     letter-spacing: 0.116667px;
-    color: #676874;
+    color: $primary-grey-1;
 }
 
 .need-help-container {
@@ -355,7 +341,7 @@ $border-radius-20: 20px;
     width: 112px;
     height: 42px;
     background: #F1F1F5;
-    border-radius: 10px;
+    border-radius: $border-radius-10;
 }
 
 .need-help-container img {
@@ -365,13 +351,13 @@ $border-radius-20: 20px;
 
 .need-help-container p {
     margin: auto;
-    font-family: 'Source Sans Pro';
+    font-family: $text-font;
     font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: $font-weight-600;
+    font-size: $font-size-14;
     line-height: 18px;
     letter-spacing: 0.116667px;
-    color: #676874;
+    color: $primary-grey-1;
 }
 
 //End style for /research-template/add
