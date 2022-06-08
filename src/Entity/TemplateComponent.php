@@ -20,7 +20,7 @@ class TemplateComponent
     #[ORM\ManyToOne(targetEntity: Component::class, inversedBy: 'templateComponents')]
     private Component $component;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'integer')]
     #[Assert\Type(
         type: 'integer',
         message: 'You must to enter an interger.',
@@ -56,12 +56,12 @@ class TemplateComponent
         return $this;
     }
 
-    public function getNumberOrder(): ?int
+    public function getNumberOrder(): int
     {
         return $this->numberOrder;
     }
 
-    public function setNumberOrder(?int $numberOrder): self
+    public function setNumberOrder(int $numberOrder): self
     {
         $this->numberOrder = $numberOrder;
 

@@ -64,7 +64,7 @@ class Component
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name = ''): self
     {
             $this->name = $name;
 
@@ -88,7 +88,7 @@ class Component
         return $this->title;
     }
 
-    public function setTitle(?string $title): self
+    public function setTitle(string $title = ''): self
     {
             $this->title = $title;
 
@@ -100,7 +100,7 @@ class Component
         return $this->question;
     }
 
-    public function setQuestion(?string $question): self
+    public function setQuestion(string $question = ''): self
     {
             $this->question = $question;
 
@@ -112,7 +112,7 @@ class Component
         return $this->helperText;
     }
 
-    public function setHelperText(?string $helperText): self
+    public function setHelperText(string $helperText = ''): self
     {
             $this->helperText = $helperText;
 
@@ -124,7 +124,7 @@ class Component
         return $this->isMultiple;
     }
 
-    public function setIsMultiple(?bool $isMultiple): self
+    public function setIsMultiple(bool $isMultiple = false): self
     {
             $this->isMultiple = $isMultiple;
 
