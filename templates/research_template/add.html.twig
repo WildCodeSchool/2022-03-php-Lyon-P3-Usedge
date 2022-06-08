@@ -26,11 +26,115 @@
 				<section class="components-available">
 					<h2>Elements available for your request</h2>
 					<p>Select here the elements your team could use.</p>
+
+					<div class="components-list">
+
+						<div class="section">
+							<img class="image" src="{{ asset('build/images/logo_component/section.png') }}" alt="logo section">
+							<div>
+								<h3>Section</h3>
+								<p>Delimitate a part of your template.</p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="single_choice">
+							<img class="image" src="{{ asset('build/images/logo_component/single_choice.png') }}" alt="logo single choice">
+							<div>
+								<h3>Single choice</h3>
+								<p>Give a single option for your user.</p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="selector">
+							<img class="image" src="{{ asset('build/images/logo_component/selector.png') }}" alt="logo selector">
+							<div>
+								<h3>Selector</h3>
+								<p>Select an element from a list.</p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="date">
+							<img class="image" src="{{ asset('build/images/logo_component/date.png') }}" alt="logo date">
+							<div>
+								<h3>Date</h3>
+								<p>Ask for a date to your user.</p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="separator">
+							<img class="image" src="{{ asset('build/images/logo_component/separator.png') }}" alt="logo separator">
+							<div>
+								<h3>Separator</h3>
+								<p>To add some space.</p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="multiple_choice">
+							<img class="image" src="{{ asset('build/images/logo_component/multiple_choice.png') }}" alt="logo multiple choice">
+							<div>
+								<h3>Multiple choice</h3>
+								<p>Give multiples choices to your user.</p>
+							</div>
+							<a href="#modal" id="button_action_modal">+</a>
+						</div>
+						<div id="modal" class="modal_multiple_choice">
+							<div class="modal_content_multiple_choice">
+								<h4>Create a multiple choice question</h4>
+								<input type="text" id="input_question" placeholder="What is your question ?">
+								<p><span>Options available<span></p>
+								<div id="form_answer">				
+								</div>
+									<button type="button" id="button_answer">+</button>
+								<div>
+									<input type="checkbox" class="input_mandatory" name="is_mandatory" checked>
+									<label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+								</div>
+								<button type="submit" id="button_action_component" class="btn btn-primary">+ Add multiple choice question</button>
+								<a href="#" class="modal_close">&times;</a>
+							</div>
+						</div>
+
+						<div class="open_question">
+							<img class="image" src="{{ asset('build/images/logo_component/open_question.png') }}" alt="logo open question">
+							<div>
+								<h3>Open question</h3>
+								<p>Get open answers from user.</p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="evaluation_scale">
+							<img class="image" src="{{ asset('build/images/logo_component/evaluation_scale.png') }}" alt="logo evaluation scale">
+							<div>
+								<h3>Evaluation scale</h3>
+								<p>For an optimum overview. </p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+						<div class="external_link">
+							<img class="image" src="{{ asset('build/images/logo_component/external_link.png') }}" alt="logo external link">
+							<div>
+								<h3>External link</h3>
+								<p>For an optimum overview. </p>
+							</div>
+							<a href="#" id="buttonAction">+</a>
+						</div>
+
+					</div>
 				</section>
 			</div>
 			<section class="form-builder">
+				<div id="display_form_builder">
+				</div>
 				<h2>No elements have been added to this request template.</h2>
 				<p>Use the elements ont he left side to add some elements to this form.</p>
+
 			</section>
 		</div>
 	</div>

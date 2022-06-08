@@ -1,0 +1,147 @@
+// var primary colors
+$primary-blue-1: #6580FF;
+$primary-blue-2: #ECEFFF;
+$primary-blue-3: #1D2A78;
+$primary-blue-4: #F4F7FD;
+$primary-blue-5: #12033B;
+$primary-grey-1: #676874;
+$primary-grey-4: #ADADB5;
+$primary-dark-1: #1B1B1B;
+$primary-white-1: #FFFFFF;
+
+//var secondary colors
+$secondary-orange-1: #FFA94F;
+$secondary-red-1: #EA6061;
+$secondary-green-1: #71D68F;
+
+// var font-family
+$title-font: 'League Spartan', sans-serif;
+$text-font: 'Source Sans Pro', sans-serif;
+
+// var font-size
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+
+//var font-weight
+$font-weight-400: 400;
+$font-weight-600: 600;
+
+//var border-radius
+$border-radius-10: 10px;
+$border-radius-20: 20px;
+
+h3 {
+    font-size: 16px;
+    color: $primary-blue-3;
+    //top: calc(50% - 20px/2 - 11px);
+    padding-top: 5px;
+}
+
+#display_form_builder {
+    .checkboxAnswer {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.components-list {
+    .multiple_choice{
+            h3 {
+                font-size: 16px;
+                color: $primary-blue-3;
+                //top: calc(50% - 20px/2 - 11px);
+                padding-top: 5px;
+            }
+            #button_action_modal {
+                text-decoration: none;
+                font-size: 30px;
+                color: $primary-blue-3;
+                align-self: center;
+                padding-bottom: 20px;
+            }
+    }
+
+    /*Mise en page de la modale quand on click sur le plus de multiple choice*/
+    .modal_multiple_choice {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .modal_multiple_choice:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    .modal_content_multiple_choice {
+        position: relative;
+        background: white;
+        padding: 1.5em 2em;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        h4 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        #input_question {
+            width: 100%;
+            height: 42px;
+            border: 1px solid #ECEFFF;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .modal_content_multiple_choice p {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        #button_answer {
+            border: 1.5px dashed #6580FF;
+            border-radius: 10px;
+            width: 100%;
+            height: 42px;
+            color: #6580FF;
+            margin-bottom: 20px;
+        }
+        p span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: black;
+        }
+        .input_mandatory {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: $primary-blue-3;
+        }
+        #button_action_component {
+            width: 100%;
+            background: #6580FF;
+            border-radius: 10px;
+        }
+    }    
+    .modal_close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: grey;
+        text-decoration: none;
+    }
+}
