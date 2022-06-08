@@ -53,17 +53,32 @@
                         </div>
                         <button id="create-request">+ Create a research request</button>
                     </div>
-                    <div class="sort-by">
-                        <div>
-                            <p>TYPE AND DATE</p>
-                        </div>
-                        <div class="sort-choice">
-                            <p id="requests-project">PROJECT</p>
-                            <p id="requests-coach-assigned">COACH ASSIGNED</p>
-                            <p>OWNER</p>
-                            <p class="status">STATUS</p>
-                        </div>
-                    </div>
+                    <table>
+                        <thead class="sort-by">
+                            <tr>
+                                <td id="requests-type">TYPE AND DATE</td>
+                            </tr>
+                            <tr class="sort-choice">
+                                <td class="sort-by-choice" id="requests-project">PROJECT</td>
+                                <td class="sort-by-choice" id="requests-coach-assigned">COACH ASSIGNED</td>
+                                <td id="requests-owner">OWNER</td>
+                                <td class="status">STATUS</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody class="result">
+                            <tr>
+                                <td id="view-request-type">No request available</td>
+                            </tr>
+                            <tr class="sort-choice">
+                                <td class="view-choice"  id="view-requests-project">No project</td>
+                                <td class="view-choice"  id="view-request-coach-assigned">No coach assigned</td>
+                                <td>No owner assigned</td>
+                                <td class="status">No status available</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="plans-list" id="plans-list">
                     <div class="plans-header">
@@ -73,17 +88,32 @@
                         </div>
                         <button id="create-plans">+ Create a research plan</button>
                         </div>
-                        <div class="sort-by">
-                            <div>
-                                <p>TYPE AND DATE</p>
-                            </div>
-                            <div class="sort-choice">
-                                <p id="plans-project">PROJECT</p>
-                                <p id="plans-assigned-request">ASSIGNED REQUEST</p>
-                                <p>COACH ASSIGNED</p>
-                                <p class="status">STATUS</p>
-                            </div>
-                        </div>
+                        <table>
+                            <thead class="sort-by">
+                                <tr>
+                                    <td id="plans-type">TYPE AND DATE</td>
+                                </tr>
+                                <tr class="sort-choice">
+                                    <td class="sort-by-choice" id="plans-project">PROJECT</td>
+                                    <td class="sort-by-choice" id="plans-assigned-request">ASSIGNED REQUEST</td>
+                                    <td id="plans-coach-assigned">COACH ASSIGNED</td>
+                                    <td class="status">STATUS</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody class="result">
+                            <tr>
+                                <td id="view-plans-type">No plans available</td>
+                            </tr>
+                            <tr class="sort-choice">
+                                <td class="view-choice" id="view-plans-project">No project</td>
+                                <td class="view-choice"  id="view-plans-assigned-request">No assigned request</td>
+                                <td>No coach assigned</td>
+                                <td class="status">No status available</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        </table>
                     </div>
                        
                 </div>
