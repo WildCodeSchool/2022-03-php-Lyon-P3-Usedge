@@ -37,7 +37,7 @@ class TemplateComponent
         return $this->researchTemplate;
     }
 
-    public function setResearchTemplate(?ResearchTemplate $researchTemplate): self
+    public function setResearchTemplate(ResearchTemplate $researchTemplate): self
     {
         $this->researchTemplate = $researchTemplate;
 
@@ -49,7 +49,7 @@ class TemplateComponent
         return $this->component;
     }
 
-    public function setComponent(?Component $component): self
+    public function setComponent(Component $component): self
     {
         $this->component = $component;
 

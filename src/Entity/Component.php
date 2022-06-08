@@ -151,12 +151,7 @@ class Component
 
     public function removeAnswer(Answer $answer): self
     {
-        if ($this->answers->removeElement($answer)) {
-            // set the owning side to null (unless already changed)
-            if ($answer->getQuestion() === $this) {
-                $answer->setQuestion(null);
-            }
-        }
+        $this->answers->removeElement($answer);
 
         return $this;
     }
@@ -181,12 +176,7 @@ class Component
 
     public function removeTemplateComponent(TemplateComponent $templateComponent): self
     {
-        if ($this->templateComponents->removeElement($templateComponent)) {
-            // set the owning side to null (unless already changed)
-            if ($templateComponent->getComponent() === $this) {
-                $templateComponent->setComponent(null);
-            }
-        }
+        $this->templateComponents->removeElement($templateComponent);
 
         return $this;
     }

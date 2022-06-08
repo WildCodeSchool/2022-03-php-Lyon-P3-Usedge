@@ -61,7 +61,7 @@ class Answer
         return $this->question;
     }
 
-    public function setQuestion(?Component $question): self
+    public function setQuestion(Component $question): self
     {
             $this->question = $question;
 
