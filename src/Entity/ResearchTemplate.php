@@ -144,12 +144,7 @@ class ResearchTemplate
 
     public function removeTemplateComponent(TemplateComponent $templateComponent): self
     {
-        if ($this->templateComponents->removeElement($templateComponent)) {
-            // set the owning side to null (unless already changed)
-            if ($templateComponent->getResearchTemplate() === $this) {
-                $templateComponent->setResearchTemplate(null);
-            }
-        }
+        $this->templateComponents->removeElement($templateComponent);
 
         return $this;
     }
