@@ -17,7 +17,7 @@ class Answer
     #[ORM\Column(type: 'text')]
     private string $answer;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'integer')]
     #[Assert\Type(
         type: 'integer',
         message: 'You must to enter an interger.',
@@ -27,7 +27,7 @@ class Answer
     #[ORM\ManyToOne(targetEntity: Component::class, inversedBy: 'answers')]
     private Component $question;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -44,12 +44,12 @@ class Answer
         return $this;
     }
 
-    public function getNumberOrder(): ?int
+    public function getNumberOrder(): int
     {
         return $this->numberOrder;
     }
 
-    public function setNumberOrder(?int $numberOrder): self
+    public function setNumberOrder(int $numberOrder): self
     {
         $this->numberOrder = $numberOrder;
 
@@ -63,8 +63,8 @@ class Answer
 
     public function setQuestion(?Component $question): self
     {
-        $this->question = $question;
+            $this->question = $question;
 
-        return $this;
+            return $this;
     }
 }

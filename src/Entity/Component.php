@@ -66,9 +66,9 @@ class Component
 
     public function setName(?string $name): self
     {
-        $this->name = $name;
+            $this->name = $name;
 
-        return $this;
+            return $this;
     }
 
     public function isIsMandatory(): ?bool
@@ -90,9 +90,9 @@ class Component
 
     public function setTitle(?string $title): self
     {
-        $this->title = $title;
+            $this->title = $title;
 
-        return $this;
+            return $this;
     }
 
     public function getQuestion(): ?string
@@ -102,9 +102,9 @@ class Component
 
     public function setQuestion(?string $question): self
     {
-        $this->question = $question;
+            $this->question = $question;
 
-        return $this;
+            return $this;
     }
 
     public function getHelperText(): ?string
@@ -114,9 +114,9 @@ class Component
 
     public function setHelperText(?string $helperText): self
     {
-        $this->helperText = $helperText;
+            $this->helperText = $helperText;
 
-        return $this;
+            return $this;
     }
 
     public function isIsMultiple(): ?bool
@@ -126,9 +126,9 @@ class Component
 
     public function setIsMultiple(?bool $isMultiple): self
     {
-        $this->isMultiple = $isMultiple;
+            $this->isMultiple = $isMultiple;
 
-        return $this;
+            return $this;
     }
 
     /**
