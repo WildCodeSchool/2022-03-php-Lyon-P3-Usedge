@@ -42,6 +42,7 @@ class ResearchTemplate
         max: 255,
         maxMessage: 'Maximum length is 255 characters.'
     )]
+    #[Assert\NotNull(message: 'You have to choose an icon.')]
     private string $icon;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

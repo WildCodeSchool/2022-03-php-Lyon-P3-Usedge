@@ -1,0 +1,190 @@
+@import '_var.scss';
+
+.template-details-modal {
+    @include absolutePosition(-70%, 50%);/* Change values here in function of the page */
+    @include dimension(700px, 501px);
+    box-sizing: border-box;
+    background-color: $primary-white-1;
+    transform: translate(-50%, -50%); /* Change values here in function of the page */
+    border-radius: $border-radius-20;
+    border: 1px solid $primary-blue-1;
+    transition-duration: 0.3s;
+    .template-details-close {
+        @include absolutePosition(21px, 656px);
+        @include dimension(25px, 25px);
+        &:hover {
+            cursor: pointer;
+        }
+        .template-details-cross {
+            @include absolutePosition(45.83%, 17%);
+            @include dimension(18px, 1.5px);
+            background-color: $primary-blue-3;
+            border-radius: 2px;
+            &:first-child {
+                transform: rotateZ(45deg);
+            }
+            &:nth-child(2) {
+                transform: rotateZ(-45deg);
+            }
+        }
+    }
+    .template-details-title {
+        @include dimension(620px, 25px);
+        display: flex;
+        align-items: center;
+        margin: 0 40px;
+        margin-top: 40px;
+        margin-bottom: 0;
+        p {
+            @include textStyle($title-font, 30px, $font-weight-400, $primary-blue-3)
+        }
+    }
+    .template-details-separator {
+        width: 620px;
+        border: 1px solid #ECEFFF;
+        margin: 0 40px;
+        margin-top: 15px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 10px;
+        margin-top: 30px;
+        margin-left: 40px;
+        .modal-icon-select {
+            @include dimension(620px, 52px);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .modal-icon-select-label {
+                display: flex;
+                align-items: center;
+                .modal-icon-select-label-name {
+                    @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-5);
+                }
+                .icon-choice-button {
+                    @include dimension(55px, 52px);
+                    background-color: #FAFAFB;
+                    border-radius: 8px;
+                    margin-left: 15px;
+                    cursor: pointer;
+                    .icon-choice-picture {
+                        width: 50px;
+                    }
+                }
+            }
+            .modal-icon-select-popup {
+                @include absolutePosition(34%, 21%);
+                @include dimension(260px, 145px);
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                background-color: $primary-white-1;
+                border: 1px solid $primary-blue-1;
+                border-radius: $border-radius-10;
+                z-index: 1;
+                #research_template_icon {
+                    margin: 5px;
+                    @for $iconNumber from 0 through 5 {
+                        input[type="radio"]#research_template_icon_#{$iconNumber} {
+                            display: none;
+                        }
+                        input[type="radio"]#research_template_icon_#{$iconNumber} + label {
+                            @include dimension(52px, 52px);
+                            background-image: url('../images/icons/template_icon_#{$iconNumber}.png');
+                            background-size: 85%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-color: #FAFAFB;
+                            border: none;
+                            color: rgba(255, 255, 255, 0);
+                            border: 1px solid white;
+                            border-radius: 8px;
+                            margin: 5px 10px 10px;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .template-icon-close {
+                    @include absolutePosition(55px, 223px);
+                    @include dimension(25px, 25px);
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    .template-icon-cross {
+                        @include absolutePosition(45.83%, 17%);
+                        @include dimension(18px, 1.5px);
+                        background-color: $primary-blue-3;
+                        border-radius: 2px;
+                        &:first-child {
+                            transform: rotateZ(45deg);
+                        }
+                        &:nth-child(2) {
+                            transform: rotateZ(-45deg);
+                        }
+                    }
+                }
+            }
+        }
+        .modal-text-input {
+            height: 68px;
+            gap: 8px;
+            .modal-label {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
+                line-height: 18px;
+                margin-bottom: 8px;
+            }
+            .red-star {
+                color: $secondary-red-1;
+            }
+            .modal-input {
+                @include dimension(620px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                background-color: #FFFFFF;
+                border: 1px solid $primary-blue-2;
+                border-radius: 8px;
+                gap: 5px;
+                padding-left: 12px;
+                letter-spacing: 0.11667px;
+                &::placeholder {
+                    opacity: 0.3;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            .modal-coach-select-label {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
+                line-height: 18px;
+                margin-bottom: 8px;
+            }
+            select {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                background-color: #FFFFFF;
+                border: 1px solid $primary-blue-2;
+                border-radius: 8px;
+                gap: 5px;
+                padding-left: 12px;
+                padding-right: 18.5px;
+                letter-spacing: 0.11667px;
+                &:hover {
+                    cursor: pointer;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        .new-template-button {
+            @include button($primary-blue-1, $border-radius-10, none);
+            @include dimension(620px, 42px);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+            margin-top: 5px;
+            text-align: center;
+        }
+    }
+}

@@ -55,3 +55,9 @@ $border-radius-20: 20px;
     width: $w;
     height: $h;
 }
+
+@mixin absolutePosition($top, $left) {
+    position : absolute;
+    top: $top;
+    left: $left;
+}
