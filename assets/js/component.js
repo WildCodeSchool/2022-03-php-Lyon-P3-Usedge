@@ -1,3 +1,4 @@
+/*Action to insert an input when the user click on the button + in the modal*/
 const button = document.getElementById('button_answer');
 button.addEventListener('click', function() {
     const divAnswer = document.getElementById('form_answer');
@@ -16,9 +17,14 @@ button.addEventListener('click', function() {
     divAnswer.appendChild(newInput);
 });
 
+/*Action to send all informations in the modal to the div Add Elements */
 const buttonActionComponent = document.getElementById('button_action_component');
+
+const buttonModal = document.getElementById('button_action_modal');
+    
 buttonActionComponent.addEventListener('click', function() {
 
+    const modal = document.getElementById('modal');
     const inputQuestion = document.getElementById('input_question').value;
     const displayFormBuilder = document.getElementById('display_form_builder');
     const formAnswers = document.getElementsByClassName('form_answer');
@@ -31,4 +37,5 @@ buttonActionComponent.addEventListener('click', function() {
         displayFormBuilder.innerHTML = displayFormBuilder.innerHTML + "<input type='checkbox' class='checkboxAnswer' name='form_answer' value=" + formAnswer + [i] + ">" + formAnswer;
         document.getElementById('form_answer').value = '';
     }
+    modal.style.visibility = 'hidden';
 });

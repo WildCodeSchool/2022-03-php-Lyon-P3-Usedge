@@ -35,7 +35,6 @@ $border-radius-20: 20px;
 h3 {
     font-size: 16px;
     color: $primary-blue-3;
-    //top: calc(50% - 20px/2 - 11px);
     padding-top: 5px;
 }
 
@@ -51,7 +50,6 @@ h3 {
             h3 {
                 font-size: 16px;
                 color: $primary-blue-3;
-                //top: calc(50% - 20px/2 - 11px);
                 padding-top: 5px;
             }
             #button_action_modal {
@@ -63,7 +61,7 @@ h3 {
             }
     }
 
-    /*Mise en page de la modale quand on click sur le plus de multiple choice*/
+    /*Layout of the modal when we click on the most multiple choice*/
     .modal_multiple_choice {
         visibility: hidden;
         opacity: 0;
