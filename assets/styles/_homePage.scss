@@ -3,6 +3,10 @@
     display: flex;
     gap: 40px;
     background: $primary-white-2;
+    .side-bar {
+        width: 15vw;
+        padding: 0;
+    }
     .header {
         display: flex;
         justify-content: space-between;
@@ -33,13 +37,13 @@
         align-items: flex-start;
         padding: 35px 0px;
         gap: 20px;
-        width: 1572px;
+        width: 81vw;
         .search-engine {
             display: flex;
             flex-direction: column;
             justify-content: start;
             align-items: flex-start;
-            @include dimension(1572px, 157pxvh);
+            @include dimension(100%, 170px);
             padding: 29px;
             background: $primary-blue-4;   
             border: 1px solid $primary-blue-1;
@@ -58,11 +62,11 @@
                 flex-direction: row;
                 gap: 20px;
                 p {
-                    width: 286.8px;
+                    width: 18%;
                     @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
                     &:first-child {
                         margin-bottom: 10px;
-                        width: 266px;
+                        width: 19%;
                     }
                 }
             }
@@ -75,13 +79,14 @@
                .checkbox {
                    display: flex;
                    gap: 20px;
+                   width: 19%;
                    label {
                         @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
                    }
                }
                select {
                     @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
-                    @include dimension(286.8px, 42px);
+                    @include dimension(18%, 42px);
                     background-repeat: no-repeat;
                     background-position-y: center;
                     background-position-x: 12px;
@@ -162,11 +167,12 @@
                         background-repeat: no-repeat;
                         background-position-y: center;
                         background-color: $primary-white-1;
-                        width: 150px;
+                        width: 30%;
                     }
                     #requests-type {
                         background-position-x: 100px;
                         margin-left: 20px;
+                        width: 100%;
                     }
                     #requests-project {
                         background-position-x: 60px;
@@ -201,13 +207,15 @@
                         @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
                         background-color: $primary-white-1;
                         height: 82px;
-                        width: 150px;
+                        width: 30%;
                     }
                     #view-plans-type {
                         margin-left: 20px;
+                        width: 100%;
                     }
                     #view-request-type {
                         margin-left: 20px;
+                        width: 100%;
                     }
                     .sort-choice {
                         width: 70%;
@@ -232,6 +240,7 @@
                 #plans-type {
                     background-position-x: 100px;
                     margin-left: 20px;
+                    width: 100%;
                 }
                 #plans-project {
                     background-position-x: 60px;
