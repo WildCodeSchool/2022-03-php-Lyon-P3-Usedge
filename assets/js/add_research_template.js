@@ -14,7 +14,7 @@ selectStatusList.addEventListener('change', function () {
     case "active":
         selectStatusList.classList.add('bg-green-dot');
         break;
-    case "disabled":
+    case "draft":
         selectStatusList.classList.add('bg-grey-dot');
         break;
     case "dropped":
