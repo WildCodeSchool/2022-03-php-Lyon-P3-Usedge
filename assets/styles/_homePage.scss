@@ -158,7 +158,7 @@
                     flex-direction: row;
                     justify-content: space-between;
                     margin-bottom: 20px;
-                    td {
+                    .sort {
                         display: flex;
                         align-self: center;
                         justify-content: flex-start;
@@ -183,7 +183,7 @@
                     #requests-owner {
                         background-position-x: 52px;
                     }
-                    .status {
+                    #status {
                         background-position-x: 52px;
                     }
                     .sort-choice {
@@ -200,7 +200,7 @@
                     justify-content: space-between;
                     border: 1px solid $primary-blue-2;
                     border-radius: $border-radius-10;
-                    td {
+                    .view-details {
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
@@ -209,6 +209,7 @@
                         height: 82px;
                         width: 30%;
                     }
+                    
                     #view-plans-type {
                         margin-left: 20px;
                         width: 100%;
@@ -226,35 +227,55 @@
                 }
                 
             }
-            .plans-list {
+            .plans-list-none {
                 display: none;
-                @extend .requests-list;
-                margin: 0;
-                .plans-header {
-                    @extend .requests-header;
-                        #create-plans{
-                        @extend #create-request;
-                        width: 180px;
-                    }
-                }
-                #plans-type {
-                    background-position-x: 100px;
-                    margin-left: 20px;
-                    width: 100%;
-                }
-                #plans-project {
-                    background-position-x: 60px;
-                }
-                #plans-assigned-request {
-                    background-position-x: 127px;
-                }
-                #plans-coach-assigned {
-                    background-position-x: 112px;
-                }
-                .status {
-                    background-position-x: 52px;
-                }
             }
         }
     }
+}
+.share-requests-list {
+    display: flex;
+    @extend .requests-list;
+}
+.requests-list-none {
+    display: none;
+}
+.share-plans-list { 
+    display: flex;
+    @extend .plans-list;
+}
+.plans-list {
+    width: 100%;
+    @extend .requests-list;
+    margin-left: 20px;
+    .plans-header {
+        @extend .requests-header;
+            #create-plans{
+            @extend #create-request;
+            width: 180px !important;
+        }
+    }
+    #plans-type {
+        background-position-x: 100px;
+        margin-left: 20px;
+        width: 100%;
+    }
+    #plans-project {
+        background-position-x: 60px;
+    }
+    #plans-assigned-request {
+        background-position-x: 127px;
+    }
+    #plans-coach-assigned {
+        background-position-x: 112px;
+    }
+    .status {
+        background-position-x: 52px;
+    }
+}
+.sort-none {
+    display: none;
+}
+.view-details-none {
+    display: none;
 }
