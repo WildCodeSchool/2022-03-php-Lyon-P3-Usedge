@@ -13,7 +13,6 @@ class TemplateController extends AbstractController
     {
         return $this->render('ResearchCenter/viewTemplate.html.twig', [
 
-            'website' => 'Wild Series',
         ]);
     }
 }
