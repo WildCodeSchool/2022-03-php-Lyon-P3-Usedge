@@ -1,0 +1,281 @@
+@import '_var.scss';
+.main {
+    display: flex;
+    gap: 40px;
+    background: $primary-white-2;
+    .side-bar {
+        width: 15vw;
+        padding: 0;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        @include dimension(100%, 4%);
+        .header-title {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            p {
+                margin: 0;
+                @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-5);
+                &:first-child {
+                    font-size: $font-size-12;
+                    color: $primary-grey-4;
+                    font-family: 'Source Sans Pro', sans-serif;
+                }
+            }
+        }
+        .view-session {
+            @include button($primary-blue-2, $border-radius-10, 0);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-1);
+            @include dimension(190px, 42px);
+        }
+    }
+    .page-content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 0px;
+        gap: 20px;
+        width: 81vw;
+        .search-engine {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+            @include dimension(100%, 170px);
+            padding: 29px;
+            background: $primary-blue-4;   
+            border: 1px solid $primary-blue-1;
+            border-radius: $border-radius-10;
+            p {
+                margin: 0;
+                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-5);
+                text-align: left;
+                &:first-child {
+                    margin-bottom: 10px;
+                }
+            }
+            .search-label {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                p {
+                    width: 18%;
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
+                    &:first-child {
+                        margin-bottom: 10px;
+                        width: 19%;
+                    }
+                }
+            }
+            form {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+               .checkbox {
+                   display: flex;
+                   gap: 20px;
+                   width: 19%;
+                   label {
+                        @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                   }
+               }
+               select {
+                    @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                    @include dimension(18%, 42px);
+                    background-repeat: no-repeat;
+                    background-position-y: center;
+                    background-position-x: 12px;
+                    background-color: $primary-white-1;
+                    padding: 0px 0px 0px 26px;
+                    border-radius: 8px;
+                    border: 0;
+               }
+               #Project {
+                    @extend select;
+                    background-image: url(../images/icons/project.png);
+               }
+               #Owner {
+                    @extend select;
+                    background-image: url(../images/icons/owner.png);
+               }
+               #Assigned-coach {
+                   @extend #Owner;
+               }
+               #Creation-date {
+                    @extend select;
+                    background-image: url(../images/icons/date.png);
+                    padding: 0px 0px 0px 32px;
+               }
+            }
+        }
+        .research-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            width: 100%;
+            .requests-list {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                border-radius: $border-radius-20;
+                background: $primary-white-1;
+                padding: 35px;
+                gap: 20px;
+                .requests-header {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    width: 100%;
+                    border-bottom: 1px solid $primary-grey-5;
+                    padding-bottom: 20px;
+                    p {
+                        @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                        margin: 0;
+                        &:nth-child(2) {
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                        }
+                    }
+                    #create-request {
+                        display: flex;
+                        align-self: flex-end;
+                        @include button($primary-blue-1, $border-radius-10, 0);
+                        @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                        @include dimension(199px, 42px);
+                        text-align: center;
+                        padding: 12px;
+                    }
+                }
+                .sort-by {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    .sort {
+                        display: flex;
+                        align-self: center;
+                        justify-content: flex-start;
+                        @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-1);
+                        background-image: url(../images/icons/arrow.png);
+                        background-repeat: no-repeat;
+                        background-position-y: center;
+                        background-color: $primary-white-1;
+                        width: 30%;
+                    }
+                    #requests-type {
+                        background-position-x: 100px;
+                        margin-left: 20px;
+                        width: 100%;
+                    }
+                    #requests-project {
+                        background-position-x: 60px;
+                    }
+                    #requests-coach-assigned {
+                        background-position-x: 112px;
+                    }
+                    #requests-owner {
+                        background-position-x: 52px;
+                    }
+                    #status {
+                        background-position-x: 52px;
+                    }
+                    .sort-choice {
+                        width: 70%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+                }  
+                .result {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    border: 1px solid $primary-blue-2;
+                    border-radius: $border-radius-10;
+                    .view-details {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                        background-color: $primary-white-1;
+                        height: 82px;
+                        width: 30%;
+                    }
+                    
+                    #view-plans-type {
+                        margin-left: 20px;
+                        width: 100%;
+                    }
+                    #view-request-type {
+                        margin-left: 20px;
+                        width: 100%;
+                    }
+                    .sort-choice {
+                        width: 70%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+                }
+                
+            }
+            .plans-list-none {
+                display: none;
+            }
+        }
+    }
+}
+.share-requests-list {
+    display: flex;
+    @extend .requests-list;
+}
+.requests-list-none {
+    display: none;
+}
+.share-plans-list { 
+    display: flex;
+    @extend .plans-list;
+}
+.plans-list {
+    width: 100%;
+    @extend .requests-list;
+    margin-left: 20px;
+    .plans-header {
+        @extend .requests-header;
+            #create-plans{
+            @extend #create-request;
+            width: 180px !important;
+        }
+    }
+    #plans-type {
+        background-position-x: 100px;
+        margin-left: 20px;
+        width: 100%;
+    }
+    #plans-project {
+        background-position-x: 60px;
+    }
+    #plans-assigned-request {
+        background-position-x: 127px;
+    }
+    #plans-coach-assigned {
+        background-position-x: 112px;
+    }
+    .status {
+        background-position-x: 52px;
+    }
+}
+.sort-none {
+    display: none;
+}
+.view-details-none {
+    display: none;
+}
