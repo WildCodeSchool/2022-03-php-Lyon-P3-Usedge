@@ -15,3 +15,5 @@ import './js/add_research_template.js';
 import './bootstrap';
 
 require('bootstrap');
+
+import './js/component.js';

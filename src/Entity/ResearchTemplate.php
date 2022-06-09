@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ResearchTemplateRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -49,6 +51,14 @@ class ResearchTemplate
         maxMessage: 'Maximum length is 255 characters.'
     )]
     private ?string $status;
+
+    #[ORM\OneToMany(mappedBy: 'researchTemplate', targetEntity: TemplateComponent::class)]
+    private Collection $templateComponents;
+
+    public function __construct()
+    {
+        $this->templateComponents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -111,6 +121,31 @@ class ResearchTemplate
     public function setStatus(?string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TemplateComponent>
+     */
+    public function getTemplateComponents(): Collection
+    {
+        return $this->templateComponents;
+    }
+
+    public function addTemplateComponent(TemplateComponent $templateComponent): self
+    {
+        if (!$this->templateComponents->contains($templateComponent)) {
+            $this->templateComponents[] = $templateComponent;
+            $templateComponent->setResearchTemplate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTemplateComponent(TemplateComponent $templateComponent): self
+    {
+        $this->templateComponents->removeElement($templateComponent);
 
         return $this;
     }
