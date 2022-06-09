@@ -99,6 +99,15 @@ h3 {
             border-radius: 8px;
             margin-bottom: 20px;
         }
+        .form_answer {
+            width: 100%;
+            height: 42px;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
         .modal_content_multiple_choice p {
             font-family: 'Source Sans Pro', sans-serif;
             font-style: normal;
