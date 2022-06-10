@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+
+{% block body %}
+	<main class="pageAllResearch">
+		<aside class="sidebar">
+			<img src="{{ asset('build/images/sidebar.png') }}">
+		</aside>
+		<div class="pageContent">
+			<header>
+				<div class="header">
+					<div class="component">
+						<a herf="/"><img src="{{ asset('build/images/icons/Shape.png') }}"></a>
+					</div>
+					<div class="title">
+						<p class="title1">RESEARCH CENTER TEMPLATE</p>
+                        <p class="title2">No templates available</p>
+					</div>
+				</div>
+			</header>
+			<div class="sessionList">
+				<div class="emmptyState">
+					<img src="{{ asset('build/images/emmpty_state_ 1.png') }}">
+				</div>
+				<div class="text">
+					<p class="text1">No elements have been added to this request template</p>
+					<p class="text2">Use the elemnts on the left side add some elements to this form</p>
+				</div>
+				<button class="buttonHelp" id="label"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
+
+			</div>
+
+		</div>
+
+	</main>
+{% endblock %}
