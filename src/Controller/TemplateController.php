@@ -11,8 +11,6 @@ class TemplateController extends AbstractController
     #[Route('/research/', name: 'research_index')]
     public function index(): Response
     {
-        return $this->render('ResearchCenter/viewTemplate.html.twig', [
-
-        ]);
+        return $this->render('ResearchCenter/viewTemplate.html.twig');
     }
 }
