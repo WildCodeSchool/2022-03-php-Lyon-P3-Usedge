@@ -1,0 +1,343 @@
+// var primary colors
+$primary-blue-1: #6580FF;
+$primary-blue-2: #ECEFFF;
+$primary-blue-3: #1D2A78;
+$primary-blue-4: #F4F7FD;
+$primary-blue-5: #12033B;
+$primary-grey-1: #676874;
+$primary-grey-4: #ADADB5;
+$primary-dark-1: #1B1B1B;
+$primary-white-1: #FFFFFF;
+
+//var secondary colors
+$secondary-orange-1: #FFA94F;
+$secondary-red-1: #EA6061;
+$secondary-green-1: #71D68F;
+
+// var font-family
+$title-font: 'League Spartan', sans-serif;
+$text-font: 'Source Sans Pro', sans-serif;
+
+// var font-size
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+
+//var font-weight
+$font-weight-400: 400;
+$font-weight-600: 600;
+
+//var border-radius
+$border-radius-10: 10px;
+$border-radius-20: 20px;
+
+
+//Begin style for /research-template/add
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    background-color: #FAFAFB;
+}
+
+.sidebar {
+    position: relative;
+}
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    background-color: #FAFAFB;
+}
+
+.location-text {
+    margin-top: 38px;
+    margin-bottom: 5px;
+    font-family: $text-font;
+    font-weight: $font-weight-600;
+    font-size: $font-size-12;
+    line-height: 15px;
+    letter-spacing: 0.116667px;
+    color: $primary-grey-4;
+}
+
+.new-template-title {
+    margin-bottom: 20px;
+    font-family: $title-font;
+    font-style: normal;
+    font-weight: $font-weight-600;
+    font-size: $font-size-18;
+    line-height: 20px;
+    letter-spacing: -0.8px;
+    color: $primary-blue-5;
+}
+
+.tird-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: #FAFAFB;
+    height: 100%;
+}
+
+.fourth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.frame-1123 {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 35px;
+    background: $primary-white-1;
+    border-radius: $border-radius-10;
+}
+
+.status-container-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    h2 {
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-600;
+        font-size: $font-size-18;
+        line-height: 23px;
+        letter-spacing: 0.116667px;
+        color: $primary-blue-3;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 7px;
+    }
+
+    img {
+        height: 4px;
+    }
+
+    p {
+        margin: auto;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-400;
+        font-size: $font-size-12;
+        line-height: 15px;
+        letter-spacing: 0.116667px;
+        color: $primary-dark-1;
+    }
+}
+
+.status-container-2 p {
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: $font-weight-600;
+    font-size: $font-size-14;
+    line-height: 18px;
+    letter-spacing: 0.116667px;
+    color: $primary-dark-1;
+
+    span {
+        color: #fe7677;
+    }
+}
+
+.status-list-select {
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 12px;
+    background-color: $primary-white-1;
+    background-size: 10px;
+    padding-left: 25px;
+    width: 355px;
+    height: 42px;
+    border: 1px solid $primary-blue-2;
+    border-radius: 8px;
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: $font-size-14;
+    line-height: 18px;
+    letter-spacing: 0.116667px;
+    color: $primary-grey-1;
+}
+
+.bg-green-dot {
+    background-image: url(../images/icons/green-dot.png);
+}
+
+.bg-grey-dot {
+    background-image: url(../images/icons/grey-dot.png);
+}
+
+.bg-red-dot {
+    background-image: url(../images/icons/red-dot.png);
+}
+
+.components-available {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px;
+    background: $primary-white-1;
+    border-radius: $border-radius-10;
+
+    h2 {
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-600;
+        font-size: $font-size-18;
+        line-height: 23px;
+        letter-spacing: 0.116667px;
+        color: $primary-blue-3;
+    }
+    
+    p {
+        margin-bottom: 20px;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-400;
+        font-size: $font-size-16;
+        line-height: 20px;
+        letter-spacing: 0.116667px;
+        color: $primary-grey-1;
+    }
+}
+
+.components {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $primary-blue-2;
+    border-radius: $border-radius-10;
+}
+
+.component-picture-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    background: #F0F2FF;
+    border-radius: $border-radius-10;
+}
+
+.component-picture-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+
+}
+
+.component-title {
+    flex-grow: 1;
+
+    h3 {
+        margin-bottom: 5px;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-400;
+        font-size: $font-size-16;
+        line-height: 20px;
+        letter-spacing: 0.116667px;
+        color: $primary-blue-3;
+    }
+    
+    p {
+        margin-bottom: 5px;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-400;
+        font-size: $font-size-12;
+        line-height: 15px;
+        letter-spacing: 0.116667px;
+        color: $primary-grey-4;
+    }
+}
+
+.form-builder {
+    margin-right: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 50px 35px;
+    width: 1122px;
+    height: 950px;
+    background: $primary-white-1;
+    border-radius: $border-radius-10;
+
+    h2 {
+        font-family: $title-font;
+        font-style: normal;
+        font-weight: $font-weight-600;
+        font-size: $font-size-18;
+        line-height: 20px;
+        letter-spacing: -0.8px;
+        color: $primary-blue-3;
+    }
+    
+    p {
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-400;
+        font-size: $font-size-16;
+        line-height: 20px;
+        letter-spacing: 0.116667px;
+        color: $primary-grey-1;
+    }
+}
+
+.need-help-container {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 5px;
+    width: 112px;
+    height: 42px;
+    background: #F1F1F5;
+    border-radius: $border-radius-10;
+
+    img {
+        width: 12.74px;
+        height: 12.36px;
+    }
+    
+    p {
+        margin: auto;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: $font-weight-600;
+        font-size: $font-size-14;
+        line-height: 18px;
+        letter-spacing: 0.116667px;
+        color: $primary-grey-1;
+    }
+}
+
+//End style for /research-template/add
