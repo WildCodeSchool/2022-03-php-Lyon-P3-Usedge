@@ -1,3 +1,5 @@
+if (document.getElementById('button_answer')) {
+
 /*Action to insert an input when the user click on the button + in the modal*/
 const button = document.getElementById('button_answer');
 button.addEventListener('click', function() {
@@ -28,3 +30,5 @@ buttonActionComponent.addEventListener('click', function() {
     }
     modal.style.visibility = 'hidden';
 });
+
+}

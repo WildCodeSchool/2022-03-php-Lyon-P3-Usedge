@@ -1,3 +1,5 @@
+if (document.getElementById('reasearch-plans')) {
+
 const researchPlans = document.getElementById('reasearch-plans');
 const researchRequests = document.getElementById('reasearch-requests');
 const requestsList = document.getElementById('requests-list');
@@ -66,7 +68,7 @@ researchPlans.onchange = function() {
     } 
 }
 
- 
+}
 
     
 

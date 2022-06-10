@@ -1,5 +1,7 @@
 import {iconList} from './modules/icons_module';
 
+if (document.getElementById('add-template-button')) {
+
 // Careful : for first const, check real button id when integration !
 const addTemplateModalOpenButton = document.getElementById('add-template-button');
 const addTemplateModal = document.getElementById('template-details-modal');
@@ -71,3 +73,5 @@ submitButton.addEventListener('click', (event) => {
         }
     }
 });
+
+}

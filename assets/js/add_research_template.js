@@ -2,7 +2,9 @@
 //Changing the color depending on the selected status
 //-----------------------------------------------------
 
-const selectStatusList = document.getElementById('select-status');
+if (document.getElementById('select-status')) {
+    
+selectStatusList = document.getElementById('select-status');
 
 selectStatusList.addEventListener('change', function () {
 
@@ -22,4 +24,4 @@ selectStatusList.addEventListener('change', function () {
         break;
     }
 });
-
+}
