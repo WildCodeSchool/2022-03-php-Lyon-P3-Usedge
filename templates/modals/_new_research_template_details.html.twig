@@ -1,0 +1,41 @@
+<div class="template-details-modal" id="template-details-modal">
+    <div class="template-details-close" id="template-details-close">
+        <span class="template-details-cross"></span>
+        <span class="template-details-cross"></span>
+    </div>
+    <div class="template-details-title">
+        <p>Add a new research request template</p>
+    </div>
+    <div class="template-details-separator"></div>
+    {{ form_start(form)}}
+        <div class="modal-icon-select">
+            <div class="modal-icon-select-label">
+                {{ form_label(form.icon)}}
+                <div class="icon-choice-button" id="icon-choice-button">
+                    <img class="icon-choice-picture" id="icon-choice-picture" src="{{ asset('build/images/icons/template_icon_plus.png') }}"/>
+                </div>
+            </div>
+            <div class="modal-icon-select-popup-hidden" id="modal-icon-select-popup">
+                {{ form_widget(form.icon)}}
+                <div class="template-icon-close" id="template-icon-close">
+                    <span class="template-icon-cross"></span>
+                    <span class="template-icon-cross"></span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-text-input">
+            {{ form_label(form.name) }}<span class="red-star">*</span></br>
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="modal-text-input">
+            {{ form_label(form.description) }}<span class="red-star">*</span></br>
+            {{ form_widget(form.description) }}
+        </div>
+        <div class="modal-text-input">
+            {{ form_label(form.coach) }}<span class="red-star">*</span></br>
+            {{ form_widget(form.coach) }}
+        </div>
+        {{ form_widget(form) }}
+        <button type="submit" class="new-template-button">Add a new research request template</button>
+    {{ form_end(form)}}
+</div>

@@ -10,7 +10,15 @@ import './styles/app.scss';
 import './styles/newTemp.scss';
 require('bootstrap');
 
+import './js/add_research_template.js';
+import './js/component.js';
+import './js/modules/icons_module.js';
+import './js/new_research_template_details_modal.js';
+import './js/homePage.js';
+
 // start the Stimulus application
 import './bootstrap';
 
 require('bootstrap');
+
+
