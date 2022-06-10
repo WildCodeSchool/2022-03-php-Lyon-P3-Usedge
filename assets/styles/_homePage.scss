@@ -60,7 +60,7 @@
                 width: 100%;
                 display: flex;
                 flex-direction: row;
-                gap: 20px;
+                gap: 30px;
                 p {
                     width: 18%;
                     @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
@@ -75,7 +75,7 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                gap: 20px;
+                gap: 30px;
                .checkbox {
                    display: flex;
                    gap: 20px;
@@ -144,12 +144,14 @@
                     }
                     #create-request {
                         display: flex;
+                        align-items: center;
                         align-self: flex-end;
                         @include button($primary-blue-1, $border-radius-10, 0);
                         @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
                         @include dimension(199px, 42px);
                         text-align: center;
                         padding: 12px;
+                        gap: 5px;
                     }
                 }
                 .sort-by {
@@ -243,11 +245,12 @@
 .share-plans-list { 
     display: flex;
     @extend .plans-list;
+    margin-left: 20px;
 }
 .plans-list {
     width: 100%;
     @extend .requests-list;
-    margin-left: 20px;
+    
     .plans-header {
         @extend .requests-header;
             #create-plans{
