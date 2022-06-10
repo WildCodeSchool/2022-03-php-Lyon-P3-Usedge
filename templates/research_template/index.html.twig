@@ -12,8 +12,8 @@
 		<div class="pageContent">
 			<header>
 				<div class="header">
-					<div class="component">
-						<a herf="/"><img src="{{ asset('build/images/icons/Shape.png') }}"></a>
+					<div class="template-list-return-icon">
+						<a href="/"><img src="{{ asset('build/images/icons/Shape.png') }}"></a>
 					</div>
 					<div class="title">
 						<p class="title1">RESEARCH CENTER TEMPLATE</p>
@@ -29,8 +29,8 @@
 					<p class="text1">No elements have been added to this request template</p>
 					<p class="text2">Use the elemnts on the left side add some elements to this form</p>
 				</div>
-				<button class="buttonHelp" id="label"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
-
+				<button class="buttonHelp" id="add-template-button"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
+				{% include "modals/_new_research_template_details.html.twig" %}
 			</div>
 
 		</div>
