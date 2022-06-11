@@ -42,5 +42,12 @@
                 opacity: 0.3;
             }
         }
+        .evaluation-scale-star-container {
+            @include dimension(210px, 30px);
+            display: flex;
+            align-items: flex-start;
+            padding: 0;
+            gap: 15px;
+        }
     }
 }
