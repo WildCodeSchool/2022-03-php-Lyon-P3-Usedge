@@ -1,0 +1,44 @@
+@import '_var.scss';
+
+.modal-section-container {
+    display: none;
+    position: relative;
+    padding: 35px;
+    width: 390px;
+    height: 215px;
+    background: $primary-white-1;
+    box-shadow: 0px 0px 6px $primary-dark-1;
+    border-radius: 10px;
+    .modal-section-content {
+        background: $primary-white-1;
+        .close-modal-section {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: grey;
+            text-decoration: none;
+        }
+        h1 {
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: $font-weight-600;
+            font-size: $font-size-18;
+            margin-bottom: 20px;
+        }
+        #input-modal-section {
+            width: 100%;
+            height: 42px;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        #button-action-component-section {
+            width: 100%;
+            background: $primary-blue-1;
+            border-radius: 10px;
+        }
+    }  
+}
+.modal-section-container.active {
+    display: block;
+}

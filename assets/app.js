@@ -12,6 +12,7 @@ require('bootstrap');
 
 import './js/add_research_template.js';
 import './js/component.js';
+import './js/components/component_section.js';
 import './js/modules/icons_module.js';
 import './js/new_research_template_details_modal.js';
 import './js/homePage.js';

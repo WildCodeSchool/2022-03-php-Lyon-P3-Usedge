@@ -1,36 +1,4 @@
-// var primary colors
-$primary-blue-1: #6580FF;
-$primary-blue-2: #ECEFFF;
-$primary-blue-3: #1D2A78;
-$primary-blue-4: #F4F7FD;
-$primary-blue-5: #12033B;
-$primary-grey-1: #676874;
-$primary-grey-4: #ADADB5;
-$primary-dark-1: #1B1B1B;
-$primary-white-1: #FFFFFF;
-
-//var secondary colors
-$secondary-orange-1: #FFA94F;
-$secondary-red-1: #EA6061;
-$secondary-green-1: #71D68F;
-
-// var font-family
-$title-font: 'League Spartan', sans-serif;
-$text-font: 'Source Sans Pro', sans-serif;
-
-// var font-size
-$font-size-12: 12px;
-$font-size-14: 14px;
-$font-size-16: 16px;
-$font-size-18: 18px;
-
-//var font-weight
-$font-weight-400: 400;
-$font-weight-600: 600;
-
-//var border-radius
-$border-radius-10: 10px;
-$border-radius-20: 20px;
+@import '_var.scss';
 
 /*Layout of the modal when we click on the most multiple choice*/
 .modal_multiple_choice {
@@ -124,6 +92,11 @@ $border-radius-20: 20px;
 }
 
 #display_form_builder {
+    font-family: 'Spartan';
+    font-style: normal;
+    font-weight: $font-weight-600;
+    font-size: $font-size-18;
+    color: $primary-blue-3;
     .checkboxAnswer {
         margin-top: 20px;
         margin-bottom: 20px;
