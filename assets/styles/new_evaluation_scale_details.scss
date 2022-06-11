@@ -17,5 +17,30 @@
     gap: 20px;
     .evaluation-scale-modal-title {
         @include textStyle($text-font, $font-size-18, $font-weight-600, black);
+        letter-spacing: 0.116667px;
+    }
+    .evaluation-scale-modal-fields {
+        @include dimension(320px, 201px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 15px;
+        .evaluation-scale-input {
+            @include dimension(320px, 42px);
+            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            background-color: $primary-white-1;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            padding: 12px 0px 12px 12px;
+            gap: 5px;
+            letter-spacing: 0.116667px;
+            &::placeholder {
+                opacity: 0.3;
+            }
+        }
     }
 }
