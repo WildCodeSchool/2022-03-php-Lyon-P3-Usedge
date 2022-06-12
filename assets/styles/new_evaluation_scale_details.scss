@@ -48,6 +48,25 @@
             align-items: flex-start;
             padding: 0;
             gap: 15px;
+            .evaluation-scale-star-icon {
+                width: 27.5px;
+            }
+        }
+        .evaluation-scale-mandatory {
+            @include dimension(158px, 18px);
+            display: flex;
+            align-items: center;
+            padding: 0;
+            gap: 5px;
+            .evaluation-scale-checkbox-mandatory[type="checkbox"] {
+                @include dimension(16px, 16px);
+                border: 1px solid $primary-blue-1 !important;
+                border-radius: 2px;
+            }
+            .evaluation-scale-label-mandatory {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                line-height: 18px;
+            }
         }
     }
 }
