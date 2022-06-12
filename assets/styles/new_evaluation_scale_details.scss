@@ -52,7 +52,7 @@
                 width: 27.5px;
             }
         }
-        .evaluation-scale-mandatory {
+        .evaluation-scale-modal-mandatory {
             @include dimension(158px, 18px);
             display: flex;
             align-items: center;
@@ -66,6 +66,19 @@
             .evaluation-scale-label-mandatory {
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
                 line-height: 18px;
+            }
+        }
+        .evaluation-scale-modal-button {
+            @include button($primary-blue-1, $border-radius-10, none);
+            @include dimension(320px, 42px);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            .evaluation-scale-icon-modal-button {
+                width: 11.25px;
+                margin-right: 5px;
             }
         }
     }
