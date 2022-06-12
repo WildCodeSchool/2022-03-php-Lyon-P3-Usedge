@@ -18,8 +18,8 @@ if (document.getElementById('evaluation-scale-button')) {
         const evaluationScaleModalLowLabel = document.getElementById('evaluation-scale-low-level-input').value;
         const evaluationScaleModalHighLabel = document.getElementById('evaluation-scale-high-level-input').value;
         const evaluationScaleModalMandatory = document.getElementById('evaluation-scale-checkbox-mandatory').checked;    
-        let evaluationScaleComponent = document.getElementById('evaluation-scale-template-creation');
-        let cloneComponent = evaluationScaleComponent.cloneNode(true);
+        const evaluationScaleComponent = document.getElementById('evaluation-scale-template-creation');
+        const cloneComponent = evaluationScaleComponent.cloneNode(true);
         const idElements = [...cloneComponent.querySelectorAll('[id]')];
         if (cloneComponent.matches('[id]')) {
             idElements.push(cloneComponent);
