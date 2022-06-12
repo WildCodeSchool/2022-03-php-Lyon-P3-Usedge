@@ -1,0 +1,52 @@
+<div class="evaluation-scale-template-creation" id="evaluation-scale-template-creation" draggable="true">
+    <div class="evaluation-scale-template-draggable">
+        <img src="{{ asset('build/images/icons/burger.png') }}"/>
+    </div>
+    <div class="evaluation-scale-template-content">
+        <p class="evaluation-scale-template-question" id="evaluation-scale-template-question">
+            Test de question
+            <span class="red-star" id="evaluation-scale-red-star">*</span>
+        </p>
+        <div class="evaluation-scale-template-star-container">
+            <input type="radio" name="answer" id="evaluation-scale-rate-5" value="1" disabled>
+            <label for="evaluation-scale-rate-5" class="evaluation-scale-template-rate">
+                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+            </label>
+            <input type="radio" name="answer" id="evaluation-scale-rate-4" value="2" disabled>
+            <label for="evaluation-scale-rate-4" class="evaluation-scale-template-rate">
+                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+            </label>
+            <input type="radio" name="answer" id="evaluation-scale-rate-3" value="3" disabled>
+            <label for="evaluation-scale-rate-3" class="evaluation-scale-template-rate">
+                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+            </label>
+            <input type="radio" name="answer" id="evaluation-scale-rate-2" value="4" disabled>
+            <label for="evaluation-scale-rate-2" class="evaluation-scale-template-rate">
+                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+            </label>
+            <input type="radio" name="answer" id="evaluation-scale-rate-1" value="5" disabled>
+            <label for="evaluation-scale-rate-1" class="evaluation-scale-template-rate">
+                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+            </label>
+        </div>
+        <div class="evaluation-scale-template-levels">
+        <p>Lowest Label</p>
+        <p>Highest Label</p>
+        </div>
+    </div>
+    <div class="evaluation-scale-template-actions">
+        <img src="{{ asset('build/images/icons/edit.png') }}"/>
+        <img src="{{ asset('build/images/icons/close.png') }}"/>
+    </div>
+
+
+    {# Form part of the evaluation scale part #}
+    <input type="hidden" id="evaluation-scale-template-question-input" name="question" value="">
+    <input 
+        type="checkbox"
+        class="evaluation-scale-template-is-mandatory-checkbox"
+        id="evaluation-scale-template-is-mandatory-checkbox"
+        name="is_mandatory"
+        value=""
+    >
+</div>
