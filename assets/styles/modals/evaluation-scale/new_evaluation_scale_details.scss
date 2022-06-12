@@ -15,6 +15,7 @@
     align-items: flex-start;
     padding: 35px;
     gap: 20px;
+    z-index: 2;
     .evaluation-scale-modal-title {
         @include textStyle($text-font, $font-size-18, $font-weight-600, black);
         letter-spacing: 0.116667px;

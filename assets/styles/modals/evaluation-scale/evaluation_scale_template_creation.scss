@@ -1,14 +1,24 @@
 @import '../../_var.scss';
 
+.evaluation-scale-template-display {
+    display: flex !important;
+}
+
+.evaluation-scale-template-actions-display {
+    display: flex !important;
+}
+
 .evaluation-scale-template-creation {
     @include dimension(995px, 93px);
-    display: flex;
+    display: none;
     align-items: center;
     padding: 0;
     gap: 20px;
+    &:hover>.evaluation-scale-template-actions {
+        display: flex;
+    }
     .evaluation-scale-template-draggable {
         @include dimension(22px, 21px);
-        cursor: pointer;
         img {
             width: 22px;
         }
@@ -22,7 +32,7 @@
             @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
             line-height: 20px;
             margin-bottom: 10px;
-            .red-star {
+            .evaluation-scale-red-star {
                 color: $secondary-red-1;
             }
         }
@@ -58,7 +68,7 @@
         }
     }
     .evaluation-scale-template-actions {
-        display: flex;
+        display: none;
         align-items: center;
         width: 65px;
         padding: 10px;
@@ -72,5 +82,3 @@
         display: none;
     }
 }
-
-//868px
