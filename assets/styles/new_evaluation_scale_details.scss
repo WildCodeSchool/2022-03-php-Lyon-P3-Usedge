@@ -10,7 +10,7 @@
     background-color: $primary-white-1;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
     border-radius: $border-radius-10;
-    display: flex; // Change to none
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     padding: 35px;
