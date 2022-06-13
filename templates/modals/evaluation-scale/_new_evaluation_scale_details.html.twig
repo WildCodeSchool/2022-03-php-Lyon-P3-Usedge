@@ -1,7 +1,8 @@
 <div class="evaluation-scale-creation-modal" id="evaluation-scale-creation-modal">
     <p class="evaluation-scale-modal-title">Create an evaluation scale</p>
-    <div class="evaluation-scale-modal-fields">
-        <input type="text" class="evaluation-scale-input" id="evaluation-scale-question-input" placeholder="What is your question">
+    <form method="POST" class="evaluation-scale-modal-fields">
+        <input type="hidden" name="name" value="evaluation-scale">
+        <input type="text" name="question" class="evaluation-scale-input" id="evaluation-scale-question-input" placeholder="What is your question">
         <div class="evaluation-scale-star-container">
             <img class="evaluation-scale-star-icon" src=" {{ asset('build/images/icons/empty_star.png')}} "/>
             <img class="evaluation-scale-star-icon" src=" {{ asset('build/images/icons/empty_star.png')}} "/>
@@ -9,15 +10,15 @@
             <img class="evaluation-scale-star-icon" src=" {{ asset('build/images/icons/empty_star.png')}} "/>
             <img class="evaluation-scale-star-icon" src=" {{ asset('build/images/icons/empty_star.png')}} "/>
         </div>
-        <input type="text" class="evaluation-scale-input" id="evaluation-scale-low-level-input" placeholder="Lowest Label">
-        <input type="text" class="evaluation-scale-input" id="evaluation-scale-high-level-input" placeholder="Highest Label">
+        <input type="text" name="low-label" class="evaluation-scale-input" id="evaluation-scale-low-level-input" placeholder="Lowest Label">
+        <input type="text" name="hight-label" class="evaluation-scale-input" id="evaluation-scale-high-level-input" placeholder="Highest Label">
         <div class="evaluation-scale-modal-mandatory">
             <input type="checkbox" class="evaluation-scale-checkbox-mandatory" id="evaluation-scale-checkbox-mandatory" name="is_mandatory">
             <label for="is_mandatory" class="evaluation-scale-label-mandatory">This field is mandatory</label>
         </div>
-        <button class="evaluation-scale-modal-button" id="evaluation-scale-modal-button">
+        <button type="submit" class="evaluation-scale-modal-button" id="evaluation-scale-modal-button">
             <img class="evaluation-scale-icon-modal-button" src="{{ asset('build/images/icons/Path.png') }}"/>
             Add evaluation scale
         </button>
-    </div>
+    </form>
 </div>

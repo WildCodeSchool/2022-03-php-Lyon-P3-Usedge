@@ -23,7 +23,11 @@ class ResearchTemplateController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $templateRepository->add($researchTemplate, true);
 
-            return $this->redirectToRoute('research_template_add', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute(
+                'research_template_add',
+                ['id' => $researchTemplate->getId()],
+                Response::HTTP_SEE_OTHER
+            );
         }
 
         return $this->renderForm('research_template/index.html.twig', [
@@ -31,8 +35,8 @@ class ResearchTemplateController extends AbstractController
         ]);
     }
 
-    #[Route('/add', name: 'add')]
-    public function add(): Response
+    #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
+    public function add(ResearchTemplate $researchTemplate): Response
     {
         return $this->render('research_template/add.html.twig');
     }
