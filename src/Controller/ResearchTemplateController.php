@@ -38,6 +38,6 @@ class ResearchTemplateController extends AbstractController
     #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
     public function add(ResearchTemplate $researchTemplate): Response
     {
-        return $this->render('research_template/add.html.twig');
+        return $this->render('research_template/add.html.twig', ['researchTemplate' => $researchTemplate]);
     }
 }

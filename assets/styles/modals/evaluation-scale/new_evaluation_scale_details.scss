@@ -44,13 +44,18 @@
             }
         }
         .evaluation-scale-star-container {
-            @include dimension(210px, 30px);
             display: flex;
             align-items: flex-start;
             padding: 0;
             gap: 15px;
-            .evaluation-scale-star-icon {
-                width: 27.5px;
+            input[type="radio"] {
+                display: none;
+            }
+            .evaluation-scale-template-rate {
+                @include dimension(27.5px, 27.5px);
+                img {
+                    width: 27.5px;
+                }
             }
         }
         .evaluation-scale-modal-mandatory {
