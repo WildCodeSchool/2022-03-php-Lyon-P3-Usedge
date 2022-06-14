@@ -25,7 +25,7 @@ class Component
     protected string $name;
 
     #[ORM\Column(type: 'boolean')]
-    private bool $isMandatory;
+    protected bool $isMandatory;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     #[Assert\Length(
