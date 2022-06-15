@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
+use App\Services\ComponentFixtures;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,12 +23,8 @@ class ResearchTemplateController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $templateRepository->add($researchTemplate, true);
-
-            return $this->redirectToRoute(
-                'research_template_add',
-                ['id' => $researchTemplate->getId()],
-                Response::HTTP_SEE_OTHER
-            );
+            $id = $researchTemplate->getId();
+            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('research_template/index.html.twig', [
@@ -36,8 +33,30 @@ class ResearchTemplateController extends AbstractController
     }
 
     #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
-    public function add(ResearchTemplate $researchTemplate): Response
-    {
-        return $this->render('research_template/add.html.twig', ['researchTemplate' => $researchTemplate]);
+    public function add(
+        Request $request,
+        ResearchTemplate $researchTemplate,
+        ComponentFixtures $componentFixtures
+    ): Response {
+
+        $componantName = $request->request->get('name');
+
+        if ($componantName) {
+            switch ($componantName) {
+                case 'evaluation-scale':
+                    $dataComponant = array_map('trim', $request->request->all());
+                    $componentFixtures->loadEvaluationScale($dataComponant, $researchTemplate);
+                    break;
+                default:
+                    echo 'error'; // CHANGE THIS
+            }
+        }
+
+        $validationErrors = $componentFixtures->getCheckErrors();
+
+        return $this->render('research_template/add.html.twig', [
+            'researchTemplate' => $researchTemplate,
+            'errors' => $validationErrors,
+        ]);
     }
 }

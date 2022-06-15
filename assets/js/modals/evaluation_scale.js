@@ -11,7 +11,7 @@ if (document.getElementById('evaluation-scale-button')) {
     evaluationScaleButton.addEventListener('click', () => {
         evaluationScaleModal.classList.add('evaluation-scale-creation-modal-display');
     });
-
+    /*
     //function used to create multiples template componants with different id's
     evaluationScaleCreateButton.addEventListener('click', () => {
         const evaluationScaleModalQuestion = document.getElementById('evaluation-scale-question-input').value;
@@ -41,5 +41,5 @@ if (document.getElementById('evaluation-scale-button')) {
         document.getElementById('evaluation-scale-high-level-input').value = "";
         document.getElementById('evaluation-scale-checkbox-mandatory').checked = false;
         idComponent++;
-    })
+    })*/
 }
