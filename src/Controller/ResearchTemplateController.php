@@ -3,15 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Answer;
-use App\Entity\Component;
+use App\Entity\SingleChoice;
 use App\Entity\ResearchTemplate;
 use App\Entity\TemplateComponent;
-use App\Form\AnswerType;
-use App\Form\ComponentType;
 use App\Form\ResearchTemplateType;
 use App\Repository\AnswerRepository;
-use App\Repository\ComponentRepository;
+use App\Repository\SingleChoiceRepository;
 use App\Repository\ResearchTemplateRepository;
+use App\Repository\TemplateComponentRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,44 +42,45 @@ class ResearchTemplateController extends AbstractController
     #[Route('/add/{id}', name: 'add')]
     public function add(
         Request $request,
-        ComponentRepository $componentRepository,
+        SingleChoiceRepository $singleRepository,
         AnswerRepository $answerRepository,
         ResearchTemplate $researchTemplate,
         ManagerRegistry $doctrine,
     ): Response {
-        $answer = new Answer();
+        $singleChoice = new SingleChoice();
         $templateComponent = new TemplateComponent();
-        $component = new Component();
-        $form1 = $this->createForm(ComponentType::class, $component);
-        $form1->handleRequest($request);
+        $answer = new Answer();
+        $question = $request->get('question');
+        $isMandatory = $request->get('is_mandatory');
+        if ($isMandatory != true) {
+            $isMandatory = false;
+        }
         $inputAnswerNumber = $request->get('input-answer-number');
         $answersValue = [];
         for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            $answersValue [] = $request->get('answer' . $i);
+            $answersValue[] = $request->get('answer' . $i);
         }
-
-        if ($form1->isSubmitted() && $form1->isValid()) {
+        if (!empty($question)) {
             $entityManager = $doctrine->getManager();
-            $id = $researchTemplate->getId();
+            $singleChoice->setQuestion($question);
+            $singleChoice->setIsMandatory($isMandatory);
             $templateComponent->setResearchTemplate($researchTemplate);
-            $templateComponent->setComponent($component);
+            $templateComponent->setComponent($singleChoice);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
-            $componentRepository->add($component, true);
+            $singleRepository->add($singleChoice, true);
             $entityManager->flush();
             $i = 1;
             foreach ($answersValue as $answerValue) {
+                $answer = new Answer();
                 $answer->setAnswer($answerValue);
-                $answer->setQuestion($component);
+                $answer->setQuestion($singleChoice);
                 $answer->setNumberOrder($i++);
                 $answerRepository->add($answer, true);
             }
+            $id = $researchTemplate->getId();
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
-        return $this->renderForm('research_template/add.html.twig', [
-            'form1' => $form1,
-            'component' => $component,
-            'researchTemplate' => $researchTemplate,
-        ]);
+        return $this->render('research_template/add.html.twig', []);
     }
 }

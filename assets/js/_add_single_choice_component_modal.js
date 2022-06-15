@@ -1,5 +1,7 @@
 // Careful : for first const, check real button id when integration !
 
+const { eventListeners } = require("@popperjs/core");
+
 if (document.getElementById('button_answer_single_choice')) {
 
     /*Action to insert an input when the user click on the button + in the modal*/
@@ -8,8 +10,18 @@ if (document.getElementById('button_answer_single_choice')) {
     const addSingleChoiceModalOpenButton = document.getElementById('add-single-choice-button');
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
     const addFullScreenContainerModalClose= document.getElementById('full-screen-container-modal-close');
-    
+    const newComponentSingleChoiceForm = document.getElementById('new-component-single-choice-form');
     const body = document.getElementById('body');
+
+    /* newComponentSingleChoiceForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = new FormData(newComponentSingleChoiceForm);
+        fetch('/research-template/add/{id}',{
+        method: 'POST',
+        body: form
+        })
+    }) */
 
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
@@ -26,7 +38,7 @@ if (document.getElementById('button_answer_single_choice')) {
             body.classList.remove('hide-body-overflow');
         }
     }; 
-    // function to clone div contain input and img
+    // function to create div and input
     button.addEventListener('click', function() {
         const newInputAnswer = document.createElement('input');
         const deleteInputAnswer = document.createElement('div');
@@ -51,12 +63,14 @@ if (document.getElementById('button_answer_single_choice')) {
                     for (let i = 0; i < inputAnswers.length; i++) {
                         const inputAnswer = inputAnswers[i];
                         inputAnswer.setAttribute('name', 'answer' + i);
+                        inputAnswer.setAttribute('id', 'input_answer' + i);
                     }
                 }        
             }
             for (let i = 0; i < inputAnswers.length; i++) {
                 const inputAnswer = inputAnswers[i];
                 inputAnswer.setAttribute('name', 'answer' + i );
+                inputAnswer.setAttribute('id', 'input_answer' + i);
             }
 
         }

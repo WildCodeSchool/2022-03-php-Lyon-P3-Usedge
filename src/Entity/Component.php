@@ -6,15 +6,17 @@ use App\Repository\ComponentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\InheritanceType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ComponentRepository::class)]
+#[InheritanceType("SINGLE_TABLE")]
 class Component
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private int $id;
+    protected int $id;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     #[Assert\Length(
@@ -38,9 +40,6 @@ class Component
 
     #[ORM\Column(type: 'text', nullable: true)]
     private string $helperText;
-
-    #[ORM\Column(type: 'boolean', nullable: true)]
-    private bool $isMultiple;
 
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class)]
     private Collection $answers;
@@ -115,18 +114,6 @@ class Component
     public function setHelperText(string $helperText = ''): self
     {
             $this->helperText = $helperText;
-
-            return $this;
-    }
-
-    public function isIsMultiple(): ?bool
-    {
-        return $this->isMultiple;
-    }
-
-    public function setIsMultiple(bool $isMultiple = false): self
-    {
-            $this->isMultiple = $isMultiple;
 
             return $this;
     }
