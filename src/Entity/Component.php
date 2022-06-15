@@ -41,9 +41,6 @@ abstract class Component
     #[ORM\Column(type: 'text', nullable: true)]
     protected string $helperText;
 
-    #[ORM\Column(type: 'boolean', nullable: true)]
-    protected bool $isMultiple;
-
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class)]
     protected Collection $answers;
 
@@ -117,18 +114,6 @@ abstract class Component
     public function setHelperText(string $helperText = ''): self
     {
             $this->helperText = $helperText;
-
-            return $this;
-    }
-
-    public function isIsMultiple(): ?bool
-    {
-        return $this->isMultiple;
-    }
-
-    public function setIsMultiple(bool $isMultiple = false): self
-    {
-            $this->isMultiple = $isMultiple;
 
             return $this;
     }

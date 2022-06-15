@@ -20,7 +20,7 @@ class Answer
     #[ORM\Column(type: 'integer')]
     #[Assert\Type(
         type: 'integer',
-        message: 'You must to enter an interger.',
+        message: 'You must to enter an integer.',
     )]
     private int $numberOrder;
 
