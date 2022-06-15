@@ -8,18 +8,18 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 import './styles/newTemp.scss';
-require('bootstrap');
 
+// Script js import
 import './js/add_research_template.js';
 import './js/component.js';
 import './js/modules/icons_module.js';
 import './js/new_research_template_details_modal.js';
 import './js/homePage.js';
 import './js/_add_single_choice_component_modal.js';
+import './js/_add_multiple_choice_component_modal.js';
 
-// start the Stimulus application
+// Bootstrap import
 import './bootstrap';
-
 require('bootstrap');
 
 
