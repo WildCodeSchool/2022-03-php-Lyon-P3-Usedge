@@ -50,9 +50,6 @@ class ResearchTemplateController extends AbstractController
                     $componentFixtures->loadEvaluationScale($dataComponant, $researchTemplate);
                     break;
             }
-            $id = $researchTemplate->getId();
-
-            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         $validationErrors = $componentFixtures->getCheckErrors();

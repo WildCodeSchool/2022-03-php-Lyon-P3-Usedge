@@ -35,7 +35,7 @@ class ComponentFixtures
 
         foreach ($dataComponent as $data) {
             if (empty($data)) {
-                $this->checkErrors[] = 'All fiels are mandatory.';
+                $this->checkErrors[] = 'All fields are mandatory.';
             }
         }
 
@@ -43,11 +43,12 @@ class ComponentFixtures
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (
-            strlen($dataComponent['low-label']) > 255 ||
-            strlen($dataComponent['high-label']) > 255
-        ) {
-            $this->checkErrors[] = 'Maximum length is 255 characters.';
+        if (strlen($dataComponent['low-label']) > 255) {
+            $this->checkErrors[] = 'Maximum length for low label is 255 characters.';
+        }
+
+        if (strlen($dataComponent['high-label']) > 255) {
+            $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
         }
 
         if (empty($this->checkErrors)) {
@@ -76,8 +77,6 @@ class ComponentFixtures
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
-
-            //$researchTemplateId = $researchTemplate->getId();
         }
     }
 }

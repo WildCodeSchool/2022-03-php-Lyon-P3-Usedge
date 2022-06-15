@@ -189,6 +189,9 @@
 
 				<section class="form-builder">
 					<div id="display_form_builder">
+						{% for error in errors %}
+							<p class="text-danger">{{ error }}</p>
+						{% endfor %}
 						{% for templateComponent in templateComponents %}
 							{% include "modals/evaluation-scale/_evaluation_scale_template_creation.html.twig" %}
 						{% endfor %}
