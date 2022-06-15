@@ -22,7 +22,7 @@
 
 					<section class="frame-1123">
 						<div class="status-container-1">
-							<h2>Request template name</h2>
+							<h2>{{ researchTemplate.id }} - {{ researchTemplate.name }}</h2>
 							<div>
 								<img src="{{ asset('build/images/icons/green-dot.png') }}">
 								<p>All changes saved</p>
@@ -185,13 +185,17 @@
 
 				</div>
 				<section class="form-builder">
-					<div id="display_form_builder"></div>
-					<img src="{{ asset('build/images/icons/emmpty_state_1.png') }}">
-					<h2>No elements have been added to this request template.</h2>
-					<p>Use the elements ont he left side to add some elements to this form.</p>
-					<div class="need-help-container" onclick="window.open('https://www.google.fr/', '_blank');">
-						<img src="{{ asset('build/images/icons/student_hat.png') }}">
-						<p>Need help?</p>
+					<div id="display_form_builder">
+						{% for templateComponent in researchTemplate.templateComponents %}
+							{{ templateComponent.component.title}}
+						{% endfor %}
+					</div>
+						<img src="{{ asset('build/images/icons/emmpty_state_1.png') }}">
+						<h2>No elements have been added to this request template.</h2>
+						<p>Use the elements ont he left side to add some elements to this form.</p>
+						<div class="need-help-container" onclick="window.open('https://www.google.fr/', '_blank');">
+							<img src="{{ asset('build/images/icons/student_hat.png') }}">
+							<p>Need help?</p>
 					</div>
 				</section>
 			</div>
