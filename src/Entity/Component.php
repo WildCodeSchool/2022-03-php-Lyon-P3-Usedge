@@ -6,15 +6,17 @@ use App\Repository\ComponentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\InheritanceType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ComponentRepository::class)]
+#[InheritanceType("SINGLE_TABLE")]
 class Component
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private int $id;
+    private int $id;// @phpstan-ignore-line
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     #[Assert\Length(
@@ -23,7 +25,7 @@ class Component
     )]
     private string $name;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private bool $isMandatory;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -76,7 +78,7 @@ class Component
         return $this->isMandatory;
     }
 
-    public function setIsMandatory(bool $isMandatory): self
+    public function setIsMandatory(bool $isMandatory = false): self
     {
         $this->isMandatory = $isMandatory;
 

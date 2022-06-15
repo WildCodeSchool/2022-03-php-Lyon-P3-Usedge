@@ -1,10 +1,12 @@
+{{ form_start(form) }}
 <div class="modal-section-container">
     <div class="modal-section-content">
         <a href="#" class="close-modal-section modal-section-trigger">&times;</a>
         <h1>Create a new section</h1>
         <div class="input-modal-section modal-section-trigger">
-            <input type="text" id="input-modal-section" class="modal-section-trigger" placeholder="Section titre">
+            {{ form_widget(form.title) }}
         </div>
         <button type="submit" id="button-action-component-section" class="btn btn-primary modal-section-trigger">+ Add section</button>
     </div>
 </div>
+{{ form_end(form) }}
