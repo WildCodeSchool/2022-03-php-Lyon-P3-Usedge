@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Section;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,10 +14,13 @@ class SectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', TypeTextType::class, [
+        ->add('name', HiddenType::class, [
+            'attr' => ['value' => 'section',]
+        ])
+        ->add('title', TypeTextType::class, [
                 'attr' => ['class' => 'modal-section-trigger',
                             'placeholder' => 'Section titre']
-            ]);
+            ])
         ;
     }
 

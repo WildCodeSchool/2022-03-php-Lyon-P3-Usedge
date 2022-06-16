@@ -4,13 +4,11 @@ namespace App\Controller;
 
 use App\Entity\ResearchTemplate;
 use App\Entity\Section;
-use App\Entity\TemplateComponent;
 use App\Form\ResearchTemplateType;
 use App\Form\SectionType;
 use App\Repository\ResearchTemplateRepository;
-use App\Repository\SectionRepository;
 use App\Repository\TemplateComponentRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Services\ComponentLoading;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,38 +39,37 @@ class ResearchTemplateController extends AbstractController
     #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
     public function add(
         Request $request,
-        SectionRepository $sectionRepository,
         ResearchTemplate $researchTemplate,
-        ManagerRegistry $doctrine,
+        ComponentLoading $componentLoading,
         TemplateComponentRepository $tempCompRepository,
     ): Response {
+
         $section = new Section();
-        $templateComponent = new TemplateComponent();
         $form = $this->createForm(SectionType::class, $section);
         $form->handleRequest($request);
+        $componantName = $request->request->get('name');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $doctrine->getManager();
-            $id = $researchTemplate->getId();
-            $templateComponent->setResearchTemplate($researchTemplate);
-            $templateComponent->setComponent($section);
-            $orderNumber = 1;
-            $templateComponent->setNumberOrder(++$orderNumber);
+        $dataComponent = $form->getData();
+        $componantName = $dataComponent->getName();
 
-            $entityManager->persist($templateComponent);
-            $sectionRepository->add($section, true);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
+        if ($componantName) {
+            switch ($componantName) {
+                case 'section':
+                    if ($form->isSubmitted() && $form->isValid()) {
+                        $componentLoading->loadSection($dataComponent, $researchTemplate);
+                    }
+                    break;
+            }
         }
 
+        $validationErrors = $componentLoading->getCheckErrors();
         $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
 
         return $this->renderForm('research_template/add.html.twig', [
-            'form' => $form,
-            'section' => $section,
             'researchTemplate' => $researchTemplate,
+            'errors' => $validationErrors,
             'templateComponents' => $templateComponents,
+            'form' => $form,
         ]);
     }
 }
