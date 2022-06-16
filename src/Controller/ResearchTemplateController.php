@@ -38,56 +38,6 @@ class ResearchTemplateController extends AbstractController
         ]);
     }
 
-/*     #[Route('/add/{id}', name: 'add')]
-    public function add(
-        Request $request,
-        TemplateComponentRepository $tempCompRepository,
-        SingleChoiceRepository $singleRepository,
-        AnswerRepository $answerRepository,
-        ResearchTemplate $researchTemplate,
-        ManagerRegistry $doctrine,
-    ): Response {
-        $singleChoice = new SingleChoice();
-        $templateComponent = new TemplateComponent();
-        $question = $request->get('question');
-        $isMandatory = $request->get('is_mandatory');
-        if ($isMandatory != true) {
-            $isMandatory = false;
-        }
-        $inputAnswerNumber = $request->get('input-answer-number');
-        $answersValue = [];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            $answersValue[] = $request->get('answer' . $i);
-            if ($answersValue[$i] === "") {
-                continue;
-            } else {
-                if (!empty($question)) {
-                    $entityManager = $doctrine->getManager();
-                    $singleChoice->setQuestion($question);
-                    $singleChoice->setIsMandatory($isMandatory);
-                    $templateComponent->setResearchTemplate($researchTemplate);
-                    $templateComponent->setComponent($singleChoice);
-                    $templateComponent->setNumberOrder(1);
-                    $entityManager->persist($templateComponent);
-                    $singleRepository->add($singleChoice, true);
-                    $entityManager->flush();
-                    $i = 1;
-                    foreach ($answersValue as $answerValue) {
-                        if ($answerValue !== "") {
-                            $answer = new Answer();
-                            $answer->setAnswer($answerValue);
-                            $answer->setQuestion($singleChoice);
-                            $answer->setNumberOrder($i++);
-                            $answerRepository->add($answer, true);
-                        }
-                    }
-                }
-            }
-            $id = $researchTemplate->getId();
-            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
-        }
-        $templateComponents = $tempCompRepository->findby(['researchTemplate' => $researchTemplate->getId()]);
-        return $this->render('research_template/add.html.twig', [ */
     #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
     public function add(
         Request $request,
@@ -95,7 +45,6 @@ class ResearchTemplateController extends AbstractController
         ComponentUtils $componentUtils,
         TemplateComponentRepository $tempCompRepository,
     ): Response {
-
         $componentName = $request->request->get('name');
 
         if ($componentName) {
@@ -108,6 +57,9 @@ class ResearchTemplateController extends AbstractController
                         }
                     }
                     $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+                    break;
+                case 'single-choice':
+                    $componentUtils->loadSingleChoice($researchTemplate, $request);
                     break;
                 default:
                     return new Response('Error 404 - This componant is unknown.');
