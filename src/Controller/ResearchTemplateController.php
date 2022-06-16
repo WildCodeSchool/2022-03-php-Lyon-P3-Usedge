@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
+use App\Repository\TemplateComponentRepository;
+use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +24,8 @@ class ResearchTemplateController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $templateRepository->add($researchTemplate, true);
-
-            return $this->redirectToRoute('research_template_add', [], Response::HTTP_SEE_OTHER);
+            $id = $researchTemplate->getId();
+            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('research_template/index.html.twig', [
@@ -31,9 +33,39 @@ class ResearchTemplateController extends AbstractController
         ]);
     }
 
-    #[Route('/add', name: 'add')]
-    public function add(): Response
-    {
-        return $this->render('research_template/add.html.twig');
+    #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
+    public function add(
+        Request $request,
+        ResearchTemplate $researchTemplate,
+        ComponentUtils $componentUtils,
+        TemplateComponentRepository $tempCompRepository,
+    ): Response {
+
+        $componentName = $request->request->get('name');
+
+        if ($componentName) {
+            switch ($componentName) {
+                case 'evaluation-scale':
+                    $dataComponent =  $request->request->all();
+                    foreach ($dataComponent as $component) {
+                        if (is_string($component)) {
+                            $component = trim($component);
+                        }
+                    }
+                    $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+                    break;
+                default:
+                    return new Response('Error 404 - This component is unknown.');
+            }
+        }
+
+        $validationErrors = $componentUtils->getCheckErrors();
+        $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
+
+        return $this->render('research_template/add.html.twig', [
+            'researchTemplate' => $researchTemplate,
+            'errors' => $validationErrors,
+            'templateComponents' => $templateComponents,
+        ]);
     }
 }
