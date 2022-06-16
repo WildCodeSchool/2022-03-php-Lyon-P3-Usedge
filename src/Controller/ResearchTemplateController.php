@@ -49,6 +49,8 @@ class ResearchTemplateController extends AbstractController
                     $dataComponant = array_map('trim', $request->request->all());
                     $componentFixtures->loadEvaluationScale($dataComponant, $researchTemplate);
                     break;
+                default:
+                    return new Response('Error 404 - This componant is unknown.');
             }
         }
 
