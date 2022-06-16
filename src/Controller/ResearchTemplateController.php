@@ -46,9 +46,11 @@ class ResearchTemplateController extends AbstractController
         if ($componentName) {
             switch ($componentName) {
                 case 'evaluation-scale':
-                    $trim = 'trim';
-                    $dataComponant = array_map($trim, $request->request->all());
-                    $componentUtils->loadEvaluationScale($dataComponant, $researchTemplate);
+                    $dataComponent =  $request->request->all();
+                    foreach ($dataComponent as $component) {
+                        $component = trim($component);
+                    }
+                    $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
                     break;
                 default:
                     return new Response('Error 404 - This componant is unknown.');
