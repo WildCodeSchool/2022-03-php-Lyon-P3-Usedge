@@ -66,7 +66,7 @@ class ResearchTemplateController extends AbstractController
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
-        $templateComponents = $tempCompRepository->findAll();
+        $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
 
         return $this->renderForm('research_template/add.html.twig', [
             'form' => $form,
