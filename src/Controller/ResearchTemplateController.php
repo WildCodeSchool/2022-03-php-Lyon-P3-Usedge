@@ -44,32 +44,26 @@ class ResearchTemplateController extends AbstractController
         TemplateComponentRepository $tempCompRepository,
     ): Response {
 
-        $section = new Section();
-        $form = $this->createForm(SectionType::class, $section);
-        $form->handleRequest($request);
-        $componantName = $request->request->get('name');
+        $componentName = $request->request->get('name');
 
-        $dataComponent = $form->getData();
-        $componantName = $dataComponent->getName();
-
-        if ($componantName) {
-            switch ($componantName) {
+        if ($componentName) {
+            switch ($componentName) {
                 case 'section':
-                    if ($form->isSubmitted() && $form->isValid()) {
-                        $componentLoading->loadSection($dataComponent, $researchTemplate);
-                    }
+                    $dataComponent = $request->request->All();
+                    $componentLoading->loadSection($dataComponent, $researchTemplate);
                     break;
+                default:
+                    return new Response('Error 404 - This component is unknown.');
             }
         }
 
         $validationErrors = $componentLoading->getCheckErrors();
         $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
 
-        return $this->renderForm('research_template/add.html.twig', [
+        return $this->render('research_template/add.html.twig', [
             'researchTemplate' => $researchTemplate,
             'errors' => $validationErrors,
             'templateComponents' => $templateComponents,
-            'form' => $form,
         ]);
     }
 }

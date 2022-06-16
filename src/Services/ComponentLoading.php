@@ -22,22 +22,28 @@ class ComponentLoading
         return $this->checkErrors;
     }
 
-    public function loadSection(Section $dataComponent, ResearchTemplate $researchTemplate): void
+    public function loadSection(array $dataComponent, ResearchTemplate $researchTemplate): void
     {
         $templateComponent = new TemplateComponent();
         $section = new Section();
 
-        $entityManager = $this->doctrine->getManager();
+        if (strlen($dataComponent['title']) > 255) {
+            $this->checkErrors[] = 'Maximum length for title is 255 characters.';
+        }
 
-        $section->setName($dataComponent->getName());
-        $section->setTitle($dataComponent->getTitle());
-        $entityManager->persist($section);
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->doctrine->getManager();
 
-        $templateComponent->setResearchTemplate($researchTemplate);
-        $templateComponent->setComponent($section);
-        $templateComponent->setNumberOrder(1);
-        $entityManager->persist($templateComponent);
+            $section->setName($dataComponent['name']);
+            $section->setTitle($dataComponent['title']);
+            $entityManager->persist($section);
 
-        $entityManager->flush();
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($section);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
     }
 }
