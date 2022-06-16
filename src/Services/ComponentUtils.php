@@ -8,7 +8,7 @@ use App\Entity\ResearchTemplate;
 use App\Entity\TemplateComponent;
 use Doctrine\Persistence\ManagerRegistry;
 
-class ComponentFixtures
+class ComponentUtils
 {
     private ManagerRegistry $doctrine;
     private array $checkErrors = [];

@@ -6,7 +6,7 @@ use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
-use App\Services\ComponentFixtures;
+use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,24 +37,24 @@ class ResearchTemplateController extends AbstractController
     public function add(
         Request $request,
         ResearchTemplate $researchTemplate,
-        ComponentFixtures $componentFixtures,
+        ComponentUtils $componentUtils,
         TemplateComponentRepository $tempCompRepository,
     ): Response {
 
-        $componantName = $request->request->get('name');
+        $componentName = $request->request->get('name');
 
-        if ($componantName) {
-            switch ($componantName) {
+        if ($componentName) {
+            switch ($componentName) {
                 case 'evaluation-scale':
                     $dataComponant = array_map('trim', $request->request->all());
-                    $componentFixtures->loadEvaluationScale($dataComponant, $researchTemplate);
+                    $componentUtils->loadEvaluationScale($dataComponant, $researchTemplate);
                     break;
                 default:
                     return new Response('Error 404 - This componant is unknown.');
             }
         }
 
-        $validationErrors = $componentFixtures->getCheckErrors();
+        $validationErrors = $componentUtils->getCheckErrors();
         $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
 
         return $this->render('research_template/add.html.twig', [
