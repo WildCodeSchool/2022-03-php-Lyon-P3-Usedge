@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ComponentRepository::class)]
-#[InheritanceType("SINGLE_TABLE")]
+#[ORM\InheritanceType("SINGLE_TABLE")]
 class Component
 {
     #[ORM\Id]
@@ -23,30 +23,30 @@ class Component
         max: 255,
         maxMessage: 'Maximum length is 255 characters.'
     )]
-    private string $name;
+    protected string $name;
 
     #[ORM\Column(type: 'boolean')]
-    private bool $isMandatory;
+    protected bool $isMandatory;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     #[Assert\Length(
         max: 255,
         maxMessage: 'Maximum length is 255 characters.'
     )]
-    private string $title;
+    protected string $title;
 
     #[ORM\Column(type: 'text', nullable: true)]
     #[Assert\NotBlank()]
-    private string $question;
+    protected string $question;
 
     #[ORM\Column(type: 'text', nullable: true)]
-    private string $helperText;
+    protected string $helperText;
 
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class)]
-    private Collection $answers;
+    protected Collection $answers;
 
     #[ORM\OneToMany(mappedBy: 'component', targetEntity: TemplateComponent::class)]
-    private Collection $templateComponents;
+    protected Collection $templateComponents;
 
     public function __construct()
     {

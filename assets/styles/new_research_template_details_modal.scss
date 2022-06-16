@@ -1,7 +1,7 @@
 @import '_var.scss';
 
 .template-details-modal {
-    @include absolutePosition(-70%, 50%);/* Change values here in function of the page */
+    @include absolutePosition(-70%, 50%); /* Change values here in function of the page */
     @include dimension(700px, 501px);
     box-sizing: border-box;
     background-color: $primary-white-1;

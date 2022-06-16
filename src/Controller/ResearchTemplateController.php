@@ -11,7 +11,7 @@ use App\Repository\AnswerRepository;
 use App\Repository\SingleChoiceRepository;
 use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +30,6 @@ class ResearchTemplateController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $templateRepository->add($researchTemplate, true);
             $id = $researchTemplate->getId();
-
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
@@ -39,7 +38,7 @@ class ResearchTemplateController extends AbstractController
         ]);
     }
 
-    #[Route('/add/{id}', name: 'add')]
+/*     #[Route('/add/{id}', name: 'add')]
     public function add(
         Request $request,
         TemplateComponentRepository $tempCompRepository,
@@ -50,7 +49,6 @@ class ResearchTemplateController extends AbstractController
     ): Response {
         $singleChoice = new SingleChoice();
         $templateComponent = new TemplateComponent();
-        $answer = new Answer();
         $question = $request->get('question');
         $isMandatory = $request->get('is_mandatory');
         if ($isMandatory != true) {
@@ -89,7 +87,39 @@ class ResearchTemplateController extends AbstractController
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
         $templateComponents = $tempCompRepository->findby(['researchTemplate' => $researchTemplate->getId()]);
+        return $this->render('research_template/add.html.twig', [ */
+    #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
+    public function add(
+        Request $request,
+        ResearchTemplate $researchTemplate,
+        ComponentUtils $componentUtils,
+        TemplateComponentRepository $tempCompRepository,
+    ): Response {
+
+        $componentName = $request->request->get('name');
+
+        if ($componentName) {
+            switch ($componentName) {
+                case 'evaluation-scale':
+                    $dataComponent =  $request->request->all();
+                    foreach ($dataComponent as $component) {
+                        if (is_string($component)) {
+                            $component = trim($component);
+                        }
+                    }
+                    $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+                    break;
+                default:
+                    return new Response('Error 404 - This componant is unknown.');
+            }
+        }
+
+        $validationErrors = $componentUtils->getCheckErrors();
+        $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
+
         return $this->render('research_template/add.html.twig', [
+            'researchTemplate' => $researchTemplate,
+            'errors' => $validationErrors,
             'templateComponents' => $templateComponents,
         ]);
     }

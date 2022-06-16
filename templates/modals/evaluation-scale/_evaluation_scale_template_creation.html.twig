@@ -1,0 +1,49 @@
+{% if "evaluation-scale" in templateComponent.component.name %}
+    <div class="evaluation-scale-template-creation" id="evaluation-scale-template-creation" draggable="true">
+        <div class="evaluation-scale-template-draggable">
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
+        <div class="evaluation-scale-template-content">
+            <p class="evaluation-scale-template-question" id="evaluation-scale-template-question">
+                {{ templateComponent.component.question }}
+                {% if templateComponent.component.isMandatory %}
+                    <span class="evaluation-scale-red-star" id="evaluation-scale-red-star">*</span>
+                {% endif %}
+            </p>
+            <div class="evaluation-scale-template-star-container">
+                <input type="radio" name="answer" id="evaluation-scale-rate-5" value="1">
+                <label for="evaluation-scale-rate-5" class="evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input type="radio" name="answer" id="evaluation-scale-rate-4" value="2">
+                <label for="evaluation-scale-rate-4" class="evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input type="radio" name="answer" id="evaluation-scale-rate-3" value="3">
+                <label for="evaluation-scale-rate-3" class="evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input type="radio" name="answer" id="evaluation-scale-rate-2" value="4">
+                <label for="evaluation-scale-rate-2" class="evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input type="radio" name="answer" id="evaluation-scale-rate-1" value="5">
+                <label for="evaluation-scale-rate-1" class="evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+            </div>
+            <div class="evaluation-scale-template-levels">
+                <p class="evaluation-scale-template-low-label" id="evaluation-scale-template-low-label">
+                    {{ templateComponent.component.lowLabel }}
+                </p>
+                <p class="evaluation-scale-template-high-label" id="evaluation-scale-template-high-label">
+                    {{ templateComponent.component.highLabel }}
+                </p>
+            </div>
+        </div>
+        <div class="evaluation-scale-template-actions">
+            <img src="{{ asset('build/images/icons/edit.png') }}"/>
+            <img src="{{ asset('build/images/icons/close.png') }}"/>
+        </div>
+    </div>
+{% endif %}
