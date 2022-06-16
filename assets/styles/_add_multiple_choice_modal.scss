@@ -6,7 +6,7 @@
 
 // define modal style  
 
-.full-screen-container-modal-close{
+.full-screen-multiple-container-modal-close{
     display: none;
     @include dimension(100%, 100%);
     position: fixed; 
@@ -112,11 +112,11 @@
 
 // display modal
 
-.hide-body-overflow {
+.hide-body-multiple-overflow {
     overflow: hidden;
 }
 
-.full-screen-container-modal-close-display {
+.full-screen-multiple-container-modal-close-display {
     display: block;
 }
 

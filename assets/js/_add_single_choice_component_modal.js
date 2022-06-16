@@ -5,13 +5,13 @@ const { eventListeners } = require("@popperjs/core");
 if (document.getElementById('button_answer_single_choice')) {
 
     /*Action to insert an input when the user click on the button + in the modal*/
-    const button = document.getElementById('button_answer_single_choice');
+    const singleButton = document.getElementById('button_answer_single_choice');
     const singleAnswerContainer = document.getElementById('single_answer_container');
     const addSingleChoiceModalOpenButton = document.getElementById('add-single-choice-button');
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
-    const addFullScreenContainerModalClose= document.getElementById('full-screen-container-modal-close');
+    const addFullScreenSingleContainerModalClose = document.getElementById('full-screen-single-container-modal-close');
     const newComponentSingleChoiceForm = document.getElementById('new-component-single-choice-form');
-    const body = document.getElementById('body');
+    const bodySingle = document.getElementById('body');
 
     /* newComponentSingleChoiceForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -26,20 +26,21 @@ if (document.getElementById('button_answer_single_choice')) {
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
         addSingleChoiceModal.classList.add('add-single-choice-modal-display');
-        addFullScreenContainerModalClose.classList.add('full-screen-container-modal-close-display');
-        body.classList.add('hide-body-overflow');
+        addFullScreenSingleContainerModalClose.classList.add('full-screen-single-container-modal-close-display');
+        bodySingle.classList.add('hide-body-single-overflow');
+
+        // Function used to close the modal when click outside the modal
+        window.onclick = function (event) {
+            if (event.target == addFullScreenSingleContainerModalClose) {
+                addSingleChoiceModal.classList.remove('add-single-choice-modal-display');
+                addFullScreenSingleContainerModalClose.classList.remove('full-screen-single-container-modal-close-display');
+                bodySingle.classList.remove('hide-body-single-overflow');
+            }
+        };
     });
- 
-    // Function used to close the modal when click outside the modal
-    window.onclick = function(event) {
-        if (event.target == addFullScreenContainerModalClose) {
-            addSingleChoiceModal.classList.remove('add-single-choice-modal-display'); 
-            addFullScreenContainerModalClose.classList.remove('full-screen-container-modal-close-display');
-            body.classList.remove('hide-body-overflow');
-        }
-    }; 
+
     // function to create div and input
-    button.addEventListener('click', function() {
+    singleButton.addEventListener('click', function () {
         const newInputAnswer = document.createElement('input');
         const deleteInputAnswer = document.createElement('div');
         const dragAndDrop = document.createElement('div');
@@ -56,23 +57,22 @@ if (document.getElementById('button_answer_single_choice')) {
         const inputAnswerNumber = document.getElementById('input-answer-number');
         inputAnswerNumber.value = inputAnswers.length;
         for (const deleteInputAnswer of deleteInputAnswers) {
-            deleteInputAnswer.onclick = function(event) {
-                let target =  event.target;
-                if (target === deleteInputAnswer){
+            deleteInputAnswer.onclick = function (event) {
+                let target = event.target;
+                if (target === deleteInputAnswer) {
                     target.remove();
                     for (let i = 0; i < inputAnswers.length; i++) {
                         const inputAnswer = inputAnswers[i];
                         inputAnswer.setAttribute('name', 'answer' + i);
                         inputAnswer.setAttribute('id', 'input_answer' + i);
                     }
-                }        
+                }
             }
             for (let i = 0; i < inputAnswers.length; i++) {
                 const inputAnswer = inputAnswers[i];
-                inputAnswer.setAttribute('name', 'answer' + i );
+                inputAnswer.setAttribute('name', 'answer' + i);
                 inputAnswer.setAttribute('id', 'input_answer' + i);
             }
-
         }
     });
 }
