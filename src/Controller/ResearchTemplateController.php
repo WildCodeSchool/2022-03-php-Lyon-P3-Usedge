@@ -62,7 +62,7 @@ class ResearchTemplateController extends AbstractController
                     $componentUtils->loadSingleChoice($researchTemplate, $request);
                     break;
                 default:
-                    return new Response('Error 404 - This componant is unknown.');
+                    return new Response('Error 404 - This component is unknown.');
             }
         }
 
