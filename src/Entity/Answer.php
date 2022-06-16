@@ -15,6 +15,9 @@ class Answer
     private int $id;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(
+        message: 'This field can not be empty',
+    )]
     private string $answer;
 
     #[ORM\Column(type: 'integer')]

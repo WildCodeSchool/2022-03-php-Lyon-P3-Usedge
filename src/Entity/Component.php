@@ -36,6 +36,7 @@ class Component
     private string $title;
 
     #[ORM\Column(type: 'text', nullable: true)]
+    #[Assert\NotBlank()]
     private string $question;
 
     #[ORM\Column(type: 'text', nullable: true)]

@@ -42,6 +42,7 @@ class ResearchTemplateController extends AbstractController
     #[Route('/add/{id}', name: 'add')]
     public function add(
         Request $request,
+        TemplateComponentRepository $tempCompRepository,
         SingleChoiceRepository $singleRepository,
         AnswerRepository $answerRepository,
         ResearchTemplate $researchTemplate,
@@ -59,28 +60,37 @@ class ResearchTemplateController extends AbstractController
         $answersValue = [];
         for ($i = 0; $i < $inputAnswerNumber; $i++) {
             $answersValue[] = $request->get('answer' . $i);
-        }
-        if (!empty($question)) {
-            $entityManager = $doctrine->getManager();
-            $singleChoice->setQuestion($question);
-            $singleChoice->setIsMandatory($isMandatory);
-            $templateComponent->setResearchTemplate($researchTemplate);
-            $templateComponent->setComponent($singleChoice);
-            $templateComponent->setNumberOrder(1);
-            $entityManager->persist($templateComponent);
-            $singleRepository->add($singleChoice, true);
-            $entityManager->flush();
-            $i = 1;
-            foreach ($answersValue as $answerValue) {
-                $answer = new Answer();
-                $answer->setAnswer($answerValue);
-                $answer->setQuestion($singleChoice);
-                $answer->setNumberOrder($i++);
-                $answerRepository->add($answer, true);
+            if ($answersValue[$i] === "") {
+                continue;
+            } else {
+                if (!empty($question)) {
+                    $entityManager = $doctrine->getManager();
+                    $singleChoice->setQuestion($question);
+                    $singleChoice->setIsMandatory($isMandatory);
+                    $templateComponent->setResearchTemplate($researchTemplate);
+                    $templateComponent->setComponent($singleChoice);
+                    $templateComponent->setNumberOrder(1);
+                    $entityManager->persist($templateComponent);
+                    $singleRepository->add($singleChoice, true);
+                    $entityManager->flush();
+                    $i = 1;
+                    foreach ($answersValue as $answerValue) {
+                        if ($answerValue !== "") {
+                            $answer = new Answer();
+                            $answer->setAnswer($answerValue);
+                            $answer->setQuestion($singleChoice);
+                            $answer->setNumberOrder($i++);
+                            $answerRepository->add($answer, true);
+                        }
+                    }
+                }
             }
             $id = $researchTemplate->getId();
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
-        return $this->render('research_template/add.html.twig', []);
+        $templateComponents = $tempCompRepository->findby(['researchTemplate' => $researchTemplate->getId()]);
+        return $this->render('research_template/add.html.twig', [
+            'templateComponents' => $templateComponents,
+        ]);
     }
 }
