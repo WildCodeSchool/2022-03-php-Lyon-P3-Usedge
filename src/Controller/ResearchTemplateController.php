@@ -46,7 +46,8 @@ class ResearchTemplateController extends AbstractController
         if ($componentName) {
             switch ($componentName) {
                 case 'evaluation-scale':
-                    $dataComponant = array_map('trim', $request->request->all());
+                    $trim = 'trim';
+                    $dataComponant = array_map($trim, $request->request->all());
                     $componentUtils->loadEvaluationScale($dataComponant, $researchTemplate);
                     break;
                 default:
