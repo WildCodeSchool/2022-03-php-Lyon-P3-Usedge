@@ -48,7 +48,7 @@ class ResearchTemplateController extends AbstractController
                 case 'evaluation-scale':
                     $dataComponent =  $request->request->all();
                     foreach ($dataComponent as $component) {
-                        if (gettype($component) === 'integer') {
+                        if (is_string($component)) {
                             $component = trim($component);
                         }
                     }
