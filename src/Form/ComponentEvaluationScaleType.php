@@ -37,7 +37,6 @@ class ComponentEvaluationScaleType extends AbstractType
                 ],
                 'required' => true
             ])
-            ->add('isMultiple')
             ->add('lowLabel', TextType::class, [
                 'attr' => [
                     'class' => 'evaluation-scale-input',

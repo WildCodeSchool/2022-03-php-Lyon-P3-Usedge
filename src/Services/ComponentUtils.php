@@ -58,7 +58,6 @@ class ComponentUtils
             $evalScaleComponent->setQuestion($dataComponent['question']);
             $evalScaleComponent->setLowLabel($dataComponent['low-label']);
             $evalScaleComponent->setHighLabel($dataComponent['high-label']);
-            $evalScaleComponent->setIsMultiple($dataComponent['is_multiple']);
             $evalScaleComponent->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($evalScaleComponent);
 

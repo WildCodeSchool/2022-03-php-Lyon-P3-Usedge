@@ -55,7 +55,7 @@ class ResearchTemplateController extends AbstractController
                     $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
                     break;
                 default:
-                    return new Response('Error 404 - This componant is unknown.');
+                    return new Response('Error 404 - This component is unknown.');
             }
         }
 
