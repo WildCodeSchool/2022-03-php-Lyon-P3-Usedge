@@ -1,7 +1,7 @@
 @import '_var.scss';
 
 .template-details-modal {
-    @include absolutePosition(-70%, 50%);/* Change values here in function of the page */
+    @include absolutePosition(-70%, 50%); /* Change values here in function of the page */
     @include dimension(700px, 501px);
     box-sizing: border-box;
     background-color: $primary-white-1;
@@ -110,7 +110,7 @@
                     }
                 }
                 .template-icon-close {
-                    @include absolutePosition(55px, 223px);
+                    @include absolutePosition(7px, 223px);
                     @include dimension(25px, 25px);
                     &:hover {
                         cursor: pointer;

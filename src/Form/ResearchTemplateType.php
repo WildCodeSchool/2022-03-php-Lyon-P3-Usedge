@@ -62,8 +62,8 @@ class ResearchTemplateType extends AbstractType
                 'label_attr' => [
                     'class' => 'modal-coach-select-label'
                 ],
-                'choice_attr' => [
-                    'class' => 'coach-select'
+                'attr' => [
+                    'class' => 'modal-input'
                 ],
                 'choices' => [
                     'John Doe' => 'John Doe',

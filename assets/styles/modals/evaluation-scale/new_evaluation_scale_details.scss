@@ -1,0 +1,91 @@
+@import '../../_var.scss';
+
+.evaluation-scale-creation-modal-display {
+    display: flex !important;
+};
+
+.evaluation-scale-creation-modal {
+    @include dimension(390px, 412px);
+    @include absolutePosition(50px, 370px); 
+    background-color: $primary-white-1;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+    border-radius: $border-radius-10;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px;
+    gap: 20px;
+    z-index: 2;
+    .evaluation-scale-modal-title {
+        @include textStyle($text-font, $font-size-18, $font-weight-600, black);
+        letter-spacing: 0.116667px;
+    }
+    .evaluation-scale-modal-fields {
+        @include dimension(320px, 201px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 15px;
+        .evaluation-scale-input {
+            @include dimension(320px, 42px);
+            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            background-color: $primary-white-1;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            padding: 12px 0px 12px 12px;
+            gap: 5px;
+            letter-spacing: 0.116667px;
+            &::placeholder {
+                opacity: 0.3;
+            }
+        }
+        .evaluation-scale-star-container {
+            display: flex;
+            align-items: flex-start;
+            padding: 0;
+            gap: 15px;
+            input[type="radio"] {
+                display: none;
+            }
+            .evaluation-scale-template-rate {
+                @include dimension(27.5px, 27.5px);
+                img {
+                    width: 27.5px;
+                }
+            }
+        }
+        .evaluation-scale-modal-mandatory {
+            @include dimension(158px, 18px);
+            display: flex;
+            align-items: center;
+            padding: 0;
+            gap: 5px;
+            .evaluation-scale-checkbox-mandatory[type="checkbox"] {
+                @include dimension(16px, 16px);
+                border: 1px solid $primary-blue-1 !important;
+                border-radius: 2px;
+            }
+            .evaluation-scale-label-mandatory {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                line-height: 18px;
+            }
+        }
+        .evaluation-scale-modal-button {
+            @include button($primary-blue-1, $border-radius-10, none);
+            @include dimension(320px, 42px);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            .evaluation-scale-icon-modal-button {
+                width: 11.25px;
+                margin-right: 5px;
+            }
+        }
+    }
+}

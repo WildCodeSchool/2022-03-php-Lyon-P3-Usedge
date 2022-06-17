@@ -3,12 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\ResearchTemplate;
-use App\Entity\Section;
 use App\Form\ResearchTemplateType;
-use App\Form\SectionType;
 use App\Repository\ResearchTemplateRepository;
-use App\Repository\TemplateComponentRepository;
-use App\Services\ComponentLoading;
+use App\Services\CheckDataUtils;
+use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +25,6 @@ class ResearchTemplateController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $templateRepository->add($researchTemplate, true);
             $id = $researchTemplate->getId();
-
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
@@ -40,30 +37,33 @@ class ResearchTemplateController extends AbstractController
     public function add(
         Request $request,
         ResearchTemplate $researchTemplate,
-        ComponentLoading $componentLoading,
-        TemplateComponentRepository $tempCompRepository,
+        ComponentUtils $componentUtils,
+        CheckDataUtils $checkDataUtils,
     ): Response {
-
+        $dataComponent = $checkDataUtils->trimData($request);
         $componentName = $request->request->get('name');
+        $componentNameSingle = $request->get('singleName');
+        $componentSectionName = $request->request->get('sectionName');
 
-        if ($componentName) {
-            switch ($componentName) {
-                case 'section':
-                    $dataComponent = $request->request->All();
-                    $componentLoading->loadSection($dataComponent, $researchTemplate);
-                    break;
-                default:
-                    return new Response('Error 404 - This component is unknown.');
-            }
+        if ($componentNameSingle === 'single-choice') {
+            $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
+            $id = $researchTemplate->getId();
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
         }
-
-        $validationErrors = $componentLoading->getCheckErrors();
-        $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
+        if ($componentName === 'evaluation-scale') {
+            $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+        }
+        if ($componentSectionName === 'section') {
+            $componentUtils->loadSection($dataComponent, $researchTemplate);
+        }
+        $validationErrors = $componentUtils->getCheckErrors();
 
         return $this->render('research_template/add.html.twig', [
             'researchTemplate' => $researchTemplate,
-            'errors' => $validationErrors,
-            'templateComponents' => $templateComponents,
+            'errors' => $validationErrors
         ]);
     }
 }
