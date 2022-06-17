@@ -1,13 +1,18 @@
 @import "~bootstrap/scss/bootstrap";
+
+// main scss
 @import '_homePage.scss';
 @import "add_research_template.scss";
-@import "new_research_template_details_modal.scss";
 @import '_components.scss';
 
+// modals scss
 @import "modals/single-choice/add_single_choice_modal.scss";
-@import "modals/single-choice/single-choice-details.scss";
 @import 'modals/evaluation-scale/new_evaluation_scale_details.scss';
-@import 'modals/evaluation-scale/evaluation_scale_template_creation.scss';
 @import 'modals/section/component-section.scss';
+@import 'modals/date-picker/date-picker-modal.scss';
+@import "new_research_template_details_modal.scss";
 
-
+// display-selected-component scss
+@import "display-selected-component/display-single-choice-question.scss";
+@import "display-selected-component/display-date-picker.scss";
+@import 'display-selected-component/evaluation_scale_template_creation.scss';

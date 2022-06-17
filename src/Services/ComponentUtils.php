@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Entity\Answer;
 use App\Entity\ComponentEvaluationScale;
+use App\Entity\DatePicker;
 use App\Entity\ResearchTemplate;
 use App\Entity\Section;
 use App\Entity\SingleChoice;
@@ -114,6 +115,33 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($section);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
+    public function loadDatapicker(array $dataComponent, ResearchTemplate $researchTemplate): void
+    {
+        $templateComponent = new TemplateComponent();
+        $datepicker = new DatePicker();
+        $this->checkErrors = $this->checkDataUtils->checkDataDatePicker($dataComponent);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager =  $this->entityManager;
+
+            $datepicker->setName($dataComponent['datePickerName']);
+            $datepicker->setTitle($dataComponent['title-date-picker']);
+            $datepicker->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->persist($datepicker);
+
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($datepicker);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
 

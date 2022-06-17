@@ -41,11 +41,8 @@ class ResearchTemplateController extends AbstractController
         CheckDataUtils $checkDataUtils,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-        $componentName = $request->request->get('name');
-        $componentNameSingle = $request->get('singleName');
-        $componentSectionName = $request->request->get('sectionName');
 
-        if ($componentNameSingle === 'single-choice') {
+        if (in_array('single-choice', $dataComponent)) {
             $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
             $id = $researchTemplate->getId();
 
@@ -53,11 +50,14 @@ class ResearchTemplateController extends AbstractController
                 'id' => $id,
             ], Response::HTTP_SEE_OTHER);
         }
-        if ($componentName === 'evaluation-scale') {
+        if (in_array('evaluation-scale', $dataComponent)) {
             $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
         }
-        if ($componentSectionName === 'section') {
+        if (in_array('section', $dataComponent)) {
             $componentUtils->loadSection($dataComponent, $researchTemplate);
+        }
+        if (in_array('date-picker', $dataComponent)) {
+            $componentUtils->loadDatapicker($dataComponent, $researchTemplate);
         }
         $validationErrors = $componentUtils->getCheckErrors();
 

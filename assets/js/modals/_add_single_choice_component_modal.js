@@ -10,25 +10,20 @@ if (document.getElementById('button_answer_single_choice')) {
     const addFullScreenContainerModalClose= document.getElementById('full-screen-container-modal-close');
     const body = document.getElementById('body');
 
-    
-
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
         addSingleChoiceModal.classList.add('add-single-choice-modal-display');
         addFullScreenContainerModalClose.classList.add('full-screen-container-modal-close-display');
         body.classList.add('hide-body-overflow');
+        // Function used to close the modal when click outside the modal
+        window.onclick = function(event) {
+            if (event.target == addFullScreenContainerModalClose) {
+                addSingleChoiceModal.classList.remove('add-single-choice-modal-display'); 
+                addFullScreenContainerModalClose.classList.remove('full-screen-container-modal-close-display');
+                body.classList.remove('hide-body-overflow');
+            }
+        };
     });
- 
-    // Function used to close the modal when click outside the modal
-    window.onclick = function(event) {
-        if (event.target == addFullScreenContainerModalClose) {
-            addSingleChoiceModal.classList.remove('add-single-choice-modal-display'); 
-            addFullScreenContainerModalClose.classList.remove('full-screen-container-modal-close-display');
-            body.classList.remove('hide-body-overflow');
-        }
-    };
-
-    
 
     // function to create div and input
     button.addEventListener('click', function() {
@@ -45,7 +40,6 @@ if (document.getElementById('button_answer_single_choice')) {
         singleAnswerContainer.appendChild(deleteInputAnswer);
         // function to delete input
         const deleteInputAnswers = document.getElementsByClassName('delete-input-answer');
-        
         const inputAnswers = document.getElementsByClassName('input_answer');
         const inputAnswerNumber = document.getElementById('input-answer-number');
         inputAnswerNumber.value = inputAnswers.length;
