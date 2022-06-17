@@ -22,7 +22,7 @@
 
 					<section class="frame-1123">
 						<div class="status-container-1">
-							<h2>{{ researchTemplate.id }} - {{ researchTemplate.name }}</h2>
+							<h2>{{ researchTemplate.name }}</h2>
 							<div>
 								<img src="{{ asset('build/images/icons/green-dot.png') }}">
 								<p>All changes saved</p>
@@ -186,6 +186,9 @@
 				</div>
 				<section class="form-builder">
 					<div id="display_form_builder">
+						{% for error in errors %}
+							<p class="text-danger">{{ error }}</p>
+						{% endfor %}
 						{% for templateComponent in templateComponents %}
 							{% include 'modals/section/_component_section_layout.html.twig' %}
 						{% endfor %}
