@@ -31,11 +31,16 @@ class ComponentLoading
             $this->checkErrors[] = 'Maximum length for title is 255 characters.';
         }
 
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
         if (empty($this->checkErrors)) {
             $entityManager = $this->doctrine->getManager();
 
             $section->setName($dataComponent['name']);
             $section->setTitle($dataComponent['title']);
+            $section->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($section);
 
             $templateComponent->setResearchTemplate($researchTemplate);

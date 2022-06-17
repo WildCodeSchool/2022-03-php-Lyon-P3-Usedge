@@ -25,7 +25,7 @@ class Component
     )]
     private string $name;
 
-    #[ORM\Column(type: 'boolean', nullable: true)]
+    #[ORM\Column(type: 'boolean')]
     private bool $isMandatory;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -75,7 +75,7 @@ class Component
         return $this->isMandatory;
     }
 
-    public function setIsMandatory(bool $isMandatory = false): self
+    public function setIsMandatory(bool $isMandatory): self
     {
         $this->isMandatory = $isMandatory;
 
