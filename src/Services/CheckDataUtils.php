@@ -72,7 +72,7 @@ class CheckDataUtils
     public function checkDataSection(array $dataComponent): array
     {
         if (strlen($dataComponent['title']) > 255) {
-            $this->checkErrors[] = 'Maximum length for low label is 255 characters.';
+            $this->checkErrors[] = 'Maximum length for title is 255 characters.';
         }
         return $this->checkErrors;
     }

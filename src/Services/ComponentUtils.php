@@ -98,6 +98,7 @@ class ComponentUtils
     {
         $templateComponent = new TemplateComponent();
         $section = new Section();
+        $this->checkErrors = $this->checkDataUtils->checkDataSection($dataComponent);
 
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
@@ -106,7 +107,7 @@ class ComponentUtils
         if (empty($this->checkErrors)) {
             $entityManager =  $this->entityManager;
 
-            $section->setName($dataComponent['name']);
+            $section->setName($dataComponent['sectionName']);
             $section->setTitle($dataComponent['title']);
             $section->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($section);

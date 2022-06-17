@@ -54,11 +54,7 @@
 									<p>Delimitate a part of your template.</p>
 								</div>
 								<div class="component-picture-2">
-<<<<<<< HEAD
 									<a href="#" class="modal-section-btn- modal-section-trigger"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
-=======
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
->>>>>>> dev
 								</div>
 							</div>
 							<div>{% include 'modals/section/_component_section.html.twig' %}</div>
@@ -179,26 +175,13 @@
 						{% for error in errors %}
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
-<<<<<<< HEAD
-						{% for templateComponent in templateComponents %}
-							{% include 'modals/section/_component_section_layout.html.twig' %}
-						{% endfor %}
-					</div>
-					{% if templateComponents is empty %}
-						<img src="{{ asset('build/images/icons/emmpty_state_1.png') }}">
-						<h2>No elements have been added to this request template.</h2>
-						<p>Use the elements ont he left side to add some elements to this form.</p>
-						<div class="need-help-container" onclick="window.open('https://www.google.fr/', '_blank');">
-							<img src="{{ asset('build/images/icons/student_hat.png') }}">
-							<p>Need help?</p>
-					{% endif %}
-=======
 						{% for templateComponent in researchTemplate.templateComponents %}
+
 							{% include "modals/single-choice/_single_choice_details.html.twig" %}
 							{% include "modals/evaluation-scale/_evaluation_scale_template_creation.html.twig" %}
+							{% include 'modals/section/_component_section_layout.html.twig' %}
 							
 						{% endfor %}
->>>>>>> dev
 					</div>
 					{% if researchTemplate.templateComponents is empty %}
 						<img src="{{ asset('build/images/icons/emmpty_state_1.png') }}">

@@ -1,3 +1,4 @@
+{% if "section" in templateComponent.component.name %}
 <div class="section_title_display">
         <div class="section_title_move">
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
@@ -10,3 +11,4 @@
                 <img src="{{ asset('build/images/icons/close.png') }}"/>
         </div>
 </div>
+{% endif %}
