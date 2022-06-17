@@ -110,7 +110,7 @@
                     }
                 }
                 .template-icon-close {
-                    @include absolutePosition(55px, 223px);
+                    @include absolutePosition(7px, 223px);
                     @include dimension(25px, 25px);
                     &:hover {
                         cursor: pointer;
