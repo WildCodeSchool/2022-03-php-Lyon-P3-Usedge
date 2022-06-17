@@ -188,12 +188,18 @@
 }
 
 .component {
+    @include dimension(352px, 64px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     border: 1px solid $primary-blue-2;
     border-radius: $border-radius-10;
+    margin-bottom: 12px;
+    &:hover {
+        border: 1px solid #6580FF;
+        transition: 500ms ease-in-out;
+    }
 }
 
 .component-picture-1 {

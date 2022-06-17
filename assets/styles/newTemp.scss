@@ -1,129 +1,99 @@
 @import '_var.scss';
 
-.pageAllResearch {
+.research-template-list-page {
     display: flex;
     gap: 40px;
-}
+    .research-template-list-sidebar {
+        @include dimension(270px, 1080px);
+    }
+    .research-template-list-display {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 0px;
+        gap: 20px;
+        width: 81vw ;
+        .research-template-list-header {
+            @include dimension(1572px, 40px);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 10px;
+            .research-template-list-header-return {
+                @include dimension(30px, 30px);
+                display: flex;
+                align-items: center;
+            }
+            .research-template-list-header-title {
+                @include dimension(1532px, 40px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 5px;
+                .research-template-list-header-first-title {
+                    @include dimension(188px, 15px);
+                    @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-grey-4);
+                    font-style: normal;
+                    line-height: 15px;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.116667px;
+                    margin-bottom: 0px;
+                }
+                .research-template-list-header-second-title {
+                    @include dimension(211px, 20px);
+                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-5);
+                    font-style: normal;
+                    line-height: 20px;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: -0.8px;
+                }
+            }
 
-.sidebar {
-    width: 270px;
-    height: 1080px;
-}
-
-.pageContent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 35px 0px;
-    gap: 20px;
-    width: 81vw ;
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 10px;
-    width: 1572px;
-    height: 40px;
-}
-
-.template-list-return-icon {
-    display: flex;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-}
-
-.title {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
-    width: 1532px;
-    height: 40px;
-}
-
-.title1 {
-    width: 188px;
-    height: 15px;
-    font-family: "Source Sans Pro";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.116667px;
-    color: #adadb5;
-    margin-bottom: 0px;
-}
-
-.tilte2 {
-    width: 211px;
-    height: 20px;
-    font-family: "Spartan";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    letter-spacing: -0.8px;
-    color: #12033b;
-}
-
-.sessionList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    gap: 25px;
-    width: 100%;
-    background: #ffffff;
-    border: 2px solid #ecefff;
-    border-radius: 10px;
-}
-
-.text1 {
-    width: 532px;
-    height: 20px;
-    font-family: "Spartan";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 20px;
-    text-align: center;
-    letter-spacing: -0.8px;
-    color: #1d2a78;
-}
-
-.text2 {
-    width: 532px;
-    height: 20px;
-    font-family: "Source Sans Pro";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    letter-spacing: 0.116667px;
-    color: #676874;
-}
-
-.buttonHelp {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    gap: 5px;
-    width: 179px;
-    height: 42px;
-    background: #6580ff;
-    border-radius: 10px;
-    color: white;
-    font-size: 12px;
+        }
+        .research-template-list-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            gap: 25px;
+            width: 100%;
+            background: #ffffff;
+            border: 2px solid #ecefff;
+            border-radius: 10px;
+            .research-template-list-main-text {
+                .research-template-list-main-first-text {
+                    @include dimension(532px, 20px);
+                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    font-style: normal;
+                    line-height: 17px;
+                    text-align: center;
+                    letter-spacing: -0.8px;
+                    margin-bottom: 0;
+                }
+                .research-template-list-main-second-text {
+                    @include dimension(532px, 20px);
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                    font-style: normal;
+                    line-height: 20px;
+                    text-align: center;
+                    letter-spacing: 0.116667px;
+                }
+            }
+            .research-template-list-add-button {
+                @include button($primary-blue-1, $border-radius-10, none);
+                @include dimension(179px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                gap: 5px;
+            }
+        }
+    }
 }

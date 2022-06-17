@@ -5,31 +5,35 @@
 
 
 {% block body %}
-	<main class="pageAllResearch">
-		<aside class="sidebar">
+	<main class="research-template-list-page">
+
+		<aside class="research-template-list-sidebar">
 			<img src="{{ asset('build/images/sidebar.png') }}">
 		</aside>
-		<div class="pageContent">
+
+		<div class="research-template-list-display">
+
 			<header>
-				<div class="header">
-					<div class="template-list-return-icon">
+				<div class="research-template-list-header">
+					<div class="research-template-list-header-return">
 						<a href="/"><img src="{{ asset('build/images/icons/Shape.png') }}"></a>
 					</div>
-					<div class="title">
-						<p class="title1">RESEARCH CENTER TEMPLATE</p>
-                        <p class="title2">No templates available</p>
+					<div class="research-template-list-header-title">
+						<p class="research-template-list-header-first-title">RESEARCH CENTER TEMPLATE</p>
+                        <p class="research-template-list-header-second-title">No templates available</p>
 					</div>
 				</div>
 			</header>
-			<div class="sessionList">
+
+			<div class="research-template-list-main">
 				<div class="emmptyState">
 					<img src="{{ asset('build/images/emmpty_state_ 1.png') }}">
 				</div>
-				<div class="text">
-					<p class="text1">No elements have been added to this request template</p>
-					<p class="text2">Use the elemnts on the left side add some elements to this form</p>
+				<div class="research-template-list-main-text">
+					<p class="research-template-list-main-first-text">You don't have any requests created yet!</p>
+					<p class="research-template-list-main-second-text">Create a first request template your team will be able to submit</p>
 				</div>
-				<button class="buttonHelp" id="add-template-button"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
+				<button class="research-template-list-add-button" id="add-template-button"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
 				{% include "modals/_new_research_template_details.html.twig" %}
 			</div>
 
