@@ -54,7 +54,7 @@
 									<p>Delimitate a part of your template.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 								
 							</div>
@@ -68,9 +68,10 @@
 									<p>Give a single option for your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-single-choice-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							<div>{% include "modals/_add_single_choice_modal.html.twig" %}</div>
 
 							<div class="component">
 								<div class="component-picture-1">
@@ -81,7 +82,7 @@
 									<p>Select an element from a list.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 
@@ -94,7 +95,7 @@
 									<p>Ask for a date to your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 
@@ -107,7 +108,7 @@
 									<p>To add some space.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 
@@ -120,24 +121,7 @@
 									<p>Give multiples choices to your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#modal" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
-								</div>
-							</div>
-							<div id="modal" class="modal_multiple_choice">
-								<div class="modal_content_multiple_choice">
-									<h4>Create a multiple choice question</h4>
-									<input type="text" id="input_question" name="form_answer" placeholder="What is your question ?">
-									<p><span>Options available<span></p>
-									<div id="form_answer">
-										<input type="hidden" id="input_answer" class="form_answer" placeholder="Answer">
-									</div>
-										<button type="button" id="button_answer">+</button>
-									<div>
-										<input type="checkbox" class="input_mandatory" name="is_mandatory" checked>
-										<label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
-									</div>
-									<button type="submit" id="button_action_component" class="btn btn-primary">+ Add multiple choice question</button>
-									<a href="#" class="modal_close">&times;</a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 
@@ -150,7 +134,7 @@
 									<p>Get open answers from user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 
@@ -164,7 +148,7 @@
 									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#evaluation-scale" id="evaluation-scale-button"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="evaluation-scale-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 							{% include "modals/evaluation-scale/_new_evaluation_scale_details.html.twig" %}
@@ -179,7 +163,7 @@
 									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" id="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 						</div>
@@ -192,11 +176,13 @@
 						{% for error in errors %}
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
-						{% for templateComponent in templateComponents %}
+						{% for templateComponent in researchTemplate.templateComponents %}
+							{% include "modals/single-choice/_single_choice_details.html.twig" %}
 							{% include "modals/evaluation-scale/_evaluation_scale_template_creation.html.twig" %}
+							
 						{% endfor %}
 					</div>
-					{% if templateComponents is empty %}
+					{% if researchTemplate.templateComponents is empty %}
 						<img src="{{ asset('build/images/icons/emmpty_state_1.png') }}">
 						<h2>No elements have been added to this request template.</h2>
 						<p>Use the elements ont he left side to add some elements to this form.</p>
