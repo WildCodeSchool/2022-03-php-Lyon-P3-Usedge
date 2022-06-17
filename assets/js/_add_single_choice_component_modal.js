@@ -1,7 +1,5 @@
 // Careful : for first const, check real button id when integration !
 
-/* const { eventListeners } = require("@popperjs/core"); */
-
 if (document.getElementById('button_answer_single_choice')) {
 
     /*Action to insert an input when the user click on the button + in the modal*/
@@ -41,7 +39,7 @@ if (document.getElementById('button_answer_single_choice')) {
         deleteInputAnswer.classList.add('delete-input-answer');
         dragAndDrop.classList.add('drag-and-drop');
         newInputAnswer.type = 'text';
-        /* newInputAnswer.setAttribute('required', 'required') */
+        newInputAnswer.setAttribute('required', 'required');
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         singleAnswerContainer.appendChild(deleteInputAnswer);
