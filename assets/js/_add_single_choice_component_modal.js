@@ -1,6 +1,6 @@
 // Careful : for first const, check real button id when integration !
 
-const { eventListeners } = require("@popperjs/core");
+/* const { eventListeners } = require("@popperjs/core"); */
 
 if (document.getElementById('button_answer_single_choice')) {
 
@@ -11,8 +11,7 @@ if (document.getElementById('button_answer_single_choice')) {
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
     const addFullScreenContainerModalClose= document.getElementById('full-screen-container-modal-close');
     const body = document.getElementById('body');
-    const newComponentSingleChoiceForm = document.getElementById('new-component-single-choice-form');
-    const inputAnswers = document.getElementsByClassName('input_answer');
+
     
 
     // Function used to open the modal
@@ -42,6 +41,7 @@ if (document.getElementById('button_answer_single_choice')) {
         deleteInputAnswer.classList.add('delete-input-answer');
         dragAndDrop.classList.add('drag-and-drop');
         newInputAnswer.type = 'text';
+        /* newInputAnswer.setAttribute('required', 'required') */
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         singleAnswerContainer.appendChild(deleteInputAnswer);
@@ -62,6 +62,7 @@ if (document.getElementById('button_answer_single_choice')) {
                         const inputAnswer = inputAnswers[i];
                         inputAnswer.setAttribute('name', 'answer' + i);
                         inputAnswer.setAttribute('id', 'input_answer' + i);
+                        inputAnswerNumber.value = inputAnswers.length;
                     }
                 }        
             }
@@ -74,12 +75,4 @@ if (document.getElementById('button_answer_single_choice')) {
 
         }
     });
-    
-    // function to prevent the sending of the form if the response fields do not exist 
-    newComponentSingleChoiceForm.addEventListener('submit', function(event) {
-        if (inputAnswers.length === 0) {
-            event.preventDefault();
-        }
-        
-    })
 }

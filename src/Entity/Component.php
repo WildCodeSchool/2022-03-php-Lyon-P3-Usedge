@@ -36,7 +36,11 @@ class Component
     protected string $title;
 
     #[ORM\Column(type: 'text', nullable: true)]
-    #[Assert\NotBlank()]
+    #[Assert\NotBlank(message: 'This field is mandatory.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum length is 255 characters.'
+    )]
     protected string $question;
 
     #[ORM\Column(type: 'text', nullable: true)]

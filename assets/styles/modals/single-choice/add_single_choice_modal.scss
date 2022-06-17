@@ -1,8 +1,4 @@
-@import '_var.scss';
-
-#add-single-choice-button:hover {
-    cursor: pointer;
-}
+@import '../../_var.scss';
 
 // define modal style  
 
@@ -67,7 +63,7 @@
                 flex-direction: column;
             }
             label {
-                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-dark-blue);
+                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
             }
             #button_answer_single_choice {
                 @include input($primary-white-1, $border-radius-10, 1px dashed $primary-blue-1);
@@ -80,14 +76,14 @@
                 align-items: center;
                 margin-top: 10px;
                 margin-bottom: 10px;
-                background-image: url(../images/icons/delete-button.png);
+                background-image: url(../../../images/icons/delete-button.png);
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
                 .drag-and-drop {
                     @include dimension(25px, 42px);
                     z-index: 2;
-                    background-image: url(../images/icons/drag-and-drop.png);
+                    background-image: url(../../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
                 }

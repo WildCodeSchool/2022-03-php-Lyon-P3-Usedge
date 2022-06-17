@@ -7,17 +7,22 @@ use App\Entity\ComponentEvaluationScale;
 use App\Entity\ResearchTemplate;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
+use App\Services\CheckDataUtils;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 
 class ComponentUtils
 {
-    private ManagerRegistry $doctrine;
+    private EntityManagerInterface $entityManager;
+    private CheckDataUtils $checkDataUtils;
     private array $checkErrors = [];
 
-    public function __construct(ManagerRegistry $doctrine)
+    public function __construct(EntityManagerInterface $entityManager, CheckDataUtils $checkDataUtils)
     {
-        $this->doctrine = $doctrine;
+        $this->entityManager = $entityManager;
+        $this->checkDataUtils = $checkDataUtils;
     }
 
     public function getCheckErrors(): array
@@ -29,32 +34,15 @@ class ComponentUtils
     {
         $templateComponent = new TemplateComponent();
         $evalScaleComponent = new ComponentEvaluationScale();
+        $this->checkErrors = $this->checkDataUtils->checkDataEvaluationScale($dataComponent);
 
-        $dataAnswers = [];
-        for ($loop = 1; $loop < 6; $loop++) {
-            $dataAnswers[] = $dataComponent['evaluation-scale-rate-' . $loop];
-        }
-
-        foreach ($dataComponent as $data) {
-            if (empty($data)) {
-                $this->checkErrors[] = 'All fields are mandatory.';
-            }
-        }
 
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (strlen($dataComponent['low-label']) > 255) {
-            $this->checkErrors[] = 'Maximum length for low label is 255 characters.';
-        }
-
-        if (strlen($dataComponent['high-label']) > 255) {
-            $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
-        }
-
         if (empty($this->checkErrors)) {
-            $entityManager = $this->doctrine->getManager();
+            $entityManager = $this->entityManager;
 
             $evalScaleComponent->setName($dataComponent['name']);
             $evalScaleComponent->setQuestion($dataComponent['question']);
@@ -62,15 +50,6 @@ class ComponentUtils
             $evalScaleComponent->setHighLabel($dataComponent['high-label']);
             $evalScaleComponent->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($evalScaleComponent);
-
-            $orderAnswer = 0;
-            foreach ($dataAnswers as $dataAnswer) {
-                $answer = new Answer();
-                $answer->setAnswer($dataAnswer);
-                $answer->setQuestion($evalScaleComponent);
-                $answer->setNumberOrder(++$orderAnswer);
-                $entityManager->persist($answer);
-            }
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($evalScaleComponent);
@@ -81,41 +60,38 @@ class ComponentUtils
         }
     }
 
-    public function loadSingleChoice(ResearchTemplate $researchTemplate, Request $request): void
+    public function loadSingleChoice(ResearchTemplate $researchTemplate, array $dataComponent): void
     {
-        $entityManager = $this->doctrine->getManager();
         $singleChoice = new SingleChoice();
         $templateComponent = new TemplateComponent();
+        $answersValue = $this->checkDataUtils->retrieveAnswers($dataComponent);
+        $this->checkErrors = $this->checkDataUtils->checkDataSingleChoice($dataComponent, $answersValue);
 
-        $question = $request->get('question');
-        $isMandatory = $request->get('is_mandatory');
-        $name = $request->get('singleName');
-        if ($isMandatory != true) {
-            $isMandatory = false;
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
         }
-        $inputAnswerNumber = $request->get('input-answer-number');
-        $answersValue = [];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            $answersValue[] = $request->get('answer' . $i);
-        }
+
         if (empty($this->checkErrors)) {
-            $singleChoice->setQuestion($question);
-            $singleChoice->setIsMandatory($isMandatory);
-            $singleChoice->setName($name);
-            $templateComponent->setResearchTemplate($researchTemplate);
-            $templateComponent->setComponent($singleChoice);
-            $templateComponent->setNumberOrder(1);
-            $entityManager->persist($templateComponent);
+            $entityManager = $this->entityManager;
+
+            $singleChoice->setQuestion($dataComponent['question']);
+            $singleChoice->setIsMandatory($dataComponent['is_mandatory']);
+            $singleChoice->setName($dataComponent['singleName']);
             $entityManager->persist($singleChoice);
 
-            $i = 1;
+            $orderAnswer = 0;
             foreach ($answersValue as $answerValue) {
                     $answer = new Answer();
                     $answer->setAnswer($answerValue);
                     $answer->setQuestion($singleChoice);
-                    $answer->setNumberOrder($i++);
+                    $answer->setNumberOrder(++$orderAnswer);
                     $entityManager->persist($answer);
             }
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($singleChoice);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
             $entityManager->flush();
         }
     }

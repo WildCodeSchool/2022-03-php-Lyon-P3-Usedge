@@ -2,15 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Answer;
-use App\Entity\SingleChoice;
 use App\Entity\ResearchTemplate;
-use App\Entity\TemplateComponent;
 use App\Form\ResearchTemplateType;
-use App\Repository\AnswerRepository;
-use App\Repository\SingleChoiceRepository;
 use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
+use App\Services\CheckDataUtils;
 use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,36 +39,28 @@ class ResearchTemplateController extends AbstractController
         Request $request,
         ResearchTemplate $researchTemplate,
         ComponentUtils $componentUtils,
-        TemplateComponentRepository $tempCompRepository,
+        CheckDataUtils $checkDataUtils,
     ): Response {
+        $dataComponent = $checkDataUtils->trimData($request);
         $componentName = $request->request->get('name');
+        $componentNameSingle = $request->get('singleName');
 
-        if ($componentName) {
-            switch ($componentName) {
-                case 'evaluation-scale':
-                    $dataComponent =  $request->request->all();
-                    foreach ($dataComponent as $component) {
-                        if (is_string($component)) {
-                            $component = trim($component);
-                        }
-                    }
-                    $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
-                    break;
-                case 'single-choice':
-                    $componentUtils->loadSingleChoice($researchTemplate, $request);
-                    break;
-                default:
-                    return new Response('Error 404 - This component is unknown.');
-            }
+        if ($componentNameSingle === 'single-choice') {
+            $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
+            $id = $researchTemplate->getId();
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
         }
-
+        if ($componentName === 'evaluation-scale') {
+            $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+        }
         $validationErrors = $componentUtils->getCheckErrors();
-        $templateComponents = $tempCompRepository->findBy(['researchTemplate' => $researchTemplate->getId()]);
 
         return $this->render('research_template/add.html.twig', [
             'researchTemplate' => $researchTemplate,
-            'errors' => $validationErrors,
-            'templateComponents' => $templateComponents,
+            'errors' => $validationErrors
         ]);
     }
 }
