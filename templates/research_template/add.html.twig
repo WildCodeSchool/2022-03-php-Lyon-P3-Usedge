@@ -177,7 +177,7 @@
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
 						{% for templateComponent in researchTemplate.templateComponents %}
-							{% include "formBuilderComponent/_single_choice_details.html.twig" %}
+							{% include "modals/single-choice/_single_choice_details.html.twig" %}
 							{% include "modals/evaluation-scale/_evaluation_scale_template_creation.html.twig" %}
 							
 						{% endfor %}

@@ -8,10 +8,7 @@ use App\Entity\ResearchTemplate;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
 use App\Services\CheckDataUtils;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpFoundation\Request;
 
 class ComponentUtils
 {

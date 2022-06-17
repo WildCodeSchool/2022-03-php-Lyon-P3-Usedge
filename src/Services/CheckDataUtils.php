@@ -43,7 +43,6 @@ class CheckDataUtils
             $this->checkErrors[] = 'Maximum length for question is 255 characters.';
         }
 
-
         foreach ($answersValue as $answerValue) {
             if (strlen($answerValue) > 255) {
                 $this->checkErrors[] = 'Maximum length for high label is 255 characters.';

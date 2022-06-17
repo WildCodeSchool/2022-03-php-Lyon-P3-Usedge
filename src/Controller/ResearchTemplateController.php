@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
-use App\Repository\TemplateComponentRepository;
 use App\Services\CheckDataUtils;
 use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
