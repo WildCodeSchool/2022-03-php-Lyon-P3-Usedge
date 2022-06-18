@@ -78,3 +78,27 @@ body {
         @include dimension(270px, 1080px);
     }
 }
+
+
+/* Modification of the scrollbar properties */
+/* Works on Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: $primary-grey-2;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+    margin-left: 5px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: $primary-grey-2;
+    border-radius: 20px;
+    border: none;
+  }
