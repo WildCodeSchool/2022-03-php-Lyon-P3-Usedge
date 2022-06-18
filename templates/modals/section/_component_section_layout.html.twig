@@ -1,14 +1,14 @@
 {% if "section" in templateComponent.component.name %}
-<div class="section_title_display">
-        <div class="section_title_move">
-            <img src="{{ asset('build/images/icons/burger.png') }}"/>
-        </div>
-        <div class="component_section_title">
-                {{ templateComponent.component.title}}
-        </div>
-        <div class="section_actions">
-                <img src="{{ asset('build/images/icons/edit.png') }}"/>
-                <img src="{{ asset('build/images/icons/close.png') }}"/>
-        </div>
-</div>
+	<div class="section_title_display">
+		<div class="section_title_move">
+			<img src="{{ asset('build/images/icons/burger.png') }}"/>
+		</div>
+		<div class="component_section_title">
+			{{ templateComponent.component.title}}
+		</div>
+		<div class="section_actions">
+			<img src="{{ asset('build/images/icons/edit.png') }}"/>
+			<img src="{{ asset('build/images/icons/close.png') }}"/>
+		</div>
+	</div>
 {% endif %}

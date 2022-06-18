@@ -73,7 +73,7 @@ class CheckDataUtils
     {
         foreach ($dataComponent as $data) {
             if (empty($data)) {
-                $this->checkErrors[] = 'The field is mandatory.';
+                $this->checkErrors[] = 'This field is mandatory.';
             }
         }
 
