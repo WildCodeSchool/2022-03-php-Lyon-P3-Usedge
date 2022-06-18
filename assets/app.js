@@ -14,7 +14,7 @@ import './js/components/component_section.js';
 import './js/modules/icons_module.js';
 import './js/new_research_template_details_modal.js';
 import './js/homePage.js';
-import './js/modals/_add_single_choice_component_modal.js';
+import './js/modals/add_single_choice_modal.js';
 import './js/modals/evaluation_scale.js';
 import './js/modals/date-picker-modal.js';
 
