@@ -3,121 +3,118 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-   <main class="main">
-        <div>
-            <img class="side-bar" src="{{ asset('build/images/sidebar.png') }}" alt=""/>
-        </div>
-        <div class="page-content">
-            {% include "_header.html.twig" %}
-            <div class="search-engine">
-               <p>Find a request in the list</p>
-               <div class="search-label">
-                    <p>Elements to display</p>
-                    <p>Project</p>
-                    <p>Owner</p>
-                    <p>Assigned coach</p>
-                    <p>Creation date</p>
-                </div>
-                <form method="post">
-                    <div class="checkbox">
-                        <div>
-                            <input type="checkbox" name="reasearch-plans" id="reasearch-plans">
-                            <label for="reasearch-plans">reasearch-plans</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="reasearch-requests" id="reasearch-requests" checked>
-                            <label for="reasearch-requests">reasearch-requests</label>
-                        </div>
-                    </div>
-                    <select name="Project" id="Project">
-                        <option value="">Select a project</option>
-                    </select>
-                    
-                    <select name="Owner" id="Owner">
-                        <option value="">Select an owner</option>
-                    </select>
 
-                    <select name="Assigned-coach" id="Assigned-coach">
-                        <option value="">Select an owner</option>
-                    </select>
-
-                    <input type="date" name="Creation-date" id="Creation-date">
-                </form>
+    <main class="page-content">
+        {% include "_header.html.twig" %}
+        <div class="search-engine">
+            <p>Find a request in the list</p>
+            <div class="search-label">
+                <p>Elements to display</p>
+                <p>Project</p>
+                <p>Owner</p>
+                <p>Assigned coach</p>
+                <p>Creation date</p>
             </div>
-            <div class="research-list">
-                <div class="requests-list" id="requests-list">
-                    <div class="requests-header">
-                        <div>
-                            <p>Research requests</p>
-                            <p>You can view here all the research requests submitted</p>
-                        </div>
-                        <button id="create-request"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research request</button>
+            <form method="post">
+                <div class="checkbox">
+                    <div>
+                        <input type="checkbox" name="reasearch-plans" id="reasearch-plans">
+                        <label for="reasearch-plans">reasearch-plans</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="reasearch-requests" id="reasearch-requests" checked>
+                        <label for="reasearch-requests">reasearch-requests</label>
+                    </div>
+                </div>
+                <select name="Project" id="Project">
+                    <option value="">Select a project</option>
+                </select>
+                
+                <select name="Owner" id="Owner">
+                    <option value="">Select an owner</option>
+                </select>
+
+                <select name="Assigned-coach" id="Assigned-coach">
+                    <option value="">Select an owner</option>
+                </select>
+
+                <input type="date" name="Creation-date" id="Creation-date">
+            </form>
+        </div>
+        <div class="research-list">
+            <div class="requests-list" id="requests-list">
+                <div class="requests-header">
+                    <div>
+                        <p>Research requests</p>
+                        <p>You can view here all the research requests submitted</p>
+                    </div>
+                    <button id="create-request"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research request</button>
+                </div>
+                <table>
+                    <thead class="sort-by">
+                        <tr>
+                            <td class="sort" id="requests-type">TYPE AND DATE</td>
+                        </tr>
+                        <tr class="sort-choice">
+                            <td class="sort" id="requests-project">PROJECT</td>
+                            <td class="sort" id="requests-coach-assigned">COACH ASSIGNED</td>
+                            <td class="sort" id="requests-owner">OWNER</td>
+                            <td class="sort" id="status">STATUS</td>
+                            <td class="sort"></td>
+                        </tr>
+                    </thead>
+                    <tbody class="result">
+                        <tr>
+                            <td class="view-details" id="view-request-type">No request available</td>
+                        </tr>
+                        <tr class="sort-choice">
+                            <td class="view-details" id="view-requests-project">No project</td>
+                            <td class="view-details" id="view-request-coach-assigned">No coach assigned</td>
+                            <td class="view-details">No owner assigned</td>
+                            <td class="view-details">No status available</td>
+                            <td class="view-details"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="plans-list-none" id="plans-list-none">
+                <div class="plans-header">
+                    <div>
+                        <p>Research plans</p>
+                        <p>You can view here all the research plans created</p>
+                    </div>
+                    <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>
                     </div>
                     <table>
                         <thead class="sort-by">
                             <tr>
-                                <td class="sort" id="requests-type">TYPE AND DATE</td>
+                                <td class="sort"  id="plans-type">TYPE AND DATE</td>
                             </tr>
                             <tr class="sort-choice">
-                                <td class="sort" id="requests-project">PROJECT</td>
-                                <td class="sort" id="requests-coach-assigned">COACH ASSIGNED</td>
-                                <td class="sort" id="requests-owner">OWNER</td>
-                                <td class="sort" id="status">STATUS</td>
-                                <td class="sort"></td>
+                                <td class="sort" id="plans-project">PROJECT</td>
+                                <td class="sort"  id="plans-assigned-request">ASSIGNED REQUEST</td>
+                                <td class="sort"  id="plans-coach-assigned">COACH ASSIGNED</td>
+                                <td class="sort" id="status" >STATUS</td>
+                                <td class="sort" ></td>
                             </tr>
                         </thead>
                         <tbody class="result">
-                            <tr>
-                                <td class="view-details" id="view-request-type">No request available</td>
-                            </tr>
-                            <tr class="sort-choice">
-                                <td class="view-details" id="view-requests-project">No project</td>
-                                <td class="view-details" id="view-request-coach-assigned">No coach assigned</td>
-                                <td class="view-details">No owner assigned</td>
-                                <td class="view-details">No status available</td>
-                                <td class="view-details"></td>
-                            </tr>
-                        </tbody>
+                        <tr>
+                            <td class="view-details" id="view-plans-type">No plans available</td>
+                        </tr>
+                        <tr class="sort-choice">
+                            <td class="view-details" id="view-plans-project">No project</td>
+                            <td class="view-details" id="view-plans-assigned-request">No assigned request</td>
+                            <td class="view-details">No coach assigned</td>
+                            <td class="view-details">No status available</td>
+                            <td class="view-details"></td>
+                        </tr>
+                    </tbody>
                     </table>
                 </div>
-                <div class="plans-list-none" id="plans-list-none">
-                    <div class="plans-header">
-                        <div>
-                            <p>Research plans</p>
-                            <p>You can view here all the research plans created</p>
-                        </div>
-                        <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>
-                        </div>
-                        <table>
-                            <thead class="sort-by">
-                                <tr>
-                                    <td class="sort"  id="plans-type">TYPE AND DATE</td>
-                                </tr>
-                                <tr class="sort-choice">
-                                    <td class="sort" id="plans-project">PROJECT</td>
-                                    <td class="sort"  id="plans-assigned-request">ASSIGNED REQUEST</td>
-                                    <td class="sort"  id="plans-coach-assigned">COACH ASSIGNED</td>
-                                    <td class="sort" id="status" >STATUS</td>
-                                    <td class="sort" ></td>
-                                </tr>
-                            </thead>
-                            <tbody class="result">
-                            <tr>
-                                <td class="view-details" id="view-plans-type">No plans available</td>
-                            </tr>
-                            <tr class="sort-choice">
-                                <td class="view-details" id="view-plans-project">No project</td>
-                                <td class="view-details" id="view-plans-assigned-request">No assigned request</td>
-                                <td class="view-details">No coach assigned</td>
-                                <td class="view-details">No status available</td>
-                                <td class="view-details"></td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                       
-                </div>
+                    
             </div>
         </div>
     </main>
+
 {% endblock %}
