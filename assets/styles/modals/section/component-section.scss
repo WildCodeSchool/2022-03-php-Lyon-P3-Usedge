@@ -20,7 +20,7 @@
             text-decoration: none;
         }
         h1 {
-            @include textStyle('Source Sans Pro', $font-size-18,
+            @include textStyle($text-font, $font-size-18,
             $font-weight-600, $primary-dark-1);
             font-style: normal;
             margin-bottom: 20px;
@@ -59,7 +59,7 @@
         }
     }
     .component_section_title p {
-        @include textStyle ('Spartan', $font-size-18,
+        @include textStyle ($text-font, $font-size-18,
         $font-weight-600,$primary-blue-3 );
         display: flex;
         align-items: flex-start;
