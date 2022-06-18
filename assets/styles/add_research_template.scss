@@ -178,6 +178,9 @@
         letter-spacing: 0.116667px;
         color: $primary-grey-1;
     }
+    .buttonAction:hover {
+        cursor: pointer;
+    }
 }
 
 .components {
@@ -260,6 +263,7 @@
     height: 950px;
     background: $primary-white-1;
     border-radius: $border-radius-10;
+    overflow: auto;
 
     h2 {
         font-family: $title-font;
@@ -280,6 +284,7 @@
         letter-spacing: 0.116667px;
         color: $primary-grey-1;
     }
+    
 }
 
 .need-help-container {
