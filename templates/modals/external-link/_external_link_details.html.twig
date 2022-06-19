@@ -1,0 +1,14 @@
+{% if "externalLink" in templateComponent.component.name %}
+	<div class="external_link_title_display">
+		<div class="external_link_title_move">
+			<img src="{{ asset('build/images/icons/burger.png') }}"/>
+		</div>
+		<div class="component_external_link_title">
+			<p>{{ templateComponent.component.title}}</p>
+		</div>
+		<div class="external_link_actions">
+			<img src="{{ asset('build/images/icons/edit.png') }}"/>
+			<img src="{{ asset('build/images/icons/close.png') }}"/>
+		</div>
+	</div>
+{% endif %}
