@@ -1,10 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
-@import '_homePage.scss';
-@import "add_research_template.scss";
-@import "new_research_template_details_modal.scss";
-@import '_components.scss';
-@import "modals/single-choice/add_single_choice_modal.scss";
-@import "modals/single-choice/single-choice-details.scss";
-@import 'modals/evaluation-scale/new_evaluation_scale_details.scss';
-@import 'modals/evaluation-scale/evaluation_scale_template_creation.scss'
 
+// import main page
+@import 'homePage.scss';
+@import 'newTemp.scss';
+@import 'add_research_template.scss';
+
+// import modals
+@import 'modals/modal_new_research_template_.scss';
+@import 'modals/modal_multiple_choice.scss';
+@import 'modals/modal_single_choice.scss';
+@import 'modals/modal_evaluation_scale.scss';
+
+// import display selected component
+@import 'display-selected-component/display_evaluation_scale.scss';
+@import 'display-selected-component/display-single-choice.scss';

@@ -71,7 +71,7 @@
 									<a id="add-single-choice-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include "modals/_add_single_choice_modal.html.twig" %}</div>
+							<div>{% include "modals/_modal_single_choice.html.twig" %}</div>
 
 							<div class="component">
 								<div class="component-picture-1">
@@ -151,7 +151,7 @@
 									<a id="evaluation-scale-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/evaluation-scale/_new_evaluation_scale_details.html.twig" %}
+							{% include "modals/_modal_evaluation_scale.html.twig" %}
 							{# EVALUATION SCALE ENDS HERE - DON'T FORGET TO DELETE THIS COMMENT #}
 
 							<div class="component">
@@ -177,8 +177,8 @@
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
 						{% for templateComponent in researchTemplate.templateComponents %}
-							{% include "modals/single-choice/_single_choice_details.html.twig" %}
-							{% include "modals/evaluation-scale/_evaluation_scale_template_creation.html.twig" %}
+							{% include "display-selected-component/_display_single_choice.html.twig" %}
+							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
 							
 						{% endfor %}
 					</div>
