@@ -163,10 +163,10 @@
 									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a href="#" class="modal-external-link-btn- modal-external-link-trigger"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include "modals/external-link/_external_link_modal.html.twig" %}</div>
+							<div>{% include "modals/external-link/_component_external_link.html.twig" %}</div>
 						</div>
 					</section>
 
@@ -180,7 +180,7 @@
 						{% for templateComponent in researchTemplate.templateComponents %}
 							{% include "modals/single-choice/_single_choice_details.html.twig" %}
 							{% include "modals/evaluation-scale/_evaluation_scale_template_creation.html.twig" %}
-							
+							{% include "modals/external-link/_component_external_link_layout.html.twig" %}
 						{% endfor %}
 					</div>
 					{% if researchTemplate.templateComponents is empty %}
