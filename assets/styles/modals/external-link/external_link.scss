@@ -31,10 +31,27 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
+        .external-link-mandatory {
+            @include dimension(158px, 18px);
+            display: flex;
+            align-items: center;
+            padding: 0;
+            gap: 5px;
+            .external-link-checkbox-mandatory[type="checkbox"] {
+                @include dimension(16px, 16px);
+                border: 1px solid $primary-blue-1 !important;
+                border-radius: 2px;
+            }
+            .external-link-label-mandatory {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                line-height: 18px;
+            }
+        }
         #button-action-component-external-link {
             width: 100%;
             background: $primary-blue-1;
             border-radius: 10px;
+            margin-top: 10px;
         }
     }  
 }
