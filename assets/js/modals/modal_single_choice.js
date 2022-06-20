@@ -31,19 +31,23 @@ if (document.getElementById('button_answer_single_choice')) {
         const newInputAnswer = document.createElement('input');
         const deleteInputAnswer = document.createElement('div');
         const dragAndDrop = document.createElement('div');
+
         newInputAnswer.classList.add('input_answer');
         deleteInputAnswer.classList.add('delete-input-answer');
         dragAndDrop.classList.add('drag-and-drop');
+
         newInputAnswer.type = 'text';
         newInputAnswer.setAttribute('required', 'required');
+
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         singleAnswerContainer.appendChild(deleteInputAnswer);
+
         // function to delete input
         const deleteInputAnswers = document.getElementsByClassName('delete-input-answer');
-
         const inputAnswers = document.getElementsByClassName('input_answer');
         const inputAnswerNumber = document.getElementById('input-answer-number');
+
         inputAnswerNumber.value = inputAnswers.length;
         for (let i = 0; i < deleteInputAnswers.length; i++) {
             const deleteInputAnswer = deleteInputAnswers[i];
