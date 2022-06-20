@@ -28,6 +28,7 @@ class Component
     protected bool $isMandatory;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Assert\NotBlank(message: 'This field is mandatory.')]
     #[Assert\Length(
         max: 255,
         maxMessage: 'Maximum length is 255 characters.'

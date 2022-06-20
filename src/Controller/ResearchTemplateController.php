@@ -45,7 +45,6 @@ class ResearchTemplateController extends AbstractController
         if (in_array('single-choice', $dataComponent)) {
             $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
             $id = $researchTemplate->getId();
-
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
             ], Response::HTTP_SEE_OTHER);

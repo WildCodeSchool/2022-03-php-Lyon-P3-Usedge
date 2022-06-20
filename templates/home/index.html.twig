@@ -8,7 +8,13 @@
             <img class="side-bar" src="{{ asset('build/images/sidebar.png') }}" alt=""/>
         </div>
         <div class="page-content">
-            {% include "_header.html.twig" %}
+            <header class="header">
+                <div class="header-title">
+                    <p>RESEARCH CENTER/PLANS</p>
+                    <p>No requests submitted by your team</p>
+                </div>
+                <a href="{{ path("research_template_index")}}"><button type="submit" class="view-session">View requests templates</button></a>
+            </header>
             <div class="search-engine">
                <p>Find a request in the list</p>
                <div class="search-label">

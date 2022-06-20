@@ -1,18 +1,20 @@
 @import "~bootstrap/scss/bootstrap";
 
-// main scss
-@import '_homePage.scss';
-@import "add_research_template.scss";
-@import '_components.scss';
+// import main page
+@import 'homePage.scss';
+@import 'newTemp.scss';
+@import 'add_research_template.scss';
 
-// modals scss
-@import "modals/single-choice/add_single_choice_modal.scss";
-@import 'modals/evaluation-scale/new_evaluation_scale_details.scss';
-@import 'modals/section/component-section.scss';
-@import 'modals/date-picker/date-picker-modal.scss';
-@import "new_research_template_details_modal.scss";
+// import modals
+@import 'modals/modal_new_research_template_.scss';
+@import 'modals/modal_multiple_choice.scss';
+@import 'modals/modal_single_choice.scss';
+@import 'modals/modal_evaluation_scale.scss';
+@import 'modals/modal_section.scss';
+@import 'modals/modal_date_picker.scss';
 
-// display-selected-component scss
-@import "display-selected-component/display-single-choice-question.scss";
+// import display selected component
+@import 'display-selected-component/display_evaluation_scale.scss';
+@import 'display-selected-component/display_single_choice.scss';
+@import 'display-selected-component/display_section.scss';
 @import "display-selected-component/display-date-picker.scss";
-@import 'display-selected-component/evaluation_scale_template_creation.scss';

@@ -1,4 +1,4 @@
-/*Action to call all classes to active the modal*/
+/*Action to call all classes to active the section modal*/
 const modalSectionContainer = document.querySelector('.modal-section-container');
 const modalSectionTriggers = document.querySelectorAll('.modal-section-trigger');
 

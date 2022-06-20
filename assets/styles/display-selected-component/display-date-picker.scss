@@ -4,7 +4,6 @@
 .date-picker-template-creation {
     @include dimension(995px, 93px);
     display: flex;
-    align-items: stretch;
     padding: 0;
     margin-bottom: 25px;
     gap: 20px;

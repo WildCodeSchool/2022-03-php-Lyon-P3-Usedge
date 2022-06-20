@@ -1,4 +1,4 @@
-@import '../../_var.scss';
+@import '../_var.scss';
 
 // define modal style  
 
@@ -63,14 +63,14 @@
                 align-items: center;
                 margin-top: 10px;
                 margin-bottom: 10px;
-                background-image: url(../../../images/icons/delete-button.png);
+                background-image: url(../../images/icons/delete-button.png);
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
                 .drag-and-drop {
                     @include dimension(25px, 42px);
                     z-index: 2;
-                    background-image: url(../../../images/icons/drag-and-drop.png);
+                    background-image: url(../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
                 }
