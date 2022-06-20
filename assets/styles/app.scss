@@ -10,8 +10,9 @@
 @import 'modals/modal_multiple_choice.scss';
 @import 'modals/modal_single_choice.scss';
 @import 'modals/modal_evaluation_scale.scss';
-@import 'modals/section/component-section.scss';
+@import 'modals/modal_section.scss';
 
 // import display selected component
 @import 'display-selected-component/display_evaluation_scale.scss';
-@import 'display-selected-component/display-single-choice.scss';
+@import 'display-selected-component/display_single_choice.scss';
+@import 'display-selected-component/display_section.scss';

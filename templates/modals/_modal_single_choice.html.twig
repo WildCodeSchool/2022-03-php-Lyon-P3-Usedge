@@ -1,21 +1,21 @@
 <div class="full-screen-container-modal-close" id="full-screen-container-modal-close">
     <div class="add-single-choice-modal" id="add-single-choice-modal">  
-    <form id="new-component-single-choice-form" method="POST">     
-        <div class="modal_content_single_choice">            
-            <h4>Create a single choice question</h4>
-            <input type="text" id="input_add_single_question" name="question" placeholder="What is your question ?" required>
-            <p><span>Options available<span></p>
-            <div id="single_answer_container">
-                <input type="hidden" name="input-answer-number" id="input-answer-number">
-                <input type="hidden" name="singleName" value="single-choice">
-            </div>
-                <button type="button" id="button_answer_single_choice"><img src="{{ asset('build/images/icons/add-options.png') }}" alt=""/></button>
-            <div>
-                <input type="checkbox" class="input_mandatory" name="is_mandatory">
-                <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
-            </div>
-            <button id="button_action_component_single_choice" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add single choice question</button>                
-        </div>  
+        <form id="new-component-single-choice-form" method="POST">     
+            <div class="modal_content_single_choice">            
+                <h4>Create a single choice question</h4>
+                <input type="text" id="input_add_single_question" name="question" placeholder="What is your question ?" required>
+                <p><span>Options available<span></p>
+                <div id="single_answer_container">
+                    <input type="hidden" name="input-answer-number" id="input-answer-number">
+                    <input type="hidden" name="singleName" value="single-choice">
+                </div>
+                    <button type="button" id="button_answer_single_choice"><img src="{{ asset('build/images/icons/add-options.png') }}" alt=""/></button>
+                <div>
+                    <input type="checkbox" class="input_mandatory" name="is_mandatory">
+                    <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+                </div>
+                <button id="button_action_component_single_choice" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add single choice question</button>                
+            </div>  
         </form>            
     </div>    
 </div>

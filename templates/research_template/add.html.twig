@@ -54,10 +54,10 @@
 									<p>Delimitate a part of your template.</p>
 								</div>
 								<div class="component-picture-2">
-									<a href="#" class="modal-section-btn- modal-section-trigger"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a class="modal-section-btn- modal-section-trigger buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include 'modals/section/_component_section.html.twig' %}</div>
+							<div>{% include 'modals/_modal_section.html.twig' %}</div>
 							
 							<div class="component">
 								<div class="component-picture-1">
@@ -176,7 +176,7 @@
 						{% for templateComponent in researchTemplate.templateComponents %}
 							{% include "display-selected-component/_display_single_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
-							{% include 'modals/section/_component_section_layout.html.twig' %}	
+							{% include 'display-selected-component/_display_section.html.twig' %}	
 							
 						{% endfor %}
 					</div>

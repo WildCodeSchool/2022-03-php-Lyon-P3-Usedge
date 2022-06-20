@@ -1,4 +1,4 @@
-@import '../../_var.scss';
+@import '../_var.scss';
 
 .modal-section-container {
     display: none;
@@ -18,6 +18,7 @@
             right: 10px;
             color: $primary-grey-4;
             text-decoration: none;
+            cursor: pointer;
         }
         h1 {
             @include textStyle($text-font, $font-size-18,
@@ -41,42 +42,3 @@
 .modal-section-container.active {
     display: block;
 }
-
-.section_title_display {
-    @include dimension(995px, 21px);
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-bottom: 25px;
-    gap: 20px;
-    &:hover>.section_actions {
-        display: flex;
-    }
-    .section_title_move {
-        @include dimension(22px, 21px);
-        img {
-            width: 22px;
-        }
-    }
-    .component_section_title p {
-        @include textStyle ($text-font, $font-size-18,
-        $font-weight-600,$primary-blue-3 );
-        display: flex;
-        align-items: flex-start;
-        font-style: normal;
-        width: 868px;
-    }
-    .section_actions {
-        display: none;
-        align-items: center;
-        width: 65px;
-        padding: 10px;
-        gap: 5px;
-        img {
-            cursor: pointer;
-            width: 20px;
-        }
-    }
-}
-
-
