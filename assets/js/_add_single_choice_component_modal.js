@@ -7,7 +7,7 @@ if (document.getElementById('button_answer_single_choice')) {
     const singleAnswerContainer = document.getElementById('single_answer_container');
     const addSingleChoiceModalOpenButton = document.getElementById('add-single-choice-button');
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
-    const addFullScreenSingleContainerModalClose= document.getElementById('full-screen-container-modal-close');
+    const addFullScreenSingleContainerModalClose= document.getElementById('full-screen-single-container-modal-close');
     const bodySingle = document.getElementById('body');
 
     
@@ -27,17 +27,8 @@ if (document.getElementById('button_answer_single_choice')) {
             }
         };
     });
- 
-    // Function used to close the modal when click outside the modal
-    window.onclick = function(event) {
-        if (event.target == addFullScreenSingleContainerModalClose) {
-            addSingleChoiceModal.classList.remove('add-single-choice-modal-display'); 
-            addFullScreenSingleContainerModalClose.classList.remove('full-screen-container-modal-close-display');
-            bodySingle.classList.remove('hide-body-overflow');
-        }
-    };
 
-    
+
 
     // function to create div and input
     singleButton.addEventListener('click', function () {
