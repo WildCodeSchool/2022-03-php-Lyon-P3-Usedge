@@ -18,6 +18,7 @@ import './js/modals/modal_new_research_template.js';
 import './js/modals/modal_multiple_choice.js';
 import './js/modals/modal_single_choice.js';
 import './js/modals/modal_evaluation_scale.js';
+import './js/modals/component_section.js';
 
 // start the Stimulus application
 import './bootstrap';
