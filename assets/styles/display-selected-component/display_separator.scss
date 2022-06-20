@@ -1,0 +1,37 @@
+@import '../_var.scss';
+
+.separator-template-creation {
+    @include dimension(995px, 20px);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 20px;
+    gap: 20px;
+    &:hover>.separator-template-actions {
+        display: flex;
+    }
+    .separator-template-draggable {
+        display: flex;
+        align-items: center;
+        @include dimension(22px, 100%);
+        img {
+            width: 22px;
+        }
+    }
+    .separator-template-content {
+        width: 868px;
+        border-bottom: 2px solid $primary-blue-2;
+    }
+    .separator-template-actions {
+        display: none;
+        align-items: center;
+        justify-content: flex-start;
+        width: 65px;
+        padding: 10px;
+        gap: 5px;
+        img {
+            cursor: pointer;
+            width: 20px;
+        }
+    }
+}

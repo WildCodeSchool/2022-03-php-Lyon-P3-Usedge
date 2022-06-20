@@ -181,6 +181,10 @@
     .buttonAction:hover {
         cursor: pointer;
     }
+    #add-separator-button {
+        border: 0;
+        background-color: transparent;
+    }
 }
 
 .components {
