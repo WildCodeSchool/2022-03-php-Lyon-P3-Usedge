@@ -89,7 +89,7 @@ class CheckDataUtils
                 $this->checkErrors[] = 'This field is mandatory.';
             }
         }
-        if (strlen($dataComponent['title']) > 255) {
+        if (strlen($dataComponent['title-external-link']) > 255) {
             $this->checkErrors[] = 'Maximum length for title is 255 characters.';
         }
         return $this->checkErrors;

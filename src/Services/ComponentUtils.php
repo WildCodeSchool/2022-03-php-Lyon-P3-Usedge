@@ -136,7 +136,7 @@ class ComponentUtils
             $entityManager = $this->entityManager;
 
             $externalLink->setName($dataComponent['externalLinkName']);
-            $externalLink->setTitle($dataComponent['title']);
+            $externalLink->setTitle($dataComponent['title-external-link']);
             $externalLink->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($externalLink);
 
