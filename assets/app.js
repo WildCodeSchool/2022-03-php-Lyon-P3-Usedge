@@ -7,15 +7,19 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-import './styles/newTemp.scss';
-import './js/add_research_template.js';
-import './js/component.js';
-import './js/modules/icons_module.js';
-import './js/new_research_template_details_modal.js';
+
+// import main page js
 import './js/homePage.js';
-import './js/_add_single_choice_component_modal.js';
-import './js/modals/evaluation_scale.js';
-import './js/modals/external_link.js';
+import './js/add_research_template.js';
+
+// import modal js
+import './js/modals/modules/icons_module.js';
+import './js/modals/modal_new_research_template.js';
+import './js/modals/modal_multiple_choice.js';
+import './js/modals/modal_single_choice.js';
+import './js/modals/modal_evaluation_scale.js';
+import './js/modals/modal_section.js';
+import './js/modals/modal_external_link.js';
 
 // start the Stimulus application
 import './bootstrap';

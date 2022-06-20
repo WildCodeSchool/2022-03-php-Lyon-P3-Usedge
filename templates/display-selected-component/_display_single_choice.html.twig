@@ -1,8 +1,8 @@
 {% if "single-choice" in templateComponent.component.name %}
     <div class="single-choice-template-creation" draggable="true">
         <div class="single-choice-template-draggable">
-                <img src="{{ asset('build/images/icons/burger.png') }}"/>
-            </div>
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
         <div class="single-choice-template-content">
             <p class="single-choice-template-question" id="single-choice-template-question">
                 {{templateComponent.component.question}}
@@ -11,14 +11,14 @@
                 {% endif %}
             </p>
             <div class="single-choice-template-answers">
-            {% for answer in templateComponent.component.answers %}
-                <div class="single-choice-template-answer">
-                    <input type="radio" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}">
-                    <label for="answer{{templateComponent.component.id}}" class="single-choice-template-answer-label" id="single-choice-template-answer-label">
-                    {{answer.answer}}
+                {% for answer in templateComponent.component.answers %}
+                    <div class="single-choice-template-answer">
+                        <input type="radio" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}">
+                        <label for="answer{{templateComponent.component.id}}" class="single-choice-template-answer-label" id="single-choice-template-answer-label">
+                        {{answer.answer}}
+                        </label>
                     </div>
-                    </label> 
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
         <div class="single-choice-template-actions">

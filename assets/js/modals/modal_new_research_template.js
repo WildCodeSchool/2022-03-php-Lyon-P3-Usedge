@@ -23,7 +23,7 @@ if (document.getElementById('add-template-button')) {
 
     // Function used to close the modal and initialise values
     addTemplateModalCloseButton.addEventListener('click', () => {
-        iconChoicePicture.src = new URL('../images/icons/template_icon_plus.png', import.meta.url);
+        iconChoicePicture.src = new URL('../../images/icons/template_icon_plus.png', import.meta.url);
         templateNameInput.value = '';
         templateDescriptionInput.value = '';
         templatecoachSelect.value = '';

@@ -41,24 +41,24 @@ class ResearchTemplateController extends AbstractController
         CheckDataUtils $checkDataUtils,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-        $componentName = $request->request->get('name');
-        $componentNameSingle = $request->get('singleName');
-        $componentLink = $request->get('externalLinkName');
 
-        if ($componentNameSingle === 'single-choice') {
+        if (in_array('single-choice', $dataComponent)) {
             $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
             $id = $researchTemplate->getId();
-
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
             ], Response::HTTP_SEE_OTHER);
         }
-        if ($componentName === 'evaluation-scale') {
+        if (in_array('evaluation-scale', $dataComponent)) {
             $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
         }
-        if ($componentLink === 'external-link') {
+        if (in_array('section', $dataComponent)) {
+            $componentUtils->loadSection($dataComponent, $researchTemplate);
+        }
+        if (in_array('external-link', $dataComponent)) {
             $componentUtils->loadExternalLink($dataComponent, $researchTemplate);
         }
+
         $validationErrors = $componentUtils->getCheckErrors();
 
         return $this->render('research_template/add.html.twig', [

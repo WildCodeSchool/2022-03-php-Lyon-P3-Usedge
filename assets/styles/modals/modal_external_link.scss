@@ -1,0 +1,60 @@
+@import '../_var.scss';
+
+.modal-external-link-container {
+    display: none;
+    padding: 35px;
+    width: 390px;
+    background: $primary-white-1;
+    box-shadow: 0px 0px 6px $primary-dark-1;
+    border-radius: 10px;
+    position: fixed;
+    background-color: $primary-white-1;
+    top: 40%;
+    left: 25%;
+    .modal-external-link-content {
+        .close-modal-external-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: $primary-grey-4;
+            text-decoration: none;
+        }
+        h1 {
+            @include textStyle($text-font, $font-size-18,
+            $font-weight-600, $primary-dark-1);
+            font-style: normal;
+            margin-bottom: 20px;
+        }
+        #external_link_title {
+            @include dimension (100%, 42px);
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .external-link-mandatory {
+            @include dimension(158px, 18px);
+            display: flex;
+            align-items: center;
+            padding: 0;
+            gap: 5px;
+            .external-link-checkbox-mandatory[type="checkbox"] {
+                @include dimension(16px, 16px);
+                border: 1px solid $primary-blue-1 !important;
+                border-radius: 2px;
+            }
+            .external-link-label-mandatory {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                line-height: 18px;
+            }
+        }
+        #button-action-component-external-link {
+            width: 100%;
+            background: $primary-blue-1;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    }  
+}
+.modal-external-link-container.active {
+    display: block;
+}

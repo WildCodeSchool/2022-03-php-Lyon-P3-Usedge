@@ -1,4 +1,4 @@
-@import '_var.scss';
+@import '../_var.scss';
 
 .template-details-modal {
     @include absolutePosition(-70%, 50%); /* Change values here in function of the page */
@@ -93,7 +93,7 @@
                         }
                         input[type="radio"]#research_template_icon_#{$iconNumber} + label {
                             @include dimension(52px, 52px);
-                            background-image: url('../images/icons/template_icon_#{$iconNumber}.png');
+                            background-image: url('../../images/icons/template_icon_#{$iconNumber}.png');
                             background-size: 85%;
                             background-repeat: no-repeat;
                             background-position: center;
