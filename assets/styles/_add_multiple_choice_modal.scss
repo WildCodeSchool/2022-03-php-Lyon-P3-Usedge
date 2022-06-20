@@ -67,7 +67,7 @@
                 flex-direction: column;
             }
             label {
-                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-dark-blue);
+                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
             }
             #button_answer_multiple_choice {
                 @include input($primary-white-1, $border-radius-10, 1px dashed $primary-blue-1);
