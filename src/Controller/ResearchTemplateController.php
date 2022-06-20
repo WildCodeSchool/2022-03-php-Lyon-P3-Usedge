@@ -43,9 +43,18 @@ class ResearchTemplateController extends AbstractController
         $dataComponent = $checkDataUtils->trimData($request);
         $componentName = $request->request->get('name');
         $componentNameSingle = $request->get('singleName');
+        $componentNameMulti = $request->get('multipleName');
 
         if ($componentNameSingle === 'single-choice') {
             $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
+            $id = $researchTemplate->getId();
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
+        }
+        if ($componentNameMulti === 'multiple-choice') {
+            $componentUtils->loadMultipleChoice($researchTemplate, $dataComponent);
             $id = $researchTemplate->getId();
 
             return $this->redirectToRoute('research_template_add', [

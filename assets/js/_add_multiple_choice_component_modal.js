@@ -1,7 +1,7 @@
 // Careful : for first const, check real button id when integration !
 
-const { eventListeners } = require("@popperjs/core");
-
+/* const { eventListeners } = require("@popperjs/core");
+ */
 if (document.getElementById('button_answer_multiple_choice')) {
 
     /*Action to insert an input when the user click on the button + in the modal*/
@@ -43,21 +43,26 @@ if (document.getElementById('button_answer_multiple_choice')) {
         multipleAnswerContainer.appendChild(deleteInputAnswer);
         // function to delete input
         const deleteInputAnswers = document.getElementsByClassName('delete-input-answer');
+
         const inputAnswers = document.getElementsByClassName('input_answer');
         const inputAnswerNumber = document.getElementById('input-answer-number');
         inputAnswerNumber.value = inputAnswers.length;
-        for (const deleteInputAnswer of deleteInputAnswers) {
-            deleteInputAnswer.onclick = function (event) {
-                let target = event.target;
-                if (target === deleteInputAnswer) {
+        for (let i = 0; i < deleteInputAnswers.length; i++) {
+            const deleteInputAnswer = deleteInputAnswers[i];
+            deleteInputAnswer.onclick = function(event) {
+                let target =  event.target;
+                if (target === deleteInputAnswer){
                     target.remove();
+                    const inputAnswers = document.getElementsByClassName('input_answer');
                     for (let i = 0; i < inputAnswers.length; i++) {
                         const inputAnswer = inputAnswers[i];
                         inputAnswer.setAttribute('name', 'answer' + i);
                         inputAnswer.setAttribute('id', 'input_answer' + i);
+                        inputAnswerNumber.value = inputAnswers.length;
                     }
                 }
             }
+
             for (let i = 0; i < inputAnswers.length; i++) {
                 const inputAnswer = inputAnswers[i];
                 inputAnswer.setAttribute('name', 'answer' + i);
