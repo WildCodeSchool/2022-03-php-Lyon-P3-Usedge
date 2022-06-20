@@ -1,12 +1,4 @@
 /*Action to call all classes to active the section modal*/
-/*const modalExternalLinkContainer = document.querySelector('.modal-external-link-container');
-const modalExternalLinkTriggers = document.querySelectorAll('.modal-external-link-trigger');
-
-modalExternalLinkTriggers.forEach(trigger => trigger.addEventListener('click', toggleExternalLinkModal))
-function toggleExternalLinkModal() {
-    modalExternalLinkContainer.classList.toggle('active');
-}*/
-
 if (document.getElementById('add-external-link-button')) {
     const addExternalLinkModalOpenButton = document.getElementById('add-external-link-button');
     const addExternalLinkModal = document.getElementById('add-external-link-modal');
