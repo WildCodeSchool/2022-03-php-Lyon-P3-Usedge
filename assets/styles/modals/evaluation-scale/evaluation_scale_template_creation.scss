@@ -1,0 +1,78 @@
+@import '../../_var.scss';
+
+.evaluation-scale-template-actions-display {
+    display: flex !important;
+}
+
+.evaluation-scale-template-creation {
+    @include dimension(995px, 93px);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 25px;
+    gap: 20px;
+    &:hover>.evaluation-scale-template-actions {
+        display: flex;
+    }
+    .evaluation-scale-template-draggable {
+        @include dimension(22px, 21px);
+        img {
+            width: 22px;
+        }
+    }
+    .evaluation-scale-template-content {
+        width: 868px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .evaluation-scale-template-question {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            line-height: 20px;
+            margin-bottom: 10px;
+            .evaluation-scale-red-star {
+                color: $secondary-red-1;
+            }
+        }
+        .evaluation-scale-template-star-container {
+            display: flex;
+            align-items: flex-start;
+            padding: 0;
+            gap: 15px;
+            input[type="radio"] {
+                display: none;
+            }
+            .evaluation-scale-template-rate {
+                @include dimension(27.5px, 27.5px);
+                img {
+                    width: 27.5px;
+                }
+            }
+        }
+        .evaluation-scale-template-levels {
+            @include dimension(276px, 18px);
+            position: relative;
+            margin-top: 9.25px;
+            p {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
+                line-height: 18px;
+                &:first-child {
+                    @include absolutePosition(0px, 0px);
+                }
+                &:last-child {
+                    @include absolutePosition(0px, 170px);
+                }
+            }
+        }
+    }
+    .evaluation-scale-template-actions {
+        display: none;
+        align-items: center;
+        width: 65px;
+        padding: 10px;
+        gap: 5px;
+        img {
+            cursor: pointer;
+            width: 20px;
+        }
+    }
+}

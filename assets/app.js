@@ -17,6 +17,7 @@ import './js/new_research_template_details_modal.js';
 import './js/homePage.js';
 import './js/_add_single_choice_component_modal.js';
 import './js/_add_multiple_choice_component_modal.js';
+import './js/modals/evaluation_scale.js';
 
 // Bootstrap import
 import './bootstrap';

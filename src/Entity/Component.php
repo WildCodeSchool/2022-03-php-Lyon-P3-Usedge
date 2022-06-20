@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ComponentRepository::class)]
-#[InheritanceType("SINGLE_TABLE")]
+#[ORM\InheritanceType("SINGLE_TABLE")]
 abstract class Component
 {
     #[ORM\Id]
@@ -36,6 +36,11 @@ abstract class Component
     protected string $title;
 
     #[ORM\Column(type: 'text', nullable: true)]
+    #[Assert\NotBlank(message: 'This field is mandatory.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum length is 255 characters.'
+    )]
     protected string $question;
 
     #[ORM\Column(type: 'text', nullable: true)]

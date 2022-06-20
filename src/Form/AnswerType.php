@@ -6,7 +6,6 @@ use App\Entity\Answer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AnswerType extends AbstractType
 {
@@ -14,6 +13,8 @@ class AnswerType extends AbstractType
     {
         $builder
             ->add('answer')
+            ->add('numberOrder')
+            ->add('question')
         ;
     }
 

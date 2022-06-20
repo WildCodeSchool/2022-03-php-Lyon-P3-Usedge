@@ -15,6 +15,11 @@ class Answer
     private int $id;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(message: 'This field is mandatory.')]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum length is 255 characters.'
+    )]
     private string $answer;
 
     #[ORM\Column(type: 'integer')]

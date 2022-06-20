@@ -5,4 +5,8 @@
 @import '_components.scss';
 @import "_add_single_choice_modal.scss";
 @import "_add_multiple_choice_modal.scss";
+@import "modals/single-choice/add_single_choice_modal.scss";
+@import "modals/single-choice/single-choice-details.scss";
+@import 'modals/evaluation-scale/new_evaluation_scale_details.scss';
+@import 'modals/evaluation-scale/evaluation_scale_template_creation.scss'
 

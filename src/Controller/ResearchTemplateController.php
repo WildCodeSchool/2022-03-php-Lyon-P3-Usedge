@@ -2,16 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Answer;
-use App\Entity\SingleChoice;
 use App\Entity\ResearchTemplate;
-use App\Entity\TemplateComponent;
 use App\Form\ResearchTemplateType;
-use App\Repository\AnswerRepository;
-use App\Repository\SingleChoiceRepository;
 use App\Repository\ResearchTemplateRepository;
-use App\Repository\TemplateComponentRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Services\CheckDataUtils;
+use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +25,6 @@ class ResearchTemplateController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $templateRepository->add($researchTemplate, true);
             $id = $researchTemplate->getId();
-
             return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
@@ -39,48 +33,33 @@ class ResearchTemplateController extends AbstractController
         ]);
     }
 
-    #[Route('/add/{id}', name: 'add')]
+    #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
     public function add(
         Request $request,
-        SingleChoiceRepository $singleRepository,
-        AnswerRepository $answerRepository,
         ResearchTemplate $researchTemplate,
-        ManagerRegistry $doctrine,
+        ComponentUtils $componentUtils,
+        CheckDataUtils $checkDataUtils,
     ): Response {
-        $singleChoice = new SingleChoice();
-        $templateComponent = new TemplateComponent();
-        $answer = new Answer();
-        $question = $request->get('question');
-        $isMandatory = $request->get('is_mandatory');
-        if ($isMandatory != true) {
-            $isMandatory = false;
-        }
-        $inputAnswerNumber = $request->get('input-answer-number');
-        $answersValue = [];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            $answersValue[] = $request->get('answer' . $i);
-        }
-        if (!empty($question)) {
-            $entityManager = $doctrine->getManager();
-            $singleChoice->setQuestion($question);
-            $singleChoice->setIsMandatory($isMandatory);
-            $templateComponent->setResearchTemplate($researchTemplate);
-            $templateComponent->setComponent($singleChoice);
-            $templateComponent->setNumberOrder(1);
-            $entityManager->persist($templateComponent);
-            $singleRepository->add($singleChoice, true);
-            $entityManager->flush();
-            $i = 1;
-            foreach ($answersValue as $answerValue) {
-                $answer = new Answer();
-                $answer->setAnswer($answerValue);
-                $answer->setQuestion($singleChoice);
-                $answer->setNumberOrder($i++);
-                $answerRepository->add($answer, true);
-            }
+        $dataComponent = $checkDataUtils->trimData($request);
+        $componentName = $request->request->get('name');
+        $componentNameSingle = $request->get('singleName');
+
+        if ($componentNameSingle === 'single-choice') {
+            $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
             $id = $researchTemplate->getId();
-            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
         }
-        return $this->render('research_template/add.html.twig', []);
+        if ($componentName === 'evaluation-scale') {
+            $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+        }
+        $validationErrors = $componentUtils->getCheckErrors();
+
+        return $this->render('research_template/add.html.twig', [
+            'researchTemplate' => $researchTemplate,
+            'errors' => $validationErrors
+        ]);
     }
 }
