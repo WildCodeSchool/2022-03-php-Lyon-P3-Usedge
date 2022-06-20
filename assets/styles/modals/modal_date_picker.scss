@@ -14,7 +14,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        @include absolutePosition(43%, 50%);
+        @include absolutePosition(57%, 39%);
         width: 400px;
         box-sizing: border-box;
         background-color: $primary-white-1;
@@ -26,6 +26,25 @@
             background: #FFFFFF;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
+            .date-picker-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .date-picker-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
+            }
             #date-picker-draggable-handle:hover {
                 cursor: grabbing;
             }
