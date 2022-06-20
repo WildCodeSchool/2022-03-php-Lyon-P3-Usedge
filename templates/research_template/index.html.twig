@@ -23,14 +23,14 @@
 
 			<div class="research-template-list-main">
 				<div class="emmptyState">
-					<img src="{{ asset('build/images/emmpty_state_ 1.png') }}">
+					<img src="{{ asset('build/images/icons/empty_state_1.png') }}">
 				</div>
 				<div class="research-template-list-main-text">
 					<p class="research-template-list-main-first-text">You don't have any requests created yet!</p>
 					<p class="research-template-list-main-second-text">Create a first request template your team will be able to submit</p>
 				</div>
 				<button class="research-template-list-add-button" id="add-template-button"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
-				{% include "modals/_new_research_template_details.html.twig" %}
+				{% include "modals/_modal_new_research_template.html.twig" %}
 			</div>
 
 		</div>
