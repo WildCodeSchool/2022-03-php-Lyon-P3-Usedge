@@ -1,39 +1,4 @@
-// var primary colors
-$primary-blue-1: #6580FF;
-$primary-blue-2: #ECEFFF;
-$primary-blue-3: #1D2A78;
-$primary-blue-4: #F4F7FD;
-$primary-blue-5: #12033B;
-$primary-grey-1: #676874;
-$primary-grey-4: #ADADB5;
-$primary-dark-1: #1B1B1B;
-$primary-white-1: #FFFFFF;
-
-//var secondary colors
-$secondary-orange-1: #FFA94F;
-$secondary-red-1: #EA6061;
-$secondary-green-1: #71D68F;
-
-// var font-family
-$title-font: 'League Spartan', sans-serif;
-$text-font: 'Source Sans Pro', sans-serif;
-
-// var font-size
-$font-size-12: 12px;
-$font-size-14: 14px;
-$font-size-16: 16px;
-$font-size-18: 18px;
-
-//var font-weight
-$font-weight-400: 400;
-$font-weight-600: 600;
-
-//var border-radius
-$border-radius-10: 10px;
-$border-radius-20: 20px;
-
-
-//Begin style for /research-template/add
+@import '_var.scss';
 
 .main-container {
     display: flex;
@@ -185,6 +150,7 @@ $border-radius-20: 20px;
 }
 
 .components-available {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -212,6 +178,9 @@ $border-radius-20: 20px;
         letter-spacing: 0.116667px;
         color: $primary-grey-1;
     }
+    .buttonAction:hover {
+        cursor: pointer;
+    }
 }
 
 .components {
@@ -222,12 +191,18 @@ $border-radius-20: 20px;
 }
 
 .component {
+    @include dimension(352px, 64px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     border: 1px solid $primary-blue-2;
     border-radius: $border-radius-10;
+    margin-bottom: 12px;
+    &:hover {
+        border: 1px solid #6580FF;
+        transition: 500ms ease-in-out;
+    }
 }
 
 .component-picture-1 {
@@ -288,6 +263,7 @@ $border-radius-20: 20px;
     height: 950px;
     background: $primary-white-1;
     border-radius: $border-radius-10;
+    overflow: auto;
 
     h2 {
         font-family: $title-font;
@@ -308,6 +284,7 @@ $border-radius-20: 20px;
         letter-spacing: 0.116667px;
         color: $primary-grey-1;
     }
+    
 }
 
 .need-help-container {
