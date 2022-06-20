@@ -1,0 +1,46 @@
+@import '../../_var.scss';
+
+.external_link_title_display {
+    @include dimension(995px, 21px);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 25px;
+    gap: 20px;
+    &:hover>.external_link_actions {
+        display: flex;
+    }
+    .external_link_title_move {
+        @include dimension(22px, 21px);
+        img {
+            width: 22px;
+        }
+    }
+    .component_external_link_title {
+        margin-bottom: 50px;
+        p {
+            @include textStyle ($text-font, $font-size-18,
+            $font-weight-600,$primary-blue-3 );
+            display: flex;
+            align-items: flex-start;
+            font-style: normal;
+            width: 868px;
+            #external_link_red_star {
+            color: $secondary-red-1;
+            }
+        #external_link_input {
+            }
+        }
+    }
+    .external_link_actions {
+        display: none;
+        align-items: center;
+        width: 65px;
+        padding: 10px;
+        gap: 5px;
+        img {
+            cursor: pointer;
+            width: 20px;
+        }
+    }
+}

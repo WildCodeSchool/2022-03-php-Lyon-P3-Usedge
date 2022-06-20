@@ -4,11 +4,12 @@
 			<img src="{{ asset('build/images/icons/burger.png') }}"/>
 		</div>
 		<div class="component_external_link_title">
-			<p>{{ templateComponent.component.title}}</p>
+			<p>{{ templateComponent.component.title}}
 			{% if templateComponent.component.isMandatory %}
 				<span class="external_link_red_star" id="external_link_red_star">*</span>
 			{% endif %}
-			<div class="external-link-input">
+			</p>
+			<div class="external_link_input">
 				<input type="text" name="external-link" class="form-control" id="select_link">
 			</div>
 		</div>
