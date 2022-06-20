@@ -13,7 +13,6 @@ if (document.getElementById('button_answer_multiple_choice')) {
     const newComponentmultipleChoiceForm = document.getElementById('new-component-multiple-choice-form');
     const bodyMultiple = document.getElementById('body');
 
-
     // Function used to open the modal
     addmultipleChoiceModalOpenButton.addEventListener('click', () => {
         addmultipleChoiceModal.classList.add('add-multiple-choice-modal-display');
