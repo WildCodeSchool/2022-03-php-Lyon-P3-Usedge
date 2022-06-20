@@ -13,13 +13,14 @@ import './js/homePage.js';
 import './js/add_research_template.js';
 
 // import modal js
+import './js/modals/modal_external_link.js';
 import './js/modals/modules/icons_module.js';
 import './js/modals/modal_new_research_template.js';
 import './js/modals/modal_multiple_choice.js';
 import './js/modals/modal_single_choice.js';
 import './js/modals/modal_evaluation_scale.js';
 import './js/modals/modal_section.js';
-import './js/modals/modal_external_link.js';
+
 
 // start the Stimulus application
 import './bootstrap';

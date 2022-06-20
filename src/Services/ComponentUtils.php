@@ -142,6 +142,8 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($externalLink);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
 
             $entityManager->flush();
         }

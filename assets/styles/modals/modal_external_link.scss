@@ -18,6 +18,7 @@
             right: 10px;
             color: $primary-grey-4;
             text-decoration: none;
+            cursor: pointer;
         }
         h1 {
             @include textStyle($text-font, $font-size-18,
@@ -51,7 +52,6 @@
             width: 100%;
             background: $primary-blue-1;
             border-radius: 10px;
-            margin-top: 10px;
         }
     }  
 }

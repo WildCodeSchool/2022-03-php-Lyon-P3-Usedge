@@ -1,35 +1,54 @@
 @import '../_var.scss';
 
-.external_link_title_display {
-    @include dimension(995px, 21px);
+.external-link-template-creation {
+    @include dimension(995px, 93px);
     display: flex;
-    align-items: center;
     padding: 0;
     margin-bottom: 25px;
     gap: 20px;
-    &:hover>.external_link_actions {
+    &:hover>.external-link-template-actions {
         display: flex;
     }
-    .external_link_title_move {
-        @include dimension(22px, 21px);
+    .external-link-template-draggable {
+        display: flex;
+        align-items: center;
+        @include dimension(22px, 100%);
         img {
             width: 22px;
         }
     }
-    .component_external_link_title p {
-        @include textStyle ($text-font, $font-size-18,
-        $font-weight-600,$primary-blue-3 );
-        display: flex;
-        align-items: flex-start;
-        font-style: normal;
+    .external-link-template-content {
         width: 868px;
-        #external_link_red_star {
-        color: $secondary-red-1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .external-link-template-title {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            @include dimension(100%, 50%);
+            margin-bottom: 0;
+            p {
+                line-height: 100%;
+            }
+            .external-link-red-star {
+                color: $secondary-red-1;
+            }
         }
+        .external-link-input {
+            display: flex;
+            align-items: center;
+            @include dimension(100%, 100%);
+            #select-external-link {
+                height: 60%;
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                background-repeat: no-repeat;
+                background-position-y: center;
+                background-position-x: 12px;
+                background-color: $primary-white-1;
+                padding: 0px 0px 0px 32px;
+            }
+        } 
     }
-}
-
-.external_link_actions {
+    .external-link-template-actions {
         display: none;
         align-items: center;
         width: 65px;
@@ -40,3 +59,4 @@
             width: 20px;
         }
     }
+}
