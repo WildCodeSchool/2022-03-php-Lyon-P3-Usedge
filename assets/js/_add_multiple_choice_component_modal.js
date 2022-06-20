@@ -13,15 +13,6 @@ if (document.getElementById('button_answer_multiple_choice')) {
     const newComponentmultipleChoiceForm = document.getElementById('new-component-multiple-choice-form');
     const bodyMultiple = document.getElementById('body');
 
-    /* newComponentmultipleChoiceForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const form = new FormData(newComponentmultipleChoiceForm);
-        fetch('/research-template/add/{id}',{
-        method: 'POST',
-        body: form
-        })
-    }) */
 
     // Function used to open the modal
     addmultipleChoiceModalOpenButton.addEventListener('click', () => {
