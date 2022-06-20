@@ -5,12 +5,12 @@
 		</div>
 		<div class="component_external_link_title">
 			<p>{{ templateComponent.component.title}}</p>
-			    {% if templateComponent.component.isMandatory %}
-                    <span class="date-picker-red-star" id="date-picker-red-star">*</span>
-                {% endif %}
-				<div class="external-link-input">
-                <input type="text" name="external-link" class="form-control" id="">
-            </div>
+			{% if templateComponent.component.isMandatory %}
+				<span class="external_link_red_star" id="external_link_red_star">*</span>
+			{% endif %}
+			<div class="external-link-input">
+				<input type="text" name="external-link" class="form-control" id="select_link">
+			</div>
 		</div>
 		<div class="external_link_actions">
 			<img src="{{ asset('build/images/icons/edit.png') }}"/>

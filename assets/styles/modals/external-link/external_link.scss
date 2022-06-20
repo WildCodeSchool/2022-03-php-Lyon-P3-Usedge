@@ -75,13 +75,16 @@
             width: 22px;
         }
     }
-    .component_external_link_title p {
+    .component_external_link_title {
+        p {
         @include textStyle ($text-font, $font-size-18,
         $font-weight-600,$primary-blue-3 );
         display: flex;
         align-items: flex-start;
         font-style: normal;
         width: 868px;
+        }
+        
     }
     .external_link_actions {
         display: none;
