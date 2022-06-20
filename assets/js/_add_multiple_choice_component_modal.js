@@ -45,7 +45,7 @@ if (document.getElementById('button_answer_multiple_choice')) {
         const deleteInputAnswers = document.getElementsByClassName('delete-input-answer');
 
         const inputAnswers = document.getElementsByClassName('input_answer');
-        const inputAnswerNumber = document.getElementById('input-answer-number');
+        const inputAnswerNumber = document.getElementById('input-answer-number-multiple');
         inputAnswerNumber.value = inputAnswers.length;
         for (let i = 0; i < deleteInputAnswers.length; i++) {
             const deleteInputAnswer = deleteInputAnswers[i];

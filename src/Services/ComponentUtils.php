@@ -98,7 +98,7 @@ class ComponentUtils
     {
         $multipleChoice = new MultipleChoice();
         $templateComponent = new TemplateComponent();
-        $answersValue = $this->checkDataUtils->retrieveAnswers($dataComponent);
+        $answersValue = $this->checkDataUtils->retrieveAnswersMultiple($dataComponent);
         $this->checkErrors = $this->checkDataUtils->checkDataMultipleChoice($dataComponent, $answersValue);
 
         if (!isset($dataComponent['is_mandatory'])) {
