@@ -1,10 +1,16 @@
-{% if "externalLink" in templateComponent.component.name %}
+{% if "external-link" in templateComponent.component.name %}
 	<div class="external_link_title_display">
 		<div class="external_link_title_move">
 			<img src="{{ asset('build/images/icons/burger.png') }}"/>
 		</div>
 		<div class="component_external_link_title">
 			<p>{{ templateComponent.component.title}}</p>
+			    {% if templateComponent.component.isMandatory %}
+                    <span class="date-picker-red-star" id="date-picker-red-star">*</span>
+                {% endif %}
+				<div class="external-link-input">
+                <input type="text" name="external-link" class="form-control" id="">
+            </div>
 		</div>
 		<div class="external_link_actions">
 			<img src="{{ asset('build/images/icons/edit.png') }}"/>

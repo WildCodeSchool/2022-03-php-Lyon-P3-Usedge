@@ -68,4 +68,17 @@ class CheckDataUtils
         }
         return $this->checkErrors;
     }
+
+    public function checkExternalLink(array $dataComponent): array
+    {
+        foreach ($dataComponent as $data) {
+            if (empty($data)) {
+                $this->checkErrors[] = 'This field is mandatory.';
+            }
+        }
+        if (strlen($dataComponent['title']) > 255) {
+            $this->checkErrors[] = 'Maximum length for title is 255 characters.';
+        }
+        return $this->checkErrors;
+    }
 }

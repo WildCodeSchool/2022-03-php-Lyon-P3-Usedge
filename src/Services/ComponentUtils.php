@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Entity\Answer;
 use App\Entity\ComponentEvaluationScale;
+use App\Entity\ExternalLink;
 use App\Entity\ResearchTemplate;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
@@ -86,6 +87,33 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($singleChoice);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
+    public function loadExternalLink(array $dataComponent, ResearchTemplate $researchTemplate): void
+    {
+        $templateComponent = new TemplateComponent();
+        $externalLink = new ExternalLink();
+        $this->checkErrors = $this->checkDataUtils->checkExternalLink($dataComponent);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->entityManager;
+
+            $externalLink->setName($dataComponent['externalLinkName']);
+            $externalLink->setTitle($dataComponent['title']);
+            $externalLink->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->persist($externalLink);
+
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($externalLink);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
 

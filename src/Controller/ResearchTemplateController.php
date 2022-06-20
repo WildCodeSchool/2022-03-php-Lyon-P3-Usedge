@@ -43,6 +43,7 @@ class ResearchTemplateController extends AbstractController
         $dataComponent = $checkDataUtils->trimData($request);
         $componentName = $request->request->get('name');
         $componentNameSingle = $request->get('singleName');
+        $componentLink = $request->get('externalLinkName');
 
         if ($componentNameSingle === 'single-choice') {
             $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
@@ -54,6 +55,9 @@ class ResearchTemplateController extends AbstractController
         }
         if ($componentName === 'evaluation-scale') {
             $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
+        }
+        if ($componentLink === 'external-link') {
+            $componentUtils->loadExternalLink($dataComponent, $researchTemplate);
         }
         $validationErrors = $componentUtils->getCheckErrors();
 
