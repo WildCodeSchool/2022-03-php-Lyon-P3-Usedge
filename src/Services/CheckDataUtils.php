@@ -33,7 +33,7 @@ class CheckDataUtils
         return $this->answersValue;
     }
 
-    public function retrieveSelectAnswers(array $dataComponent): ?array
+    public function retrieveSelectAnswers(array $dataComponent): array
     {
         $inputAnswerNumber = $dataComponent['select-answer-number'];
         for ($i = 0; $i < $inputAnswerNumber; $i++) {
