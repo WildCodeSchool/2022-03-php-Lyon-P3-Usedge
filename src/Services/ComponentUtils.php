@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Entity\Answer;
 use App\Entity\ComponentEvaluationScale;
 use App\Entity\ResearchTemplate;
+use App\Entity\Section;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
 use App\Services\CheckDataUtils;
@@ -86,6 +87,33 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($singleChoice);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
+    public function loadSection(array $dataComponent, ResearchTemplate $researchTemplate): void
+    {
+        $templateComponent = new TemplateComponent();
+        $section = new Section();
+        $this->checkErrors = $this->checkDataUtils->checkDataSection($dataComponent);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager =  $this->entityManager;
+
+            $section->setName($dataComponent['sectionName']);
+            $section->setTitle($dataComponent['title']);
+            $section->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->persist($section);
+
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($section);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
 
