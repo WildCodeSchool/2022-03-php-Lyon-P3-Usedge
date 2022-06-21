@@ -1,0 +1,62 @@
+@import '../_var.scss';
+
+.external-link-template-creation {
+    @include dimension(995px, 93px);
+    display: flex;
+    padding: 0;
+    margin-bottom: 25px;
+    gap: 20px;
+    &:hover>.external-link-template-actions {
+        display: flex;
+    }
+    .external-link-template-draggable {
+        display: flex;
+        align-items: center;
+        @include dimension(22px, 100%);
+        img {
+            width: 22px;
+        }
+    }
+    .external-link-template-content {
+        width: 868px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .external-link-template-title {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            @include dimension(100%, 50%);
+            margin-bottom: 0;
+            p {
+                line-height: 100%;
+            }
+            .external-link-red-star {
+                color: $secondary-red-1;
+            }
+        }
+        .external-link-input {
+            display: flex;
+            align-items: center;
+            @include dimension(100%, 100%);
+            #select-external-link {
+                height: 60%;
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                background-repeat: no-repeat;
+                background-position-y: center;
+                background-position-x: 12px;
+                background-color: $primary-white-1;
+                padding: 0px 0px 0px 32px;
+            }
+        } 
+    }
+    .external-link-template-actions {
+        display: none;
+        align-items: center;
+        width: 65px;
+        padding: 10px;
+        gap: 5px;
+        img {
+            cursor: pointer;
+            width: 20px;
+        }
+    }
+}

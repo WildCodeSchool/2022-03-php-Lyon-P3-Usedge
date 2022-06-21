@@ -24,6 +24,9 @@
                 @include dimension(30px, 30px);
                 display: flex;
                 align-items: center;
+                a {
+                    padding-left: 11px;
+                }
             }
             .research-template-list-header-title {
                 @include dimension(1532px, 40px);
