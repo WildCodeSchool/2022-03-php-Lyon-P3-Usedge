@@ -1,0 +1,93 @@
+@import '../_var.scss';
+
+// define modal style  
+
+.full-screen-date-picker-modal-close {
+    display: none; 
+    @include dimension(100%, 100%);
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    overflow: auto;
+    .add-date-picker-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include absolutePosition(57%, 39%);
+        width: 400px;
+        box-sizing: border-box;
+        background-color: $primary-white-1;
+        border-radius: $border-radius-10;
+        .modal-content-date-picker {
+            position: relative;
+            background: white;
+            padding: 1.5em 2em;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            .date-picker-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .date-picker-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
+            }
+            #date-picker-draggable-handle:hover {
+                cursor: grabbing;
+            }
+            h4 {
+                @include textStyle($text-font,$font-size-18,$font-weight-600,#000000);
+                margin-bottom: 20px;
+            }
+            p {
+                @include textStyle($text-font,$font-size-16,$font-weight-600,#000000);
+                font-family: 'Source Sans Pro', sans-serif;
+                margin-bottom: 20px;
+            }
+            #input-date-picker-title{
+                @include dimension(100%, 42px);
+                @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            #button-action-date-picker {
+                @include button($primary-blue-1, $border-radius-10,0);
+                @include dimension(100%, 42px);
+                margin-top: 20px;
+            }
+            .input-mandatory-date-picker[type="checkbox"] {
+                @include dimension(16px, 16px);
+                border: 1px solid $primary-blue-1 !important;
+                border-radius: 2px;
+            }
+            label {
+                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
+            }
+        }
+        
+    
+    }
+}
+
+// display modal
+
+.hide-body-overflow-date-picker {
+    overflow: hidden;
+}
+
+.full-screen-date-picker-modal-display {
+    display: block;
+}

@@ -14,7 +14,6 @@ if (document.getElementById('button_answer_single_choice')) {
         addSingleChoiceModal.classList.add('add-single-choice-modal-display');
         addFullScreenContainerModalClose.classList.add('full-screen-container-modal-close-display');
         body.classList.add('hide-body-overflow');
-
         // Function used to close the modal when click outside the modal
         window.onclick = function(event) {
             if (event.target == addFullScreenContainerModalClose) {
