@@ -1,3 +1,11 @@
+function RenameInputAnswers() {
+    const inputAnswers = document.getElementsByClassName('input_answer');
+    for (let i = 0; i < inputAnswers.length; i++) {
+        const inputAnswer = inputAnswers[i];
+        inputAnswer.setAttribute('name', 'answer' + i);
+        inputAnswer.setAttribute('id', 'input_answer' + i);
+    }
+}
 // Careful : for first const, check real button id when integration !
 
 if (document.getElementById('button_answer_single_choice')) {
@@ -32,10 +40,11 @@ if (document.getElementById('button_answer_single_choice')) {
 
         newInputAnswer.classList.add('input_answer');
         deleteInputAnswer.classList.add('delete-input-answer');
-        dragAndDrop.classList.add('drag-and-drop');
+        dragAndDrop.classList.add('single-choice-drag-and-drop');
 
         newInputAnswer.type = 'text';
         newInputAnswer.setAttribute('required', 'required');
+        dragAndDrop.setAttribute('draggable', 'true');
 
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
@@ -45,6 +54,7 @@ if (document.getElementById('button_answer_single_choice')) {
         const deleteInputAnswers = document.getElementsByClassName('delete-input-answer');
         const inputAnswers = document.getElementsByClassName('input_answer');
         const inputAnswerNumber = document.getElementById('input-answer-number');
+        const singlehoiceDragAndDrops = document.getElementsByClassName('single-choice-drag-and-drop');
 
         inputAnswerNumber.value = inputAnswers.length;
         for (let i = 0; i < deleteInputAnswers.length; i++) {
@@ -53,22 +63,16 @@ if (document.getElementById('button_answer_single_choice')) {
                 let target =  event.target;
                 if (target === deleteInputAnswer){
                     target.remove();
-                    const inputAnswers = document.getElementsByClassName('input_answer');
-                    for (let i = 0; i < inputAnswers.length; i++) {
-                        const inputAnswer = inputAnswers[i];
-                        inputAnswer.setAttribute('name', 'answer' + i);
-                        inputAnswer.setAttribute('id', 'input_answer' + i);
-                        inputAnswerNumber.value = inputAnswers.length;
-                    }
+                    RenameInputAnswers();
                 }        
             }
-            
-            for (let i = 0; i < inputAnswers.length; i++) {
-                const inputAnswer = inputAnswers[i];
-                inputAnswer.setAttribute('name', 'answer' + i );
-                inputAnswer.setAttribute('id', 'input_answer' + i);
-            }
-
+            RenameInputAnswers();
+        }
+        for (const singlehoiceDragAndDrop of singlehoiceDragAndDrops) {
+            singlehoiceDragAndDrop.addEventListener('dragend', function(){
+                RenameInputAnswers();
+            });
         }
     });
+    
 }
