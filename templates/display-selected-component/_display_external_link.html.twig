@@ -1,22 +1,22 @@
 {% if "external-link" in templateComponent.component.name %}
-    <div class="external-link-template-creation" draggable="true">
-        <div class="external-link-template-draggable">
-            <img src="{{ asset('build/images/icons/burger.png') }}"/>
-        </div>
-        <div class="external-link-template-content">
-            <p class="external-link-template-title" id="external-link-template-title">
-                {{templateComponent.component.title}}
-                {% if templateComponent.component.isMandatory %}
-                    <span class="external-link-red-star" id="external-link-red-star">*</span>
-                {% endif %}
-            </p>
-            <div class="external-link-input">
-                <input type="url" name="select-external-link" class="form-control" id="select-external-link">
-            </div>
-        </div>
-        <div class="external-link-template-actions">
-            <img src="{{ asset('build/images/icons/edit.png') }}"/>
-            <img src="{{ asset('build/images/icons/close.png') }}"/>
-        </div>
-    </div>
+	<div class="external-link-template-creation" draggable="true">
+		<div class="external-link-template-draggable">
+			<img src="{{ asset('build/images/icons/burger.png') }}"/>
+		</div>
+		<div class="external-link-template-content">
+			<p class="external-link-template-title" id="external-link-template-title">
+				{{templateComponent.component.title}}
+				{% if templateComponent.component.isMandatory %}
+					<span class="external-link-red-star" id="external-link-red-star">*</span>
+				{% endif %}
+			</p>
+			<div class="external-link-input">
+				<input type="url" name="select-external-link" class="form-control" id="select-external-link">
+			</div>
+		</div>
+		<div class="external-link-template-actions">
+			<img src="{{ asset('build/images/icons/edit.png') }}"/>
+			<img src="{{ asset('build/images/icons/close.png') }}"/>
+		</div>
+	</div>
 {% endif %}
