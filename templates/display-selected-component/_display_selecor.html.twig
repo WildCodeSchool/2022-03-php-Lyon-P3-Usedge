@@ -1,0 +1,29 @@
+{% if "select" in templateComponent.component.name %}
+    <div class="select-template-creation" draggable="true">
+        <div class="select-template-draggable">
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
+        <div class="select-template-content">
+            <p class="select-template-title" id="select-template-title">
+                {{templateComponent.component.title}}
+                {% if templateComponent.component.isMandatory %}
+                    <span class="select-red-star" id="select-red-star">*</span>
+                {% endif %}
+            </p>
+            <div class="select-template-answers">
+            {% for answer in templateComponent.component.answers %}
+                <div class="select-template-answer">
+                    <input type="radio" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}">
+                    <label for="answer{{templateComponent.component.id}}" class="select-template-answer-label" id="select-template-answer-label">
+                    {{answer.answer}}
+                    </div>
+                    </label> 
+            {% endfor %}
+            </div>
+        </div>
+        <div class="select-template-actions">
+            <img src="{{ asset('build/images/icons/edit.png') }}"/>
+            <img src="{{ asset('build/images/icons/close.png') }}"/>
+        </div>
+    </div>
+{% endif %}
