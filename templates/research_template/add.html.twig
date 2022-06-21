@@ -157,9 +157,10 @@
 									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-external-link-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							<div>{% include "modals/_modal_external_link.html.twig" %}</div>
 						</div>
 					</section>
 
@@ -173,7 +174,7 @@
 							{% include "display-selected-component/_display_single_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
 							{% include 'display-selected-component/_display_section.html.twig' %}	
-							
+							{% include 'display-selected-component/_display_external_link.html.twig' %}
 						{% endfor %}
 					</div>
 					{% if researchTemplate.templateComponents is empty %}
