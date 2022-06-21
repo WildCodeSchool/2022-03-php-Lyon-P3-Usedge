@@ -1,44 +1,76 @@
 @import '../_var.scss';
 
-.modal-section-container {
-    display: none;
-    padding: 35px;
-    width: 390px;
-    background: $primary-white-1;
-    box-shadow: 0px 0px 6px $primary-dark-1;
-    border-radius: 10px;
-    position: fixed;
-    background-color: $primary-white-1;
-    top: 40%;
-    left: 25%;
-    .modal-section-content {
-        .close-modal-section {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: $primary-grey-4;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        h1 {
-            @include textStyle($text-font, $font-size-18,
-            $font-weight-600, $primary-dark-1);
-            font-style: normal;
-            margin-bottom: 20px;
-        }
-        #section_title {
-            @include dimension (100%, 42px);
-            border: 1px solid $primary-blue-2;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        #button-action-component-section {
-            width: 100%;
-            background: $primary-blue-1;
+.full-screen-section-modal-close {
+    display: none; 
+    @include dimension(100%, 100%);
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    overflow: auto;
+    .add-section-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include absolutePosition(57%, 39%);
+        width: 400px;
+        box-sizing: border-box;
+        background-color: $primary-white-1;
+        border-radius: $border-radius-10;
+        .modal-content-section {
+            position: relative;
+            background: white;
+            padding: 1.5em 2em;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
-        }
-    }  
+            .section-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .section-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
+            }
+            #section-draggable-handle:hover {
+                cursor: grabbing;
+            }
+            h4 {
+                @include textStyle($text-font,$font-size-18,$font-weight-600,#000000);
+                margin-bottom: 20px; 
+            }
+            .input-modal-section {
+                #input-section-title {
+                @include dimension (100%, 42px);
+                border: 1px solid $primary-blue-2;
+                border-radius: 8px;
+                }
+            }
+            #button-action-section {
+                @include button($primary-blue-1, $border-radius-10,0);
+                @include dimension(100%, 42px);
+                margin-top: 20px;
+            }
+        }    
+    }
 }
-.modal-section-container.active {
+
+// display modal
+.hide-body-overflow-section {
+    overflow: hidden;
+}
+
+.full-screen-section-modal-display {
     display: block;
 }
