@@ -58,7 +58,7 @@ class CheckDataUtils
         }
 
         if (empty($answersValue)) {
-            $this->checkErrors[] = 'At least one datatype is mandatory.';
+            $this->checkErrors[] = 'At least one choice is mandatory.';
         }
 
         foreach ($answersValue as $answerValue) {
