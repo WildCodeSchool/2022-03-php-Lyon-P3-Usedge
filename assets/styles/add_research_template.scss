@@ -206,7 +206,7 @@
                     line-height: 20px;
                     letter-spacing: -0.8px;
                 }
-                p {
+                &:nth-child(2) {
                     @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
                     font-style: normal;
                     line-height: 20px;
