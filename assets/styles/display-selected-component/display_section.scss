@@ -1,6 +1,6 @@
 @import '../_var.scss';
 
-.section_title_display {
+.section-title-display {
     @include dimension(995px, 46px);
     display: flex;
     padding: 0;
@@ -15,7 +15,7 @@
             width: 22px;
         }
     }
-    #component-section-title {
+    .component-section-title {
         p {
             @include textStyle ($text-font, $font-size-18,
             $font-weight-600,$primary-blue-3 );
