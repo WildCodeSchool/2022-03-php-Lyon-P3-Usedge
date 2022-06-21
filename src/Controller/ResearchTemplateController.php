@@ -49,6 +49,13 @@ class ResearchTemplateController extends AbstractController
                 'id' => $id,
             ], Response::HTTP_SEE_OTHER);
         }
+        if (in_array('multiple-choice', $dataComponent)) {
+            $componentUtils->loadMultipleChoice($researchTemplate, $dataComponent);
+            $id = $researchTemplate->getId();
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
+        }
         if (in_array('evaluation-scale', $dataComponent)) {
             $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
         }

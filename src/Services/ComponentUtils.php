@@ -95,6 +95,42 @@ class ComponentUtils
         }
     }
 
+    public function loadMultipleChoice(ResearchTemplate $researchTemplate, array $dataComponent): void
+    {
+        $multipleChoice = new MultipleChoice();
+        $templateComponent = new TemplateComponent();
+        $answersValue = $this->checkDataUtils->retrieveAnswersMultiple($dataComponent);
+        $this->checkErrors = $this->checkDataUtils->checkDataMultipleChoice($dataComponent, $answersValue);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->entityManager;
+
+            $multipleChoice->setQuestion($dataComponent['question']);
+            $multipleChoice->setIsMandatory($dataComponent['is_mandatory']);
+            $multipleChoice->setName($dataComponent['multipleName']);
+            $entityManager->persist($multipleChoice);
+
+            $orderAnswer = 0;
+            foreach ($answersValue as $answerValue) {
+                    $answer = new Answer();
+                    $answer->setAnswer($answerValue);
+                    $answer->setQuestion($multipleChoice);
+                    $answer->setNumberOrder(++$orderAnswer);
+                    $entityManager->persist($answer);
+            }
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($multipleChoice);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
     public function loadSection(array $dataComponent, ResearchTemplate $researchTemplate): void
     {
         $templateComponent = new TemplateComponent();
