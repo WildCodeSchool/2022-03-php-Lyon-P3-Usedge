@@ -10,14 +10,7 @@
     &:hover>.select-template-actions {
         display: flex;
     }
-    .select-template-draggable {
-        display: flex;
-        align-items: flex-start;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
-    }
+
     .select-template-content {
         width: 868px;
         display: flex;
