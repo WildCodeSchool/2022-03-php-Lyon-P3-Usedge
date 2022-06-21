@@ -5,10 +5,6 @@
 {% block body %}
 	<div class="main-container">
 
-		<aside class="sidebar">
-			<img src="{{ asset('build/images/sidebar.png') }}">
-		</aside>
-
 		<div class="secondary-container">
 
 			<section class="header-container">
@@ -31,9 +27,9 @@
 							<p>Status of this request<span>*</span>
 							</p>
 							<div>
-								<select id="select-status" class="status-list-select bg-green-dot" aria-label="Default select example">
+								<select id="select-status" class="status-list-select bg-grey-dot" aria-label="Default select example">
 									<option value="active">Active</option>
-									<option value="draft">Draft</option>
+									<option value="draft" selected="selected">Draft</option>
 									<option value="dropped">Dropped</option>
 								</select>
 							</div>
@@ -57,7 +53,7 @@
 									<a class="modal-section-btn- modal-section-trigger buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include 'modals/_modal_section.html.twig' %}</div>
+							{% include 'modals/_modal_section.html.twig' %}
 							
 							<div class="component">
 								<div class="component-picture-1">
@@ -71,7 +67,7 @@
 									<a id="add-single-choice-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include "modals/_modal_single_choice.html.twig" %}</div>
+							{% include "modals/_modal_single_choice.html.twig" %}
 
 							<div class="component">
 								<div class="component-picture-1">
