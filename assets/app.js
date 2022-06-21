@@ -20,6 +20,7 @@ import './js/modals/modal_multiple_choice.js';
 import './js/modals/modal_single_choice.js';
 import './js/modals/modal_evaluation_scale.js';
 import './js/modals/modal_section.js';
+import './js/modals/modal_date_picker.js';
 
 
 // start the Stimulus application

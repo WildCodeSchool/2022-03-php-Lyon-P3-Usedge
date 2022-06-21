@@ -1,7 +1,7 @@
 @import '../_var.scss';
 
-.section-title-display {
-    @include dimension(995px, 21px);
+.section_title_display {
+    @include dimension(995px, 46px);
     display: flex;
     padding: 0;
     margin-bottom: 25px;
