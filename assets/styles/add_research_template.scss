@@ -185,6 +185,10 @@
                                 .buttonAction:hover {
                                     cursor: pointer;
                                 }
+                                #add-separator-button {
+                                    border: 0;
+                                    background-color: transparent;
+                                }
                             }
                         }
                     }
@@ -206,7 +210,7 @@
                     line-height: 20px;
                     letter-spacing: -0.8px;
                 }
-                &:nthchild(2) {
+                &:nth-child(2) {
                     @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
                     font-style: normal;
                     line-height: 20px;
