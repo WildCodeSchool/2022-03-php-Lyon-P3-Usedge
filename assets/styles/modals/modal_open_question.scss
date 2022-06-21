@@ -1,0 +1,105 @@
+@import "../_var.scss";
+
+// define modal style
+
+.full-screen-container-modal-close-open-question {
+    display: none;
+    @include dimension(100%, 100%);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    .open-question-creation-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include absolutePosition(43%, 50%);
+        width: 400px;
+        min-height: 337px;
+        box-sizing: border-box;
+        background-color: $primary-white-1;
+        transform: translate(-81%, 5%);
+        border-radius: $border-radius-10;
+        border: 1px solid $primary-blue-1;
+
+        .open-question-modal-title {
+            @include dimension(256px, 21px);
+            display: flex;
+            align-items: center;
+            margin: 0 40px;
+            margin-top: 0px;
+            margin-bottom: 0;
+            p {
+                @include textStyle(
+                    $title-font,
+                    30px,
+                    $font-weight-400,
+                    $primary-blue-3
+                );
+            }
+        }
+        .modal_content_open_question {
+            position: relative;
+            background: white;
+            padding: 1.5em 2em;
+            background: #ffffff;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            h4 {
+                @include textStyle(
+                    $text-font,
+                    $font-size-18,
+                    $font-weight-600,
+                    #000000
+                );
+                margin-bottom: 20px;
+            }
+            p {
+                @include textStyle(
+                    $text-font,
+                    $font-size-16,
+                    $font-weight-600,
+                    #000000
+                );
+                font-family: "Source Sans Pro", sans-serif;
+                margin-bottom: 20px;
+            }
+            .open-question-input {
+                @include dimension(100%, 42px);
+                @include input(
+                    $primary-white-1,
+                    $border-radius-10,
+                    1px solid #ecefff
+                );
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+
+            label {
+                @include textStyle(
+                    $text-font,
+                    $font-size-14,
+                    $font-weight-600,
+                    $primary-blue-3
+                );
+            }
+            #button-create-open-question{
+                @include button($primary-blue-1, $border-radius-10,0);
+                @include dimension(100%, 42px);
+                margin-top: 20px;
+            }
+
+        }
+    }
+}
+
+// display modal
+
+.hide-body-overflow {
+    overflow: hidden;
+}
+
+.full-screen-open-question-container-modal-close-display {
+    display: block;
+}

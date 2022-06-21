@@ -1,0 +1,21 @@
+<div class="full-screen-container-modal-close-open-question" id="full-screen-container-modal-close-open-question">
+	<div class="open-question-creation-modal" id="open-question-creation-modal">
+		<form method="POST" class="open-question-modal-fields">
+			<div class="modal_content_open_question">
+				<h4 class="open-question-modal-title">Create an open question</h4>
+				<input class="open-question-input" type="text" name="question" id="question" placeholder="What is your question" required>
+				<input class="open-question-input" type="text" name="mame" id="name" placeholder="Answer field placeholder" required>
+				<div class="checkbox-helper-text-open-question" id="checkbox-helper-text-open-question">
+					<input type="checkbox" id="addAHelpertext" name="addAHelpertext" checked>
+					<label for="addAHelpertext">Add a helper text</label>
+				</div>
+				<input class="open-question-input" type="text" name="helperText" id="helperText" placeholder="helperText" required>
+				<div class="open-question-modal-mandatory" id="open-question-modal-mandatory">
+					<input type="checkbox" id="isMandatory" name="isMandatory" checked>
+					<label for="isMandatory">This field is mandatory</label>
+				</div>
+				<button id="button-create-open-question" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add open question</button>
+			</form>
+		</div>
+	</div>
+</div>
