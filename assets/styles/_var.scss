@@ -7,6 +7,8 @@ $primary-blue-3: #1D2A78;
 $primary-blue-4: #F4F7FD;
 $primary-blue-5: #12033B;
 $primary-grey-1: #676874;
+$primary-grey-2: #F1F1F5;
+$primary-grey-3: #44444F;
 $primary-grey-4: #ADADB5;
 $primary-grey-5: #E1E1E1;
 $primary-dark-1: #1B1B1B;
@@ -65,3 +67,36 @@ $border-radius-20: 20px;
     border-radius: $br;
     border: $b;   
 }
+
+body {
+    display: flex;
+    align-items: flex-start;
+    background-color: $primary-white-2;
+    gap: 40px;
+    .usedge-aside-sidebar {
+        @include dimension(270px, 1080px);
+    }
+}
+
+
+/* Modification of the scrollbar properties */
+/* Works on Firefox */
+* {
+    scrollbar-width: none;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+    margin-left: 5px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: $primary-grey-2;
+    border-radius: 20px;
+    border: none;
+  }
