@@ -55,6 +55,9 @@ class ResearchTemplateController extends AbstractController
         if (in_array('section', $dataComponent)) {
             $componentUtils->loadSection($dataComponent, $researchTemplate);
         }
+        if (in_array('separator', $dataComponent)) {
+            $componentUtils->loadSeparator($dataComponent, $researchTemplate);
+        }
         if (in_array('date-picker', $dataComponent)) {
             $componentUtils->loadDatapicker($dataComponent, $researchTemplate);
         }
