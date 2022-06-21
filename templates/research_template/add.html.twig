@@ -190,9 +190,9 @@
 						{% endfor %}
 						{% for templateComponent in researchTemplate.templateComponents %}
 							{% include "display-selected-component/_display_single_choice.html.twig" %}
+							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
 							{% include 'display-selected-component/_display_section.html.twig' %}	
-							
 						{% endfor %}
 					</div>
 					{% if researchTemplate.templateComponents is empty %}
