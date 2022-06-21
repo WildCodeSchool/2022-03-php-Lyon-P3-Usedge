@@ -10,12 +10,6 @@
     &:hover>.section_actions {
         display: flex;
     }
-    .section_title_move {
-        @include dimension(22px, 21px);
-        img {
-            width: 22px;
-        }
-    }
     .component_section_title p {
         @include textStyle ($text-font, $font-size-18,
         $font-weight-600,$primary-blue-3 );

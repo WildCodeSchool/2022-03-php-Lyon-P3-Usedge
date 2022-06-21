@@ -284,6 +284,13 @@
         letter-spacing: 0.116667px;
         color: $primary-grey-1;
     }
+    .handle-template-component-draggable {
+        @include dimension(22px, 21px);
+        cursor: grabbing;
+        img {
+            width: 22px;
+        }
+    }
     
 }
 

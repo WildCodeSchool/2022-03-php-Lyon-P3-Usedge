@@ -14,12 +14,6 @@
     &:hover>.evaluation-scale-template-actions {
         display: flex;
     }
-    .evaluation-scale-template-draggable {
-        @include dimension(22px, 21px);
-        img {
-            width: 22px;
-        }
-    }
     .evaluation-scale-template-content {
         width: 868px;
         display: flex;
