@@ -1,0 +1,29 @@
+{% if "multiple-choice" in templateComponent.component.name %}
+    <div class="multiple-choice-template-creation" draggable="true">
+        <div class="multiple-choice-template-draggable">
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
+        <div class="multiple-choice-template-content">
+            <p class="multiple-choice-template-question" id="multiple-choice-template-question">
+                {{templateComponent.component.question}}
+                {% if templateComponent.component.isMandatory %}
+                    <span class="multiple-choice-red-star" id="multiple-choice-red-star">*</span>
+                {% endif %}
+            </p>
+            <div class="multiple-choice-template-answers">
+                {% for answer in templateComponent.component.answers %}
+                    <div class="multiple-choice-template-answer">
+                        <input type="radio" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}">
+                        <label for="answer{{templateComponent.component.id}}" class="multiple-choice-template-answer-label" id="multiple-choice-template-answer-label">
+                        {{answer.answer}}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="multiple-choice-template-actions">
+            <img src="{{ asset('build/images/icons/edit.png') }}"/>
+            <img src="{{ asset('build/images/icons/close.png') }}"/>
+        </div>
+    </div>
+{% endif %}
