@@ -68,6 +68,11 @@
                 @include dimension(100%, 42px);
                 margin-top: 20px;
             }
+            .input-mandatory-date-picker[type="checkbox"] {
+                @include dimension(16px, 16px);
+                border: 1px solid $primary-blue-1 !important;
+                border-radius: 2px;
+            }
             label {
                 @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
             }
