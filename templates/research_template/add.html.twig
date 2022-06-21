@@ -105,9 +105,10 @@
 									<h3>Separator</h3>
 									<p>To add some space.</p>
 								</div>
-								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
-								</div>
+								<form class="component-picture-2" method="POST">
+									<input type="hidden" name="separatorName" value="separator">
+									<button id="add-separator-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></button>
+								</form>
 							</div>
 
 							<div class="component">
@@ -176,6 +177,7 @@
 							{% include "display-selected-component/_display_single_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
 							{% include 'display-selected-component/_display_section.html.twig' %}	
+							{% include 'display-selected-component/_display_separator.html.twig' %}	
 							{% include 'display-selected-component/_display_date_picker.html.twig' %}
 							{% include 'display-selected-component/_display_external_link.html.twig' %}
 							{% include 'display-selected-component/_display_selector.html.twig' %}

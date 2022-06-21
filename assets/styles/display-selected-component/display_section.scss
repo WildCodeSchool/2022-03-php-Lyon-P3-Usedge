@@ -1,7 +1,7 @@
 @import '../_var.scss';
 
 .section_title_display {
-    @include dimension(995px, 21px);
+    @include dimension(995px, 46px);
     display: flex;
     align-items: center;
     padding: 0;
@@ -22,7 +22,8 @@
         display: flex;
         align-items: flex-start;
         font-style: normal;
-        width: 868px;
+        @include dimension(868px, 100%);
+        margin: 0;
     }
     .section_actions {
         display: none;
