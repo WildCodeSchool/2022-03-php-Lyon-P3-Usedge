@@ -216,15 +216,6 @@
                     line-height: 20px;
                     letter-spacing: 0.116667px;
                 }
-                .handle-template-component-draggable {
-                    display: flex;
-                    align-items: center;
-                    @include dimension(22px, 100%);
-                    cursor: grabbing;
-                    img {
-                        width: 22px;
-                    }
-                }
                 .need-help-container {
                     @include dimension(112px, 42px);
                     cursor: pointer;
@@ -247,6 +238,15 @@
                         letter-spacing: 0.116667px;
                     }
                     
+                }
+                .handle-template-component-draggable {
+                    display: flex;
+                    align-items: center;
+                    @include dimension(22px, 100%);
+                    cursor: grabbing;
+                    img {
+                        width: 22px;
+                    }
                 }
             }
         }
