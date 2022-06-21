@@ -54,7 +54,7 @@ class CheckDataUtils
 
         foreach ($answersValue as $answerValue) {
             if (strlen($answerValue) > 255) {
-                $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
+                $this->checkErrors[] = 'Maximum length for Answer is 255 characters.';
             }
         }
         return $this->checkErrors;
@@ -106,6 +106,20 @@ class CheckDataUtils
             }
         }
         if (strlen($dataComponent['title']) > 255) {
+            $this->checkErrors[] = 'Maximum length for title is 255 characters.';
+        }
+        return $this->checkErrors;
+    }
+
+    public function checkDataDatePicker(array $dataComponent): array
+    {
+        foreach ($dataComponent as $data) {
+            if (empty($data)) {
+                $this->checkErrors[] = 'All fields are mandatory.';
+            }
+        }
+
+        if (strlen($dataComponent['title-date-picker']) > 255) {
             $this->checkErrors[] = 'Maximum length for title is 255 characters.';
         }
         return $this->checkErrors;

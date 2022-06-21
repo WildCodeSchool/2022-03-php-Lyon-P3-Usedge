@@ -98,9 +98,10 @@
 									<p>Ask for a date to your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-date-picker-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							{% include "modals/_modal_date_picker.htm.twig" %}
 
 							{# Separator component #}
 							<div class="component">
@@ -189,6 +190,7 @@
 							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
 							{% include 'display-selected-component/_display_section.html.twig' %}	
+							{% include 'display-selected-component/_display_date_picker.html.twig' %}
 							{% include 'display-selected-component/_display_external_link.html.twig' %}
 						{% endfor %}
 					</div>
