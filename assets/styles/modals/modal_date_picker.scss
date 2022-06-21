@@ -68,6 +68,9 @@
                 @include dimension(100%, 42px);
                 margin-top: 20px;
             }
+            label {
+                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
+            }
         }
         
     
