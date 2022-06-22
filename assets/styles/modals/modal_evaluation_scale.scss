@@ -52,7 +52,7 @@
             }
             .evaluation-scale-input {
                 @include dimension(320px, 42px);
-                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
                 box-sizing: border-box;
                 display: flex;
                 align-items: center;

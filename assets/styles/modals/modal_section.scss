@@ -58,9 +58,16 @@
                 }
             }
             #button-action-section {
-                @include button($primary-blue-1, $border-radius-10,0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include textStyle($text-font !important, $font-size-14 !important, $font-weight-600 !important, $primary-white-1 !important);
+                @include button($primary-blue-1, $border-radius-10, none);
                 @include dimension(100%, 42px);
                 margin-top: 20px;
+                img {
+                    padding-right: 5px;
+                }
             }
         }    
     }
