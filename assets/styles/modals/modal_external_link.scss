@@ -71,8 +71,13 @@
             }
             #button-action-external-link {
                 @include button($primary-blue-1, $border-radius-10,0);
-                @include dimension(100%, 42px);
+                @include dimension(320px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
                 margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
             }
         }    
     }
