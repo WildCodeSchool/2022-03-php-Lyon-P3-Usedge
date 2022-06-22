@@ -248,6 +248,14 @@
                         width: 22px;
                     }
                 }
+                .handle-template-component-draggable {
+                    display: flex;
+                    align-items: flex-start;
+                    @include dimension(22px, 100%);
+                    img {
+                        width: 22px;
+                    }
+                }
             }
         }
     }
