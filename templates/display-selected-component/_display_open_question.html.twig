@@ -1,0 +1,38 @@
+{% if "open-question" in templateComponent.component.name %}
+    <div class="open-question-creation-modal" id="open-question-creation-modal" draggable="true">
+        <div class="open-question-template-draggable">
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
+        <div class="open-question-template-content">
+            <p class="open-question-template-question" id="open-question-template-question">
+                {{ templateComponent.component.question }}
+                {% if templateComponent.component.isMandatory %}
+                    <span class="open-question-red-star" id="open-question-red-star">*</span>
+                {% endif %}
+            </p>
+
+            <div class="open-question-template-answers">
+                {% for answer in templateComponent.component.answers %}
+                    <div class="open-question-template-answer">
+                        <input Type= "textarea" name="answer{{templateComponent.component.id}}" placeholder="{{answer.answer}}">
+                        <label for="answer{{templateComponent.component.id}}" class="open-question-template-answer-label" id="single-choice-template-answer-label">
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="open-question-template-star-container">
+            <div class="open-question-template-levels">
+                <p class="open-question-template-low-label" id="open-question-template-low-label">
+                    {#{{ templateComponent.component.lowLabel }}#}
+                </p>
+                <p class="open-question-template-high-label" id="open-question-template-high-label">
+                    {#{{ templateComponent.component.highLabel }}#}
+                </p>
+            </div>
+        </div>
+        <div class="open-question-template-actions">
+            <img src="{{ asset('build/images/icons/edit.png') }}"/>
+            <img src="{{ asset('build/images/icons/close.png') }}"/>
+        </div>
+    </div>
+{% endif %}
