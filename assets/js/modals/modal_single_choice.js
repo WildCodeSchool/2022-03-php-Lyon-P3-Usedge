@@ -6,10 +6,9 @@ if (document.getElementById('button_answer_single_choice')) {
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
     const addFullScreenContainerModalClose= document.getElementById('full-screen-container-modal-close');
     const singleChoiceModalCloseButton = document.getElementById('single-choice-modal-close');
-    const inputSingleChoiceQuestion = document.getElementById('input_add_single_question');
     const singleChoiceDraggableHandle = document.getElementById('single-choice-handle-draggable');
     const inputMandatorySingleChoice = document.getElementById('input-mandatory-single-choice');
-    //const inputAnswerContainerSingleChoices = document.querySelector('input-answer-number');
+    const inputAnswers = document.getElementsByTagName('input');
     const body = document.getElementById('body');
     const draggable = require('draggable');
     const draggableOptions = {handle: singleChoiceDraggableHandle}
@@ -34,9 +33,9 @@ if (document.getElementById('button_answer_single_choice')) {
 
     // Function used to close the modal when click on close button and initialise values
     singleChoiceModalCloseButton.addEventListener('click', () => {
-        inputSingleChoiceQuestion.value = '';
-        //for (const inputAnswerContainerSingleChoice of inputAnswerContainerSingleChoices) {
-        //inputAnswerContainerSingleChoice.value = '';//}
+        for (const inputAnswer of inputAnswers) {
+            inputAnswer.value = '';
+        }
         addFullScreenContainerModalClose.classList.remove('full-screen-container-modal-close-display');
         body.classList.remove('hide-body-overflow-single-choice');
         inputMandatorySingleChoice.checked = false;
