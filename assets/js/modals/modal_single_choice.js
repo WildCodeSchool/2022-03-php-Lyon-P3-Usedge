@@ -64,6 +64,7 @@ if (document.getElementById('button_answer_single_choice')) {
                 if (target === deleteInputAnswer){
                     target.remove();
                     renameInputAnswers();
+                    inputAnswerNumber.value = inputAnswers.length;
                 }        
             }
             renameInputAnswers();
