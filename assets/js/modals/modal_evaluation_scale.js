@@ -6,11 +6,6 @@ if (document.getElementById('evaluation-scale-button')) {
     const evaluationScaleModalCloseButton = document.getElementById('evaluation-scale-modal-close');
     const inputAnswers = document.getElementsByTagName('input');
     const inputMandatoryEvaluationScale = document.getElementById('evaluation-scale-checkbox-mandatory');
-
-    const evaluationScaleModal = document.getElementById('evaluation-scale-creation-modal');
-    //const evaluationScaleModalContent = document.getElementById('evaluation-scale-creation-content');
-    //const evaluationScaleCreateButton = document.getElementById('evaluation-scale-modal-button');
-    //const evaluationScaleModalClose= document.getElementById('evaluation-scale-modal-close');
     const evaluationScaleDraggableHandle = document.getElementById('evaluation-scale-draggable-handle');
     const body = document.getElementById('body');
     const draggable = require('draggable');
