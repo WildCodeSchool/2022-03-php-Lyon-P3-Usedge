@@ -64,6 +64,14 @@ class ResearchTemplateController extends AbstractController
         if (in_array('external-link', $dataComponent)) {
             $componentUtils->loadExternalLink($dataComponent, $researchTemplate);
         }
+        if (in_array('select', $dataComponent)) {
+            $componentUtils->loadSelector($researchTemplate, $dataComponent);
+            $id = $researchTemplate->getId();
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
+        }
 
         $validationErrors = $componentUtils->getCheckErrors();
 

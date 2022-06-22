@@ -9,6 +9,7 @@ use App\Entity\ExternalLink;
 use App\Entity\ResearchTemplate;
 use App\Entity\Section;
 use App\Entity\Separator;
+use App\Entity\Selector;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
 use App\Services\CheckDataUtils;
@@ -195,6 +196,42 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($externalLink);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
+    public function loadSelector(ResearchTemplate $researchTemplate, array $dataComponent): void
+    {
+        $selector = new Selector();
+        $templateComponent = new TemplateComponent();
+        $answersValue = $this->checkDataUtils->retrieveSelectAnswers($dataComponent);
+        $this->checkErrors = $this->checkDataUtils->checkDataSelector($dataComponent, $answersValue);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->entityManager;
+
+            $selector->setTitle($dataComponent['title']);
+            $selector->setIsMandatory($dataComponent['is_mandatory']);
+            $selector->setName($dataComponent['selectName']);
+            $entityManager->persist($selector);
+
+            $orderAnswer = 0;
+            foreach ($answersValue as $answerValue) {
+                    $answer = new Answer();
+                    $answer->setAnswer($answerValue);
+                    $answer->setQuestion($selector);
+                    $answer->setNumberOrder(++$orderAnswer);
+                    $entityManager->persist($answer);
+            }
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($selector);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
 
