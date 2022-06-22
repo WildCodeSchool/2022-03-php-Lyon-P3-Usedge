@@ -62,7 +62,8 @@ $border-radius-20: 20px;
     top: $top;
     left: $left;
 }
-@mixin input ($bg, $br, $b) {
+
+@mixin input($bg, $br, $b) {
     background: $bg;
     border-radius: $br;
     border: $b;   
