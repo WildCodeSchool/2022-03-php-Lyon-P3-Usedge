@@ -1,27 +1,27 @@
 <div class="full-screen-select-modal-close" id="full-screen-select-modal-close">
     <div class="add-select-modal" id="add-select-modal">
-        <div class="select-modal-close" id="select-component-modal-close">
-            <span class="select-modal-cross"></span>
-            <span class="select-modal-cross"></span>
-        </div> 
         <form id="new-component-select-form" method="POST">
-        <div class="modal_content_select">
-            <header id="select-draggable-handle">
-                <h4>Create a single choice datatype</h4>
-            </header>
-            <input type="text" id="input_add_select_title" name="title" placeholder="Select title" required>
-            <p class="select-subtitle">Options available</p>
-            <div id="select_answer_container">
-                <input type="hidden" name="select-answer-number" id="select-answer-number">
-                <input type="hidden" name="selectName" value="select">
-            </div>
+            <div class="modal_content_select">
+                <div class="select-modal-close" id="select-component-modal-close">
+                    <span class="select-modal-cross"></span>
+                    <span class="select-modal-cross"></span>
+                </div>     
+                <header id="select-draggable-handle">
+                    <h4>Create a single choice datatype</h4>
+                </header>
+                <input type="text" id="input_add_select_title" name="title" placeholder="Select title" required>
+                <p class="select-subtitle">Options available</p>
+                <div id="select_answer_container">
+                    <input type="hidden" name="select-answer-number" id="select-answer-number">
+                    <input type="hidden" name="selectName" value="select">
+                </div>
                 <button type="button" id="button_answer_select"><img src="{{ asset('build/images/icons/add-options.png') }}" alt=""/></button>
-            <div>
-                <input type="checkbox" class="input_mandatory" name="is_mandatory">
-                <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+                <div>
+                    <input type="checkbox" class="input_mandatory" id="input-mandatory-select" name="is_mandatory">
+                    <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+                </div>
+                <button id="button_action_component_select" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add single choice datatype</button>
             </div>
-            <button id="button_action_component_select" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add single choice datatype</button>
-        </div>
         </form>
     </div>    
 </div>

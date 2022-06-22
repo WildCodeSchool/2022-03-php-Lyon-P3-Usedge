@@ -1,7 +1,6 @@
 @import '../_var.scss';
 
 // define modal style  
-
 .full-screen-container-modal-close{
     display: none;
     @include dimension(100%, 100%);
@@ -21,17 +20,6 @@
         background-color: $primary-white-1;
         transform: translate(-81%, 5%); 
         border-radius: $border-radius-10;
-        .add-single-choice-title {
-            @include dimension(256px, 21px);
-            display: flex;
-            align-items: center;
-            margin: 0 40px;
-            margin-top: 40px;
-            margin-bottom: 0;
-            p {
-                @include textStyle($title-font, 30px, $font-weight-400, $primary-blue-3)
-            }
-        }
         .modal_content_single_choice {
             position: relative;
             background: white;
