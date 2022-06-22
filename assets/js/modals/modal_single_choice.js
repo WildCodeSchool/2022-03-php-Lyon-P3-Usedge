@@ -1,4 +1,4 @@
-function RenameInputAnswers() {
+function renameInputAnswers() {
     const inputAnswers = document.getElementsByClassName('input_answer');
     for (let i = 0; i < inputAnswers.length; i++) {
         const inputAnswer = inputAnswers[i];
@@ -63,14 +63,14 @@ if (document.getElementById('button_answer_single_choice')) {
                 let target =  event.target;
                 if (target === deleteInputAnswer){
                     target.remove();
-                    RenameInputAnswers();
+                    renameInputAnswers();
                 }        
             }
-            RenameInputAnswers();
+            renameInputAnswers();
         }
         for (const singlehoiceDragAndDrop of singlehoiceDragAndDrops) {
             singlehoiceDragAndDrop.addEventListener('dragend', function(){
-                RenameInputAnswers();
+                renameInputAnswers();
             });
         }
     });
