@@ -15,9 +15,10 @@ class OpenQuestionType extends AbstractType
             ->add('name')
             ->add('isMandatory')
             ->add('title')
-            ->add('question')
+            ->add('open_question-question')
             ->add('helperText')
             ->add('addAHelpertext')
+            ->add('open_question-answer')
         ;
     }
 

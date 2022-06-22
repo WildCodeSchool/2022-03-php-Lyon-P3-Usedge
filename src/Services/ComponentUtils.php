@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Entity\Answer;
 use App\Entity\ComponentEvaluationScale;
+use App\Entity\OpenQuestion;
 use App\Entity\ResearchTemplate;
 use App\Entity\Section;
 use App\Entity\SingleChoice;
@@ -79,11 +80,11 @@ class ComponentUtils
 
             $orderAnswer = 0;
             foreach ($answersValue as $answerValue) {
-                    $answer = new Answer();
-                    $answer->setAnswer($answerValue);
-                    $answer->setQuestion($singleChoice);
-                    $answer->setNumberOrder(++$orderAnswer);
-                    $entityManager->persist($answer);
+                $answer = new Answer();
+                $answer->setAnswer($answerValue);
+                $answer->setQuestion($singleChoice);
+                $answer->setNumberOrder(++$orderAnswer);
+                $entityManager->persist($answer);
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($singleChoice);
@@ -114,6 +115,45 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($section);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
+    public function loadOpenQuestion(array $dataComponent, ResearchTemplate $researchTemplate): void
+    {
+        $templateComponent = new TemplateComponent();
+        $openQuestion = new OpenQuestion();
+        /*$this->checkErrors = $this->checkDataUtils->checkDataOpenQuestion($dataComponent);*/
+
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+        if (!isset($dataComponent['addHelpertext'])) {
+            $dataComponent['addHelpertext'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->entityManager;
+
+            $openQuestion->setName($dataComponent['openQuestionName']);
+            $openQuestion->setQuestion($dataComponent['open_question-question']);
+            $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
+            $openQuestion->setHelperText($dataComponent['helperText']);
+            $openQuestion->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->persist($openQuestion);
+
+            $answer = new Answer();
+            $answer->setAnswer($dataComponent['open-question-answer']);
+            $answer->setQuestion($openQuestion);
+            $answer->setNumberOrder(4);
+            $entityManager->persist($answer);
+
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($openQuestion);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
 

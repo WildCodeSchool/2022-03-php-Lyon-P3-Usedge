@@ -3,17 +3,18 @@
 		<form method="POST" class="open-question-modal-fields">
 			<div class="modal_content_open_question">
 				<h4 class="open-question-modal-title">Create an open question</h4>
-				<input class="open-question-input" type="text" name="question" id="question" placeholder="What is your question" required>
-				<input class="open-question-input" type="text" name="mame" id="name" placeholder="Answer field placeholder" required>
+				<input class="open-question-input" type="text" name="open_question-question" id="open_question-question" placeholder="What is your question" required>
+				<input class="open-question-input" type="text" name="open-question-answer" id="open_question-answer" placeholder="Answer field placeholder" required>
 				<div class="checkbox-helper-text-open-question" id="checkbox-helper-text-open-question">
-					<input type="checkbox" id="addAHelpertext" name="addAHelpertext" checked>
+					<input type="checkbox" id="addAHelpertext" name="addHelpertext">
 					<label for="addAHelpertext">Add a helper text</label>
 				</div>
-				<input class="open-question-input" type="text" name="helperText" id="helperText" placeholder="helperText" required>
+				<input class="open-question-input" type="text" name="helperText" id="helperText" placeholder="helperText">
 				<div class="open-question-modal-mandatory" id="open-question-modal-mandatory">
-					<input type="checkbox" id="isMandatory" name="isMandatory" checked>
+					<input type="checkbox" id="isMandatory" name="is_mandatory">
 					<label for="isMandatory">This field is mandatory</label>
 				</div>
+				<input type="hidden" name="openQuestionName" value="open-question">
 				<button id="button-create-open-question" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add open question</button>
 			</form>
 		</div>
