@@ -5,7 +5,7 @@
 }
 
 .multiple-choice-template-creation {
-    @include dimension(995px, 93px);
+    @include dimension(995px, 65px);
     display: flex;
     align-items: stretch;
     padding: 0;
@@ -27,6 +27,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: space-between;
         .multiple-choice-template-question {
             @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
             line-height: 20px;
@@ -39,7 +40,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            @include dimension(100%, 18px);
+            @include dimension(100%, 30px);
             position: relative;
             .multiple-choice-template-answer {
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);

@@ -9,7 +9,6 @@
     z-index: 1; 
     left: 0;
     top: 0;
-    overflow: auto;
     .add-single-choice-modal {
         display: flex;
         flex-direction: column;
@@ -51,12 +50,11 @@
                 cursor: grabbing;
             }
             h4 {
-                @include textStyle($text-font,$font-size-18,$font-weight-600,#000000);
+                @include textStyle($text-font,$font-size-18,$font-weight-600,$primary-dark-1);
                 margin-bottom: 20px;
             }
             p {
-                @include textStyle($text-font,$font-size-16,$font-weight-600,#000000);
-                font-family: 'Source Sans Pro', sans-serif;
+                @include textStyle($text-font,$font-size-16,$font-weight-600,$primary-dark-1);
                 margin-bottom: 20px;
             }
             #input_add_single_question{

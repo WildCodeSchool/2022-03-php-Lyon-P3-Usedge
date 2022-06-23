@@ -7,7 +7,6 @@
     z-index: 1; 
     left: 0;
     top: 0;
-    overflow: auto;
     .add-select-modal {
         display: flex;
         flex-direction: column;
@@ -59,7 +58,7 @@
                 margin-bottom: 20px;
             }
             .select-subtitle {
-                @include textStyle($text-font,$font-size-16,$font-weight-600 !important,#000000 !important);
+                @include textStyle($text-font,$font-size-16,$font-weight-600,#000000 );
                 margin-bottom: 20px;
             }
             #input_add_select_title{
