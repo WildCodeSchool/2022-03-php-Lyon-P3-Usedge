@@ -7,13 +7,15 @@ if (document.getElementById('button_answer_single_choice')) {
     const singleAnswerContainer = document.getElementById('single_answer_container');
     const addSingleChoiceModalOpenButton = document.getElementById('add-single-choice-button');
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
-    const addFullScreenSingleContainerModalClose= document.getElementById('full-screen-single-container-modal-close');
+    const addFullScreenSingleContainerModalClose = document.getElementById('full-screen-single-container-modal-close');
+    const addsingleChoiceName = document.getElementById('single-choice-name');
     const bodySingle = document.getElementById('body');
 
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
         addSingleChoiceModal.classList.add('add-single-choice-modal-display');
         addFullScreenSingleContainerModalClose.classList.add('full-screen-single-container-modal-close-display');
+        addsingleChoiceName.setAttribute('name','name');
         bodySingle.classList.add('hide-body-single-overflow');
 
         // Function used to close the modal when click outside the modal
@@ -21,6 +23,7 @@ if (document.getElementById('button_answer_single_choice')) {
             if (event.target == addFullScreenSingleContainerModalClose) {
                 addSingleChoiceModal.classList.remove('add-single-choice-modal-display');
                 addFullScreenSingleContainerModalClose.classList.remove('full-screen-single-container-modal-close-display');
+                addsingleChoiceName.setAttribute('name','');
                 bodySingle.classList.remove('hide-body-single-overflow');
             }
         };

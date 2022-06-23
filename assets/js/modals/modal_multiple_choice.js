@@ -8,6 +8,7 @@ if (document.getElementById('button_answer_multiple_choice')) {
     const addmultipleChoiceModalOpenButton = document.getElementById('add-multiple-choice-button');
     const addmultipleChoiceModal = document.getElementById('add-multiple-choice-modal');
     const addFullScreenMultipleContainerModalClose = document.getElementById('full-screen-multiple-container-modal-close');
+    const addMultipleChoiceName = document.getElementById('multiple-choice-name');
     const newComponentmultipleChoiceForm = document.getElementById('new-component-multiple-choice-form');
     const bodyMultiple = document.getElementById('body');
 
@@ -16,6 +17,7 @@ if (document.getElementById('button_answer_multiple_choice')) {
         addmultipleChoiceModal.classList.add('add-multiple-choice-modal-display');
         addFullScreenMultipleContainerModalClose.classList.add('full-screen-multiple-container-modal-close-display');
         bodyMultiple.classList.add('hide-body-multiple-overflow');
+        addMultipleChoiceName.setAttribute('name','name');
 
         // Function used to close the modal when click outside the modal
         window.onclick = function (event) {
@@ -23,6 +25,7 @@ if (document.getElementById('button_answer_multiple_choice')) {
                 addmultipleChoiceModal.classList.remove('add-multiple-choice-modal-display');
                 addFullScreenMultipleContainerModalClose.classList.remove('full-screen-multiple-container-modal-close-display');
                 bodyMultiple.classList.remove('hide-body-multiple-overflow');
+                addMultipleChoiceName.setAttribute('name','');
             }
         };
     });

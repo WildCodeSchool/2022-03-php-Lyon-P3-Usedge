@@ -2,7 +2,7 @@
 	<div class="add-external-link-modal" id="add-external-link-modal">
 		<form id="new-component-external-link-form" method="POST">
 			<div class="modal-content-external-link">
-				<div class="external-link-modal-close" id="external-link-modal-close">
+				<div class="external-link-modal-close add-name-separator" id="external-link-modal-close">
 					<span class="external-link-modal-cross"></span>
 					<span class="external-link-modal-cross"></span>
 				</div>
@@ -10,7 +10,7 @@
 					<h4>Link field description</h4>
 				</header>
 				<input type="text" id="input-external-link-title" name="title-external-link" placeholder="Link title" required>
-				<input type="hidden" name="externalLinkName" value="external-link">
+				<input type="hidden" id="external-link-name" name="" value="external-link">
 				<div>
 					<input type="checkbox" class="input-mandatory-external-link" id="input-mandatory-external-link" name="is_mandatory">
 					<label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
