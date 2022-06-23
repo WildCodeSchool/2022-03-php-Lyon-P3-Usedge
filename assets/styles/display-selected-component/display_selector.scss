@@ -1,11 +1,11 @@
 @import '../_var.scss';
 
 .select-template-creation {
-    @include dimension(995px, 93px);
+    @include dimension(995px, 65px);
     display: flex;
     align-items: flex-start;
     padding: 0;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     gap: 20px;
     &:hover>.select-template-actions {
         display: flex;

@@ -66,6 +66,14 @@
                 @include button($primary-blue-1, $border-radius-10,0);
                 @include dimension(100%, 42px);
                 margin-top: 20px;
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                img {
+                    padding-right: 5px;
+                }
             }
             .input-mandatory-date-picker[type="checkbox"] {
                 @include dimension(16px, 16px);
