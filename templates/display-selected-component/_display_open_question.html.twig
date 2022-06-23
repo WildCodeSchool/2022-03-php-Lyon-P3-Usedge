@@ -13,21 +13,17 @@
 
             <div class="open-question-template-answers">
                 {% for answer in templateComponent.component.answers %}
-                    <div class="open-question-template-answer">
-                        <input Type= "textarea" name="answer{{templateComponent.component.id}}" placeholder="{{answer.answer}}">
-                        <label for="answer{{templateComponent.component.id}}" class="open-question-template-answer-label" id="single-choice-template-answer-label">
+                        <input Type= "textarea" class="form-control" name="answer-open_question" placeholder="{{answer.answer}}">
+                        <label for="answer{{templateComponent.component.id}}" class="open-question-template-answer-label" id="open-question-template-answer-label">
                         </label>
-                    </div>
                 {% endfor %}
             </div>
-            <div class="open-question-template-star-container">
-            <div class="open-question-template-levels">
-                <p class="open-question-template-low-label" id="open-question-template-low-label">
-                    {#{{ templateComponent.component.lowLabel }}#}
-                </p>
-                <p class="open-question-template-high-label" id="open-question-template-high-label">
-                    {#{{ templateComponent.component.highLabel }}#}
-                </p>
+            <div class="open-question-template-helpertext">
+                {% if  templateComponent.component.addAHelpertext is same as true  %}
+                        <input Type= "textarea" class="form-control" name="answer-add-helpertext"placeholder=" {{ templateComponent.component.helperText }}">
+                        <label for="answer{{templateComponent.component.id}}" class="open-question-template-answer-label" id="open-question-template-answer-label">
+                        </label>
+                {% endif %}
             </div>
         </div>
         <div class="open-question-template-actions">
