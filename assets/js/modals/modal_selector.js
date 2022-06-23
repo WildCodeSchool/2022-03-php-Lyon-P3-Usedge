@@ -41,10 +41,12 @@ if (document.getElementById('button_answer_select')) {
         if (document.getElementsByClassName('delete-input-select-answer')) {
             const deleteInputAnswers = document.querySelectorAll('.delete-input-select-answer');
             const selectAnswerNumber = document.getElementById('select-answer-number');
+            const inputMandatorySelect = document.getElementById('input-mandatory-select');
             selectAnswerNumber.value = '';
             deleteInputAnswers.forEach(inputAnswer => {
                 inputAnswer.remove();
-            }) 
+            })
+            inputMandatorySelect.checked = false;
         }
     });
     

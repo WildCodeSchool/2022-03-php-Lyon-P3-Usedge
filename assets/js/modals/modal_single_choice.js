@@ -1,5 +1,4 @@
 // Careful : for first const, check real button id when integration !
-
 if (document.getElementById('button_answer_single_choice')) {
 
     /*Action to insert an input when the user click on the button + in the modal*/
@@ -10,6 +9,11 @@ if (document.getElementById('button_answer_single_choice')) {
     const addFullScreenSingleContainerModalClose = document.getElementById('full-screen-single-container-modal-close');
     const addsingleChoiceName = document.getElementById('single-choice-name');
     const bodySingle = document.getElementById('body');
+    const singleChoiceModalCloseButton = document.getElementById('single-choice-modal-close');
+    const singleChoiceDraggableHandle = document.getElementById('single-choice-handle-draggable');
+    const draggable = require('draggable');
+    const draggableOptions = {handle: singleChoiceDraggableHandle}
+
 
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
@@ -17,6 +21,7 @@ if (document.getElementById('button_answer_single_choice')) {
         addFullScreenSingleContainerModalClose.classList.add('full-screen-single-container-modal-close-display');
         addsingleChoiceName.setAttribute('name','name');
         bodySingle.classList.add('hide-body-single-overflow');
+        new draggable(addSingleChoiceModal, draggableOptions);
 
         // Function used to close the modal when click outside the modal
         window.onclick = function (event) {
@@ -28,6 +33,25 @@ if (document.getElementById('button_answer_single_choice')) {
             }
         };
     });
+
+    // Function used to close the modal when click on close button and initialise values
+    singleChoiceModalCloseButton.addEventListener('click', () => {
+        addFullScreenSingleContainerModalClose.classList.remove('full-screen-single-container-modal-close-display');
+        bodySingle.classList.remove('hide-body-single-overflow');
+        document.getElementById('input_add_single_question').value = '';
+        if (document.getElementsByClassName('delete-input-single-answer')) {
+            const deleteInputAnswers = document.querySelectorAll('.delete-input-answer');
+            const singleAnswerNumber = document.getElementById('input-answer-number');
+            const inputMandatorySingleChoice = document.getElementById('input-mandatory-single-choice');
+            singleAnswerNumber.value = '';
+            deleteInputAnswers.forEach(inputAnswer => {
+                inputAnswer.remove();
+            });
+            inputMandatorySingleChoice.checked = false;
+        }
+        
+        
+    }); 
 
     // function to create div and input
     singleButton.addEventListener('click', function () {
@@ -75,4 +99,5 @@ if (document.getElementById('button_answer_single_choice')) {
             }
         }
     });
+    
 }
