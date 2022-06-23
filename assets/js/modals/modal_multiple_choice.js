@@ -9,8 +9,11 @@ if (document.getElementById('button_answer_multiple_choice')) {
     const addmultipleChoiceModal = document.getElementById('add-multiple-choice-modal');
     const addFullScreenMultipleContainerModalClose = document.getElementById('full-screen-multiple-container-modal-close');
     const addMultipleChoiceName = document.getElementById('multiple-choice-name');
-    const newComponentmultipleChoiceForm = document.getElementById('new-component-multiple-choice-form');
     const bodyMultiple = document.getElementById('body');
+    const multipleChoiceModalCloseButton = document.getElementById('multiple-choice-modal-close');
+    const multipleChoiceDraggableHandle = document.getElementById('multiple-choice-handle-draggable');
+    const draggable = require('draggable');
+    const draggableOptions = {handle: multipleChoiceDraggableHandle}
 
     // Function used to open the modal
     addmultipleChoiceModalOpenButton.addEventListener('click', () => {
@@ -18,6 +21,7 @@ if (document.getElementById('button_answer_multiple_choice')) {
         addFullScreenMultipleContainerModalClose.classList.add('full-screen-multiple-container-modal-close-display');
         bodyMultiple.classList.add('hide-body-multiple-overflow');
         addMultipleChoiceName.setAttribute('name','name');
+        new draggable(addmultipleChoiceModal, draggableOptions);
 
         // Function used to close the modal when click outside the modal
         window.onclick = function (event) {
@@ -29,6 +33,23 @@ if (document.getElementById('button_answer_multiple_choice')) {
             }
         };
     });
+
+    // Function used to close the modal when click on close button and initialise values
+    multipleChoiceModalCloseButton.addEventListener('click', () => {
+        addFullScreenMultipleContainerModalClose.classList.remove('full-screen-multiple-container-modal-close-display');
+        bodyMultiple.classList.remove('hide-body-multiple-overflow');
+        document.getElementById('input_add_multiple_question').value = '';
+        if (document.getElementsByClassName('delete-input-multiple-answer')) {
+            const deleteInputAnswers = document.querySelectorAll('.delete-input-answer');
+            const multipleAnswerNumber = document.getElementById('input-answer-number');
+            const inputMandatoryMultipleChoice = document.getElementById('input-mandatory-multiple-choice');
+            multipleAnswerNumber.value = '';
+            deleteInputAnswers.forEach(inputAnswer => {
+                inputAnswer.remove();
+            });
+            inputMandatoryMultipleChoice.checked = false;
+        }
+    }); 
 
     // function to create div and input
     multipleButton.addEventListener('click', function () {

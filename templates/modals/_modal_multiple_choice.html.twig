@@ -2,7 +2,13 @@
 	<div class="add-multiple-choice-modal" id="add-multiple-choice-modal">
 		<form id="new-component-multiple-choice-form" method="POST">
 			<div class="modal_content_multiple_choice">
-				<h4>Create a multiple choice question</h4>
+				<div class="multiple-choice-modal-close add-name-separator" id="multiple-choice-modal-close">
+					<span class="multiple-choice-modal-cross"></span>
+					<span class="multiple-choice-modal-cross"></span>
+				</div>
+				<header id="multiple-choice-handle-draggable">
+					<h4>Create a multiple choice question</h4>
+				</header>
 				<input type="text" id="input_add_multiple_question" name="question" placeholder="What is your question ?" required>
 				<p>
 					<span>Options available</span>
@@ -13,7 +19,7 @@
 				</div>
 				<button type="button" id="button_answer_multiple_choice"><img src="{{ asset('build/images/icons/add-options.png') }}" alt=""/></button>
 				<div>
-					<input type="checkbox" class="input_mandatory" name="is_mandatory">
+					<input type="checkbox" id="input-mandatory-multiple-choice" class="input_mandatory" name="is_mandatory">
 					<label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
 				</div>
 				<button id="button_action_component_multiple_choice" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add multiple choice question</button>

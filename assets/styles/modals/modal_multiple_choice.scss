@@ -18,7 +18,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        @include absolutePosition(-70%, 50%);
+        @include absolutePosition(40%, 50%);
         width: 400px;
         min-height: 337px;
         box-sizing: border-box;
@@ -26,18 +26,6 @@
         transform: translate(-81%, 5%); 
         border-radius: $border-radius-10;
         border: 1px solid $primary-blue-1;
-
-        .add-multiple-choice-title {
-            @include dimension(256px, 21px);
-            display: flex;
-            align-items: center;
-            margin: 0 40px;
-            margin-top: 40px;
-            margin-bottom: 0;
-            p {
-                @include textStyle($title-font, 30px, $font-weight-400, $primary-blue-3)
-            }
-        }
         .modal_content_multiple_choice {
             position: relative;
             background: white;
@@ -45,6 +33,28 @@
             background: #FFFFFF;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
+            .multiple-choice-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .multiple-choice-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
+            }
+            #multiple-choice-handle-draggable:hover {
+                cursor: grabbing;
+            }
             h4 {
                 @include textStyle($text-font,$font-size-18,$font-weight-600,#000000);
                 margin-bottom: 20px;
@@ -99,6 +109,10 @@
                     cursor: pointer;
                 }
             }
+            #input-mandatory-multiple-choice {
+                width: 16px;
+                height: 16px;
+            }
             #button_action_component_multiple_choice {
                 @include button($primary-blue-1, $border-radius-10,0);
                 @include dimension(100%, 42px);
@@ -119,9 +133,3 @@
 .full-screen-multiple-container-modal-close-display {
     display: block;
 }
-
-.add-multiple-choice-modal-display {
-    
-    top: 43% !important;
-}
-
