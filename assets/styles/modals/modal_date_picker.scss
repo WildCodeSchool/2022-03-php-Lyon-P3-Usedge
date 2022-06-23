@@ -1,7 +1,6 @@
 @import '../_var.scss';
 
 // define modal style  
-
 .full-screen-date-picker-modal-close {
     display: none; 
     @include dimension(100%, 100%);
@@ -77,13 +76,10 @@
                 @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
             }
         }
-        
-    
     }
 }
 
 // display modal
-
 .hide-body-overflow-date-picker {
     overflow: hidden;
 }
