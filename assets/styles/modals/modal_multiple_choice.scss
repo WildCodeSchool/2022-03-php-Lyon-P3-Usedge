@@ -69,7 +69,7 @@
                 border-radius: 8px;
                 margin-bottom: 20px;
             }
-            .input_answer {
+            .multiple_input_answer {
                 @include button($primary-white-1, 8px, 1px solid $primary-blue-2);
                 @include dimension(100%, 42px);
                 display: flex;
@@ -93,14 +93,14 @@
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
-                .drag-and-drop {
+                .multiple-drag-and-drop {
                     @include dimension(25px, 42px);
                     z-index: 2;
                     background-image: url(../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
                 }
-                .input_answer {
+                .multiple_input_answer {
                     width: 86%;
                     margin-right: 10px;
                 }
