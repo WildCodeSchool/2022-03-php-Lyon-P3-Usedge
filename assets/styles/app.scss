@@ -1,2 +1,26 @@
-//start coding by removing this file and adding yours ;)
-@import "wcs";
+@import "~bootstrap/scss/bootstrap";
+
+// import main page
+@import 'homePage.scss';
+@import 'newTemp.scss';
+@import 'add_research_template.scss';
+@import 'sidebar/usedge_sidebar.scss';
+
+// import modals
+@import 'modals/modal_new_research_template_.scss';
+@import 'modals/modal_multiple_choice.scss';
+@import 'modals/modal_single_choice.scss';
+@import 'modals/modal_evaluation_scale.scss';
+@import 'modals/modal_section.scss';
+@import 'modals/modal_date_picker.scss';
+@import 'modals/modal_external_link.scss';
+@import 'modals/modal_selector.scss';
+
+// import display selected component
+@import 'display-selected-component/display_external_link.scss';
+@import 'display-selected-component/display_evaluation_scale.scss';
+@import 'display-selected-component/display_single_choice.scss';
+@import 'display-selected-component/display_section.scss';
+@import 'display-selected-component/display_separator.scss';
+@import "display-selected-component/display-date-picker.scss";
+@import "display-selected-component/display_selector.scss";

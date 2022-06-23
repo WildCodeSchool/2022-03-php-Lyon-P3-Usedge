@@ -1,0 +1,127 @@
+@import '../_var.scss';
+
+.full-screen-evaluation-scale-modal-close {
+    display: none; 
+    @include dimension(100%, 100%);
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    overflow: auto;
+    .add-evaluation-scale-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include absolutePosition(57%, 39%);
+        width: 400px;
+        box-sizing: border-box;
+        background-color: $primary-white-1;
+        border-radius: $border-radius-10;
+        .modal-content-evaluation-scale {
+            position: relative;
+            background: white;
+            padding: 1.5em 2em;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            .evaluation-scale-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .evaluation-scale-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
+            }
+            #evaluation-scale-draggable-handle:hover {
+                cursor: grabbing;
+            }
+            h4 {
+                @include textStyle($text-font,$font-size-18,$font-weight-600,#000000);
+                margin-bottom: 20px;
+            }
+            .evaluation-scale-input {
+                @include dimension(320px, 42px);
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                background-color: $primary-white-1;
+                border: 1px solid $primary-blue-2;
+                border-radius: 8px;
+                padding: 12px 0px 12px 12px;
+                gap: 5px;
+                letter-spacing: 0.116667px;
+                margin-bottom: 20px;
+                &::placeholder {
+                    opacity: 0.3;
+                }
+            }
+            .evaluation-scale-star-container {
+                display: flex;
+                align-items: flex-start;
+                padding: 0;
+                margin-bottom: 20px;
+                gap: 15px;
+                input[type="radio"] {
+                    display: none;
+                }
+                .evaluation-scale-template-rate {
+                    @include dimension(27.5px, 27.5px);
+                    img {
+                        width: 27.5px;
+                    }
+                }
+            }
+            .evaluation-scale-modal-mandatory {
+                @include dimension(158px, 18px);
+                display: flex;
+                align-items: center;
+                padding: 0;
+                margin-bottom: 20px;
+                .evaluation-scale-checkbox-mandatory[type="checkbox"] {
+                    @include dimension(16px, 16px);
+                    border: 1px solid $primary-blue-1 !important;
+                    border-radius: 2px;
+                }
+                .evaluation-scale-label-mandatory {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                    line-height: 18px;
+                }
+            }
+            .evaluation-scale-modal-button {
+                @include button($primary-blue-1, $border-radius-10, none);
+                @include dimension(320px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                font
+                .evaluation-scale-icon-modal-button {
+                    width: 11.25px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+// display modal
+.hide-body-overflow-evaluation-scale {
+    overflow: hidden;
+}
+
+.full-screen-evaluation-scale-modal-display {
+    display: block;
+}

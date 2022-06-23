@@ -16,7 +16,10 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body id="body">
+        <aside class="usedge-aside-sidebar">
+            {% include "_usedge_sidebar.html.twig" %}
+        </aside>
         {% block body %}{% endblock %}
     </body>
 </html>

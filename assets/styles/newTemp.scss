@@ -1,0 +1,102 @@
+@import '_var.scss';
+
+.research-template-list-page {
+    display: flex;
+    gap: 40px;
+    .research-template-list-sidebar {
+        @include dimension(270px, 1080px);
+    }
+    .research-template-list-display {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 0px;
+        gap: 20px;
+        width: 81vw ;
+        .research-template-list-header {
+            @include dimension(1572px, 40px);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 10px;
+            .research-template-list-header-return {
+                @include dimension(30px, 30px);
+                display: flex;
+                align-items: center;
+                a {
+                    padding-left: 11px;
+                }
+            }
+            .research-template-list-header-title {
+                @include dimension(1532px, 40px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 5px;
+                .research-template-list-header-first-title {
+                    @include dimension(188px, 15px);
+                    @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-grey-4);
+                    font-style: normal;
+                    line-height: 15px;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.116667px;
+                    margin-bottom: 0px;
+                }
+                .research-template-list-header-second-title {
+                    @include dimension(211px, 20px);
+                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-5);
+                    font-style: normal;
+                    line-height: 20px;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: -0.8px;
+                }
+            }
+
+        }
+        .research-template-list-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            gap: 25px;
+            width: 100%;
+            background: #ffffff;
+            border: 2px solid #ecefff;
+            border-radius: 10px;
+            .research-template-list-main-text {
+                .research-template-list-main-first-text {
+                    @include dimension(532px, 20px);
+                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    font-style: normal;
+                    line-height: 17px;
+                    text-align: center;
+                    letter-spacing: -0.8px;
+                    margin-bottom: 0;
+                }
+                .research-template-list-main-second-text {
+                    @include dimension(532px, 20px);
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                    font-style: normal;
+                    line-height: 20px;
+                    text-align: center;
+                    letter-spacing: 0.116667px;
+                }
+            }
+            .research-template-list-add-button {
+                @include button($primary-blue-1, $border-radius-10, none);
+                @include dimension(179px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                gap: 5px;
+            }
+        }
+    }
+}
