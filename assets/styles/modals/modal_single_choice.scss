@@ -65,6 +65,7 @@
                 @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
                 border-radius: 8px;
                 margin-bottom: 20px;
+                padding-left: 10px;
             }
             .input_answer {
                 @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
@@ -72,6 +73,7 @@
                 @include dimension(100%, 42px);
                 display: flex;
                 flex-direction: column;
+                padding-left: 10px;
             }
             label {
                 @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);

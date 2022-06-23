@@ -60,6 +60,8 @@ if (document.getElementById('button_answer_multiple_choice')) {
         deleteInputAnswer.classList.add('delete-input-answer');
         dragAndDrop.classList.add('drag-and-drop');
         newInputAnswer.type = 'text';
+        newInputAnswer.setAttribute('required', 'required');
+        newInputAnswer.setAttribute('placeholder', 'Answer');
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         multipleAnswerContainer.appendChild(deleteInputAnswer);
