@@ -60,6 +60,7 @@ if (document.getElementById('button_answer_single_choice')) {
 
         newInputAnswer.type = 'text';
         newInputAnswer.setAttribute('required', 'required');
+        newInputAnswer.setAttribute('placeholder', 'Answer');
 
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);

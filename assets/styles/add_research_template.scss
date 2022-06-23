@@ -237,7 +237,7 @@
                 }
                 .handle-template-component-draggable {
                     display: flex;
-                    align-items: flex-start;
+                    align-items: center;
                     @include dimension(22px, 100%);
                     img {
                         width: 22px;

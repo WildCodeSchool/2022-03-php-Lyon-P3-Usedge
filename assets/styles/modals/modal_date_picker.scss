@@ -57,6 +57,7 @@
                 margin-bottom: 20px;
             }
             #input-date-picker-title{
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 @include dimension(100%, 42px);
                 @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
                 border-radius: 8px;

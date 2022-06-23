@@ -52,6 +52,7 @@
             }
             .input-modal-section {
                 #input-section-title {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 @include dimension (100%, 42px);
                 border: 1px solid $primary-blue-2;
                 border-radius: 8px;
