@@ -25,7 +25,7 @@ class ComponentManager
         $this->componentUtils = $componentUtils;
     }
 
-    public function initComponent(array $dataComponent, ResearchTemplate $researchTemplate): int
+    public function initComponent(array $dataComponent, ResearchTemplate $researchTemplate): int|null
     {
         $this->dataComponent = $dataComponent;
         $this->researchTemplate = $researchTemplate;
@@ -35,56 +35,56 @@ class ComponentManager
         return $id;
     }
 
-    public function singleChoice(): int
+    public function singleChoice(): int|null
     {
             $this->componentUtils->loadSingleChoice($this->researchTemplate, $this->dataComponent);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function multipleChoice(): int
+    public function multipleChoice(): int|null
     {
             $this->componentUtils->loadMultipleChoice($this->researchTemplate, $this->dataComponent);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function evaluationScale(): int
+    public function evaluationScale(): int|null
     {
             $this->componentUtils->loadEvaluationScale($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function section(): int
+    public function section(): int|null
     {
             $this->componentUtils->loadSection($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function separator(): int
+    public function separator(): int|null
     {
             $this->componentUtils->loadSeparator($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function datePicker(): int
+    public function datePicker(): int|null
     {
             $this->componentUtils->loadDatapicker($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function externalLink(): int
+    public function externalLink(): int|null
     {
             $this->componentUtils->loadExternalLink($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }
 
-    public function select(): int
+    public function select(): int|null
     {
             $this->componentUtils->loadSelector($this->researchTemplate, $this->dataComponent);
             $id = $this->researchTemplate->getId();
