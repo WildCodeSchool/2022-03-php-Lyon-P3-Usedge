@@ -3,10 +3,12 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-	<div class="main-container">
+	<div
+		class="main-container">
 
 		<div class="secondary-container">
 
+			{# Header #}
 			<section class="header-container">
 				<p class="location-text">RESEARCH CENTER/ALL TEMPLATES</p>
 				<h1 class="new-template-title">Create a new template</h1>
@@ -15,6 +17,7 @@
 			<div class="tird-container">
 				<div class="fourth-container">
 
+					{# Status of this request #}
 					<section class="frame-1123">
 						<div class="status-container-1">
 							<h2>{{ researchTemplate.name }}</h2>
@@ -24,8 +27,7 @@
 							</div>
 						</div>
 						<div class="status-container-2">
-							<p>Status of this request<span>*</span>
-							</p>
+							<p>Status of this request<span>*</span></p>
 							<div>
 								<select id="select-status" class="status-list-select bg-grey-dot" aria-label="Default select example">
 									<option value="active">Active</option>
@@ -36,11 +38,13 @@
 						</div>
 					</section>
 
+					{# Components #}
 					<section class="components-available">
 						<h2>Elements available for your request</h2>
 						<p>Select here the elements your team could use.</p>
 						<div class="components-list">
 
+							{# Section component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/section.png') }}" alt="logo section">
@@ -50,11 +54,12 @@
 									<p>Delimitate a part of your template.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="add-section-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-section-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 							{% include 'modals/_modal_section.html.twig' %}
 							
+							{# Single choice component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/single_choice.png') }}" alt="logo single choice">
@@ -64,11 +69,12 @@
 									<p>Give a single option for your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="add-single-choice-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-single-choice-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 							{% include "modals/_modal_single_choice.html.twig" %}
 
+							{# Selector component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/selector.png') }}" alt="logo selector">
@@ -78,11 +84,12 @@
 									<p>Select an element from a list.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="add-select-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-select-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 							{% include "modals/_modal_selector.html.twig" %}
 
+							{# Date component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/date.png') }}" alt="logo date">
@@ -92,11 +99,12 @@
 									<p>Ask for a date to your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="add-date-picker-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-date-picker-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 							{% include "modals/_modal_date_picker.htm.twig" %}
 
+							{# Separator component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/separator.png') }}" alt="logo separator">
@@ -106,11 +114,12 @@
 									<p>To add some space.</p>
 								</div>
 								<form class="component-picture-2" method="POST">
-									<input type="hidden" name="separatorName" value="separator">
+									<input type="hidden" id="separator-name" name="name" value="separator">
 									<button id="add-separator-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></button>
 								</form>
 							</div>
 
+							{# Multiple choice component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/multiple_choice.png') }}" alt="logo multiple choice">
@@ -120,10 +129,12 @@
 									<p>Give multiples choices to your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-multiple-choice-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							{% include "modals/_modal_multiple_choice.html.twig" %}
 
+							{# Open question component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/open_question.png') }}" alt="logo open question">
@@ -133,10 +144,11 @@
 									<p>Get open answers from user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 
+							{# Evaluation scale component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/evaluation_scale.png') }}" alt="logo evaluation scale">
@@ -146,28 +158,31 @@
 									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
-									<a id="evaluation-scale-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="evaluation-scale-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
 							{% include "modals/_modal_evaluation_scale.html.twig" %}
 
+							{# External link component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/external_link.png') }}" alt="logo external link">
 								</diV>
 								<div class="component-title">
 									<h3>External link</h3>
-									<p>For an optimum overview. </p>
+									<p>For an optimum overview.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="add-external-link-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-external-link-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include "modals/_modal_external_link.html.twig" %}</div>
+							{% include "modals/_modal_external_link.html.twig" %}
 						</div>
 					</section>
 
 				</div>
+
+				{# Form builder #}
 				<section class="form-builder">
 					<div id="display_form_builder">
 						{% for error in errors %}
@@ -175,6 +190,7 @@
 						{% endfor %}
 						{% for templateComponent in researchTemplate.templateComponents %}
 							{% include "display-selected-component/_display_single_choice.html.twig" %}
+							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
 							{% include 'display-selected-component/_display_section.html.twig' %}	
 							{% include 'display-selected-component/_display_separator.html.twig' %}	
@@ -193,6 +209,7 @@
 						</div>
 					{% endif %}
 				</section>
+
 			</div>
 		</div>
 	</div>

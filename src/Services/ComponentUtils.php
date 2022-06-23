@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Entity\Answer;
 use App\Entity\ComponentEvaluationScale;
+use App\Entity\MultipleChoice;
 use App\Entity\DatePicker;
 use App\Entity\ExternalLink;
 use App\Entity\ResearchTemplate;
@@ -67,7 +68,7 @@ class ComponentUtils
         $singleChoice = new SingleChoice();
         $templateComponent = new TemplateComponent();
         $answersValue = $this->checkDataUtils->retrieveAnswers($dataComponent);
-        $this->checkErrors = $this->checkDataUtils->checkDataSingleChoice($dataComponent, $answersValue);
+        $this->checkErrors = $this->checkDataUtils->checkDataSingleAndMultipleChoice($dataComponent, $answersValue);
 
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
@@ -78,7 +79,7 @@ class ComponentUtils
 
             $singleChoice->setQuestion($dataComponent['question']);
             $singleChoice->setIsMandatory($dataComponent['is_mandatory']);
-            $singleChoice->setName($dataComponent['singleName']);
+            $singleChoice->setName($dataComponent['name']);
             $entityManager->persist($singleChoice);
 
             $orderAnswer = 0;
@@ -91,6 +92,42 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($singleChoice);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
+
+            $entityManager->flush();
+        }
+    }
+
+    public function loadMultipleChoice(ResearchTemplate $researchTemplate, array $dataComponent): void
+    {
+        $multipleChoice = new MultipleChoice();
+        $templateComponent = new TemplateComponent();
+        $answersValue = $this->checkDataUtils->retrieveAnswersMultiple($dataComponent);
+        $this->checkErrors = $this->checkDataUtils->checkDataSingleAndMultipleChoice($dataComponent, $answersValue);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->entityManager;
+
+            $multipleChoice->setQuestion($dataComponent['question']);
+            $multipleChoice->setIsMandatory($dataComponent['is_mandatory']);
+            $multipleChoice->setName($dataComponent['name']);
+            $entityManager->persist($multipleChoice);
+
+            $orderAnswer = 0;
+            foreach ($answersValue as $answerValue) {
+                    $answer = new Answer();
+                    $answer->setAnswer($answerValue);
+                    $answer->setQuestion($multipleChoice);
+                    $answer->setNumberOrder(++$orderAnswer);
+                    $entityManager->persist($answer);
+            }
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($multipleChoice);
             $templateComponent->setNumberOrder(1);
             $entityManager->persist($templateComponent);
 
@@ -111,7 +148,7 @@ class ComponentUtils
         if (empty($this->checkErrors)) {
             $entityManager =  $this->entityManager;
 
-            $section->setName($dataComponent['sectionName']);
+            $section->setName($dataComponent['name']);
             $section->setTitle($dataComponent['title']);
             $section->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($section);
@@ -137,7 +174,7 @@ class ComponentUtils
         if (empty($this->checkErrors)) {
             $entityManager =  $this->entityManager;
 
-            $separator->setName($dataComponent['separatorName']);
+            $separator->setName($dataComponent['name']);
             $separator->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($separator);
 
@@ -162,7 +199,7 @@ class ComponentUtils
         if (empty($this->checkErrors)) {
             $entityManager =  $this->entityManager;
 
-            $datepicker->setName($dataComponent['datePickerName']);
+            $datepicker->setName($dataComponent['name']);
             $datepicker->setTitle($dataComponent['title-date-picker']);
             $datepicker->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($datepicker);
@@ -189,7 +226,7 @@ class ComponentUtils
         if (empty($this->checkErrors)) {
             $entityManager = $this->entityManager;
 
-            $externalLink->setName($dataComponent['externalLinkName']);
+            $externalLink->setName($dataComponent['name']);
             $externalLink->setTitle($dataComponent['title-external-link']);
             $externalLink->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->persist($externalLink);
@@ -219,7 +256,7 @@ class ComponentUtils
 
             $selector->setTitle($dataComponent['title']);
             $selector->setIsMandatory($dataComponent['is_mandatory']);
-            $selector->setName($dataComponent['selectName']);
+            $selector->setName($dataComponent['name']);
             $entityManager->persist($selector);
 
             $orderAnswer = 0;

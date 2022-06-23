@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ComponentRepository::class)]
 #[ORM\InheritanceType("SINGLE_TABLE")]
-class Component
+abstract class Component
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

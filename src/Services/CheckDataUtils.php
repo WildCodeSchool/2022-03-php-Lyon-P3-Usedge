@@ -33,6 +33,16 @@ class CheckDataUtils
         return $this->answersValue;
     }
 
+    public function retrieveAnswersMultiple(array $dataComponent): array
+    {
+        $inputAnswerNumber = $dataComponent['input-answer-number-multiple'];
+        for ($i = 0; $i < $inputAnswerNumber; $i++) {
+            $this->answersValue[] = $dataComponent['answer' . $i];
+        }
+
+        return $this->answersValue;
+    }
+
     public function retrieveSelectAnswers(array $dataComponent): array
     {
         $inputAnswerNumber = $dataComponent['select-answer-number'];
@@ -45,7 +55,7 @@ class CheckDataUtils
         return $this->answersValue;
     }
 
-    public function checkDataSingleChoice(array $dataComponent, array $answersValue): array
+    public function checkDataSingleAndMultipleChoice(array $dataComponent, array $answersValue): array
     {
         foreach ($dataComponent as $data) {
             if (empty($data)) {
