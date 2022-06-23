@@ -7,33 +7,62 @@ function renameInputAnswers() {
     }
 }
 // Careful : for first const, check real button id when integration !
-
 if (document.getElementById('button_answer_single_choice')) {
 
-    const button = document.getElementById('button_answer_single_choice');
+    /*Action to insert an input when the user click on the button + in the modal*/
+    const singleButton = document.getElementById('button_answer_single_choice');
     const singleAnswerContainer = document.getElementById('single_answer_container');
     const addSingleChoiceModalOpenButton = document.getElementById('add-single-choice-button');
     const addSingleChoiceModal = document.getElementById('add-single-choice-modal');
-    const addFullScreenContainerModalClose= document.getElementById('full-screen-container-modal-close');
-    const body = document.getElementById('body');
+    const addFullScreenSingleContainerModalClose = document.getElementById('full-screen-single-container-modal-close');
+    const addsingleChoiceName = document.getElementById('single-choice-name');
+    const bodySingle = document.getElementById('body');
+    const singleChoiceModalCloseButton = document.getElementById('single-choice-modal-close');
+    const singleChoiceDraggableHandle = document.getElementById('single-choice-handle-draggable');
+    const draggable = require('draggable');
+    const draggableOptions = {handle: singleChoiceDraggableHandle}
+
 
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
         addSingleChoiceModal.classList.add('add-single-choice-modal-display');
-        addFullScreenContainerModalClose.classList.add('full-screen-container-modal-close-display');
-        body.classList.add('hide-body-overflow');
+        addFullScreenSingleContainerModalClose.classList.add('full-screen-single-container-modal-close-display');
+        addsingleChoiceName.setAttribute('name','name');
+        bodySingle.classList.add('hide-body-single-overflow');
+        new draggable(addSingleChoiceModal, draggableOptions);
+
         // Function used to close the modal when click outside the modal
-        window.onclick = function(event) {
-            if (event.target == addFullScreenContainerModalClose) {
-                addSingleChoiceModal.classList.remove('add-single-choice-modal-display'); 
-                addFullScreenContainerModalClose.classList.remove('full-screen-container-modal-close-display');
-                body.classList.remove('hide-body-overflow');
+        window.onclick = function (event) {
+            if (event.target == addFullScreenSingleContainerModalClose) {
+                addSingleChoiceModal.classList.remove('add-single-choice-modal-display');
+                addFullScreenSingleContainerModalClose.classList.remove('full-screen-single-container-modal-close-display');
+                addsingleChoiceName.setAttribute('name','');
+                bodySingle.classList.remove('hide-body-single-overflow');
             }
         };
     });
- 
+
+    // Function used to close the modal when click on close button and initialise values
+    singleChoiceModalCloseButton.addEventListener('click', () => {
+        addFullScreenSingleContainerModalClose.classList.remove('full-screen-single-container-modal-close-display');
+        bodySingle.classList.remove('hide-body-single-overflow');
+        document.getElementById('input_add_single_question').value = '';
+        if (document.getElementsByClassName('delete-input-single-answer')) {
+            const deleteInputAnswers = document.querySelectorAll('.delete-input-answer');
+            const singleAnswerNumber = document.getElementById('input-answer-number');
+            const inputMandatorySingleChoice = document.getElementById('input-mandatory-single-choice');
+            singleAnswerNumber.value = '';
+            deleteInputAnswers.forEach(inputAnswer => {
+                inputAnswer.remove();
+            });
+            inputMandatorySingleChoice.checked = false;
+        }
+        
+        
+    }); 
+
     // function to create div and input
-    button.addEventListener('click', function() {
+    singleButton.addEventListener('click', function () {
         const newInputAnswer = document.createElement('input');
         const deleteInputAnswer = document.createElement('div');
         const dragAndDrop = document.createElement('div');

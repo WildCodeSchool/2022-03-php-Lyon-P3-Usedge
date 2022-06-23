@@ -1,99 +1,142 @@
 @import '../_var.scss';
 
-/*Layout of the modal when we click on the most multiple choice*/
-.modal_multiple_choice {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#add-multiple-choice-button:hover {
+    cursor: pointer;
+}
 
-}
-.modal_multiple_choice:target {
-    visibility: visible;
-    opacity: 1;
-}
-.modal_content_multiple_choice {
-    position: relative;
-    background: white;
-    padding: 1.5em 2em;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    h4 {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: black;
-    }
-    #input_question {
-        width: 100%;
-        height: 42px;
-        border: 1px solid #ECEFFF;
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
-    .form_answer {
-        width: 100%;
-        height: 42px;
-        border: 1px solid $primary-blue-2;
-        border-radius: 8px;
-        margin-bottom: 20px;
+// define modal style  
+
+.full-screen-multiple-container-modal-close{
+    display: none;
+    @include dimension(100%, 100%);
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    overflow: auto;
+    .add-multiple-choice-modal {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        @include absolutePosition(40%, 50%);
+        width: 400px;
+        min-height: 337px;
+        box-sizing: border-box;
+        background-color: $primary-white-1;
+        transform: translate(-81%, 5%); 
+        border-radius: $border-radius-10;
+        .modal_content_multiple_choice {
+            position: relative;
+            background: white;
+            padding: 1.5em 2em;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            .multiple-choice-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .multiple-choice-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
+            }
+            #multiple-choice-handle-draggable:hover {
+                cursor: grabbing;
+            }
+            h4 {
+                @include textStyle($text-font,$font-size-18,$font-weight-600,#000000);
+                margin-bottom: 20px;
+            }
+            p {
+                @include textStyle($text-font,$font-size-16,$font-weight-600,#000000);
+                font-family: 'Source Sans Pro', sans-serif;
+                margin-bottom: 20px;
+            }
+            #input_add_multiple_question{
+                @include dimension(100%, 42px);
+                @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            .input_answer {
+                @include button($primary-white-1, 8px, 1px solid $primary-blue-2);
+                @include dimension(100%, 42px);
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
+            }
+            #button_answer_multiple_choice {
+                @include input($primary-white-1, $border-radius-10, 1px dashed $primary-blue-1);
+                @include dimension(100%, 42px);
+                margin-bottom: 20px;
+                margin-top: 10px;
+            }
+            .delete-input-answer{
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                background-image: url(../../images/icons/delete-button.png);
+                background-repeat: no-repeat;
+                background-position-x: right;
+                background-position-y: center;
+                .drag-and-drop {
+                    @include dimension(25px, 42px);
+                    z-index: 2;
+                    background-image: url(../../images/icons/drag-and-drop.png);
+                    background-repeat: no-repeat;
+                    background-position-y: center;
+                }
+                .input_answer {
+                    width: 86%;
+                    margin-right: 10px;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            #input-mandatory-multiple-choice {
+                width: 16px;
+                height: 16px;
+            }
+            #button_action_component_multiple_choice {
+                @include button($primary-blue-1, $border-radius-10,0);
+                @include dimension(100%, 42px);
+                margin-top: 20px;
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                img {
+                    padding-right: 5px;
+                }
+            }
+        }
+        
+    
     }
-    .modal_content_multiple_choice p {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        margin-bottom: 20px;
-        color: black;
-    }
-    #button_answer {
-        border: 1.5px dashed #6580FF;
-        border-radius: 10px;
-        width: 100%;
-        height: 42px;
-        color: #6580FF;
-        margin-bottom: 20px;
-    }
-    p span {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        color: black;
-    }
-    .input_mandatory {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        margin-bottom: 20px;
-        color: $primary-blue-3;
-    }
-    #button_action_component {
-        width: 100%;
-        background: #6580FF;
-        border-radius: 10px;
-    }
-}    
-.modal_close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: grey;
-    text-decoration: none;
 }
 
-#display_form_builder {
-    .checkboxAnswer {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+// display modal
+
+.hide-body-multiple-overflow {
+    overflow: hidden;
+}
+
+.full-screen-multiple-container-modal-close-display {
+    display: block;
 }

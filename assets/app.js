@@ -24,10 +24,8 @@ import './js/modals/modal_section.js';
 import './js/modals/modal_date_picker.js';
 import './js/modals/modal_selector';
 
-
-// start the Stimulus application
+// Bootstrap import
 import './bootstrap';
-
 require('bootstrap');
 
 

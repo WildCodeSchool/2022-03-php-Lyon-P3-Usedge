@@ -1,25 +1,31 @@
 @import '../_var.scss';
 
-.section_title_display {
+.section-title-display {
     @include dimension(995px, 46px);
     display: flex;
-    align-items: center;
     padding: 0;
     margin-bottom: 25px;
     gap: 20px;
-    &:hover>.section_actions {
+    &:hover>.section-actions {
         display: flex;
     }
-    .component_section_title p {
-        @include textStyle ($text-font, $font-size-18,
-        $font-weight-600,$primary-blue-3 );
-        display: flex;
-        align-items: flex-start;
-        font-style: normal;
-        @include dimension(868px, 100%);
-        margin: 0;
+    .section-title-move {
+        @include dimension(22px, 21px);
+        img {
+            width: 22px;
+        }
     }
-    .section_actions {
+    .component-section-title {
+        p {
+            @include textStyle ($text-font, $font-size-18,
+            $font-weight-600,$primary-blue-3 );
+            display: flex;
+            align-items: flex-start;
+            font-style: normal;
+            width: 868px;
+        }
+    }
+    .section-actions {
         display: none;
         align-items: center;
         width: 65px;

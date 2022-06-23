@@ -1,39 +1,49 @@
-<div class="evaluation-scale-creation-modal" id="evaluation-scale-creation-modal">
-    <h4 class="evaluation-scale-modal-title">Create an evaluation scale</h4>
-    <form method="POST" class="evaluation-scale-modal-fields">
-        <input type="hidden" name="name" value="evaluation-scale">
-        <input type="text" name="question" class="evaluation-scale-input" id="evaluation-scale-question-input" placeholder="What is your question" required>
-        <div class="evaluation-scale-star-container">
-            <input type="hidden" name="evaluation-scale-rate-1" id="evaluation-scale-rate-1" value="1">
-            <label for="evaluation-scale-rate-1" class="evaluation-scale-template-rate">
-                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
-            </label>
-            <input type="hidden" name="evaluation-scale-rate-2" id="evaluation-scale-rate-2" value="2">
-            <label for="evaluation-scale-rate-2" class="evaluation-scale-template-rate">
-                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
-            </label>
-            <input type="hidden" name="evaluation-scale-rate-3" id="evaluation-scale-rate-3" value="3">
-            <label for="evaluation-scale-rate-3" class="evaluation-scale-template-rate">
-                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
-            </label>
-            <input type="hidden" name="evaluation-scale-rate-4" id="evaluation-scale-rate-4" value="4">
-            <label for="evaluation-scale-rate-4" class="evaluation-scale-template-rate">
-                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
-            </label>
-            <input type="hidden" name="evaluation-scale-rate-5" id="evaluation-scale-rate-5" value="5">
-            <label for="evaluation-scale-rate-5" class="evaluation-scale-template-rate">
-                <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
-            </label>
-        </div>
-        <input type="text" name="low-label" class="evaluation-scale-input" id="evaluation-scale-low-level-input" placeholder="Lowest Label" required>
-        <input type="text" name="high-label" class="evaluation-scale-input" id="evaluation-scale-high-level-input" placeholder="Highest Label" required>
-        <div class="evaluation-scale-modal-mandatory">
-            <input type="checkbox" class="evaluation-scale-checkbox-mandatory" id="evaluation-scale-checkbox-mandatory" name="is_mandatory">
-            <label for="is_mandatory" class="evaluation-scale-label-mandatory">This field is mandatory</label>
-        </div>
-        <button type="submit" class="evaluation-scale-modal-button" id="evaluation-scale-modal-button">
-            <img class="evaluation-scale-icon-modal-button" src="{{ asset('build/images/icons/Path.png') }}"/>
-            Add evaluation scale
-        </button>
-    </form>
+<div class="full-screen-evaluation-scale-modal-close add-name-separator" id="full-screen-evaluation-scale-modal-close">
+	<div class="add-evaluation-scale-modal" id="add-evaluation-scale-modal">
+		<form id="new-component-evaluation-scale-form" method="POST">
+			<div class="modal-content-evaluation-scale">
+				<div class="evaluation-scale-modal-close add-name-separator" id="evaluation-scale-modal-close">
+					<span class="evaluation-scale-modal-cross"></span>
+					<span class="evaluation-scale-modal-cross"></span>
+				</div>
+				<header id="evaluation-scale-draggable-handle">
+					<h4 class="evaluation-scale-modal-title">Create an evaluation scale</h4>
+				</header>
+                <input type="hidden" id="evaluation-scale-name" name="" value="evaluation-scale">
+                <input type="text" name="question" class="evaluation-scale-input" id="evaluation-scale-question-input" placeholder="What is your question" required>
+                <div class="evaluation-scale-star-container">
+                    <input type="hidden" name="evaluation-scale-rate-1" id="evaluation-scale-rate-1" value="1">
+                    <label for="evaluation-scale-rate-1" class="evaluation-scale-template-rate">
+                        <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                    </label>
+                    <input type="hidden" name="evaluation-scale-rate-2" id="evaluation-scale-rate-2" value="2">
+                    <label for="evaluation-scale-rate-2" class="evaluation-scale-template-rate">
+                        <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                    </label>
+                    <input type="hidden" name="evaluation-scale-rate-3" id="evaluation-scale-rate-3" value="3">
+                    <label for="evaluation-scale-rate-3" class="evaluation-scale-template-rate">
+                        <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                    </label>
+                    <input type="hidden" name="evaluation-scale-rate-4" id="evaluation-scale-rate-4" value="4">
+                    <label for="evaluation-scale-rate-4" class="evaluation-scale-template-rate">
+                        <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                    </label>
+                    <input type="hidden" name="evaluation-scale-rate-5" id="evaluation-scale-rate-5" value="5">
+                    <label for="evaluation-scale-rate-5" class="evaluation-scale-template-rate">
+                        <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                    </label>
+                </div>
+                <input type="text" name="low-label" class="evaluation-scale-input" id="evaluation-scale-low-level-input" placeholder="Lowest Label" required>
+                <input type="text" name="high-label" class="evaluation-scale-input" id="evaluation-scale-high-level-input" placeholder="Highest Label" required>
+                <div class="evaluation-scale-modal-mandatory">
+                    <input type="checkbox" class="evaluation-scale-checkbox-mandatory" id="evaluation-scale-checkbox-mandatory" name="is_mandatory">
+                    <label for="is_mandatory" class="evaluation-scale-label-mandatory">This field is mandatory</label>
+                </div>
+                <button type="submit" class="evaluation-scale-modal-button" id="evaluation-scale-modal-button">
+                    <img class="evaluation-scale-icon-modal-button" src="{{ asset('build/images/icons/Path.png') }}"/>
+                    Add evaluation scale
+                </button>
+			</div>
+		</form>
+	</div>
 </div>

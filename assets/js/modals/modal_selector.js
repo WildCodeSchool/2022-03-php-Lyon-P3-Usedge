@@ -16,6 +16,7 @@ if (document.getElementById('button_answer_select')) {
     const selectAnswerContainer = document.getElementById('select_answer_container');
     const addSelectModalOpenButton = document.getElementById('add-select-button');
     const addSelectModal = document.getElementById('add-select-modal');
+    const addselectName = document.getElementById('select-name');
     const selectModalCloseButton = document.getElementById('select-component-modal-close');
     const datePickerDraggableHandle = document.getElementById('select-draggable-handle');
     const fullScreenSelectModalClose = document.getElementById('full-screen-select-modal-close');
@@ -28,12 +29,14 @@ if (document.getElementById('button_answer_select')) {
 
         fullScreenSelectModalClose.classList.add('full-screen-select-modal-display');
         body.classList.add('hide-body-overflow-select');
+        addselectName.setAttribute('name', 'name');
         new draggable(addSelectModal, draggableOptions);
         // Function used to close the modal when click outside the modal
         window.onclick = function(event) {
             if (event.target == fullScreenSelectModalClose) {
                 fullScreenSelectModalClose.classList.remove('full-screen-select-modal-display');
                 body.classList.remove('hide-body-overflow-select');
+                addselectName.setAttribute('name', '');
             }
         };
     });
@@ -42,14 +45,17 @@ if (document.getElementById('button_answer_select')) {
     selectModalCloseButton.addEventListener('click', () => {
         fullScreenSelectModalClose.classList.remove('full-screen-select-modal-display');
         body.classList.remove('hide-body-overflow-select');
+        addselectName.setAttribute('name', '');
         document.getElementById('input_add_select_title').value = '';
         if (document.getElementsByClassName('delete-input-select-answer')) {
             const deleteInputAnswers = document.querySelectorAll('.delete-input-select-answer');
             const selectAnswerNumber = document.getElementById('select-answer-number');
+            const inputMandatorySelect = document.getElementById('input-mandatory-select');
             selectAnswerNumber.value = '';
             deleteInputAnswers.forEach(inputAnswer => {
                 inputAnswer.remove();
-            }) 
+            })
+            inputMandatorySelect.checked = false;
         }
     });
     
