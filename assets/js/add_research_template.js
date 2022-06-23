@@ -24,4 +24,39 @@ if (document.getElementById('select-status')) {
             break;
         }
     });
+
+
+    //-----------------------------------------------------
+    //Add and Delete the name attribute for the separator components
+    //with open and close all others modals
+    //-----------------------------------------------------
+
+    //Deleted the name attribute for the separator with open all others components
+
+    const addSeparatorName = document.getElementById('separator-name');
+    const delNamesSeparator = document.getElementsByClassName('del-name-separator');
+    const addNamesSeparator = document.getElementsByClassName('add-name-separator');
+
+    // Function used to open the others modals
+
+    for (const delNameSeparator of delNamesSeparator) {
+        
+        delNameSeparator.addEventListener('click', () => {
+
+            addSeparatorName.setAttribute('name','');
+
+        });
+
+    }
+
+    for (const addNameSeparator of addNamesSeparator) {
+        
+        addNameSeparator.addEventListener('click', () => {
+
+            addSeparatorName.setAttribute('name','name');
+
+        });
+
+    }
+
 }

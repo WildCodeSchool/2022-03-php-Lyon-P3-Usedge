@@ -6,6 +6,7 @@ use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
 use App\Services\CheckDataUtils;
+use App\Services\ComponentManager;
 use App\Services\ComponentUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,35 +40,13 @@ class ResearchTemplateController extends AbstractController
         ResearchTemplate $researchTemplate,
         ComponentUtils $componentUtils,
         CheckDataUtils $checkDataUtils,
+        ComponentManager $componentManager
     ): Response {
+
         $dataComponent = $checkDataUtils->trimData($request);
 
-        if (in_array('single-choice', $dataComponent)) {
-            $componentUtils->loadSingleChoice($researchTemplate, $dataComponent);
-            $id = $researchTemplate->getId();
-            return $this->redirectToRoute('research_template_add', [
-                'id' => $id,
-            ], Response::HTTP_SEE_OTHER);
-        }
-        if (in_array('evaluation-scale', $dataComponent)) {
-            $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
-        }
-        if (in_array('section', $dataComponent)) {
-            $componentUtils->loadSection($dataComponent, $researchTemplate);
-        }
-        if (in_array('separator', $dataComponent)) {
-            $componentUtils->loadSeparator($dataComponent, $researchTemplate);
-        }
-        if (in_array('date-picker', $dataComponent)) {
-            $componentUtils->loadDatapicker($dataComponent, $researchTemplate);
-        }
-        if (in_array('external-link', $dataComponent)) {
-            $componentUtils->loadExternalLink($dataComponent, $researchTemplate);
-        }
-        if (in_array('select', $dataComponent)) {
-            $componentUtils->loadSelector($researchTemplate, $dataComponent);
-            $id = $researchTemplate->getId();
-
+        if (!empty($dataComponent)) {
+            $id = $componentManager->initComponent($dataComponent, $researchTemplate);
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
             ], Response::HTTP_SEE_OTHER);
