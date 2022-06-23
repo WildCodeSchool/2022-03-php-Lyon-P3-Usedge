@@ -1,13 +1,20 @@
-<div class="modal-section-container">	
-	<div class="modal-section-content">
-		<form method="post">
-			<a class="close-modal-section modal-section-trigger">&times;</a>
-			<h1>Create a new section</h1>
-			<div class="input-modal-section modal-section-trigger">
-				<input type="hidden" name="sectionName" value="section">
-				<input type="text" name="title" class="modal-section-trigger" placeholder="Section title" id="section_title" required>
-			</div>	
-			<button type="submit" id="button-action-component-section" class="btn btn-primary modal-section-trigger">+ Add section</button>
+<div class="full-screen-section-modal-close" id="full-screen-section-modal-close">
+	<div class="add-section-modal" id="add-section-modal">
+		<form id="new-component-section-form" method="POST">
+			<div class="modal-content-section">
+				<div class="section-modal-close" id="section-modal-close">
+					<span class="section-modal-cross"></span>
+					<span class="section-modal-cross"></span>
+				</div>
+				<header id="section-draggable-handle">
+					<h4>Create a new section</h4>
+				</header>
+				<div class="input-modal-section">
+					<input type="hidden" name="sectionName" value="section">
+					<input type="text" name="title" class="" placeholder="Section title" id="input-section-title" required>
+				</div>
+				<button id="button-action-section" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add section</button>
+			</div>
 		</form>
 	</div>
 </div>

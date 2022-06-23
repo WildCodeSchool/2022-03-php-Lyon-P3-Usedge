@@ -1,8 +1,33 @@
 /*Action to call all classes to active the section modal*/
-const modalSectionContainer = document.querySelector('.modal-section-container');
-const modalSectionTriggers = document.querySelectorAll('.modal-section-trigger');
+if (document.getElementById('add-section-button')) {
+    const addSectionModalOpenButton = document.getElementById('add-section-button');
+    const addSectionModal = document.getElementById('add-section-modal');
+    const sectionDraggableHandle = document.getElementById('section-draggable-handle');
+    const FullScreenSectionModalClose= document.getElementById('full-screen-section-modal-close');
+    const sectionModalCloseButton = document.getElementById('section-modal-close');
+    const inputSectionTitle = document.getElementById('input-section-title');
+    const body = document.getElementById('body');
+    const draggable = require('draggable');
+    const draggableOptions = {handle: sectionDraggableHandle}
 
-modalSectionTriggers.forEach(trigger => trigger.addEventListener('click', toggleSectionModal))
-function toggleSectionModal() {
-    modalSectionContainer.classList.toggle('active');
+    // Function used to open the modal
+    addSectionModalOpenButton.addEventListener('click', () => {
+        FullScreenSectionModalClose.classList.add('full-screen-section-modal-display');
+        body.classList.add('hide-body-overflow-section');
+        new draggable(addSectionModal, draggableOptions);
+        // Function used to close the modal when click outside of the modal
+        window.onclick = function(event) {
+            if (event.target == FullScreenSectionModalClose) {
+                FullScreenSectionModalClose.classList.remove('full-screen-section-modal-display');
+                body.classList.remove('hide-body-overflow-section');
+            }
+        };
+    });
+
+    // Function used to close the modal when click on close button and initialise values
+    sectionModalCloseButton.addEventListener('click', () => {
+        inputSectionTitle.value = '';
+        FullScreenSectionModalClose.classList.remove('full-screen-section-modal-display');
+        body.classList.remove('hide-body-overflow-section');
+    });    
 }

@@ -5,10 +5,6 @@
 {% block body %}
 	<div class="main-container">
 
-		<aside class="sidebar">
-			<img src="{{ asset('build/images/sidebar.png') }}">
-		</aside>
-
 		<div class="secondary-container">
 
 			<section class="header-container">
@@ -31,9 +27,9 @@
 							<p>Status of this request<span>*</span>
 							</p>
 							<div>
-								<select id="select-status" class="status-list-select bg-green-dot" aria-label="Default select example">
+								<select id="select-status" class="status-list-select bg-grey-dot" aria-label="Default select example">
 									<option value="active">Active</option>
-									<option value="draft">Draft</option>
+									<option value="draft" selected="selected">Draft</option>
 									<option value="dropped">Dropped</option>
 								</select>
 							</div>
@@ -54,10 +50,10 @@
 									<p>Delimitate a part of your template.</p>
 								</div>
 								<div class="component-picture-2">
-									<a class="modal-section-btn- modal-section-trigger buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-section-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include 'modals/_modal_section.html.twig' %}</div>
+							{% include 'modals/_modal_section.html.twig' %}
 							
 							<div class="component">
 								<div class="component-picture-1">
@@ -71,7 +67,7 @@
 									<a id="add-single-choice-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							<div>{% include "modals/_modal_single_choice.html.twig" %}</div>
+							{% include "modals/_modal_single_choice.html.twig" %}
 
 							<div class="component">
 								<div class="component-picture-1">
@@ -82,9 +78,10 @@
 									<p>Select an element from a list.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-select-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							{% include "modals/_modal_selector.html.twig" %}
 
 							<div class="component">
 								<div class="component-picture-1">
@@ -95,9 +92,10 @@
 									<p>Ask for a date to your user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-date-picker-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							{% include "modals/_modal_date_picker.htm.twig" %}
 
 							<div class="component">
 								<div class="component-picture-1">
@@ -107,9 +105,10 @@
 									<h3>Separator</h3>
 									<p>To add some space.</p>
 								</div>
-								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
-								</div>
+								<form class="component-picture-2" method="POST">
+									<input type="hidden" name="separatorName" value="separator">
+									<button id="add-separator-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></button>
+								</form>
 							</div>
 
 							<div class="component">
@@ -163,9 +162,10 @@
 									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
-									<a id="buttonAction" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="add-external-link-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
+							<div>{% include "modals/_modal_external_link.html.twig" %}</div>
 						</div>
 					</section>
 
@@ -182,6 +182,10 @@
 							{% include 'display-selected-component/_display_open_question.html.twig' %}
 							
 							
+							{% include 'display-selected-component/_display_separator.html.twig' %}	
+							{% include 'display-selected-component/_display_date_picker.html.twig' %}
+							{% include 'display-selected-component/_display_external_link.html.twig' %}
+							{% include 'display-selected-component/_display_selector.html.twig' %}
 						{% endfor %}
 					</div>
 					{% if researchTemplate.templateComponents is empty %}

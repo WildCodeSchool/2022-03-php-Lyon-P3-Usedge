@@ -26,8 +26,22 @@ class CheckDataUtils
     {
         $inputAnswerNumber = $dataComponent['input-answer-number'];
         for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            $this->answersValue[] = $dataComponent['answer' . $i];
+            if (isset($dataComponent['answer' . $i])) {
+                $this->answersValue[] = $dataComponent['answer' . $i];
+            }
         }
+        return $this->answersValue;
+    }
+
+    public function retrieveSelectAnswers(array $dataComponent): array
+    {
+        $inputAnswerNumber = $dataComponent['select-answer-number'];
+        for ($i = 0; $i < $inputAnswerNumber; $i++) {
+            if (isset($dataComponent['select_answer' . $i])) {
+                $this->answersValue[] = $dataComponent['select_answer' . $i];
+            }
+        }
+
         return $this->answersValue;
     }
 
@@ -43,9 +57,13 @@ class CheckDataUtils
             $this->checkErrors[] = 'Maximum length for question is 255 characters.';
         }
 
+        if (empty($answersValue)) {
+            $this->checkErrors[] = 'At least one choice is mandatory.';
+        }
+
         foreach ($answersValue as $answerValue) {
             if (strlen($answerValue) > 255) {
-                $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
+                $this->checkErrors[] = 'Maximum length for Answer is 255 characters.';
             }
         }
         return $this->checkErrors;
@@ -76,9 +94,55 @@ class CheckDataUtils
                 $this->checkErrors[] = 'This field is mandatory.';
             }
         }
-
         if (strlen($dataComponent['title']) > 255) {
             $this->checkErrors[] = 'Maximum length for title is 255 characters.';
+        }
+        return $this->checkErrors;
+    }
+
+    public function checkDataDatePicker(array $dataComponent): array
+    {
+        foreach ($dataComponent as $data) {
+            if (empty($data)) {
+                $this->checkErrors[] = 'All fields are mandatory.';
+            }
+        }
+
+        if (strlen($dataComponent['title-date-picker']) > 255) {
+            $this->checkErrors[] = 'Maximum length for title is 255 characters.';
+        }
+        return $this->checkErrors;
+    }
+
+    public function checkDataExternalLink(array $dataComponent): array
+    {
+        foreach ($dataComponent as $data) {
+            if (empty($data)) {
+                $this->checkErrors[] = 'This field is mandatory.';
+            }
+        }
+        if (strlen($dataComponent['title-external-link']) > 255) {
+            $this->checkErrors[] = 'Maximum length for title is 255 characters.';
+        }
+        return $this->checkErrors;
+    }
+
+    public function checkDataSelector(array $dataComponent, array $answersValue): array
+    {
+        foreach ($dataComponent as $data) {
+            if (empty($data)) {
+                $this->checkErrors[] = 'All fields are mandatory.';
+            }
+        }
+
+        if (empty($answersValue)) {
+            $this->checkErrors[] = 'At least one datatype is mandatory.';
+        }
+
+        foreach ($answersValue as $answerValue) {
+            if (strlen($answerValue) > 255) {
+                $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
+            }
         }
         return $this->checkErrors;
     }

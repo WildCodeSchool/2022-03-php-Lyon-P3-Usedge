@@ -1,39 +1,39 @@
 @import '../_var.scss';
 
-// define modal style  
-.full-screen-container-modal-close{
-    display: none;
+.full-screen-select-modal-close {
+    display: none; 
     @include dimension(100%, 100%);
     position: fixed; 
     z-index: 1; 
     left: 0;
     top: 0;
     overflow: auto;
-    .add-single-choice-modal {
+    .add-select-modal {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        @include absolutePosition(40%, 50%);
+        @include absolutePosition(40%, 50%); 
         width: 400px;
         min-height: 337px;
         box-sizing: border-box;
         background-color: $primary-white-1;
         transform: translate(-81%, 5%); 
         border-radius: $border-radius-10;
-        .modal_content_single_choice {
+        .modal_content_select {
             position: relative;
             background: white;
             padding: 1.5em 2em;
             background: #FFFFFF;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
-            .single-choice-modal-close {
-                @include absolutePosition(13px, 363px);
+            .select-modal-close {
+                @include absolutePosition(10px, 365px);
                 @include dimension(25px, 25px);
+                z-index: 3;
                 &:hover {
                     cursor: pointer;
                 }
-                .single-choice-modal-cross {
+                .select-modal-cross {
                     @include absolutePosition(45.83%, 17%);
                     @include dimension(18px, 1.5px);
                     background-color: $primary-blue-3;
@@ -46,7 +46,7 @@
                     }
                 }
             }
-            #single-choice-handle-draggable:hover {
+            #select-draggable-handle:hover {
                 cursor: grabbing;
             }
             h4 {
@@ -58,28 +58,36 @@
                 font-family: 'Source Sans Pro', sans-serif;
                 margin-bottom: 20px;
             }
-            #input_add_single_question{
+            .select-subtitle {
+                @include textStyle($text-font,$font-size-16,$font-weight-600 !important,#000000 !important);
+                margin-bottom: 20px;
+            }
+            #input_add_select_title{
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
                 @include dimension(100%, 42px);
                 @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
                 border-radius: 8px;
                 margin-bottom: 20px;
+                padding-left: 10px;
             }
-            .input_answer {
+            .input_select_answer {
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1 !important);
                 @include button($primary-white-1, 8px, 1px solid $primary-blue-2);
                 @include dimension(100%, 42px);
                 display: flex;
                 flex-direction: column;
+                padding-left: 10px;
             }
             label {
                 @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
             }
-            #button_answer_single_choice {
+            #button_answer_select {
                 @include input($primary-white-1, $border-radius-10, 1px dashed $primary-blue-1);
                 @include dimension(100%, 42px);
                 margin-bottom: 20px;
                 margin-top: 10px;
             }
-            .delete-input-answer{
+            .delete-input-select-answer{
                 display: flex;
                 align-items: center;
                 margin-top: 10px;
@@ -95,7 +103,7 @@
                     background-repeat: no-repeat;
                     background-position-y: center;
                 }
-                .input_answer {
+                .input_select_answer {
                     width: 86%;
                     margin-right: 10px;
                 }
@@ -103,29 +111,30 @@
                     cursor: pointer;
                 }
             }
-            #input-mandatory-single-choice {
+            #input-mandatory-select {
                 width: 16px;
                 height: 16px;
             }
-            #button_action_component_single_choice {
-                @include button($primary-blue-1, $border-radius-10,0);
+            #button_action_component_select {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include textStyle($text-font !important, $font-size-14 !important, $font-weight-600 !important, $primary-white-1 !important);
+                @include button($primary-blue-1, $border-radius-10, none);
                 @include dimension(100%, 42px);
                 margin-top: 20px;
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 12px;
+                img {
+                    padding-right: 5px;
+                }
             }
         }
     }
 }
 
-// display modal
-.hide-body-overflow {
+.hide-body-overflow-select {
     overflow: hidden;
 }
 
-.full-screen-container-modal-close-display {
+.full-screen-select-modal-display {
     display: block;
 }

@@ -52,11 +52,25 @@ class ResearchTemplateController extends AbstractController
         if (in_array('evaluation-scale', $dataComponent)) {
             $componentUtils->loadEvaluationScale($dataComponent, $researchTemplate);
         }
-        if (in_array('section', $dataComponent)) {
-            $componentUtils->loadSection($dataComponent, $researchTemplate);
-        }
         if (in_array('open-question', $dataComponent)) {
             $componentUtils->loadOpenQuestion($dataComponent, $researchTemplate);
+        }
+        if (in_array('separator', $dataComponent)) {
+            $componentUtils->loadSeparator($dataComponent, $researchTemplate);
+        }
+        if (in_array('date-picker', $dataComponent)) {
+            $componentUtils->loadDatapicker($dataComponent, $researchTemplate);
+        }
+        if (in_array('external-link', $dataComponent)) {
+            $componentUtils->loadExternalLink($dataComponent, $researchTemplate);
+        }
+        if (in_array('select', $dataComponent)) {
+            $componentUtils->loadSelector($researchTemplate, $dataComponent);
+            $id = $researchTemplate->getId();
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
         }
 
         $validationErrors = $componentUtils->getCheckErrors();
