@@ -47,7 +47,7 @@
                 }
                 .research-template-list-header-second-title {
                     @include dimension(211px, 20px);
-                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-5);
+                    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-5);
                     font-style: normal;
                     line-height: 20px;
                     display: flex;
@@ -70,7 +70,7 @@
             .research-template-list-main-text {
                 .research-template-list-main-first-text {
                     @include dimension(532px, 20px);
-                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
                     font-style: normal;
                     line-height: 17px;
                     text-align: center;

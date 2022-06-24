@@ -40,11 +40,9 @@
             #select-external-link {
                 height: 60%;
                 @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
-                background-repeat: no-repeat;
-                background-position-y: center;
-                background-position-x: 12px;
                 background-color: $primary-white-1;
-                padding: 0px 0px 0px 32px;
+                border-radius: 8px;
+                border: 2px solid $primary-blue-2;
             }
         } 
     }
