@@ -136,28 +136,28 @@ class ComponentUtils
         }
         if (!isset($dataComponent['addHelpertext'])) {
             $dataComponent['addHelpertext'] = false;
-            if (empty($this->checkErrors)) {
-                $entityManager = $this->entityManager;
-                $openQuestion->setName($dataComponent['openQuestionName']);
-                $openQuestion->setQuestion($dataComponent['open_question-question']);
-                $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
-                $openQuestion->setHelperText($dataComponent['helperText']);
-                $openQuestion->setIsMandatory($dataComponent['is_mandatory']);
-                $entityManager->persist($openQuestion);
+        }
+        if (empty($this->checkErrors)) {
+            $entityManager = $this->entityManager;
+            $openQuestion->setName($dataComponent['openQuestionName']);
+            $openQuestion->setQuestion($dataComponent['open_question-question']);
+            $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
+            $openQuestion->setHelperText($dataComponent['helperText']);
+            $openQuestion->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->persist($openQuestion);
 
-                $answer = new Answer();
-                $answer->setAnswer($dataComponent['open-question-answer']);
-                $answer->setQuestion($openQuestion);
-                $answer->setNumberOrder(4);
-                $entityManager->persist($answer);
+            $answer = new Answer();
+            $answer->setAnswer($dataComponent['open-question-answer']);
+            $answer->setQuestion($openQuestion);
+            $answer->setNumberOrder(4);
+            $entityManager->persist($answer);
 
-                $templateComponent->setResearchTemplate($researchTemplate);
-                $templateComponent->setComponent($openQuestion);
-                $templateComponent->setNumberOrder(1);
-                $entityManager->persist($templateComponent);
+            $templateComponent->setResearchTemplate($researchTemplate);
+            $templateComponent->setComponent($openQuestion);
+            $templateComponent->setNumberOrder(1);
+            $entityManager->persist($templateComponent);
 
-                $entityManager->flush();
-            }
+            $entityManager->flush();
         }
     }
     public function loadSeparator(array $dataComponent, ResearchTemplate $researchTemplate): void

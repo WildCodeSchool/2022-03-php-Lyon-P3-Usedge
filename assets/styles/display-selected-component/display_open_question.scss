@@ -2,7 +2,7 @@
 
 .open-question-creation-modal
 {
-    @include dimension(995px, 185px);
+    @include dimension(995px, 150px);
     display: flex;
     align-items: stretch;
     padding: 0;
@@ -59,7 +59,7 @@
             flex-wrap: wrap;
             @include dimension(100%, 45px);
             position: relative;
-            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-1);
             margin-top: 20px;
             margin-right: 10px;
             

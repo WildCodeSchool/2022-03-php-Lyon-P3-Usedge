@@ -46,6 +46,9 @@
             background: #ffffff;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
+            #open-question-draggable-handle:hover {
+                cursor: grabbing;
+            }
             h4 {
                 @include textStyle(
                     $text-font,
@@ -88,6 +91,26 @@
                 @include button($primary-blue-1, $border-radius-10,0);
                 @include dimension(100%, 42px);
                 margin-top: 20px;
+            }
+
+            .open-question-modal-close {
+                @include absolutePosition(13px, 363px);
+                @include dimension(25px, 25px);
+                &:hover {
+                    cursor: pointer;
+                }
+                .open-question-modal-cross {
+                    @include absolutePosition(45.83%, 17%);
+                    @include dimension(18px, 1.5px);
+                    background-color: $primary-blue-3;
+                    border-radius: 2px;
+                    &:first-child {
+                        transform: rotateZ(45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotateZ(-45deg);
+                    }
+                }
             }
 
         }

@@ -1,6 +1,6 @@
 {% if "open-question" in templateComponent.component.name %}
     <div class="open-question-creation-modal" id="open-question-creation-modal" draggable="true">
-        <div class="open-question-template-draggable">
+        <div class="handle-template-component-draggable">
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="open-question-template-content">
@@ -20,9 +20,7 @@
             </div>
             <div class="open-question-template-helpertext">
                 {% if  templateComponent.component.addAHelpertext is same as true  %}
-                        <input Type= "textarea" class="form-control" name="answer-add-helpertext"placeholder=" {{ templateComponent.component.helperText }}">
-                        <label for="answer{{templateComponent.component.id}}" class="open-question-template-answer-label" id="open-question-template-answer-label">
-                        </label>
+                {{ templateComponent.component.helperText }}
                 {% endif %}
             </div>
         </div>
