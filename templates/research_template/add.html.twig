@@ -183,8 +183,12 @@
 				</div>
 
 				{# Form builder #}
-				<section class="form-builder">
-					<div id="display_form_builder">
+				<form method="post" action="{{ path('research_template_index') }}" id="form-builder" class="form-builder">
+					<input type="hidden" name="research-template-id" value="{{ researchTemplate.id }}">
+					<input type="hidden" name="components-number-count" id="components-number-count">
+					<input type="hidden" name="research-template-status" id="research-template-status" value="draft">
+					{% if researchTemplate.templateComponents.0.id is defined %}
+					<div class="form-builder-component-display" id="display_form_builder">
 						{% for error in errors %}
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
@@ -199,6 +203,13 @@
 							{% include 'display-selected-component/_display_selector.html.twig' %}
 						{% endfor %}
 					</div>
+					<div class="form-builder-save-container">
+						<button type="submit" class="form-builder-save-button" id="form-builder-save-button">
+							<img class="save-button-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
+							Save / Update this template research request
+						</button>
+					</div>
+					{% endif %}
 					{% if researchTemplate.templateComponents is empty %}
 						<img src="{{ asset('build/images/icons/empty_state_1.png') }}">
 						<h2>No elements have been added to this request template.</h2>
@@ -208,7 +219,7 @@
 							<p>Need help?</p>
 						</div>
 					{% endif %}
-				</section>
+				</form>
 
 			</div>
 		</div>
