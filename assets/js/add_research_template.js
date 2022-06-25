@@ -1,7 +1,6 @@
 if (document.getElementById('select-status')) {
     
-    const selectStatusList = document.getElementById('select-status');
-    const formBuilderSaveButton = document.getElementById('form-builder-save-button');
+    const selectStatusList = document.getElementById('select-status');    
 
     //-----------------------------------------------------
     //Changing the color depending on the selected status
@@ -67,23 +66,27 @@ if (document.getElementById('select-status')) {
     })
     
     // function used to generate the component's order number in order to send it to the database
+    if (document.getElementById('form-builder-save-button')) {
+        const formBuilderSaveButton = document.getElementById('form-builder-save-button');
 
-    formBuilderSaveButton.addEventListener('click', () => {
-        const componentsOrderNumber = document.getElementsByClassName('component-order-number');
-        const componentId = document.getElementsByClassName('research-template-component-id');
-        const componentCounter = document.getElementById('components-number-count');
-        let orderNumber = 1;
-        componentCounter.value = 0;
-        for (const component of componentsOrderNumber) {
-            component.name += orderNumber;            
-            component.value = orderNumber;
-            componentCounter.value = orderNumber;
-            orderNumber++;
-        }
-        orderNumber = 1;
-        for (const id of componentId) {
-            id.name += orderNumber;
-            orderNumber++;            
-        }
-    });
+        formBuilderSaveButton.addEventListener('click', () => {
+            const componentsOrderNumber = document.getElementsByClassName('component-order-number');
+            const componentId = document.getElementsByClassName('research-template-component-id');
+            const componentCounter = document.getElementById('components-number-count');
+            let orderNumber = 1;
+            componentCounter.value = 0;
+            for (const component of componentsOrderNumber) {
+                component.name += orderNumber;            
+                component.value = orderNumber;
+                componentCounter.value = orderNumber;
+                orderNumber++;
+            }
+            orderNumber = 1;
+            for (const id of componentId) {
+                id.name += orderNumber;
+                orderNumber++;            
+            }
+        });
+    }
 }
+

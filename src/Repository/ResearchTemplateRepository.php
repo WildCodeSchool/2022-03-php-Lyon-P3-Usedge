@@ -41,7 +41,7 @@ class ResearchTemplateRepository extends ServiceEntityRepository
 
     public function updateTemplateStatus(array $dataComponent): void
     {
-        $templateStatus = $dataComponent['reserach-template-status'];
+        $templateStatus = $dataComponent['research-template-status'];
         $templateId = $dataComponent['research-template-id'];
         $statusToSave = $this->findOneBy(['id' => $templateId]);
         $statusToSave->setStatus($templateStatus);

@@ -44,7 +44,7 @@ class RetrieveAnswers
         if (isset($dataComponent['components-number-count'])) {
             $numberOfComponents = $dataComponent['components-number-count'];
             for ($i = 1; $i <= $numberOfComponents; $i++) {
-                $this->answersValue = [
+                $this->answersValue[] = [
                     'numberOrder' => $dataComponent['component-order-number' . $i],
                     'componentId' => $dataComponent['research-template-component-id' . $i]
                 ];
