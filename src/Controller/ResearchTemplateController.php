@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Component;
 use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
+use App\Repository\ComponentRepository;
 use App\Repository\ResearchTemplateRepository;
 use App\Services\CheckDataUtils;
 use App\Services\ComponentManager;
 use App\Services\ComponentUtils;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -58,5 +61,23 @@ class ResearchTemplateController extends AbstractController
             'researchTemplate' => $researchTemplate,
             'errors' => $validationErrors
         ]);
+    }
+
+    #[Route('/{researchTemplateId}/{componentId}', name: 'component_delete', methods: ['POST'])]
+    #[Entity('researchTemplate', options: ['id' => 'researchTemplateId'])]
+    #[Entity('component', options: ['id' => 'componentId'])]
+    public function delete(
+        Request $request,
+        Component $component,
+        ComponentRepository $componentRepository,
+        ResearchTemplate $researchTemplate,
+    ): Response {
+
+        if ($this->isCsrfTokenValid('delete' . $component->getId(), $request->request->get('_token'))) {
+            $componentRepository->remove($component, true);
+        }
+        $id = $researchTemplate->getId();
+
+        return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
     }
 }

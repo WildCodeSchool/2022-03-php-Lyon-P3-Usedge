@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('research_template_component_delete',
+    {'researchTemplateId': researchTemplate.id,
+    'componentId': templateComponent.component.id,}) }}" 
+    onsubmit="return confirm('Are you sure you want to delete this component ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ templateComponent.component.id) }}">
+    <button class="remove-btn"><img src="{{ asset('build/images/icons/close.png') }}"/></button>
+</form>
