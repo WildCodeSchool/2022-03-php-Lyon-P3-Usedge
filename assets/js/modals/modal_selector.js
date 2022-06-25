@@ -70,6 +70,7 @@ if (document.getElementById('button_answer_select')) {
         newInputAnswer.type = 'text';
         newInputAnswer.setAttribute('required', 'required');
         dragAndDrop.setAttribute('draggable', 'true');
+        newInputAnswer.setAttribute('placeholder', 'Answer');
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         selectAnswerContainer.appendChild(deleteInputAnswer);

@@ -3,7 +3,6 @@
 .single-choice-template-creation {
     @include dimension(995px, 65px);
     display: flex;
-    align-items: stretch;
     padding: 0;
     margin-bottom: 30px;
     gap: 20px;

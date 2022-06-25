@@ -13,7 +13,6 @@
     z-index: 1; 
     left: 0;
     top: 0;
-    overflow: auto;
     .add-multiple-choice-modal {
         display: flex;
         flex-direction: column;
@@ -64,16 +63,20 @@
                 margin-bottom: 20px;
             }
             #input_add_multiple_question{
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 @include dimension(100%, 42px);
                 @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
                 border-radius: 8px;
                 margin-bottom: 20px;
+                padding-left: 10px;
             }
-            .multiple_input_answer {
+            .input_answer {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 @include button($primary-white-1, 8px, 1px solid $primary-blue-2);
                 @include dimension(100%, 42px);
                 display: flex;
                 flex-direction: column;
+                padding-left: 10px;
             }
             label {
                 @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
