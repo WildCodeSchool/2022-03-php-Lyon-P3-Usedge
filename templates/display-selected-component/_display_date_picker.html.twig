@@ -4,6 +4,8 @@
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="date-picker-template-content">
+            <input type="hidden" class="component-order-number" name="component-order-number">
+            <input type="hidden" class="research-template-component-id" name="research-template-component-id" value="{{ templateComponent.component.id }}">
             <p class="date-picker-template-title" id="date-picker-template-title">
                 {{templateComponent.component.title}}
                 {% if templateComponent.component.isMandatory %}

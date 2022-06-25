@@ -4,6 +4,8 @@
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="single-choice-template-content">
+            <input type="hidden" class="component-order-number" name="component-order-number">
+            <input type="hidden" class="research-template-component-id" name="research-template-component-id" value="{{ templateComponent.component.id }}">
             <p class="single-choice-template-question" id="single-choice-template-question">
                 {{templateComponent.component.question}}
                 {% if templateComponent.component.isMandatory %}
