@@ -96,7 +96,7 @@
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
-                .drag-and-drop {
+                .select-drag-and-drop{
                     @include dimension(25px, 42px);
                     z-index: 2;
                     background-image: url(../../images/icons/drag-and-drop.png);
@@ -107,6 +107,9 @@
                     width: 86%;
                     margin-right: 10px;
                 }
+                &:hover {
+                    cursor: pointer;
+                }
                 label {
                     @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
                 }
@@ -115,30 +118,6 @@
                     @include dimension(100%, 42px);
                     margin-bottom: 20px;
                     margin-top: 10px;
-                }
-                .delete-input-select-answer{
-                    display: flex;
-                    align-items: center;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    background-image: url(../../images/icons/delete-button.png);
-                    background-repeat: no-repeat;
-                    background-position-x: right;
-                    background-position-y: center;
-                    .select-drag-and-drop{
-                        @include dimension(25px, 42px);
-                        z-index: 2;
-                        background-image: url(../../images/icons/drag-and-drop.png);
-                        background-repeat: no-repeat;
-                        background-position-y: center;
-                    }
-                    .input_select_answer {
-                        width: 86%;
-                        margin-right: 10px;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                    }
                 }
             }
             #input-mandatory-select {
