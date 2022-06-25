@@ -171,6 +171,9 @@
                                     line-height: 15px;
                                     letter-spacing: 0.116667px;
                                 }
+                                .component-title-text {
+                                    margin-bottom: 0;
+                                }
                             }
                             .component-picture-2 {
                                 @include dimension(50px, 50px);
