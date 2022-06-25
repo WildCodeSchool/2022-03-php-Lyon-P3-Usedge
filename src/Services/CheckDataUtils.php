@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 class CheckDataUtils
 {
     private array $checkErrors = [];
-    private array $answersValue = [];
     private array $dataComponent = [];
 
     public function trimData(Request $request): array
@@ -20,39 +19,6 @@ class CheckDataUtils
             $this->dataComponent += array($key => $component);
         }
         return $this->dataComponent;
-    }
-
-    public function retrieveAnswers(array $dataComponent): array
-    {
-        $inputAnswerNumber = $dataComponent['input-answer-number'];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            if (isset($dataComponent['answer' . $i])) {
-                $this->answersValue[] = $dataComponent['answer' . $i];
-            }
-        }
-        return $this->answersValue;
-    }
-
-    public function retrieveAnswersMultiple(array $dataComponent): array
-    {
-        $inputAnswerNumber = $dataComponent['input-answer-number-multiple'];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            $this->answersValue[] = $dataComponent['answer' . $i];
-        }
-
-        return $this->answersValue;
-    }
-
-    public function retrieveSelectAnswers(array $dataComponent): array
-    {
-        $inputAnswerNumber = $dataComponent['select-answer-number'];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            if (isset($dataComponent['select_answer' . $i])) {
-                $this->answersValue[] = $dataComponent['select_answer' . $i];
-            }
-        }
-
-        return $this->answersValue;
     }
 
     public function checkDataSingleAndMultipleChoice(array $dataComponent, array $answersValue): array
