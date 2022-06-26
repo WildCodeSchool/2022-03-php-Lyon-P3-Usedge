@@ -1,0 +1,20 @@
+@import '../_var.scss';
+
+.research-template-list-card-valide-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    background-color: $secondary-lightgreen;
+    border-radius: 5px;
+    min-width: 64px;
+    height: 24px;
+    .research-template-list-card-dot-icon {
+        @include dimension(8px, 8px);
+    }
+    .research-template-list-card-status-text {
+        @include textStyle($text-font, $font-size-12, $font-weight-400, $secondary-green-1);
+        margin-bottom: 0;
+    }
+}
