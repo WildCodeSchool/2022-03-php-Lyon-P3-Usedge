@@ -8,10 +8,6 @@
     gap: 20px;
     &:hover>.single-choice-template-actions {
         display: flex;
-        .remove-btn {
-            background-color: transparent;
-            border: 0;
-        }
     }
     .single-choice-template-draggable {
         display: flex;
