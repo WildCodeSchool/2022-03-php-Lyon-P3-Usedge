@@ -74,8 +74,8 @@ class ResearchTemplateController extends AbstractController
     ): Response {
 
         if (
-            $this->isCsrfTokenValid('delete' . $component->getId(), $request->request->
-            get('_token' . $component->getId()))
+            $this->isCsrfTokenValid('delete' . $component->getId(), $request
+            ->request->get('_token' . $component->getId()))
         ) {
             $componentRepository->remove($component, true);
         }
