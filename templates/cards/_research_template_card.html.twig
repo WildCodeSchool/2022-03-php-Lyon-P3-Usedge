@@ -1,0 +1,33 @@
+<div class="research-template-list-card">
+						<div class="research-template-list-card-content">
+							<div class="research-template-list-card-header">
+							{% if researchTemplate.status is same as "draft" %}
+								{% include "status-tags/_draft.html.twig" %}
+							{% endif %}
+							{% if researchTemplate.status is same as "valide" %}
+								{% include "status-tags/_valide.html.twig" %}
+							{% endif %}
+							{% if researchTemplate.status is same as "dropped" %}
+								{% include "status-tags/_dropped.html.twig" %}
+							{% endif %}
+								<img class="research-template-list-card-options" id="research-template-list-card-options" src="{{ asset('build/images/icons/option-dots.png') }}">
+							</div>
+							<p class="research-template-list-card-title">{{ researchTemplate.name }}</p>
+							<p class="research-template-list-card-description">{{ researchTemplate.description }}</p>
+							<div class="research-template-list-card-caoch">
+								<img class="research-template-list-card-coach-icon" src="{{ asset('build/images/icons/john-doe.png') }}">
+								<div class="research-template-list-card-coach-part">
+									<p class="research-template-list-card-coach-name">{{ researchTemplate.coach }}</p>
+									<p class="research-template-list-card-coach-description">will recieve these requests</p>
+								</div>
+							</div>
+							<p class="research-template-list-card-submission">
+								Number of submissions : 
+								<span class="research-template-list-card-number-submissions">0</span>
+							</p>
+							<button class="research-template-list-card-link-button">
+								<img class="research-template-list-card-link-icon" src="{{ asset('build/images/icons/link.png') }}">
+								Copy sharing link
+							</button>
+						</div>
+					</div>
