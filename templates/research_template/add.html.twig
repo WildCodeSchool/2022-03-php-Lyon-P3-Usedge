@@ -183,7 +183,7 @@
 				</div>
 
 				{# Form builder #}
-				<form method="post" action="{{ path('research_template_index') }}" id="form-builder" class="form-builder">
+				<form method="post" id="form-builder" class="form-builder">
 					<input type="hidden" name="research-template-id" value="{{ researchTemplate.id }}">
 					<input type="hidden" name="components-number-count" id="components-number-count">
 					<input type="hidden" name="research-template-status" id="research-template-status" value="draft">
@@ -204,7 +204,7 @@
 						{% endfor %}
 					</div>
 					<div class="form-builder-save-container">
-						<button type="submit" class="form-builder-save-button" id="form-builder-save-button">
+						<button type="submit" formaction="{{ path('research_template_index') }}" class="form-builder-save-button" id="form-builder-save-button">
 							<img class="form-builder-save-button-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
 							Save / Update this template research request
 						</button>
