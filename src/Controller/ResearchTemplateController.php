@@ -19,6 +19,8 @@ class ResearchTemplateController extends AbstractController
     #[Route('/', name: 'index', methods: ['GET', 'POST'])]
     public function index(Request $request, ResearchTemplateRepository $templateRepository): Response
     {
+        $researchTemplateList = $templateRepository->findBy([], ['id' => 'DESC']);
+
         $researchTemplate = new ResearchTemplate();
         $form = $this->createForm(ResearchTemplateType::class, $researchTemplate);
         $form->handleRequest($request);
@@ -30,7 +32,8 @@ class ResearchTemplateController extends AbstractController
         }
 
         return $this->renderForm('research_template/index.html.twig', [
-            'form' => $form
+            'form' => $form,
+            'researchTemplates' => $researchTemplateList,
         ]);
     }
 
