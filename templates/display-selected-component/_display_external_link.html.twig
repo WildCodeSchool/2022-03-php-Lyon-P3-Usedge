@@ -4,8 +4,7 @@
 			<img src="{{ asset('build/images/icons/burger.png') }}"/>
 		</div>
 		<div class="external-link-template-content">
-            <input type="hidden" class="component-order-number" name="component-order-number">
-            <input type="hidden" class="research-template-component-id" name="research-template-component-id" value="{{ templateComponent.component.id }}">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
 			<p class="external-link-template-title" id="external-link-template-title">
 				{{templateComponent.component.title}}
 				{% if templateComponent.component.isMandatory %}
