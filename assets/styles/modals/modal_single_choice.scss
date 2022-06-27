@@ -97,6 +97,9 @@
                     background-image: url(../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
+                    &:hover {
+                        cursor: grabbing;
+                    }
                 }
                 .input_answer {
                     width: 86%;
