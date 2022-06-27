@@ -43,18 +43,6 @@ class CheckDataUtils
         return $this->answersValue;
     }
 
-    public function retrieveSelectAnswers(array $dataComponent): array
-    {
-        $inputAnswerNumber = $dataComponent['select-answer-number'];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            if (isset($dataComponent['select_answer' . $i])) {
-                $this->answersValue[] = $dataComponent['select_answer' . $i];
-            }
-        }
-
-        return $this->answersValue;
-    }
-
     public function checkDataSingleAndMultipleChoice(array $dataComponent, array $answersValue): array
     {
         foreach ($dataComponent as $data) {
@@ -133,26 +121,6 @@ class CheckDataUtils
         }
         if (strlen($dataComponent['title-external-link']) > 255) {
             $this->checkErrors[] = 'Maximum length for title is 255 characters.';
-        }
-        return $this->checkErrors;
-    }
-
-    public function checkDataSelector(array $dataComponent, array $answersValue): array
-    {
-        foreach ($dataComponent as $data) {
-            if (empty($data)) {
-                $this->checkErrors[] = 'All fields are mandatory.';
-            }
-        }
-
-        if (empty($answersValue)) {
-            $this->checkErrors[] = 'At least one datatype is mandatory.';
-        }
-
-        foreach ($answersValue as $answerValue) {
-            if (strlen($answerValue) > 255) {
-                $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
-            }
         }
         return $this->checkErrors;
     }
