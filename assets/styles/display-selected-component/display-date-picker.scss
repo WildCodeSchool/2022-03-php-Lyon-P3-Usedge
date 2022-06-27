@@ -10,14 +10,6 @@
     &:hover>.date-picker-template-actions {
         display: flex;
     }
-    .date-picker-template-draggable {
-        display: flex;
-        align-items: center;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
-    }
     .date-picker-template-content {
         width: 868px;
         display: flex;
