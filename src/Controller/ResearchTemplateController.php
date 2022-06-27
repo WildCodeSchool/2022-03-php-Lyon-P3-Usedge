@@ -10,6 +10,7 @@ use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ComponentManager;
+use App\Service\ComponentUpdateUtils;
 use App\Service\ComponentUtils;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
@@ -72,27 +73,25 @@ class ResearchTemplateController extends AbstractController
         Request $request,
         Component $component,
         ResearchTemplate $researchTemplate,
-        EntityManager $entityManager,
-        Section $section,
-        TemplateComponent $templateComponent,
-        CheckDataUtils $checkDataUtils
+        CheckDataUtils $checkDataUtils,
+        ComponentUpdateUtils $compUpdateUtils,
     ): Response {
 
-        $id = $researchTemplate->getId();
+        $dataComponent = $checkDataUtils->trimData($request);
         $componentId = $component->getId();
-/*         $dataComponent = $checkDataUtils->trimData($request);
+        $researchTemplateId = $researchTemplate->getId();
 
-        $entityManager =  $this->entityManager;
-        $section = $entityManager->getRepository(Section::class)->find($componentId);
-        $section = $section->getId();
-        $section->setTitle();
-
-        $entityManager->flush(); */
+        if (!empty($dataComponent)) {
+            $compUpdateUtils->loadUpdateSection($dataComponent, $componentId);
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $researchTemplateId
+            ], Response::HTTP_SEE_OTHER);
+        }
 
         return $this->render('research_template/edit.html.twig', [
-            'researchTemplateId' => $id,
             'researchTemplate' => $researchTemplate,
-            'componentId' => $componentId
+            'componentId' => $componentId,
+            'researchTemplateId' => $researchTemplateId,
         ]);
     }
 }
