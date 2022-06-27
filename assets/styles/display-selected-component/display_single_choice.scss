@@ -9,14 +9,6 @@
     &:hover>.single-choice-template-actions {
         display: flex;
     }
-    .single-choice-template-draggable {
-        display: flex;
-        align-items: center;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
-    }
     .single-choice-template-content {
         width: 868px;
         display: flex;

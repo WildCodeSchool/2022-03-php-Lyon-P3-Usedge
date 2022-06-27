@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Service;
 
 use App\Entity\Answer;
 use App\Entity\ComponentEvaluationScale;
@@ -13,8 +13,8 @@ use App\Entity\Separator;
 use App\Entity\Selector;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
-use App\Services\CheckDataUtils;
-use App\Services\RetrieveAnswers;
+use App\Service\CheckDataUtils;
+use App\Service\RetrieveAnswers;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ComponentUtils

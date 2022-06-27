@@ -1,3 +1,12 @@
+function renameInputAnswers() {
+    const inputSelectAnswers = document.getElementsByClassName('input_select_answer');
+    for (let i = 0; i < inputSelectAnswers.length; i++) {
+        const inputAnswer = inputSelectAnswers[i];
+        inputAnswer.setAttribute('name', 'select_answer' + i);
+        inputAnswer.setAttribute('id', 'input_select_answer' + i);
+    }
+}
+
 // Careful : for first const, check real button id when integration !
 
 if (document.getElementById('button_answer_select')) {
@@ -57,9 +66,10 @@ if (document.getElementById('button_answer_select')) {
         const dragAndDrop = document.createElement('div');
         newInputAnswer.classList.add('input_select_answer');
         deleteInputAnswer.classList.add('delete-input-select-answer');
-        dragAndDrop.classList.add('drag-and-drop');
+        dragAndDrop.classList.add('select-drag-and-drop');
         newInputAnswer.type = 'text';
         newInputAnswer.setAttribute('required', 'required');
+        dragAndDrop.setAttribute('draggable', 'true');
         newInputAnswer.setAttribute('placeholder', 'Answer');
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
@@ -68,6 +78,7 @@ if (document.getElementById('button_answer_select')) {
         const deleteInputAnswers = document.getElementsByClassName('delete-input-select-answer');
         const inputSelectAnswers = document.getElementsByClassName('input_select_answer');
         const selectAnswerNumber = document.getElementById('select-answer-number');
+        const dragAndDrops = document.getElementsByClassName('select-drag-and-drop');
         selectAnswerNumber.value = inputSelectAnswers.length;
         for (let i = 0; i < deleteInputAnswers.length; i++) {
             const deleteInputAnswer = deleteInputAnswers[i];
@@ -75,19 +86,15 @@ if (document.getElementById('button_answer_select')) {
                 let target =  event.target;
                 if (target === deleteInputAnswer){
                     target.remove();
-                    const inputSelectAnswers = document.getElementsByClassName('input_select_answer');
-                    for (let i = 0; i < inputSelectAnswers.length; i++) {
-                        const inputAnswer = inputSelectAnswers[i];
-                        inputAnswer.setAttribute('name', 'select_answer' + i);
-                        inputAnswer.setAttribute('id', 'input_select_answer' + i);
-                    }
+                    renameInputAnswers();
                 }        
             }
-            for (let i = 0; i < inputSelectAnswers.length; i++) {
-                const inputAnswer = inputSelectAnswers[i];
-                inputAnswer.setAttribute('name', 'select_answer' + i );
-                inputAnswer.setAttribute('id', 'input_select_answer' + i);
-            }
+            renameInputAnswers();
+        }
+        for (const dragAndDrop of dragAndDrops) {
+            dragAndDrop.addEventListener('dragend', function(){
+                renameInputAnswers();
+            });
         }
     });
 }

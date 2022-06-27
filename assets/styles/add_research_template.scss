@@ -264,6 +264,16 @@
                         line-height: 18px;
                         letter-spacing: 0.116667px;
                     }
+                    
+                }
+                .handle-template-component-draggable {
+                    display: flex;
+                    align-items: center;
+                    @include dimension(22px, 100%);
+                    cursor: grabbing;
+                    img {
+                        width: 22px;
+                    }
                 }
                 .handle-template-component-draggable {
                     display: flex;
