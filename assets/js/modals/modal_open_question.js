@@ -10,6 +10,7 @@ if (document.getElementById('open-question-button')) {
     const inputMandatoryOpenQuestion = document.getElementById('isMandatory');
     const allInputOpenQuestions = document.getElementsByClassName('open-question-input');
     const checkboxHelpertext = document.getElementById('addAHelpertext');
+    const newAddtHelperText = document.getElementById('checkbox-helper-text-open-question');
     const body = document.getElementById('body');
     const draggable = require('draggable');
     const draggableOptions = {handle: openQuestionDraggableHandle}
@@ -42,4 +43,28 @@ if (document.getElementById('open-question-button')) {
         addFullScreenContainerModalCloseOpenQuestion.classList.remove('full-screen-open-question-container-modal-close-display');
         body.classList.remove('hide-body-overflow-open-question');
     }); 
+
+    checkboxHelpertext.addEventListener('click', function(){
+        if (checkboxHelpertext.checked){
+
+            const newInputHelperText = document.createElement('input');
+            
+            newInputHelperText.classList.add('open-question-input');
+
+            newInputHelperText.type = 'text';
+            newInputHelperText.setAttribute('required', 'required');
+            newInputHelperText.setAttribute('placeholder', 'HelperText');
+            newInputHelperText.setAttribute('id', 'open-question-helperText');
+            newInputHelperText.setAttribute('name', 'helperText');
+
+            newAddtHelperText.appendChild(newInputHelperText);
+
+            
+        }else {
+            const helperText = document.getElementById('open-question-helperText');
+            helperText.remove();
+
+        }
+
+    });
 }
