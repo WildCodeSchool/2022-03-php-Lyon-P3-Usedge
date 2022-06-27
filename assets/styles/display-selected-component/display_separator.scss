@@ -10,14 +10,6 @@
     &:hover>.separator-template-actions {
         display: flex;
     }
-    .separator-template-draggable {
-        display: flex;
-        align-items: center;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
-    }
     .separator-template-content {
         width: 868px;
         border-bottom: 2px solid $primary-blue-2;

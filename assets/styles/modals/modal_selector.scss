@@ -95,12 +95,15 @@
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
-                .drag-and-drop {
+                .select-drag-and-drop{
                     @include dimension(25px, 42px);
                     z-index: 2;
                     background-image: url(../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
+                    &:hover {
+                        cursor: grabbing;
+                    }
                 }
                 .input_select_answer {
                     width: 86%;
@@ -108,6 +111,15 @@
                     &:hover {
                         cursor: pointer;
                     }
+                }
+                label {
+                    @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
+                }
+                #button_answer_select {
+                    @include input($primary-white-1, $border-radius-10, 1px dashed $primary-blue-1);
+                    @include dimension(100%, 42px);
+                    margin-bottom: 20px;
+                    margin-top: 10px;
                 }
             }
             #input-mandatory-select {

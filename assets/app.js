@@ -11,6 +11,7 @@ import './styles/app.scss';
 // import main page js
 import './js/homePage.js';
 import './js/add_research_template.js';
+import './js/drag_and_drop.js';
 
 // import modal js
 import './js/modals/modal_external_link.js';

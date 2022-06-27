@@ -9,14 +9,6 @@
     &:hover>.external-link-template-actions {
         display: flex;
     }
-    .external-link-template-draggable {
-        display: flex;
-        align-items: center;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
-    }
     .external-link-template-content {
         width: 868px;
         display: flex;

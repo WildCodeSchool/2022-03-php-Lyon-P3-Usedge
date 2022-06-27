@@ -1,3 +1,12 @@
+function renameInputAnswers() {
+    const inputAnswers = document.getElementsByClassName('multiple_input_answer');
+    for (let i = 0; i < inputAnswers.length; i++) {
+        const inputAnswer = inputAnswers[i];
+        inputAnswer.setAttribute('name', 'answer' + i);
+        inputAnswer.setAttribute('id', 'input_answer' + i);
+    }
+}
+
 // Careful : for first const, check real button id when integration !
 
 if (document.getElementById('button_answer_multiple_choice')) {
@@ -56,20 +65,23 @@ if (document.getElementById('button_answer_multiple_choice')) {
         const newInputAnswer = document.createElement('input');
         const deleteInputAnswer = document.createElement('div');
         const dragAndDrop = document.createElement('div');
-        newInputAnswer.classList.add('input_answer');
+        newInputAnswer.classList.add('multiple_input_answer');
         deleteInputAnswer.classList.add('delete-input-answer');
-        dragAndDrop.classList.add('drag-and-drop');
+        dragAndDrop.classList.add('multiple-drag-and-drop');
         newInputAnswer.type = 'text';
+        dragAndDrop.setAttribute('draggable', 'true');
         newInputAnswer.setAttribute('required', 'required');
         newInputAnswer.setAttribute('placeholder', 'Answer');
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         multipleAnswerContainer.appendChild(deleteInputAnswer);
+
         // function to delete input
         const deleteInputAnswers = document.getElementsByClassName('delete-input-answer');
-
-        const inputAnswers = document.getElementsByClassName('input_answer');
+        const inputAnswers = document.getElementsByClassName('multiple_input_answer');
         const inputAnswerNumber = document.getElementById('input-answer-number-multiple');
+        const multipleDragAndDrops = document.getElementsByClassName('multiple-drag-and-drop');
+
         inputAnswerNumber.value = inputAnswers.length;
         for (let i = 0; i < deleteInputAnswers.length; i++) {
             const deleteInputAnswer = deleteInputAnswers[i];
@@ -77,21 +89,16 @@ if (document.getElementById('button_answer_multiple_choice')) {
                 let target =  event.target;
                 if (target === deleteInputAnswer){
                     target.remove();
-                    const inputAnswers = document.getElementsByClassName('input_answer');
-                    for (let i = 0; i < inputAnswers.length; i++) {
-                        const inputAnswer = inputAnswers[i];
-                        inputAnswer.setAttribute('name', 'answer' + i);
-                        inputAnswer.setAttribute('id', 'input_answer' + i);
-                        inputAnswerNumber.value = inputAnswers.length;
-                    }
+                    renameInputAnswers();
+                    inputAnswerNumber.value = inputAnswers.length;
                 }
-            }
-
-            for (let i = 0; i < inputAnswers.length; i++) {
-                const inputAnswer = inputAnswers[i];
-                inputAnswer.setAttribute('name', 'answer' + i);
-                inputAnswer.setAttribute('id', 'input_answer' + i);
-            }
+            }  
+            renameInputAnswers();
+        }
+        for (const multipleDragAndDrop of multipleDragAndDrops) {
+            multipleDragAndDrop.addEventListener('dragend', function(){
+                renameInputAnswers();
+            });
         }
     });
 }
