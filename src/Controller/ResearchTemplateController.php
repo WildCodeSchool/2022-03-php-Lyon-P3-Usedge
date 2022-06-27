@@ -2,12 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Component;
 use App\Entity\ResearchTemplate;
+use App\Entity\Section;
+use App\Entity\TemplateComponent;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ComponentManager;
 use App\Service\ComponentUtils;
+use Doctrine\ORM\EntityManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -57,6 +62,37 @@ class ResearchTemplateController extends AbstractController
         return $this->render('research_template/add.html.twig', [
             'researchTemplate' => $researchTemplate,
             'errors' => $validationErrors
+        ]);
+    }
+
+    #[Route('/edit/{researchTemplateId}/{componentId}', name: 'edit_component')]
+    #[Entity('researchTemplate', options: ['id' => 'researchTemplateId'])]
+    #[Entity('component', options: ['id' => 'componentId'])]
+    public function edit(
+        Request $request,
+        Component $component,
+        ResearchTemplate $researchTemplate,
+        EntityManager $entityManager,
+        Section $section,
+        TemplateComponent $templateComponent,
+        CheckDataUtils $checkDataUtils
+    ): Response {
+
+        $id = $researchTemplate->getId();
+        $componentId = $component->getId();
+/*         $dataComponent = $checkDataUtils->trimData($request);
+
+        $entityManager =  $this->entityManager;
+        $section = $entityManager->getRepository(Section::class)->find($componentId);
+        $section = $section->getId();
+        $section->setTitle();
+
+        $entityManager->flush(); */
+
+        return $this->render('research_template/edit.html.twig', [
+            'researchTemplateId' => $id,
+            'researchTemplate' => $researchTemplate,
+            'componentId' => $componentId
         ]);
     }
 }
