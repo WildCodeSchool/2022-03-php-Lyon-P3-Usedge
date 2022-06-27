@@ -13,9 +13,9 @@ if (document.getElementById('display_form_builder')) {
     Sortable.create(singleAnswerContainer, {
         handle: '.single-choice-drag-and-drop'
     });
-    Sortable.create(selectAnswerContainer, {
+    /*Sortable.create(selectAnswerContainer, {
         handle: '.select-drag-and-drop'
-    });
+    });*/
     
     Sortable.create(multipleAnswerContainer, {
         handle: '.multiple-drag-and-drop'
