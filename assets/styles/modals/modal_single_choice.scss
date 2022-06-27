@@ -91,12 +91,15 @@
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
-                .drag-and-drop {
+                .single-choice-drag-and-drop {
                     @include dimension(25px, 42px);
                     z-index: 2;
                     background-image: url(../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
+                    &:hover {
+                        cursor: grabbing;
+                    }
                 }
                 .input_answer {
                     width: 86%;
