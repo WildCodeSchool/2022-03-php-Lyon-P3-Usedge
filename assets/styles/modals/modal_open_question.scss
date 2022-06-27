@@ -21,7 +21,7 @@
         background-color: $primary-white-1;
         transform: translate(-81%, 5%);
         border-radius: $border-radius-10;
-        border: 1px solid $primary-blue-1;
+       // border: 1px solid $primary-blue-1;
 
         .open-question-modal-title {
             @include dimension(256px, 21px);

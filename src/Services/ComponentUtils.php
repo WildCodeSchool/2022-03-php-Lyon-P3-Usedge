@@ -130,7 +130,7 @@ class ComponentUtils
     {
         $templateComponent = new TemplateComponent();
         $openQuestion = new OpenQuestion();
-        /*$this->checkErrors = $this->checkDataUtils->checkDataOpenQuestion($dataComponent);*/
+        $this->checkErrors = $this->checkDataUtils->checkDataOpenQuestion($dataComponent);
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
         }
