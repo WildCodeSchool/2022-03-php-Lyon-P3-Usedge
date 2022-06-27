@@ -44,8 +44,10 @@ class ResearchTemplateRepository extends ServiceEntityRepository
         $templateStatus = $dataComponent['research-template-status'];
         $templateId = $dataComponent['research-template-id'];
         $statusToSave = $this->findOneBy(['id' => $templateId]);
-        $statusToSave->setStatus($templateStatus);
-        $this->add($statusToSave, true);
+        if ($statusToSave instanceof ResearchTemplate) {
+            $statusToSave->setStatus($templateStatus);
+            $this->add($statusToSave, true);
+        }
     }
 
 //    /**

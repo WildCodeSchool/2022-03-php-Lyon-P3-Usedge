@@ -118,9 +118,11 @@ class ResearchTemplate
         return $this->status;
     }
 
-    public function setStatus(string $status): void
+    public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
     }
 
     /**
