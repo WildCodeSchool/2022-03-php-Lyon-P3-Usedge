@@ -171,6 +171,9 @@
                                     line-height: 15px;
                                     letter-spacing: 0.116667px;
                                 }
+                                .component-title-text {
+                                    margin-bottom: 0;
+                                }
                             }
                             .component-picture-2 {
                                 @include dimension(50px, 50px);
@@ -199,7 +202,35 @@
                 padding: 50px 50px 35px;
                 background: $primary-white-1;
                 border-radius: $border-radius-10;
-                overflow: auto;
+                overflow: hidden;
+                .form-builder-component-display {
+                    @include dimension(1022px, 798px);
+                    padding: 2px 0;
+                    gap: 20px;
+                    overflow-y: scroll;
+                }
+                .form-builder-save-container {
+                    @include dimension(1022px, 42px);
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                    padding: 0;
+                    gap: 10px;
+                    margin-top: 30px;
+                    .form-builder-save-button {
+                        @include dimension(1022px, 42px);
+                        @include button($primary-blue-1, $border-radius-10, none);
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-white-1);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .form-builder-save-button-icon {
+                            width: 15px;
+                            height: 15px;
+                            margin-right: 8px;
+                        }
+                    }
+                }
                 h2 {
                     @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
                     font-style: normal;
