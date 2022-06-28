@@ -2,17 +2,15 @@
 
 .research-template-list-page {
     display: flex;
+    height: 1080px;
     gap: 40px;
-    .research-template-list-sidebar {
-        @include dimension(270px, 1080px);
-    }
     .research-template-list-display {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 35px 0px;
         gap: 20px;
-        width: 81vw ;
+        width: 1572px;
         .research-template-list-header {
             @include dimension(1572px, 40px);
             display: flex;
@@ -55,9 +53,29 @@
                     letter-spacing: -0.8px;
                 }
             }
-
+            .research-template-defined-list-add-button {
+                @include button($primary-blue-1, $border-radius-10, none);
+                @include dimension(245px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .research-template-defined-list-add-icon {
+                    padding-right: 4px;
+                }
+            }
         }
         .research-template-list-main {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            width: 1572px;
+            max-height: 967px;
+            padding: 0;
+            gap: 18px;
+            overflow-y: scroll;
+        }
+        .research-template-empty-list-main {
             display: flex;
             flex-direction: column;
             align-items: center;

@@ -26,5 +26,15 @@
 @import "display-selected-component/display-date-picker.scss";
 @import "display-selected-component/display_selector.scss";
 
+<<<<<<< HEAD
 // import edit selected component
 @import 'edit-selected-component/edit_section.scss';
+=======
+// import status tags
+@import "status-tags/_draft.scss";
+@import "status-tags/_active.scss";
+@import "status-tags/_dropped.scss";
+
+// import cards
+@import "cards/_research_template_card.scss";
+>>>>>>> c8c0db0df533666323ab8210f48cadf00eb5357f

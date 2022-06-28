@@ -17,7 +17,7 @@
 		</div>
 		<div class="external-link-template-actions">
 			{% include "layout_edit.html.twig" %}
-			<img src="{{ asset('build/images/icons/close.png') }}"/>
+			{% include "display-selected-component/_delete_component.html.twig" %}
 		</div>
 	</div>
 {% endif %}
