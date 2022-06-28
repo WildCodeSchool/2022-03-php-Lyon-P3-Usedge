@@ -9,7 +9,7 @@
 		</div>
 		<div class="section-actions">
 			<img src="{{ asset('build/images/icons/edit.png') }}"/>
-			<img src="{{ asset('build/images/icons/close.png') }}"/>
+			{% include "display-selected-component/_delete_component.html.twig" %}
 		</div>
 	</div>
 {% endif %}

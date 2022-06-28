@@ -1,0 +1,7 @@
+<input type="hidden" name="_token{{templateComponent.component.id}}" 
+value="{{ csrf_token('delete' ~ templateComponent.component.id) }}">
+<button class="remove-btn" formaction="{{ path('research_template_component_delete',
+{'researchTemplateId': researchTemplate.id,
+'componentId': templateComponent.component.id,}) }}">
+    <img src="{{ asset('build/images/icons/close.png') }}"/>
+</button>
