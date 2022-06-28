@@ -4,6 +4,7 @@
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="date-picker-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
             <p class="date-picker-template-title" id="date-picker-template-title">
                 {{templateComponent.component.title}}
                 {% if templateComponent.component.isMandatory %}
