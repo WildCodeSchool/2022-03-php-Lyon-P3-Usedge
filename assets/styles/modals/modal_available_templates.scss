@@ -18,5 +18,32 @@
         justify-content: space-between;
         align-items: center;
         padding: 0;
+        .available-templates-header-title {
+            @include dimension(546px, 44px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .available-templates-header-first-title {
+                @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
+                line-height: 17px;
+                margin-bottom: 0;
+            }
+            .available-templates-header-subtitle {
+                @include textStyle($text-font, $font-size-16, $font-weight-500, $primary-grey-3);
+                margin-bottom: 0;
+            }
+        }
+        .available-templates-header-actions {
+            @include dimension(75px, 44px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .available-templates-header-options {
+                @include dimension(30px, 30px);
+            }
+            .available-templates-header-close {
+                @include dimension(30px, 30px);
+            }
+        }
     }
 }
