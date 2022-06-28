@@ -26,3 +26,11 @@
 @import 'display-selected-component/display_separator.scss';
 @import "display-selected-component/display-date-picker.scss";
 @import "display-selected-component/display_selector.scss";
+
+// import status tags
+@import "status-tags/_draft.scss";
+@import "status-tags/_active.scss";
+@import "status-tags/_dropped.scss";
+
+// import cards
+@import "cards/_research_template_card.scss";
