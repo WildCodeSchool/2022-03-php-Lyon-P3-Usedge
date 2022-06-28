@@ -15,22 +15,43 @@
 					</div>
 					<div class="research-template-list-header-title">
 						<p class="research-template-list-header-first-title">RESEARCH CENTER TEMPLATE</p>
-                        <p class="research-template-list-header-second-title">No templates available</p>
+						{% if researchTemplates|length == 1 %}
+							<p class="research-template-list-header-second-title">1 template available</p>
+						{% elseif researchTemplates|length > 1 %}
+							<p class="research-template-list-header-second-title">{{ researchTemplates|length }} templates available</p>
+						{% else %}
+                        	<p class="research-template-list-header-second-title">No templates available</p>
+						{% endif %}
 					</div>
+					{% if researchTemplates %}
+						<button class="research-template-defined-list-add-button" id="add-template-button">
+							<img class="research-template-defined-list-add-icon" src="{{ asset('build/images/icons/Path.png') }}">
+							Create a new request template
+						</button>
+					{% endif %}
 				</div>
 			</header>
 
-			<div class="research-template-list-main">
-				<div class="emmptyState">
-					<img src="{{ asset('build/images/icons/empty_state_1.png') }}">
-				</div>
-				<div class="research-template-list-main-text">
-					<p class="research-template-list-main-first-text">You don't have any requests created yet!</p>
-					<p class="research-template-list-main-second-text">Create a first request template your team will be able to submit</p>
-				</div>
-				<button class="research-template-list-add-button" id="add-template-button"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
+			{% if researchTemplates %}
+				<div class="research-template-list-main">
+				{% for researchTemplate in researchTemplates %}
+					{% include "cards/_research_template_card.html.twig" %}
+				{% endfor %}
 				{% include "modals/_modal_new_research_template.html.twig" %}
-			</div>
+				</div>
+			{% else %}
+				<div class="research-template-empty-list-main">
+					<div class="emmptyState">
+						<img src="{{ asset('build/images/icons/empty_state_1.png') }}">
+					</div>
+					<div class="research-template-list-main-text">
+						<p class="research-template-list-main-first-text">You don't have any requests created yet!</p>
+						<p class="research-template-list-main-second-text">Create a first request template your team will be able to submit</p>
+					</div>
+					<button class="research-template-list-add-button" id="add-template-button"><img src="{{ asset('build/images/icons/Path.png') }}">New request template</button>
+					{% include "modals/_modal_new_research_template.html.twig" %}
+				</div>
+			{% endif %}
 
 		</div>
 
