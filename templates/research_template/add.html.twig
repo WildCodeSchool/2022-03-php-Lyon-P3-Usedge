@@ -74,21 +74,6 @@
 							</div>
 							{% include "modals/_modal_single_choice.html.twig" %}
 
-							{# Selector component #}
-							<div class="component">
-								<div class="component-picture-1">
-									<img class="image" src="{{ asset('build/images/logo_component/selector.png') }}" alt="logo selector">
-								</div>
-								<div class="component-title">
-									<h3>Selector</h3>
-									<p class="component-title-text">Select an element from a list.</p>
-								</div>
-								<div class="component-picture-2">
-									<a id="add-select-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
-								</div>
-							</div>
-							{% include "modals/_modal_selector.html.twig" %}
-
 							{# Date component #}
 							<div class="component">
 								<div class="component-picture-1">
@@ -204,7 +189,6 @@
 							{% include 'display-selected-component/_display_separator.html.twig' %}	
 							{% include 'display-selected-component/_display_date_picker.html.twig' %}
 							{% include 'display-selected-component/_display_external_link.html.twig' %}
-							{% include 'display-selected-component/_display_selector.html.twig' %}
 						{% endfor %}
 					</div>
 					<div class="form-builder-save-container">

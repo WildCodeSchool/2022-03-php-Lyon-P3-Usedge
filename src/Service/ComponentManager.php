@@ -17,7 +17,6 @@ class ComponentManager
         'separator' => 'separator',
         'date-picker' => 'datePicker',
         'external-link' => 'externalLink',
-        'select' => 'select',
         'open-question' => 'openQuestion',
     ];
 
