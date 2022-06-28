@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Component;
 use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
+use App\Repository\ComponentRepository;
 use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
@@ -29,6 +30,7 @@ class ResearchTemplateController extends AbstractController
         CheckDataUtils $checkDataUtils,
         RetrieveAnswers $retrieveAnswers
     ): Response {
+        $researchTemplateList = $templateRepository->findBy([], ['id' => 'DESC']);
         $dataComponent =  $checkDataUtils->trimData($request);
 
         if (isset($dataComponent['research-template-status'])) {
@@ -51,7 +53,8 @@ class ResearchTemplateController extends AbstractController
         }
 
         return $this->renderForm('research_template/index.html.twig', [
-            'form' => $form
+            'form' => $form,
+            'researchTemplates' => $researchTemplateList,
         ]);
     }
 
@@ -113,5 +116,28 @@ class ResearchTemplateController extends AbstractController
             'researchTemplateId' => $researchTemplateId,
             'errors' => $validationErrors,
         ]);
+    }
+
+    #[Route('/{researchTemplateId}/{componentId}', name: 'component_delete', methods: ['POST'])]
+    #[Entity('researchTemplate', options: ['id' => 'researchTemplateId'])]
+    #[Entity('component', options: ['id' => 'componentId'])]
+    public function delete(
+        Request $request,
+        Component $component,
+        ComponentRepository $componentRepository,
+        ResearchTemplate $researchTemplate,
+    ): Response {
+
+        if (is_string($request->request->get('_token' . $component->getId()))) {
+            if (
+                $this->isCsrfTokenValid('delete' . $component->getId(), $request
+                ->request->get('_token' . $component->getId()))
+            ) {
+                $componentRepository->remove($component, true);
+            }
+        }
+        $id = $researchTemplate->getId();
+
+        return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
     }
 }

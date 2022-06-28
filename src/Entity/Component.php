@@ -46,10 +46,10 @@ abstract class Component
     #[ORM\Column(type: 'text', nullable: true)]
     protected string $helperText;
 
-    #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class)]
+    #[ORM\OneToMany(mappedBy: 'question', targetEntity: Answer::class, cascade: ['remove'])]
     protected Collection $answers;
 
-    #[ORM\OneToMany(mappedBy: 'component', targetEntity: TemplateComponent::class)]
+    #[ORM\OneToMany(mappedBy: 'component', targetEntity: TemplateComponent::class, cascade: ['remove'])]
     protected Collection $templateComponents;
 
     public function __construct()
