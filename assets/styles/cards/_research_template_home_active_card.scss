@@ -73,9 +73,9 @@
             justify-content: center;
             align-items: center;
             padding: 12px;
-            .research-template-list-active-card-link-icon {
-                @include dimension(15px, 15px);
-                margin-right: 5px;
+            .research-template-list-active-card-add-icon {
+                width: 15px;
+                padding-right: 5px;
             }
         }
     }

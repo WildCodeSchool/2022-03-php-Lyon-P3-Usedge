@@ -41,9 +41,11 @@
             align-items: center;
             .available-templates-header-options {
                 @include dimension(30px, 30px);
+                cursor: pointer;
             }
             .available-templates-header-close {
                 @include dimension(30px, 30px);
+                cursor: pointer;
             }
         }
     }
@@ -90,4 +92,8 @@
         display: flex;
         gap: 16px;
     }
+}
+
+.research-center-available-templates-display {
+    right: -50px;
 }
