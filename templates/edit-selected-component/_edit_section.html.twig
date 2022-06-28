@@ -1,0 +1,18 @@
+{% if "section" in templateComponent.component.name %}
+	{% if componentId is same as templateComponent.component.id %}
+	<form method="POST" class="section-title-display">
+		<div class="handle-template-component-draggable">
+			<img src="{{ asset('build/images/icons/burger.png') }}"/>
+		</div>
+		<div class="component-section-title">
+			<input type="text" name="title" value="{{ templateComponent.component.title}}">
+		</div>
+		<div class="section-actions">
+			{% include "layout_edit.html.twig" %}
+			<button>V</button>
+		</div>
+	</form>
+	{% else %}
+		{% include 'display-selected-component/_display_section.html.twig' %}
+	{% endif %}
+{% endif %}

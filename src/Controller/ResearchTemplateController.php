@@ -2,14 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Component;
 use App\Entity\ResearchTemplate;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ComponentManager;
+use App\Service\ComponentUpdateUtils;
 use App\Service\ComponentUtils;
 use App\Service\RetrieveAnswers;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -75,6 +78,42 @@ class ResearchTemplateController extends AbstractController
         return $this->render('research_template/add.html.twig', [
             'researchTemplate' => $researchTemplate,
             'errors' => $validationErrors
+        ]);
+    }
+
+    #[Route('/edit/{researchTemplateId}/{componentId}', name: 'edit_component')]
+    #[Entity('researchTemplate', options: ['id' => 'researchTemplateId'])]
+    #[Entity('component', options: ['id' => 'componentId'])]
+    public function edit(
+        Request $request,
+        Component $component,
+        ResearchTemplate $researchTemplate,
+        CheckDataUtils $checkDataUtils,
+        ComponentUpdateUtils $compUpdateUtils,
+    ): Response {
+
+        $dataComponent = $checkDataUtils->trimData($request);
+        $componentId = $component->getId();
+        $researchTemplateId = $researchTemplate->getId();
+
+        if (!empty($dataComponent)) {
+            $compUpdateUtils->loadUpdateSection($dataComponent, $componentId);
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $researchTemplateId
+            ], Response::HTTP_SEE_OTHER);
+        }
+
+        if (!empty($dataComponent)) {
+            $compUpdateUtils->loadUpdateExternalLink($dataComponent, $componentId);
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $researchTemplateId
+            ], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('research_template/edit.html.twig', [
+            'researchTemplate' => $researchTemplate,
+            'componentId' => $componentId,
+            'researchTemplateId' => $researchTemplateId,
         ]);
     }
 }
