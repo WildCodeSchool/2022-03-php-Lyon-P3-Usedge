@@ -20,4 +20,11 @@
             <p class="available-templates-header-information-second-text" >You can’t find a request that is fitting with your need? Sumbit a feedback <a class="available-templates-header-information-link" href="">here</a></p>
         </div>
     </div>
+    <div class="available-templates-content">
+        {% if researchTemplates %}
+            {% for researchTemplate in researchTemplates %}
+                {% include "home/cards/_research_template_active_card.html.twig" %}
+            {% endfor %}
+        {% endif %}
+    </div>
 </div>

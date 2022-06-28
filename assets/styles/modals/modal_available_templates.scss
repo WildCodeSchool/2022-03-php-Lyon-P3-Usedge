@@ -3,7 +3,7 @@
 .research-center-available-templates {
     position: absolute;
     top: 0px;
-    right: -50px;
+    right: -1000px; /* display -50px */
     @include dimension(900px, 1080px);
     display: flex;
     flex-direction: column;
@@ -12,6 +12,7 @@
     border-radius: 20px 0 0 20px;
     padding: 50px;
     gap: 20px;
+    transition: 0.3s;
     .research-center-available-templates-header {
         @include dimension(800px, 44px);
         display: flex;
@@ -78,5 +79,15 @@
                 }
             }
         }
+    }
+    .available-templates-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        width: 800px;
+        max-height: 838px;
+        overflow-y: scroll;
+        display: flex;
+        gap: 16px;
     }
 }
