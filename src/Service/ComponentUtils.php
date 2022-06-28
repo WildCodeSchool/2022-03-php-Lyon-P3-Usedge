@@ -62,7 +62,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($evalScaleComponent);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -98,7 +98,7 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($singleChoice);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -134,7 +134,7 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($multipleChoice);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -161,7 +161,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($section);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -186,7 +186,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($separator);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -212,7 +212,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($datepicker);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -239,7 +239,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($externalLink);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -275,7 +275,7 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($selector);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();

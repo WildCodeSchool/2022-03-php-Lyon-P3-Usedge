@@ -7,16 +7,16 @@ use App\Entity\ResearchTemplate;
 class ComponentUpdateManager
 {
     private array $dataComponent;
-    private ComponentUpdateUtils $compUpdatetUtils;
+    private ComponentUpdateUtils $compUpdateUtils;
     private ResearchTemplate $researchTemplate;
     private int $componentId;
     private array $componentNames = [
         'section' => 'section',
     ];
 
-    public function __construct(ComponentUpdateUtils $compUpdatetUtils)
+    public function __construct(ComponentUpdateUtils $compUpdateUtils)
     {
-        $this->compUpdatetUtils = $compUpdatetUtils;
+        $this->compUpdateUtils = $compUpdateUtils;
     }
 
     public function updateComponent(
@@ -35,7 +35,7 @@ class ComponentUpdateManager
 
     public function section(): int|null
     {
-            $this->compUpdatetUtils->loadUpdateSection($this->dataComponent, $this->componentId);
+            $this->compUpdateUtils->loadUpdateSection($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
     }
