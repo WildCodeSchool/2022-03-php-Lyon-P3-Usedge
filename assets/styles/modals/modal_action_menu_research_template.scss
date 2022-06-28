@@ -1,0 +1,61 @@
+@import '../_var.scss';
+
+.actions-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 17px 17px 17px 17px;
+    position: relative;
+    width: 176px;
+    height: 170px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+
+    .action-container {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+
+        a {
+            text-decoration: none;
+        }
+
+        .edit-action-img {
+            width: 12px;
+            height: 12px;
+        }
+
+        .view-action-img {
+            width: 14px;
+            height: 12px;
+        }
+
+        .viewall-action-img {
+            width: 12px;
+            height: 12px;
+        }
+
+        .delete-action-img {
+            width: 12px;
+            height: 12px;
+        }
+
+        p {
+            padding-left: 5px;
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: $primary-dark-1;
+        }
+
+        .delete-action-p {
+            color: $secondary-dark-red-1;
+        }
+    }
+}
