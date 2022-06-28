@@ -102,24 +102,4 @@ class CheckDataUtils
         }
         return $this->checkErrors;
     }
-
-    public function checkDataSelector(array $dataComponent, array $answersValue): array
-    {
-        foreach ($dataComponent as $data) {
-            if (empty($data)) {
-                $this->checkErrors[] = 'All fields are mandatory.';
-            }
-        }
-
-        if (empty($answersValue)) {
-            $this->checkErrors[] = 'At least one datatype is mandatory.';
-        }
-
-        foreach ($answersValue as $answerValue) {
-            if (strlen($answerValue) > 255) {
-                $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
-            }
-        }
-        return $this->checkErrors;
-    }
 }
