@@ -29,6 +29,7 @@ class ResearchTemplateController extends AbstractController
         CheckDataUtils $checkDataUtils,
         RetrieveAnswers $retrieveAnswers
     ): Response {
+        $researchTemplateList = $templateRepository->findBy([], ['id' => 'DESC']);
         $dataComponent =  $checkDataUtils->trimData($request);
 
         if (isset($dataComponent['research-template-status'])) {
@@ -51,7 +52,8 @@ class ResearchTemplateController extends AbstractController
         }
 
         return $this->renderForm('research_template/index.html.twig', [
-            'form' => $form
+            'form' => $form,
+            'researchTemplates' => $researchTemplateList,
         ]);
     }
 
