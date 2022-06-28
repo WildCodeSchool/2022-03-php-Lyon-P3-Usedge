@@ -88,6 +88,13 @@ class ResearchTemplateController extends AbstractController
             ], Response::HTTP_SEE_OTHER);
         }
 
+        if (!empty($dataComponent)) {
+            $compUpdateUtils->loadUpdateExternalLink($dataComponent, $componentId);
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $researchTemplateId
+            ], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('research_template/edit.html.twig', [
             'researchTemplate' => $researchTemplate,
             'componentId' => $componentId,

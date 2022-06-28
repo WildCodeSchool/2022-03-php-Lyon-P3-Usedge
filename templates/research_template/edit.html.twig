@@ -56,8 +56,7 @@
 								<div class="component-picture-2">
 									<a id="add-section-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
-							</div>
-							{% include 'modals/_modal_section.html.twig' %}
+							</div>							
 							
 							{# Single choice component #}
 							<div class="component">
@@ -71,8 +70,7 @@
 								<div class="component-picture-2">
 									<a id="add-single-choice-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
-							</div>
-							{% include "modals/_modal_single_choice.html.twig" %}
+							</div>							
 
 							{# Selector component #}
 							<div class="component">
@@ -87,7 +85,6 @@
 									<a id="add-select-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_selector.html.twig" %}
 
 							{# Date component #}
 							<div class="component">
@@ -102,7 +99,6 @@
 									<a id="add-date-picker-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_date_picker.htm.twig" %}
 
 							{# Separator component #}
 							<div class="component">
@@ -132,7 +128,6 @@
 									<a id="add-multiple-choice-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_multiple_choice.html.twig" %}
 
 							{# Open question component #}
 							<div class="component">
@@ -161,7 +156,6 @@
 									<a id="evaluation-scale-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_evaluation_scale.html.twig" %}
 
 							{# External link component #}
 							<div class="component">
@@ -176,7 +170,6 @@
 									<a id="add-external-link-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_external_link.html.twig" %}
 						</div>
 					</section>
 
@@ -191,15 +184,12 @@
 						{% for templateComponent in researchTemplate.templateComponents %}
 							{# {% include "display-selected-component/_display_single_choice.html.twig" %}
 							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
-							{% include "display-selected-component/_display_evaluation_scale.html.twig" %} #}
-							
-					
-							{% include 'edit-selected-component/_edit_section.html.twig' %}	
-							
-							{# {% include 'display-selected-component/_display_separator.html.twig' %}	
+							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
+							{% include 'display-selected-component/_display_separator.html.twig' %}	
 							{% include 'display-selected-component/_display_date_picker.html.twig' %}
-							{% include 'display-selected-component/_display_external_link.html.twig' %}
 							{% include 'display-selected-component/_display_selector.html.twig' %} #}
+							{% include 'edit-selected-component/_edit_section.html.twig' %}
+							{% include 'edit-selected-component/_edit_external_link.html.twig' %}
 						{% endfor %}
 					</div>
 					{% if researchTemplate.templateComponents is empty %}
