@@ -46,4 +46,37 @@
             }
         }
     }
+    .available-templates-header-information {
+        @include dimension(800px, 87px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: $primary-blue-1;
+        border: 1px solid $primary-blue-2;
+        border-radius: $border-radius-10;
+        .available-templates-header-information-icon {
+            @include dimension(35px, 37.5px);
+            margin-right: 15.5px;
+            margin-left: 33.5px;
+        }
+        .available-templates-header-information-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            .available-templates-header-information-first-text {
+                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-white-1);
+                margin-bottom: 0;
+                letter-spacing: 0.116667px;
+                line-height: 18px;
+            }
+            .available-templates-header-information-second-text {
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-white-1);
+                margin-bottom: 0;
+                .available-templates-header-information-link {
+                    color: $primary-white-1;
+                }
+            }
+        }
+    }
 }
