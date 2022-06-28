@@ -14,18 +14,24 @@ use App\Entity\Selector;
 use App\Entity\SingleChoice;
 use App\Entity\TemplateComponent;
 use App\Service\CheckDataUtils;
+use App\Service\RetrieveAnswers;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ComponentUtils
 {
     private EntityManagerInterface $entityManager;
     private CheckDataUtils $checkDataUtils;
+    private RetrieveAnswers $retrieveAnswers;
     private array $checkErrors = [];
 
-    public function __construct(EntityManagerInterface $entityManager, CheckDataUtils $checkDataUtils)
-    {
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        CheckDataUtils $checkDataUtils,
+        RetrieveAnswers $retrieveAnswers
+    ) {
         $this->entityManager = $entityManager;
         $this->checkDataUtils = $checkDataUtils;
+        $this->retrieveAnswers = $retrieveAnswers;
     }
 
     public function getCheckErrors(): array
@@ -67,7 +73,7 @@ class ComponentUtils
     {
         $singleChoice = new SingleChoice();
         $templateComponent = new TemplateComponent();
-        $answersValue = $this->checkDataUtils->retrieveAnswers($dataComponent);
+        $answersValue = $this->retrieveAnswers->retrieveAnswers($dataComponent);
         $this->checkErrors = $this->checkDataUtils->checkDataSingleAndMultipleChoice($dataComponent, $answersValue);
 
         if (!isset($dataComponent['is_mandatory'])) {
@@ -103,7 +109,7 @@ class ComponentUtils
     {
         $multipleChoice = new MultipleChoice();
         $templateComponent = new TemplateComponent();
-        $answersValue = $this->checkDataUtils->retrieveAnswersMultiple($dataComponent);
+        $answersValue = $this->retrieveAnswers->retrieveAnswersMultiple($dataComponent);
         $this->checkErrors = $this->checkDataUtils->checkDataSingleAndMultipleChoice($dataComponent, $answersValue);
 
         if (!isset($dataComponent['is_mandatory'])) {
@@ -244,7 +250,7 @@ class ComponentUtils
     {
         $selector = new Selector();
         $templateComponent = new TemplateComponent();
-        $answersValue = $this->checkDataUtils->retrieveSelectAnswers($dataComponent);
+        $answersValue = $this->retrieveAnswers->retrieveSelectAnswers($dataComponent);
         $this->checkErrors = $this->checkDataUtils->checkDataSelector($dataComponent, $answersValue);
 
         if (!isset($dataComponent['is_mandatory'])) {
