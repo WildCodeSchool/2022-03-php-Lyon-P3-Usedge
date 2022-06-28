@@ -44,6 +44,10 @@ class ComponentUpdateUtils
         $externalLink = $this->externalLinkRepo->find($id);
         $this->checkErrors = $this->checkDataUtils->checkDataExternalLink($dataComponent);
 
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
         if (empty($this->checkErrors)) {
             $externalLink->setName($dataComponent['name']);
             $externalLink->setTitle($dataComponent['title-external-link']);

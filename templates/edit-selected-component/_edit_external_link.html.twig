@@ -4,20 +4,15 @@
 		<div class="handle-template-component-draggable">
 			<img src="{{ asset('build/images/icons/burger.png') }}"/>
 		</div>
-		<div class="external-link-template-content">
-			<input type="text" class="external-link-template-title" id="external-link-template-title"
-			value="{{templateComponent.component.title}}">
-				{% if templateComponent.component.isMandatory %}
-					<span class="external-link-red-star" id="external-link-red-star">*</span>
-				{% endif %}
-			</p>
-			<div class="external-link-input">
-				<input type="url" name="external-link" class="form-control" id="select-external-link" placeholder="https://www.google.com/...">
-			</div>
+		<div class="edit-component-external-link-title">
+			<input type="hidden" id="update-external-link-name" name="name" value="external-link">
+			<input class="form-control edit-external-link-input" type="text" name="title-external-link" value="{{ templateComponent.component.title}}">
 		</div>
-		<div class="external-link-template-actions">
-			<img src="{{ asset('build/images/icons/edit.png') }}"/>
-			<button>V</button>
+		<div>
+			<input type="checkbox" id="input-mandatory-update-external-link" name="is_mandatory">
+		</div>
+		<div class="section-actions">
+			<button class="update-button">Edit</button>
 		</div>
 	</form>
 	{% else %}
