@@ -44,7 +44,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            @include dimension(100%, 45px);
+            @include dimension(100%, 100px);
             position: relative;
             @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
             margin-top: 9.25px;

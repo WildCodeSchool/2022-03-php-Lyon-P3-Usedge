@@ -54,6 +54,11 @@ class ResearchTemplateController extends AbstractController
         }
         if (in_array('open-question', $dataComponent)) {
             $componentUtils->loadOpenQuestion($dataComponent, $researchTemplate);
+            $id = $researchTemplate->getId();
+
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
         }
         if (in_array('separator', $dataComponent)) {
             $componentUtils->loadSeparator($dataComponent, $researchTemplate);

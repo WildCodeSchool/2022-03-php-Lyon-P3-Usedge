@@ -13,8 +13,10 @@
 
             <div class="open-question-template-answers">
                 {% for answer in templateComponent.component.answers %}
-                        <input Type= "textarea" class="form-control" name="answer-open_question" placeholder="{{answer.answer}}">
-                        <label for="answer{{templateComponent.component.id}}" class="open-question-template-answer-label" id="open-question-template-answer-label">
+                        <textarea class="form-control" name="answer-open_question"
+                         placeholder="{{answer.answer}}" wrap></textarea>
+                        <label for="answer{{templateComponent.component.id}}" 
+                        class="open-question-template-answer-label" id="open-question-template-answer-label">
                         </label>
                 {% endfor %}
             </div>

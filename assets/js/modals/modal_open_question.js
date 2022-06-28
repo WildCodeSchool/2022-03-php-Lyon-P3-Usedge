@@ -43,7 +43,7 @@ if (document.getElementById('open-question-button')) {
         addFullScreenContainerModalCloseOpenQuestion.classList.remove('full-screen-open-question-container-modal-close-display');
         body.classList.remove('hide-body-overflow-open-question');
     }); 
-
+    // Function used to open and close the checkbox helperText
     checkboxHelpertext.addEventListener('click', function(){
         if (checkboxHelpertext.checked){
 
