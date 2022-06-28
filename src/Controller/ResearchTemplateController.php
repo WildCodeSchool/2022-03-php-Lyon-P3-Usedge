@@ -4,16 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Component;
 use App\Entity\ResearchTemplate;
-use App\Entity\Section;
-use App\Entity\TemplateComponent;
 use App\Form\ResearchTemplateType;
 use App\Repository\ResearchTemplateRepository;
+use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ComponentManager;
 use App\Service\ComponentUpdateUtils;
 use App\Service\ComponentUtils;
-use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
+use App\Service\RetrieveAnswers;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,8 +22,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class ResearchTemplateController extends AbstractController
 {
     #[Route('/', name: 'index', methods: ['GET', 'POST'])]
-    public function index(Request $request, ResearchTemplateRepository $templateRepository): Response
-    {
+    public function index(
+        Request $request,
+        ResearchTemplateRepository $templateRepository,
+        TemplateComponentRepository $tempCompRepository,
+        CheckDataUtils $checkDataUtils,
+        RetrieveAnswers $retrieveAnswers
+    ): Response {
+        $dataComponent =  $checkDataUtils->trimData($request);
+
+        if (isset($dataComponent['research-template-status'])) {
+            $templateRepository->updateTemplateStatus($dataComponent);
+        }
+
+        if (isset($dataComponent['components-number-count'])) {
+            $orderNumber = $retrieveAnswers->retrieveOrderComponents($dataComponent);
+            $tempCompRepository->updateNumberOrder($orderNumber);
+        }
+
         $researchTemplate = new ResearchTemplate();
         $form = $this->createForm(ResearchTemplateType::class, $researchTemplate);
         $form->handleRequest($request);
