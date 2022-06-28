@@ -3,7 +3,7 @@
 .research-center-available-templates {
     position: absolute;
     top: 0px;
-    right: -1000px; /* display -50px */
+    right: -1000px;
     @include dimension(900px, 1080px);
     display: flex;
     flex-direction: column;
