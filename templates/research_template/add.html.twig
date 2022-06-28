@@ -192,7 +192,7 @@
 						{% for error in errors %}
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
-						{% for templateComponent in researchTemplate.templateComponents %}
+						{% for templateComponent in researchTemplate.templateComponents|sort((a, b) => a.numberOrder <=> b.numberOrder) %}
 							{% include "display-selected-component/_display_single_choice.html.twig" %}
 							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
 							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}

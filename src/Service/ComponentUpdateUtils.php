@@ -8,8 +8,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ComponentUpdateUtils
 {
-    private SectionRepository $sectionRepository;
     private ExternalLinkRepository $externalLinkRepo;
+    private SectionRepository $sectionRepository;
     private EntityManagerInterface $entityManager;
     private CheckDataUtils $checkDataUtils;
     private array $checkErrors = [];

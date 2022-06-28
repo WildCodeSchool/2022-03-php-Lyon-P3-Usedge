@@ -9,7 +9,7 @@ use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ComponentManager;
-use App\Service\ComponentUpdateUtils;
+use App\Service\ComponentUpdateManager;
 use App\Service\ComponentUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use App\Service\RetrieveAnswers;
@@ -89,7 +89,8 @@ class ResearchTemplateController extends AbstractController
         Component $component,
         ResearchTemplate $researchTemplate,
         CheckDataUtils $checkDataUtils,
-        ComponentUpdateUtils $compUpdateUtils,
+        ComponentUpdateManager $compUpdateManager,
+        ComponentUtils $componentUtils,
     ): Response {
 
         $dataComponent = $checkDataUtils->trimData($request);
@@ -97,23 +98,20 @@ class ResearchTemplateController extends AbstractController
         $researchTemplateId = $researchTemplate->getId();
 
         if (!empty($dataComponent)) {
-            $compUpdateUtils->loadUpdateSection($dataComponent, $componentId);
+            $id = $compUpdateManager->updateComponent($dataComponent, $researchTemplate, $componentId);
+
             return $this->redirectToRoute('research_template_add', [
-                'id' => $researchTemplateId
+                'id' => $id,
             ], Response::HTTP_SEE_OTHER);
         }
 
-        if (!empty($dataComponent)) {
-            $compUpdateUtils->loadUpdateExternalLink($dataComponent, $componentId);
-            return $this->redirectToRoute('research_template_add', [
-                'id' => $researchTemplateId
-            ], Response::HTTP_SEE_OTHER);
-        }
+        $validationErrors = $componentUtils->getCheckErrors();
 
         return $this->render('research_template/edit.html.twig', [
             'researchTemplate' => $researchTemplate,
             'componentId' => $componentId,
             'researchTemplateId' => $researchTemplateId,
+            'errors' => $validationErrors,
         ]);
     }
 }

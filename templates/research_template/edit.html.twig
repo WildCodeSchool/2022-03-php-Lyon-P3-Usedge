@@ -178,16 +178,10 @@
 				{# Form builder #}
 				<div id="form-builder" class="form-builder">
 					<div id="display_form_builder">
-						{# {% for error in errors %}
+						{% for error in errors %}
 							<p class="text-danger">{{ error }}</p>
-						{% endfor %} #}
-						{% for templateComponent in researchTemplate.templateComponents %}
-							{# {% include "display-selected-component/_display_single_choice.html.twig" %}
-							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
-							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
-							{% include 'display-selected-component/_display_separator.html.twig' %}	
-							{% include 'display-selected-component/_display_date_picker.html.twig' %}
-							{% include 'display-selected-component/_display_selector.html.twig' %} #}
+						{% endfor %}
+						{% for templateComponent in researchTemplate.templateComponents|sort((a, b) => a.numberOrder <=> b.numberOrder) %}
 							{% include 'edit-selected-component/_edit_section.html.twig' %}
 							{% include 'edit-selected-component/_edit_external_link.html.twig' %}
 						{% endfor %}
