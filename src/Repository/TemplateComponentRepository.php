@@ -39,6 +39,21 @@ class TemplateComponentRepository extends ServiceEntityRepository
         }
     }
 
+    public function updateNumberOrder(array $orderNumber): void
+    {
+
+        $conn = $this->getEntityManager()->getConnection();
+
+        foreach ($orderNumber as $order) {
+            $sql = '
+            UPDATE template_component t
+            SET t.number_order = "' . $order['numberOrder'] . '"
+            WHERE t.component_id = "' . $order['componentId'] . '";
+            ';
+            $conn->executeQuery($sql);
+        }
+    }
+
 //    /**
 //     * @return TemplateComponent[] Returns an array of TemplateComponent objects
 //     */
