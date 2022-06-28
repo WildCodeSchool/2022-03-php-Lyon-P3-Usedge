@@ -11,12 +11,13 @@ class OpenQuestion extends Component
 {
     #[ORM\Column(type: 'boolean', nullable: true)]
     private bool $addAHelpertext;
+
     public function isAddAHelpertext(): ?bool
     {
         return $this->addAHelpertext;
     }
 
-    public function setAddAHelpertext(?bool $addAHelpertext): self
+    public function setAddAHelpertext(bool $addAHelpertext): self
     {
         $this->addAHelpertext = $addAHelpertext;
 

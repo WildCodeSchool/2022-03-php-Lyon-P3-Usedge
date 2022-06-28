@@ -179,8 +179,6 @@ class ComponentUtils
         }
         if (!isset($dataComponent['addHelpertext'])) {
             $dataComponent['addHelpertext'] = false;
-        } else {
-            $dataComponent['addHelpertext'] = true;
         }
         if (empty($this->checkErrors)) {
             $entityManager = $this->entityManager;
