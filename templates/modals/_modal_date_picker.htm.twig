@@ -1,8 +1,8 @@
-<div class="full-screen-date-picker-modal-close" id="full-screen-date-picker-modal-close">
+<div class="full-screen-date-picker-modal-close add-name-separator" id="full-screen-date-picker-modal-close">
     <div class="add-date-picker-modal" id="add-date-picker-modal">  
         <form id="new-component-date-picker-form" method="POST">     
             <div class="modal-content-date-picker">
-                <div class="date-picker-modal-close" id="date-picker-modal-close">
+                <div class="date-picker-modal-close add-name-separator" id="date-picker-modal-close">
                     <span class="date-picker-modal-cross"></span>
                     <span class="date-picker-modal-cross"></span>
                 </div>
@@ -10,12 +10,12 @@
                     <h4>Create a new date picker</h4>
                 </header>  
                 <input type="text" id="input-date-picker-title" name="title-date-picker" placeholder="Title" required>
-                <input type="hidden" name="datePickerName" value="date-picker">
+                <input type="hidden" id="date-picker-name" name="" value="date-picker">
                 <div>
                     <input type="checkbox" class="input-mandatory-date-picker" id="input-mandatory-date-picker" name="is_mandatory">
                     <label for="is_mandatory" class="input_mandatory-date-picker">This field is mandatory</label>
                 </div>
-                <button id="button-action-date-picker" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add single choice question</button>                
+                <button id="button-action-date-picker" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add date picker</button>                
             </div>  
         </form>            
     </div>    

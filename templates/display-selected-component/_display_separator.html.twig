@@ -1,12 +1,13 @@
 {% if "separator" in templateComponent.component.name %}
 	<div class="separator-template-creation">
-        <div class="separator-template-draggable">
+        <div class="handle-template-component-draggable">
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="separator-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
         </div>
         <div class="separator-template-actions">
-            <img src="{{ asset('build/images/icons/close.png') }}"/>
+           {% include "display-selected-component/_delete_component.html.twig" %}
         </div>
     </div>
 {% endif %}

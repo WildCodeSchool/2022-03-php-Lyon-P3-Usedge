@@ -10,7 +10,7 @@
         padding: 0;
         p {
             margin: 0;
-            @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-5);
+            @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-5);
             &:first-child {
                 font-size: $font-size-12;
                 color: $primary-grey-4;

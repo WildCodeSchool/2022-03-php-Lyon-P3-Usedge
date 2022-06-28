@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Services;
+namespace App\Service;
 
 use Symfony\Component\HttpFoundation\Request;
 
 class CheckDataUtils
 {
     private array $checkErrors = [];
-    private array $answersValue = [];
     private array $dataComponent = [];
 
     public function trimData(Request $request): array
@@ -22,30 +21,7 @@ class CheckDataUtils
         return $this->dataComponent;
     }
 
-    public function retrieveAnswers(array $dataComponent): array
-    {
-        $inputAnswerNumber = $dataComponent['input-answer-number'];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            if (isset($dataComponent['answer' . $i])) {
-                $this->answersValue[] = $dataComponent['answer' . $i];
-            }
-        }
-        return $this->answersValue;
-    }
-
-    public function retrieveSelectAnswers(array $dataComponent): array
-    {
-        $inputAnswerNumber = $dataComponent['select-answer-number'];
-        for ($i = 0; $i < $inputAnswerNumber; $i++) {
-            if (isset($dataComponent['select_answer' . $i])) {
-                $this->answersValue[] = $dataComponent['select_answer' . $i];
-            }
-        }
-
-        return $this->answersValue;
-    }
-
-    public function checkDataSingleChoice(array $dataComponent, array $answersValue): array
+    public function checkDataSingleAndMultipleChoice(array $dataComponent, array $answersValue): array
     {
         foreach ($dataComponent as $data) {
             if (empty($data)) {

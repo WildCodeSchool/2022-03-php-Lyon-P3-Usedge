@@ -1,21 +1,21 @@
 @import '../_var.scss';
 
 .select-template-creation {
-    @include dimension(995px, 93px);
+    @include dimension(995px, 65px);
     display: flex;
-    align-items: flex-start;
     padding: 0;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     gap: 20px;
     &:hover>.select-template-actions {
         display: flex;
     }
-
     .select-template-content {
         width: 868px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: space-between;
+        height: 100%;
         .select-template-title {
             @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
             line-height: 20px;
@@ -27,7 +27,7 @@
         .select-template-answers {
             display: flex;
             align-items: center;
-            @include dimension(100%, 18px);
+            @include dimension(100%, 30px);
             position: relative;
             .select-template-answer {
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);

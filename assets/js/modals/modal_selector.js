@@ -1,3 +1,12 @@
+function renameInputAnswers() {
+    const inputSelectAnswers = document.getElementsByClassName('input_select_answer');
+    for (let i = 0; i < inputSelectAnswers.length; i++) {
+        const inputAnswer = inputSelectAnswers[i];
+        inputAnswer.setAttribute('name', 'select_answer' + i);
+        inputAnswer.setAttribute('id', 'input_select_answer' + i);
+    }
+}
+
 // Careful : for first const, check real button id when integration !
 
 if (document.getElementById('button_answer_select')) {
@@ -7,6 +16,7 @@ if (document.getElementById('button_answer_select')) {
     const selectAnswerContainer = document.getElementById('select_answer_container');
     const addSelectModalOpenButton = document.getElementById('add-select-button');
     const addSelectModal = document.getElementById('add-select-modal');
+    const addselectName = document.getElementById('select-name');
     const selectModalCloseButton = document.getElementById('select-component-modal-close');
     const datePickerDraggableHandle = document.getElementById('select-draggable-handle');
     const fullScreenSelectModalClose = document.getElementById('full-screen-select-modal-close');
@@ -19,12 +29,14 @@ if (document.getElementById('button_answer_select')) {
 
         fullScreenSelectModalClose.classList.add('full-screen-select-modal-display');
         body.classList.add('hide-body-overflow-select');
+        addselectName.setAttribute('name', 'name');
         new draggable(addSelectModal, draggableOptions);
         // Function used to close the modal when click outside the modal
         window.onclick = function(event) {
             if (event.target == fullScreenSelectModalClose) {
                 fullScreenSelectModalClose.classList.remove('full-screen-select-modal-display');
                 body.classList.remove('hide-body-overflow-select');
+                addselectName.setAttribute('name', '');
             }
         };
     });
@@ -33,6 +45,7 @@ if (document.getElementById('button_answer_select')) {
     selectModalCloseButton.addEventListener('click', () => {
         fullScreenSelectModalClose.classList.remove('full-screen-select-modal-display');
         body.classList.remove('hide-body-overflow-select');
+        addselectName.setAttribute('name', '');
         document.getElementById('input_add_select_title').value = '';
         if (document.getElementsByClassName('delete-input-select-answer')) {
             const deleteInputAnswers = document.querySelectorAll('.delete-input-select-answer');
@@ -53,9 +66,11 @@ if (document.getElementById('button_answer_select')) {
         const dragAndDrop = document.createElement('div');
         newInputAnswer.classList.add('input_select_answer');
         deleteInputAnswer.classList.add('delete-input-select-answer');
-        dragAndDrop.classList.add('drag-and-drop');
+        dragAndDrop.classList.add('select-drag-and-drop');
         newInputAnswer.type = 'text';
         newInputAnswer.setAttribute('required', 'required');
+        dragAndDrop.setAttribute('draggable', 'true');
+        newInputAnswer.setAttribute('placeholder', 'Answer');
         deleteInputAnswer.appendChild(dragAndDrop);
         deleteInputAnswer.appendChild(newInputAnswer);
         selectAnswerContainer.appendChild(deleteInputAnswer);
@@ -63,6 +78,7 @@ if (document.getElementById('button_answer_select')) {
         const deleteInputAnswers = document.getElementsByClassName('delete-input-select-answer');
         const inputSelectAnswers = document.getElementsByClassName('input_select_answer');
         const selectAnswerNumber = document.getElementById('select-answer-number');
+        const dragAndDrops = document.getElementsByClassName('select-drag-and-drop');
         selectAnswerNumber.value = inputSelectAnswers.length;
         for (let i = 0; i < deleteInputAnswers.length; i++) {
             const deleteInputAnswer = deleteInputAnswers[i];
@@ -70,19 +86,15 @@ if (document.getElementById('button_answer_select')) {
                 let target =  event.target;
                 if (target === deleteInputAnswer){
                     target.remove();
-                    const inputSelectAnswers = document.getElementsByClassName('input_select_answer');
-                    for (let i = 0; i < inputSelectAnswers.length; i++) {
-                        const inputAnswer = inputSelectAnswers[i];
-                        inputAnswer.setAttribute('name', 'select_answer' + i);
-                        inputAnswer.setAttribute('id', 'input_select_answer' + i);
-                    }
+                    renameInputAnswers();
                 }        
             }
-            for (let i = 0; i < inputSelectAnswers.length; i++) {
-                const inputAnswer = inputSelectAnswers[i];
-                inputAnswer.setAttribute('name', 'select_answer' + i );
-                inputAnswer.setAttribute('id', 'input_select_answer' + i);
-            }
+            renameInputAnswers();
+        }
+        for (const dragAndDrop of dragAndDrops) {
+            dragAndDrop.addEventListener('dragend', function(){
+                renameInputAnswers();
+            });
         }
     });
 }

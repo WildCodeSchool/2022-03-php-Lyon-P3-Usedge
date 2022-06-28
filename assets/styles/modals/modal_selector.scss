@@ -7,7 +7,6 @@
     z-index: 1; 
     left: 0;
     top: 0;
-    overflow: auto;
     .add-select-modal {
         display: flex;
         flex-direction: column;
@@ -59,11 +58,11 @@
                 margin-bottom: 20px;
             }
             .select-subtitle {
-                @include textStyle($text-font,$font-size-16,$font-weight-600 !important,#000000 !important);
+                @include textStyle($text-font,$font-size-16,$font-weight-600,#000000 );
                 margin-bottom: 20px;
             }
             #input_add_select_title{
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 @include dimension(100%, 42px);
                 @include input($primary-white-1, $border-radius-10, 1px solid #ECEFFF);
                 border-radius: 8px;
@@ -71,7 +70,7 @@
                 padding-left: 10px;
             }
             .input_select_answer {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1 !important);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 @include button($primary-white-1, 8px, 1px solid $primary-blue-2);
                 @include dimension(100%, 42px);
                 display: flex;
@@ -96,19 +95,31 @@
                 background-repeat: no-repeat;
                 background-position-x: right;
                 background-position-y: center;
-                .drag-and-drop {
+                .select-drag-and-drop{
                     @include dimension(25px, 42px);
                     z-index: 2;
                     background-image: url(../../images/icons/drag-and-drop.png);
                     background-repeat: no-repeat;
                     background-position-y: center;
+                    &:hover {
+                        cursor: grabbing;
+                    }
                 }
                 .input_select_answer {
                     width: 86%;
-                    margin-right: 10px;
+                    margin-right: 10px;               
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
-                &:hover {
-                    cursor: pointer;
+                label {
+                    @include textStyle($text-font,$font-size-14,$font-weight-600, $primary-blue-3);
+                }
+                #button_answer_select {
+                    @include input($primary-white-1, $border-radius-10, 1px dashed $primary-blue-1);
+                    @include dimension(100%, 42px);
+                    margin-bottom: 20px;
+                    margin-top: 10px;
                 }
             }
             #input-mandatory-select {

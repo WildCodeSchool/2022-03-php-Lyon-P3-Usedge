@@ -14,12 +14,6 @@
     &:hover>.evaluation-scale-template-actions {
         display: flex;
     }
-    .evaluation-scale-template-draggable {
-        @include dimension(22px, 21px);
-        img {
-            width: 22px;
-        }
-    }
     .evaluation-scale-template-content {
         width: 868px;
         display: flex;
@@ -53,7 +47,7 @@
             position: relative;
             margin-top: 9.25px;
             p {
-                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 line-height: 18px;
                 &:first-child {
                     @include absolutePosition(0px, 0px);

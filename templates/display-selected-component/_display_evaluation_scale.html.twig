@@ -1,9 +1,10 @@
 {% if "evaluation-scale" in templateComponent.component.name %}
-    <div class="evaluation-scale-template-creation" id="evaluation-scale-template-creation" draggable="true">
-        <div class="evaluation-scale-template-draggable">
+    <div class="evaluation-scale-template-creation" id="evaluation-scale-template-creation" draggable="false">
+        <div class="handle-template-component-draggable">
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="evaluation-scale-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
             <p class="evaluation-scale-template-question" id="evaluation-scale-template-question">
                 {{ templateComponent.component.question }}
                 {% if templateComponent.component.isMandatory %}
@@ -43,7 +44,7 @@
         </div>
         <div class="evaluation-scale-template-actions">
             <img src="{{ asset('build/images/icons/edit.png') }}"/>
-            <img src="{{ asset('build/images/icons/close.png') }}"/>
+            {% include "display-selected-component/_delete_component.html.twig" %}
         </div>
     </div>
 {% endif %}

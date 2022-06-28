@@ -4,6 +4,7 @@
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="select-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
             <p class="select-template-title" id="select-template-title">
                 {{templateComponent.component.title}}
                 {% if templateComponent.component.isMandatory %}
@@ -23,7 +24,7 @@
         </div>
         <div class="select-template-actions">
             <img src="{{ asset('build/images/icons/edit.png') }}"/>
-            <img src="{{ asset('build/images/icons/close.png') }}"/>
+            {% include "display-selected-component/_delete_component.html.twig" %}
         </div>
     </div>
 {% endif %}

@@ -1,14 +1,15 @@
 {% if "section" in templateComponent.component.name %}
 	<div class="section-title-display">
-		<div class="section-title-move">
+		<div class="handle-template-component-draggable">
 			<img src="{{ asset('build/images/icons/burger.png') }}"/>
 		</div>
 		<div class="component-section-title">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
 			<p>{{ templateComponent.component.title}}</p>
 		</div>
 		<div class="section-actions">
 			<img src="{{ asset('build/images/icons/edit.png') }}"/>
-			<img src="{{ asset('build/images/icons/close.png') }}"/>
+			{% include "display-selected-component/_delete_component.html.twig" %}
 		</div>
 	</div>
 {% endif %}
