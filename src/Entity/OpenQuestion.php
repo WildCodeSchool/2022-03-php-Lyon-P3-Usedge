@@ -9,10 +9,10 @@ use phpDocumentor\Reflection\Types\Boolean;
 #[ORM\Entity(repositoryClass: OpenQuestionRepository::class)]
 class OpenQuestion extends Component
 {
-    #[ORM\Column(type: 'boolean', nullable: true)]
+    #[ORM\Column(type: 'boolean')]
     private bool $addAHelpertext;
 
-    public function isAddAHelpertext(): ?bool
+    public function isAddAHelpertext(): bool
     {
         return $this->addAHelpertext;
     }
