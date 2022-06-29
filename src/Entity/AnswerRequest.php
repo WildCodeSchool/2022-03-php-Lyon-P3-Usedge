@@ -16,7 +16,7 @@ class AnswerRequest
     #[ORM\ManyToOne(targetEntity: ResearchRequest::class, inversedBy: 'answerRequests')]
     private ResearchRequest $researchRequest;
 
-    #[ORM\Column(type: 'text')]
+    #[ORM\Column(type: 'text', nullable: true)]
     private string $answer;
 
     public function getId(): ?int
