@@ -1,4 +1,4 @@
-<div class="research-template-list-card">
+<div id="research-template-list-card" class="research-template-list-card">
     <div class="research-template-list-card-content">
         <div class="research-template-list-card-header">
         
@@ -11,7 +11,7 @@
         {% if researchTemplate.status is same as "dropped" %}
             {% include "status-tags/_dropped.html.twig" %}
         {% endif %}
-            <img class="research-template-list-card-options" id="research-template-list-card-options" src="{{ asset('build/images/icons/option-dots.png') }}">
+            <img class="research-template-list-card-options" id="research-template-list-card-options{{ loop.index }}" src="{{ asset('build/images/icons/option-dots.png') }}">
             
         </div>
         <p class="research-template-list-card-title">{{ researchTemplate.name }}</p>
