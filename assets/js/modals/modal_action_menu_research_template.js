@@ -14,5 +14,7 @@ if (document.getElementById('research-template-list-card')) {
         buttonListCardOptions.addEventListener('click', function () {
             actionsMenuContainer.classList.add('actions-menu-container-flex');
         });
+
+        i++;
     }
 }
