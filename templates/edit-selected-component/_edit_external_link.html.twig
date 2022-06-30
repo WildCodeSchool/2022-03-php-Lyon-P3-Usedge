@@ -1,6 +1,6 @@
 {% if "external-link" in templateComponent.component.name %}
 	{% if componentId is same as templateComponent.component.id %}
-	<form method="POST" class="external-link-title-edit-form">
+	<form method="POST" class="external-link-edit-form">
 		<div class="handle-template-component-draggable">
 			<img src="{{ asset('build/images/icons/burger.png') }}"/>
 		</div>
@@ -14,9 +14,9 @@
 				<label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
 			</div>
 		</div>
-			<div class="section-actions">
-				<button class="update-button">Edit</button>
-			</div>
+		<div class="section-actions">
+			<button class="update-button">Edit</button>
+		</div>
 	</form>
 	{% else %}
 		{% include 'display-selected-component/_display_external_link.html.twig' %}

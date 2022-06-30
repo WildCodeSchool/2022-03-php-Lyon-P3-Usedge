@@ -13,6 +13,7 @@ class ComponentUpdateManager
     private array $componentNames = [
         'section' => 'section',
         'external-link' => 'externalLink',
+        'single-choice' => 'singleChoice',
     ];
 
     public function __construct(ComponentUpdateUtils $compUpdateUtils)
@@ -44,6 +45,13 @@ class ComponentUpdateManager
     public function externalLink(): int|null
     {
             $this->compUpdateUtils->loadUpdateExternalLink($this->dataComponent, $this->componentId);
+            $id = $this->researchTemplate->getId();
+            return $id;
+    }
+
+    public function singleChoice(): int|null
+    {
+            $this->compUpdateUtils->loadUpdateSingleChoice($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
     }

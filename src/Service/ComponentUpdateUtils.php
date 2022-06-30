@@ -2,12 +2,16 @@
 
 namespace App\Service;
 
+use App\Repository\AnswerRepository;
 use App\Repository\ExternalLinkRepository;
 use App\Repository\SectionRepository;
+use App\Repository\SingleChoiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ComponentUpdateUtils
 {
+    private RetrieveAnswers $retrieveAnswers;
+    private SingleChoiceRepository $singleChoiceRepo;
     private ExternalLinkRepository $externalLinkRepo;
     private SectionRepository $sectionRepository;
     private EntityManagerInterface $entityManager;
@@ -19,11 +23,15 @@ class ComponentUpdateUtils
         CheckDataUtils $checkDataUtils,
         SectionRepository $sectionRepository,
         ExternalLinkRepository $externalLinkRepo,
+        SingleChoiceRepository $singleChoiceRepo,
+        RetrieveAnswers $retrieveAnswers,
     ) {
         $this->entityManager = $entityManager;
         $this->checkDataUtils = $checkDataUtils;
         $this->sectionRepository = $sectionRepository;
         $this->externalLinkRepo = $externalLinkRepo;
+        $this->singleChoiceRepo = $singleChoiceRepo;
+        $this->retrieveAnswers = $retrieveAnswers;
     }
 
     public function loadUpdateSection(array $dataComponent, int $id): void
@@ -52,6 +60,36 @@ class ComponentUpdateUtils
             $externalLink->setName($dataComponent['name']);
             $externalLink->setTitle($dataComponent['title-external-link']);
             $externalLink->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->flush();
+        }
+    }
+
+    public function loadUpdateSingleChoice(array $dataComponent, int $id): void
+    {
+        $entityManager = $this->entityManager;
+        $singleChoice = $this->singleChoiceRepo->find($id);
+        $answersUpdateValues = $this->retrieveAnswers->retrieveUpdateAnswers($dataComponent);
+        $this->checkErrors =
+        $this->checkDataUtils->checkDataSingleAndMultipleChoice($dataComponent, $answersUpdateValues);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $singleChoice->setName($dataComponent['name']);
+            $singleChoice->setQuestion($dataComponent['question']);
+            $singleChoice->setIsMandatory($dataComponent['is_mandatory']);
+
+            foreach ($answersUpdateValues as $answersUpdateValue) {
+                    //$answerValue = $this->answerRepository->getId();
+                    //$answerValue->setAnswer($dataComponent);
+                    //$answer = new Answer();
+                    $answersUpdateValue->setAnswer($dataComponent['input-answer-update']);
+                    //$answerValue->setQuestion($singleChoice);
+                    //$answer->setNumberOrder(++$orderAnswer);
+                    //$entityManager->persist($answer);
+            }
             $entityManager->flush();
         }
     }

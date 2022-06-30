@@ -5,6 +5,7 @@ namespace App\Service;
 class RetrieveAnswers
 {
     private array $answersValue = [];
+    private array $answersUpdateValue = [];
 
     public function retrieveAnswers(array $dataComponent): array
     {
@@ -51,5 +52,16 @@ class RetrieveAnswers
             }
         }
         return $this->answersValue;
+    }
+
+    public function retrieveUpdateAnswers(array $dataComponent): array
+    {
+        $inputUpdateAnswers  = $dataComponent['input-answer-update-number'];
+        for ($i = 0; $i < $inputUpdateAnswers; $i++) {
+            if (isset($dataComponent['answer' . $i])) {
+                $this->answersUpdateValue[] = $dataComponent['answer' . $i];
+            }
+        }
+        return $this->answersUpdateValue;
     }
 }

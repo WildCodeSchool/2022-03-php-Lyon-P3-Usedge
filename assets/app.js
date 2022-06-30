@@ -28,4 +28,7 @@ import './js/modals/modal_selector';
 import './bootstrap';
 require('bootstrap');
 
+//edit files
+import './js/modals/edit/update_single_choice.js';
+
 

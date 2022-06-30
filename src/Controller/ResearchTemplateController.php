@@ -102,7 +102,6 @@ class ResearchTemplateController extends AbstractController
 
         if (!empty($dataComponent)) {
             $id = $compUpdateManager->updateComponent($dataComponent, $researchTemplate, $componentId);
-
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
             ], Response::HTTP_SEE_OTHER);

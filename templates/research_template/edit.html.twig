@@ -184,6 +184,7 @@
 						{% for templateComponent in researchTemplate.templateComponents|sort((a, b) => a.numberOrder <=> b.numberOrder) %}
 							{% include 'edit-selected-component/_edit_section.html.twig' %}
 							{% include 'edit-selected-component/_edit_external_link.html.twig' %}
+							{% include 'edit-selected-component/_edit_single_choice.html.twig' %}
 						{% endfor %}
 					</div>
 					{% if researchTemplate.templateComponents is empty %}
