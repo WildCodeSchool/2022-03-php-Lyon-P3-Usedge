@@ -16,8 +16,11 @@ class AnswerRequest
     #[ORM\ManyToOne(targetEntity: ResearchRequest::class, inversedBy: 'answerRequests')]
     private ResearchRequest $researchRequest;
 
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(type: 'text')]
     private string $answer;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private string $name;
 
     public function getId(): ?int
     {
@@ -44,6 +47,18 @@ class AnswerRequest
     public function setAnswer(string $answer): self
     {
         $this->answer = $answer;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
