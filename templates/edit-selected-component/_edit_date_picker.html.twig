@@ -1,0 +1,24 @@
+{% if "date-picker" in templateComponent.component.name %}
+    {% if componentId is same as templateComponent.component.id %}
+        <form method="POST" class="date-picker-edit-form">
+            <div class="handle-template-component-draggable">
+                <img src="{{ asset('build/images/icons/burger.png') }}"/>
+            </div>
+            <div class="edit-component-date-picker">
+                <div class="edit-component-date-picker-title">
+                    <input type="hidden" id="update-date-picker-name" name="name" value="date-picker">
+				    <input class="form-control edit-date-picker-input" type="text" name="title-date-picker" value="{{ templateComponent.component.title}}">
+                </div>
+                <div>
+				    <input type="checkbox" id="input-mandatory-update-date-picker" name="is_mandatory">
+				    <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+			    </div>
+            </div>
+            <div class="section-actions">
+                <button class="update-button">Edit</button>
+            </div>
+        </form>
+	{% else %}
+		{% include 'display-selected-component/_display_date_picker.html.twig' %}
+	{% endif %}
+{% endif %}

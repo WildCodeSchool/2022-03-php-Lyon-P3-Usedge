@@ -14,6 +14,7 @@ class ComponentUpdateManager
         'section' => 'section',
         'external-link' => 'externalLink',
         'single-choice' => 'singleChoice',
+        'date-picker' => 'datePicker',
     ];
 
     public function __construct(ComponentUpdateUtils $compUpdateUtils)
@@ -52,6 +53,13 @@ class ComponentUpdateManager
     public function singleChoice(): int|null
     {
             $this->compUpdateUtils->loadUpdateSingleChoice($this->dataComponent, $this->componentId);
+            $id = $this->researchTemplate->getId();
+            return $id;
+    }
+
+    public function datePicker(): int|null
+    {
+            $this->compUpdateUtils->loadUpdateDatePicker($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
     }

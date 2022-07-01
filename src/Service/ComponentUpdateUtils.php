@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Repository\AnswerRepository;
+use App\Repository\DatePickerRepository;
 use App\Repository\ExternalLinkRepository;
 use App\Repository\SectionRepository;
 use App\Repository\SingleChoiceRepository;
@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ComponentUpdateUtils
 {
+    private DatePickerRepository $datePickerRepository;
     private RetrieveAnswers $retrieveAnswers;
     private SingleChoiceRepository $singleChoiceRepo;
     private ExternalLinkRepository $externalLinkRepo;
@@ -25,6 +26,7 @@ class ComponentUpdateUtils
         ExternalLinkRepository $externalLinkRepo,
         SingleChoiceRepository $singleChoiceRepo,
         RetrieveAnswers $retrieveAnswers,
+        DatePickerRepository $datePickerRepository,
     ) {
         $this->entityManager = $entityManager;
         $this->checkDataUtils = $checkDataUtils;
@@ -32,6 +34,7 @@ class ComponentUpdateUtils
         $this->externalLinkRepo = $externalLinkRepo;
         $this->singleChoiceRepo = $singleChoiceRepo;
         $this->retrieveAnswers = $retrieveAnswers;
+        $this->datePickerRepository = $datePickerRepository;
     }
 
     public function loadUpdateSection(array $dataComponent, int $id): void
@@ -90,6 +93,24 @@ class ComponentUpdateUtils
                     //$answer->setNumberOrder(++$orderAnswer);
                     //$entityManager->persist($answer);
             }
+            $entityManager->flush();
+        }
+    }
+
+    public function loadUpdateDatePicker(array $dataComponent, int $id): void
+    {
+        $entityManager = $this->entityManager;
+        $externalLink = $this->datePickerRepository->find($id);
+        $this->checkErrors = $this->checkDataUtils->checkDataDatePicker($dataComponent);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $externalLink->setName($dataComponent['name']);
+            $externalLink->setTitle($dataComponent['title-date-picker']);
+            $externalLink->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->flush();
         }
     }
