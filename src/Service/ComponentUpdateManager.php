@@ -15,6 +15,7 @@ class ComponentUpdateManager
         'external-link' => 'externalLink',
         'single-choice' => 'singleChoice',
         'date-picker' => 'datePicker',
+        'evaluation-scale' => 'evaluationScale',
     ];
 
     public function __construct(ComponentUpdateUtils $compUpdateUtils)
@@ -60,6 +61,13 @@ class ComponentUpdateManager
     public function datePicker(): int|null
     {
             $this->compUpdateUtils->loadUpdateDatePicker($this->dataComponent, $this->componentId);
+            $id = $this->researchTemplate->getId();
+            return $id;
+    }
+
+    public function evaluationScale(): int|null
+    {
+            $this->compUpdateUtils->loadUpdateEvaluationScale($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
     }

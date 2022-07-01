@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Repository\ComponentEvaluationScaleRepository;
 use App\Repository\DatePickerRepository;
 use App\Repository\ExternalLinkRepository;
 use App\Repository\SectionRepository;
@@ -10,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ComponentUpdateUtils
 {
+    private ComponentEvaluationScaleRepository $evaluationScaleRepo;
     private DatePickerRepository $datePickerRepository;
     private RetrieveAnswers $retrieveAnswers;
     private SingleChoiceRepository $singleChoiceRepo;
@@ -27,6 +29,7 @@ class ComponentUpdateUtils
         SingleChoiceRepository $singleChoiceRepo,
         RetrieveAnswers $retrieveAnswers,
         DatePickerRepository $datePickerRepository,
+        ComponentEvaluationScaleRepository $evaluationScaleRepo,
     ) {
         $this->entityManager = $entityManager;
         $this->checkDataUtils = $checkDataUtils;
@@ -35,6 +38,7 @@ class ComponentUpdateUtils
         $this->singleChoiceRepo = $singleChoiceRepo;
         $this->retrieveAnswers = $retrieveAnswers;
         $this->datePickerRepository = $datePickerRepository;
+        $this->evaluationScaleRepo = $evaluationScaleRepo;
     }
 
     public function loadUpdateSection(array $dataComponent, int $id): void
@@ -111,6 +115,26 @@ class ComponentUpdateUtils
             $externalLink->setName($dataComponent['name']);
             $externalLink->setTitle($dataComponent['title-date-picker']);
             $externalLink->setIsMandatory($dataComponent['is_mandatory']);
+            $entityManager->flush();
+        }
+    }
+
+    public function loadUpdateEvaluationScale(array $dataComponent, int $id): void
+    {
+        $entityManager = $this->entityManager;
+        $evaluationScale = $this->evaluationScaleRepo->find($id);
+        $this->checkErrors = $this->checkDataUtils->checkDataEvaluationScale($dataComponent);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+
+        if (empty($this->checkErrors)) {
+            $evaluationScale->setName($dataComponent['name']);
+            $evaluationScale->setQuestion($dataComponent['question-evaluation-scale']);
+            $evaluationScale->setLowLabel($dataComponent['low-label']);
+            $evaluationScale->setHighLabel($dataComponent['high-label']);
+            $evaluationScale->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->flush();
         }
     }
