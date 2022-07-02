@@ -72,13 +72,23 @@ $border-radius-20: 20px;
     border: $b;   
 }
 
-body {
+.body {
     display: flex;
     align-items: flex-start;
     background-color: $primary-white-2;
     gap: 40px;
     .usedge-aside-sidebar {
         @include dimension(270px, 1080px);
+    }
+}
+
+.body-without-sidebar {
+    @include dimension(1920px, 1080px);
+    background-image: url('../images/Usedge-bckground.png');
+    display: flex;
+    flex-direction: column;
+    .usedge-aside-sidebar {
+        display: none !important;
     }
 }
 

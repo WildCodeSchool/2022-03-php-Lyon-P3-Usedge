@@ -1,2 +1,11 @@
 @import '_var.scss';
 
+
+.add-research-request-header {
+    @include dimension (1572px, 68px);
+    background-color: $primary-white-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
