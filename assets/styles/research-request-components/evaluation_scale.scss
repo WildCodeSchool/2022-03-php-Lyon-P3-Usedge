@@ -10,9 +10,6 @@
     align-items: center;
     padding: 0;
     gap: 20px;
-    &:hover>.evaluation-scale-template-actions {
-        display: flex;
-    }
     .request-evaluation-scale-template-content {
         width: 868px;
         display: flex;
@@ -55,17 +52,6 @@
                     @include absolutePosition(0px, 170px);
                 }
             }
-        }
-    }
-    .request-evaluation-scale-template-actions {
-        display: none;
-        align-items: center;
-        width: 65px;
-        padding: 10px;
-        gap: 5px;
-        img {
-            cursor: pointer;
-            width: 20px;
         }
     }
 }

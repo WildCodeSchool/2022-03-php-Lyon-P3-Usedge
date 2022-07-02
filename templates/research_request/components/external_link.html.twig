@@ -1,0 +1,16 @@
+{% if "external-link" in requestComponent.component.name %}
+	<div class="request-external-link-template-creation">
+		<div class="request-external-link-template-content">
+            {% include "research_request/components/request_component_order_id.html.twig" %}
+			<p class="request-external-link-template-title" id="external-link-template-title">
+				{{requestComponent.component.title}}
+				{% if requestComponent.component.isMandatory %}
+					<span class="request-external-link-red-star" id="external-link-red-star">*</span>
+				{% endif %}
+			</p>
+			<div class="request-external-link-input">
+				<input type="url" name="select-external-link" class="form-control" id="request-select-external-link" placeholder="https://www.google.com/...">
+			</div>
+		</div>
+	</div>
+{% endif %}
