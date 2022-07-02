@@ -13,10 +13,10 @@ class ResearchRequestController extends AbstractController
     #[Route('/research-request/add', name: 'research_request_add')]
     public function index(TemplateComponentRepository $tempCompRepository): Response
     {
-        //$researchRequest = $tempCompRepository->findBy(['researchTemplate' => '28'], ['numberOrder' => 'ASC']);
+        $requestComponents = $tempCompRepository->findBy(['researchTemplate' => '29'], ['numberOrder' => 'ASC']);
 
         return $this->render('research_request/add.html.twig', [
-            'controller_name' => 'ResearchRequestController',
+            'requestComponents' => $requestComponents,
         ]);
     }
 }

@@ -16,6 +16,11 @@
     <main class="add-research-request-main-content">
         <form id="add-research-request-form" class="add-research-request-form">
             <div class="add-research-request-form-builder">
+            {% if requestComponents %}
+                {% for requestComponent in requestComponents %}
+                    {% include "research_request/components/section.html.twig" %}
+                {% endfor %}
+            {% endif %}
             </div>
             <button class="add-research-request-form-button">
                 <img class="add-research-request-form-button-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
