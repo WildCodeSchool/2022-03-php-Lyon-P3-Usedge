@@ -1,0 +1,16 @@
+{% if "date-picker" in requestComponent.component.name %}
+    <div class="request-date-picker-template-creation">
+        <div class="request-date-picker-template-content">
+            {% include "research_request/components/request_component_order_id.html.twig" %}
+            <p class="request-date-picker-template-title" id="date-picker-template-title">
+                {{requestComponent.component.title}}
+                {% if requestComponent.component.isMandatory %}
+                    <span class="date-picker-red-star" id="date-picker-red-star">*</span>
+                {% endif %}
+            </p>
+            <div class="request-date-picker-input">
+                <input type="date" name="select-date" class="form-control" id="request-select-date">
+            </div>
+        </div>
+    </div>
+{% endif %}
