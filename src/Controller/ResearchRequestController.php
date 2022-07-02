@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\ResearchTemplate;
 use App\Repository\TemplateComponentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +13,8 @@ class ResearchRequestController extends AbstractController
     public function index(TemplateComponentRepository $tempCompRepository): Response
     {
         $requestComponents = $tempCompRepository->findBy(['researchTemplate' => '29'], ['numberOrder' => 'ASC']);
-
+        //var_dump($requestComponents);
+        //die();
         return $this->render('research_request/add.html.twig', [
             'requestComponents' => $requestComponents,
         ]);

@@ -1,0 +1,35 @@
+@import '../_var.scss';
+
+.request-single-choice {
+    @include dimension(594px, 66px);
+    display: flex;
+    padding: 0;
+    gap: 20px;
+    .single-choice-template-content {
+        width: 868px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .single-choice-template-question {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            line-height: 20px;
+            margin-bottom: 10px;
+            .single-choice-red-star {
+                color: $secondary-red-1;
+            }
+        }
+        .single-choice-template-answers {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            @include dimension(100%, 30px);
+            position: relative;
+            .single-choice-template-answer {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                margin-top: 9.25px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
