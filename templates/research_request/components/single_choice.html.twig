@@ -1,16 +1,16 @@
 {% if "single-choice" in requestComponent.component.name %}
     <div class="request-single-choice">
-        <div class="single-choice-template-content">
+        <div class="request-single-choice-content">
             {% include "research_request/components/request_component_order_id.html.twig" %}
-            <p class="single-choice-template-question" id="single-choice-template-question">
+            <p class="request-single-choice-question" id="single-choice-template-question">
                 {{requestComponent.component.question}}
                 {% if requestComponent.component.isMandatory %}
                     <span class="single-choice-red-star" id="single-choice-red-star">*</span>
                 {% endif %}
             </p>
-            <div class="single-choice-template-answers">
+            <div class="request-single-choice-answers">
                 {% for answer in requestComponent.component.answers %}
-                    <div class="single-choice-template-answer">
+                    <div class="request-single-choice-template-answer">
                         <input type="radio" value="{{answer.answer}}" name="answer{{requestComponent.component.id}}">
                         <label for="answer{{requestComponent.component.id}}" class="single-choice-template-answer-label" id="single-choice-template-answer-label">
                         {{answer.answer}}
