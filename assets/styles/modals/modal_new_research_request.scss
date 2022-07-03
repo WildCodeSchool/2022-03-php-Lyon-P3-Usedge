@@ -1,0 +1,75 @@
+@import '../_var.scss';
+
+.new-research-request-modal {
+    @include dimension(700px, 271px);
+    @include absolutePosition(50%, 50%);
+    transform: translate(-70%, 10%);
+    box-sizing: border-box;
+    padding: 40px;
+    background-color: $primary-white-1;
+    border: 1px solid $primary-blue-1;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.25);
+    border-radius: $border-radius-20;
+    #new-research-request-modal-close {
+        @include dimension(25px, 25px);
+        @include absolutePosition(12px, 660px);
+    }
+    .new-research-request-modal-content {
+        @include dimension(620px, 190px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        .new-research-request-modal-content-header {
+            @include dimension(620px, 35px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px 0px 10px;
+            margin-bottom: 25px;
+            .new-research-request-modal-content-title {
+                @include textStyle($title-font, 24px, $font-weight-500,$primary-blue-3);
+                line-height: 22px;
+                margin-bottom: 0;
+            }
+        }
+        .new-research-request-modal-content-select {
+            @include dimension(620px, 68px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            .new-research-request-modal-select-label {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
+                margin-bottom: 8px;
+                .red-star {
+                    color: $secondary-red-1;
+                }
+            }
+            .new-research-request-modal-select {
+                @include dimension(623px, 42px);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                display: flex;
+                align-items: center;
+                background-color: $primary-white-1;
+                border: 1px solid $primary-blue-2;
+                border-radius: 8px;
+                padding: 10px 0 12px 12px;
+            }
+        }
+        .new-research-request-link {
+            text-decoration: none;
+        }
+        .new-research-request-modal-select-button {
+            @include dimension(620px, 42px);
+            @include button($primary-blue-1, $border-radius-10, none);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .new-research-request-modal-select-button-icon {
+                padding-right: 6px;
+            }
+        }
+    }
+}

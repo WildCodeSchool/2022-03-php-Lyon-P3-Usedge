@@ -1,0 +1,27 @@
+<div class="new-research-request-modal">
+    <img id="new-research-request-modal-close" src="{{ asset('build/images/icons/close-dark-blue.png') }}"/>
+    <div class="new-research-request-modal-content">
+        <div class="new-research-request-modal-content-header">
+            <p class="new-research-request-modal-content-title">
+                Add details for this request
+            </p>
+        </div>
+        <form class="new-research-request-modal-content-form">
+            <div class="new-research-request-modal-content-select">
+                <label class="new-research-request-modal-select-label" for="research-request-project">
+                    Select a project <span class="red-star">*</span>
+                </label>
+                <select name="project" id="research-request-project" class="new-research-request-modal-select">
+                    <option value="">Select a project</option>
+                    <option value="Project 1">Project 1</option>
+                    <option value="Project 2">Project 2</option>
+                    <option value="Project 3">Project 3</option>
+                </select>
+            </div>
+            <a class="new-research-request-link" href=""><button class="new-research-request-modal-select-button" id="new-research-request-modal-select-button">
+                <img class="new-research-request-modal-select-button-icon" src="{{ asset('build/images/icons/Path.png') }}"/>
+                Create a research request
+            </button></a>
+        </form>
+    </div>
+</div>
