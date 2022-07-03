@@ -18,7 +18,7 @@
                     <option value="Project 3">Project 3</option>
                 </select>
             </div>
-            <a class="new-research-request-link" href=""><button class="new-research-request-modal-select-button" id="new-research-request-modal-select-button">
+            <a class="new-research-request-link" href="{{ path('research_request_add', {id: templateComponent.id}) )}}"><button class="new-research-request-modal-select-button" id="new-research-request-modal-select-button">
                 <img class="new-research-request-modal-select-button-icon" src="{{ asset('build/images/icons/Path.png') }}"/>
                 Create a research request
             </button></a>
