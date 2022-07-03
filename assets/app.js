@@ -22,6 +22,7 @@ import './js/modals/modal_single_choice.js';
 import './js/modals/modal_evaluation_scale.js';
 import './js/modals/modal_section.js';
 import './js/modals/modal_date_picker.js';
+import './js/modals/modal_new_research_request.js';
 
 // Bootstrap import
 import './bootstrap';

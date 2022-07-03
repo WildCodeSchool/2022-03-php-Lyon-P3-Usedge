@@ -3,6 +3,7 @@
 .new-research-request-modal {
     @include dimension(700px, 271px);
     @include absolutePosition(50%, 50%);
+    display: none;
     transform: translate(-70%, 10%);
     box-sizing: border-box;
     padding: 40px;
@@ -13,6 +14,7 @@
     #new-research-request-modal-close {
         @include dimension(25px, 25px);
         @include absolutePosition(12px, 660px);
+        cursor: pointer;
     }
     .new-research-request-modal-content {
         @include dimension(620px, 190px);
@@ -72,4 +74,8 @@
             }
         }
     }
+}
+
+.new-research-request-modal-display {
+    display: block;
 }
