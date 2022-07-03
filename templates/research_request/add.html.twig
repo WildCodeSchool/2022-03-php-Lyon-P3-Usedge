@@ -14,7 +14,7 @@
         </button>
     </header>
     <main class="add-research-request-main-content">
-        <form id="add-research-request-form" class="add-research-request-form">
+        <form method="POST" id="add-research-request-form" class="add-research-request-form">
             <div class="add-research-request-form-builder">
             {% if requestComponents %}
                 {% for requestComponent in requestComponents %}
@@ -29,7 +29,7 @@
                 {% endfor %}
             {% endif %}
             </div>
-            <button class="add-research-request-form-button">
+            <button type="submit" class="add-research-request-form-button">
                 <img class="add-research-request-form-button-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
                 <p class="add-research-request-form-button-text">Send/Update this research request</p>
             </button>
