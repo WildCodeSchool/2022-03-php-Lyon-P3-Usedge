@@ -13,7 +13,7 @@ if (document.getElementById('add-research-request-header')) {
              
             function autosize(){
                 var el = this;
-                setTimeout(function(){
+                setTimeout(function() {
                     el.style.cssText = 'height:' + el.scrollHeight + 'px';
                 },0);
             }

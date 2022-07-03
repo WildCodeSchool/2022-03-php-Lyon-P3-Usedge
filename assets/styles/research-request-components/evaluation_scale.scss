@@ -24,17 +24,27 @@
             }
         }
         .request-evaluation-scale-template-star-container {
+            position: relative;
             display: flex;
-            align-items: flex-start;
+            //align-items: flex-start;
             padding: 0;
-            gap: 15px;
             input[type="radio"] {
-                display: none;
+                //display: none;
+                position : absolute;
+                left     : -100vw;
             }
             .request-evaluation-scale-template-rate {
                 @include dimension(27.5px, 27.5px);
+                overflow: hidden;
+                background-image : url('../../images/icons/star-rate.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                padding-right: 15px;
+                margin-right: 15px;
+                z-index: 2;            
                 img {
                     width: 27.5px;
+                    z-index: 1;
                 }
             }
         }
@@ -54,4 +64,16 @@
             }
         }
     }
+}
+
+.request-evaluation-scale-template-star-container:not(:hover) input[type="radio"]:indeterminate + .request-evaluation-scale-template-rate,
+.request-evaluation-scale-template-star-container:not(:hover) input[type="radio"]:checked ~ input[type="radio"] + .request-evaluation-scale-template-rate,
+.request-evaluation-scale-template-star-container input[type="radio"]:hover ~ input[type="radio"] + .request-evaluation-scale-template-rate
+{
+  background-position : -48px 0;
+}
+
+.request-evaluation-scale-template-star-container:not(:hover) input[type="radio"]:focus-visible + .request-evaluation-scale-template-rate
+{
+    background-position : -96px 0;
 }
