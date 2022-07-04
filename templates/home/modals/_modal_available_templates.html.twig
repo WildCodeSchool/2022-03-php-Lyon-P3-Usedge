@@ -23,6 +23,7 @@
     <div class="available-templates-content">
         {% if researchTemplates %}
             {% for researchTemplate in researchTemplates %}
+                {% include "modals/_modal_new_research_request.html.twig" %}
                 {% include "home/cards/_research_template_active_card.html.twig" %}
             {% endfor %}
         {% endif %}

@@ -2,8 +2,10 @@
 
 .new-research-request-modal {
     @include dimension(700px, 271px);
-    @include absolutePosition(50%, 50%);
     display: none;
+    position: fixed;
+    top: 32%;
+    left: 55%;
     transform: translate(-70%, 10%);
     box-sizing: border-box;
     padding: 40px;

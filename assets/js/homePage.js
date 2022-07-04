@@ -15,6 +15,8 @@ if (document.getElementById('reasearch-plans')) {
     const createRequestButton = document.getElementById('create-request');
     const researchCenterAvailableTemplates = document.getElementById('research-center-available-templates');
     const researchCenterAvailableTemplatesClose = document.getElementById('available-templates-header-close');
+    const researchTemplateActiveCardButton = document.querySelectorAll('.research-template-list-active-card-link-button');
+    const researchRequestModal = document.getElementById('new-research-request-modal');
 
 
     researchRequests.onchange = function() {
@@ -74,11 +76,17 @@ if (document.getElementById('reasearch-plans')) {
     // function used to open the availables templates popup
     createRequestButton.addEventListener('click', () => {
         researchCenterAvailableTemplates.classList.add('research-center-available-templates-display');
-    })
+    });
 
     // function used to close the availables templates popup
     researchCenterAvailableTemplatesClose.addEventListener('click', () => {
         researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
 
-    })
+    });  
+
+    researchTemplateActiveCardButton.forEach(button => {
+        button.addEventListener('click', () => {
+            researchRequestModal.classList.add('new-research-request-modal-display');
+        });
+    });
 }
