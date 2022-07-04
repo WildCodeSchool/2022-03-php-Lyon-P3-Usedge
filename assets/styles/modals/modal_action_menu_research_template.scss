@@ -12,6 +12,7 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    z-index: 2;
 
     .action-container {
         display: flex;
@@ -60,6 +61,19 @@
     }
 }
 
+.full-screen-action-menu-container-modal-close {
+    display: none;
+    @include dimension(100%, 100%);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
 .actions-menu-container-flex {
     display: flex;
+}
+
+.full-screen-action-menu-container-modal-close-display {
+    display: block;
 }
