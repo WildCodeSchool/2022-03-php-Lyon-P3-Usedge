@@ -1,6 +1,8 @@
 if (document.getElementById('add-research-request-header')) {
 
     const bodyWithSideBar = document.querySelector('body');
+    const newResearchRequestHeaderButton = document.getElementById('add-research-request-header-button');
+    const newResearchRequestFormButton = document.getElementById('add-research-request-form-button');
 
     bodyWithSideBar.classList.remove('body');
     bodyWithSideBar.classList.add('body-without-sidebar');
@@ -19,4 +21,14 @@ if (document.getElementById('add-research-request-header')) {
             }
         });
     }
+
+    newResearchRequestHeaderButton.addEventListener('click', () => {
+        const statusInput = document.getElementById('research-request-status');
+        statusInput.value = 'draft';
+    });
+
+    newResearchRequestFormButton.addEventListener('click', () => {
+        const statusInput = document.getElementById('research-request-status');
+        statusInput.value = 'waiting list';
+    });
 }
