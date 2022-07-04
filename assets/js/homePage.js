@@ -12,8 +12,11 @@ if (document.getElementById('reasearch-plans')) {
     const requestsCoachAssigned = document.getElementById('requests-coach-assigned');
     const plansProject = document.getElementById('plans-project');
     const plansAssignedRequest = document.getElementById('plans-assigned-request');
+    const createRequestButton = document.getElementById('create-request');
+    const researchCenterAvailableTemplates = document.getElementById('research-center-available-templates');
+    const researchCenterAvailableTemplatesClose = document.getElementById('available-templates-header-close');
 
-    
+
     researchRequests.onchange = function() {
         researchPlans.checked = true;
         if(researchRequests.checked == true && researchPlans.checked == true){
@@ -67,4 +70,15 @@ if (document.getElementById('reasearch-plans')) {
             plansAssignedRequest.className = 'sort';
         } 
     }
+
+    // function used to open the availables templates popup
+    createRequestButton.addEventListener('click', () => {
+        researchCenterAvailableTemplates.classList.add('research-center-available-templates-display');
+    })
+
+    // function used to close the availables templates popup
+    researchCenterAvailableTemplatesClose.addEventListener('click', () => {
+        researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
+
+    })
 }

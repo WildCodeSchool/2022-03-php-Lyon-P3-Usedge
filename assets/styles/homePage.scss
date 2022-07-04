@@ -25,9 +25,11 @@
     }
 }
 .page-content{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: $primary-white-2;
     padding: 35px 0px;
     gap: 20px;
     width: 81vw;
