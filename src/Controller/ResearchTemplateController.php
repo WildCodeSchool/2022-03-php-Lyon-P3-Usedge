@@ -67,7 +67,6 @@ class ResearchTemplateController extends AbstractController
     ): Response {
 
         $dataComponent = $checkDataUtils->trimData($request);
-
         if (!empty($dataComponent)) {
             $id = $componentManager->initComponent($dataComponent, $researchTemplate);
             return $this->redirectToRoute('research_template_add', [

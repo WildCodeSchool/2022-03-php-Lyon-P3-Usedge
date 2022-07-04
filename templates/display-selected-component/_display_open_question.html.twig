@@ -1,0 +1,34 @@
+{% if "open-question" in templateComponent.component.name %}
+    <div class="open-question-creation-modal" id="open-question-creation-modal" draggable="true">
+        <div class="handle-template-component-draggable">
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
+        <div class="open-question-template-content">
+            <p class="open-question-template-question" id="open-question-template-question">
+                {{ templateComponent.component.question }}
+                {% if templateComponent.component.isMandatory %}
+                    <span class="open-question-red-star" id="open-question-red-star">*</span>
+                {% endif %}
+            </p>
+
+            <div class="open-question-template-answers">
+                {% for answer in templateComponent.component.answers %}
+                        <textarea class="form-control" name="answer-open_question"
+                         placeholder="{{answer.answer}}" wrap></textarea>
+                        <label for="answer{{templateComponent.component.id}}" 
+                        class="open-question-template-answer-label" id="open-question-template-answer-label">
+                        </label>
+                {% endfor %}
+            </div>
+            <div class="open-question-template-helpertext">
+                {% if  templateComponent.component.addAHelpertext is same as true  %}
+                {{ templateComponent.component.helperText }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="open-question-template-actions">
+            <img src="{{ asset('build/images/icons/edit.png') }}"/>
+            <img src="{{ asset('build/images/icons/close.png') }}"/>
+        </div>
+    </div>
+{% endif %}
