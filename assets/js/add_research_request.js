@@ -31,4 +31,5 @@ if (document.getElementById('add-research-request-header')) {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'waiting list';
     });
+
 }

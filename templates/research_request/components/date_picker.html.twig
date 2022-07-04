@@ -1,6 +1,7 @@
 {% if "date-picker" in requestComponent.component.name %}
     <div class="request-date-picker-template-creation">
         <div class="request-date-picker-template-content">
+            <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
             <p class="request-date-picker-template-title" id="date-picker-template-title">
                 {{requestComponent.component.title}}
                 {% if requestComponent.component.isMandatory %}
@@ -8,7 +9,7 @@
                 {% endif %}
             </p>
             <div class="request-date-picker-input">
-                <input type="date" name="select-date" class="form-control" id="request-select-date">
+                <input type="date" name="answer-{{ requestComponent.component.id }}" class="form-control request-answer-input" id="request-select-date">
             </div>
         </div>
     </div>

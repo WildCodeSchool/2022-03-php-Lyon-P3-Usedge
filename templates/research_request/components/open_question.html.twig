@@ -1,22 +1,23 @@
 {% if "open-question" in requestComponent.component.name %}
     <div class="research-open-question-creation-modal" id="open-question-creation-modal">
-            <p class="research-open-question-template-question" id="open-question-template-question">
-                {{ requestComponent.component.question }}
-                {% if requestComponent.component.isMandatory %}
-                    <span class="research-open-question-red-star" id="open-question-red-star">*</span>
-                {% endif %}
-            </p>
-            <div class="research-open-question-template-answers">
-                    <textarea class="form-control research-open-question-text-area" name="answer-open-question" id="research-open-question-text-area"
-                    placeholder="Default state" wrap></textarea>
-                    <label for="answer-open-question" 
-                    class="research-open-question-template-answer-label" id="open-question-template-answer-label">
-                    </label>
-            </div>
-            <div class="research-open-question-template-helpertext">
-                {% if  requestComponent.component.addAHelpertext is same as true  %}
-                    <p>{{ requestComponent.component.helperText }}<p>
-                {% endif %}
-            </div>
+            <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
+        <p class="research-open-question-template-question" id="open-question-template-question">
+            {{ requestComponent.component.question }}
+            {% if requestComponent.component.isMandatory %}
+                <span class="research-open-question-red-star" id="open-question-red-star">*</span>
+            {% endif %}
+        </p>
+        <div class="research-open-question-template-answers">
+                <textarea class="form-control research-open-question-text-area request-answer-input" name="answer-{{ requestComponent.component.id }}" id="research-open-question-text-area"
+                placeholder="Default state" wrap></textarea>
+                <label for="answer-open-question" 
+                class="research-open-question-template-answer-label" id="open-question-template-answer-label">
+                </label>
+        </div>
+        <div class="research-open-question-template-helpertext">
+            {% if  requestComponent.component.addAHelpertext is same as true  %}
+                <p>{{ requestComponent.component.helperText }}<p>
+            {% endif %}
+        </div>
     </div>
 {% endif %}
