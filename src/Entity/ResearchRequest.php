@@ -47,7 +47,7 @@ class ResearchRequest
         return $this->researchTemplate;
     }
 
-    public function setResearchTemplate(?ResearchTemplate $researchTemplate): self
+    public function setResearchTemplate(?ResearchTemplate $researchTemplate): ?self
     {
         $this->researchTemplate = $researchTemplate;
 

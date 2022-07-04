@@ -32,7 +32,7 @@ class AnswerRequest
         return $this->researchRequest;
     }
 
-    public function setResearchRequest(?ResearchRequest $researchRequest): self
+    public function setResearchRequest(?ResearchRequest $researchRequest): ?self
     {
         $this->researchRequest = $researchRequest;
 
@@ -56,7 +56,7 @@ class AnswerRequest
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(?string $name): ?self
     {
         $this->name = $name;
 
