@@ -29,6 +29,9 @@ class ResearchRequest
     #[ORM\Column(type: 'string', length: 255)]
     private string $status;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $project;
+
     public function __construct()
     {
         $this->answerRequests = new ArrayCollection();
@@ -101,6 +104,18 @@ class ResearchRequest
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getProject(): ?string
+    {
+        return $this->project;
+    }
+
+    public function setProject(string $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }
