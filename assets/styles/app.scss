@@ -15,6 +15,7 @@
 @import 'modals/modal_date_picker.scss';
 @import 'modals/modal_external_link.scss';
 @import 'modals/modal_new_research_request.scss';
+@import 'modals/modal_available_templates.scss';
 
 // import display selected component
 @import 'display-selected-component/display_external_link.scss';
@@ -32,3 +33,4 @@
 
 // import cards
 @import "cards/_research_template_card.scss";
+@import "cards/_research_template_home_active_card.scss";
