@@ -47,7 +47,7 @@ class ResearchRequest
         return $this->researchTemplate;
     }
 
-    public function setResearchTemplate(?ResearchTemplate $researchTemplate): ?self
+    public function setResearchTemplate(ResearchTemplate $researchTemplate): self
     {
         $this->researchTemplate = $researchTemplate;
 
@@ -74,12 +74,7 @@ class ResearchRequest
 
     public function removeAnswerRequest(AnswerRequest $answerRequest): self
     {
-        if ($this->answerRequests->removeElement($answerRequest)) {
-            // set the owning side to null (unless already changed)
-            if ($answerRequest->getResearchRequest() === $this) {
-                $answerRequest->setResearchRequest(null);
-            }
-        }
+        $this->answerRequests->removeElement($answerRequest);
 
         return $this;
     }

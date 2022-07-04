@@ -174,12 +174,7 @@ class ResearchTemplate
 
     public function removeResearchRequest(ResearchRequest $researchRequest): self
     {
-        if ($this->researchRequests->removeElement($researchRequest)) {
-            // set the owning side to null (unless already changed)
-            if ($researchRequest->getResearchTemplate() === $this) {
-                $researchRequest->setResearchTemplate(null);
-            }
-        }
+        $this->researchRequests->removeElement($researchRequest);
 
         return $this;
     }
