@@ -1,6 +1,5 @@
 {% if "open-question" in requestComponent.component.name %}
     <div class="research-open-question-creation-modal" id="open-question-creation-modal">
-            {% include "research_request/components/request_component_order_id.html.twig" %}
             <p class="research-open-question-template-question" id="open-question-template-question">
                 {{ requestComponent.component.question }}
                 {% if requestComponent.component.isMandatory %}

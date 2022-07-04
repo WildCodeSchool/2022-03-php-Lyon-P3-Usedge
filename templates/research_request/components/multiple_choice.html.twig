@@ -1,7 +1,6 @@
 {% if "multiple-choice" in requestComponent.component.name %}
     <div class="request-multiple-choice-template-creation">
         <div class="request-multiple-choice-template-content">
-            {% include "research_request/components/request_component_order_id.html.twig" %}
             <p class="request-multiple-choice-template-question" id="multiple-choice-template-question">
                 {{requestComponent.component.question}}
                 {% if requestComponent.component.isMandatory %}

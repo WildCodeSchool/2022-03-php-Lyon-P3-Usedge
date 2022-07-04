@@ -1,7 +1,6 @@
 {% if "evaluation-scale" in requestComponent.component.name %}
     <div class="request-evaluation-scale-template-creation" id="evaluation-scale-template-creation">
         <div class="request-evaluation-scale-template-content">
-            {% include "research_request/components/request_component_order_id.html.twig" %}
             <p class="request-evaluation-scale-template-question" id="evaluation-scale-template-question">
                 {{ requestComponent.component.question }}
                 {% if requestComponent.component.isMandatory %}

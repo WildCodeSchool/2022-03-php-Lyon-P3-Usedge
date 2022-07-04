@@ -1,7 +1,6 @@
 {% if "single-choice" in requestComponent.component.name %}
     <div class="request-single-choice">
         <div class="request-single-choice-content">
-            {% include "research_request/components/request_component_order_id.html.twig" %}
             <p class="request-single-choice-question" id="single-choice-template-question">
                 {{requestComponent.component.question}}
                 {% if requestComponent.component.isMandatory %}
