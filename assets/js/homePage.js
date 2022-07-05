@@ -79,12 +79,12 @@ if (document.getElementById('reasearch-plans')) {
     // function used to open the availables templates popup
     createRequestButton.addEventListener('click', () => {
         researchCenterAvailableTemplates.classList.add('research-center-available-templates-display');
+        modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
     });
 
     // function used to close the availables templates popup
     researchCenterAvailableTemplatesClose.addEventListener('click', () => {
         researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
-
     });
 
     // function used to open and close research request creation modals
@@ -100,11 +100,11 @@ if (document.getElementById('reasearch-plans')) {
     // function used to open the view of Interview planning requests
     buttonViewResearchRequest.addEventListener('click', () => {
         modalInterviewPlanningRequest.classList.add('modal-interview-planning-request-display');
+        researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
     });
 
     // function used to close the view of Interview planning requests
     buttoninterviewPlanningModalClose.addEventListener('click', () => {
         modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
-
     });
 }
