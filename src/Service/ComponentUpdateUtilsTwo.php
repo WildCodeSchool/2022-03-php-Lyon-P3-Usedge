@@ -4,9 +4,9 @@ namespace App\Service;
 
 use App\Repository\AnswerRepository;
 use App\Repository\MultipleChoiceRepository;
+use App\Repository\OpenQuestionRepository;
 use App\Repository\SingleChoiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use PhpParser\Parser\Multiple;
 
 class ComponentUpdateUtilsTwo
 {
@@ -17,6 +17,7 @@ class ComponentUpdateUtilsTwo
     private RetrieveAnswers $retrieveAnswers;
     private AnswerRepository $answerRepository;
     private MultipleChoiceRepository $multipleChoiceRepo;
+    private OpenQuestionRepository $openQuestionRepo;
 
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -25,6 +26,7 @@ class ComponentUpdateUtilsTwo
         RetrieveAnswers $retrieveAnswers,
         AnswerRepository $answerRepository,
         MultipleChoiceRepository $multipleChoiceRepo,
+        OpenQuestionRepository $openQuestionRepo,
     ) {
         $this->entityManager = $entityManager;
         $this->checkDataUtils = $checkDataUtils;
@@ -32,6 +34,7 @@ class ComponentUpdateUtilsTwo
         $this->retrieveAnswers = $retrieveAnswers;
         $this->answerRepository = $answerRepository;
         $this->multipleChoiceRepo = $multipleChoiceRepo;
+        $this->openQuestionRepo = $openQuestionRepo;
     }
 
     public function loadUpdateSingleChoice(array $dataComponent, int $id): void
@@ -77,6 +80,39 @@ class ComponentUpdateUtilsTwo
             $multipleChoice->setName($dataComponent['name']);
             $multipleChoice->setQuestion($dataComponent['question']);
             $multipleChoice->setIsMandatory($dataComponent['is_mandatory']);
+
+            $inputAnswerNumber  = $dataComponent['input-answer-count'];
+            for ($i = 0; $i < $inputAnswerNumber; $i++) {
+                $answerUpdate[$i]->setAnswer($answersUpdateValue[$i]);
+            }
+            $entityManager->flush();
+        }
+    }
+
+    public function loadUpdateOpenQuestion(array $dataComponent, int $id): void
+    {
+        $entityManager = $this->entityManager;
+        $openQuestion = $this->openQuestionRepo->find($id);
+        $answerUpdate = $this->answerRepository->findBy(['question' => $openQuestion]);
+        $answersUpdateValue = $this->retrieveAnswers->retrieveUpdateAnswers($dataComponent);
+        $this->checkErrors = $this->checkDataUtils->checkUpdateOpenQuestion($dataComponent, $answersUpdateValue);
+
+        if (!isset($dataComponent['is_mandatory'])) {
+            $dataComponent['is_mandatory'] = false;
+        }
+        if (!isset($dataComponent['addHelpertext'])) {
+            $dataComponent['addHelpertext'] = false;
+        }
+        if (empty($this->checkErrors)) {
+            $openQuestion->setName($dataComponent['name']);
+            $openQuestion->setQuestion($dataComponent['open_question-question']);
+            $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
+            if ($dataComponent['addHelpertext'] == true) {
+                $openQuestion->setHelperText($dataComponent['helperText']);
+            } else {
+                $openQuestion->setHelperText('');
+            }
+            $openQuestion->setIsMandatory($dataComponent['is_mandatory']);
 
             $inputAnswerNumber  = $dataComponent['input-answer-count'];
             for ($i = 0; $i < $inputAnswerNumber; $i++) {

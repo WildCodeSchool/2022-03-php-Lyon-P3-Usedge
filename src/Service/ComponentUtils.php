@@ -204,6 +204,7 @@ class ComponentUtils
             $entityManager->flush();
         }
     }
+
     public function loadSeparator(array $dataComponent, ResearchTemplate $researchTemplate): void
     {
         $templateComponent = new TemplateComponent();

@@ -1,0 +1,43 @@
+{% if "open-question" in templateComponent.component.name %}
+    {% if componentId is same as templateComponent.component.id %}
+        <form method="POST" class="open-question-edit-form" draggable="false">
+            <div class="handle-template-component-draggable">
+                <img src="{{ asset('build/images/icons/burger.png') }}"/>
+            </div>
+            <div class="edit-component-open-question">
+                <div class="edit-component-open-question">
+                    <input type="hidden" id="update-open-question-name" name="name" value="open-question">
+                    <input class="form-control mb-1 edit-open-question-input" type="text" name="open_question-question" value="{{ templateComponent.component.question}}">
+                </div>
+                <div class="edit-open-question-answer">
+                    {% set i = 0 %}
+                    {% for answer in templateComponent.component.answers %}
+                        <input type="text" class="form-control edit-answer-open-question-input" name="answer-update-{{i}}" value="{{answer.answer}}">
+                    {% set i = i + 1 %}
+                    {% endfor %}
+                    <input type="hidden" name="input-answer-count" value="{{i}}">
+                </div>
+                <div class="open-question-helpertext">
+                    {% if  templateComponent.component.addAHelpertext is same as true  %}
+                        <input type="checkbox" id="addAHelpertext" name="addHelpertext" checked>
+                        <label for="addAHelpertext" class="helpertext">Add a helper text</label>
+                        <input type="text" class="form-control edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
+                    {% else %}
+                        <input type="checkbox" id="addAHelpertext" name="addHelpertext">
+                        <label for="addAHelpertext">Add a helper text</label>
+                        <input type="text" class="form-control edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
+                    {% endif %}
+                </div>
+                <div>
+                    <input type="checkbox" id="input-mandatory-open-question" name="is_mandatory">
+                    <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+                </div>
+            </div>
+            <div class="section-actions">
+			    <button class="update-button">Edit</button>
+		    </div>
+        </form>
+    {% else %}
+		{% include 'display-selected-component/_display_open_question.html.twig' %}
+	{% endif %}
+{% endif %}

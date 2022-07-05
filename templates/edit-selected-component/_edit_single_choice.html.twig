@@ -13,7 +13,7 @@
                     {% set i = 0 %}
                     {% for answer in templateComponent.component.answers %}
                         <input class="form-control mt-1 edit-answer-single-choice-input" type="text" name="answer-update-{{i}}" value="{{answer.answer}}">
-                     {% set i = i + 1 %}
+                    {% set i = i + 1 %}
                     {% endfor %} 
                     <input type="hidden" name="input-answer-count" value="{{i}}">
                 </div>
