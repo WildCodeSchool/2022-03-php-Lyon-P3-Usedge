@@ -13,33 +13,35 @@ class ResearchRequestUtils
         $this->entityManager = $entityManager;
     } */
 
-    public function newRequest(array $dataComponent): void
+    public function researchRequestSortAnswer(array $dataComponent): array
     {
         $componentIdList = [];
-        foreach ($dataComponent as $key => $value) {
-            if (str_contains($key, 'request-component-id')) {
-                $componentIdList[] = $value;
+        foreach ($dataComponent as $specification => $data) {
+            if (str_contains($specification, 'request-component-id')) {
+                $componentIdList[] = $data;
             }
         }
 
-        $finalArray = [];
-        foreach ($componentIdList as $key => $value) {
-            if ($dataComponent['request-component-name-' . $value] == 'multiple-choice') {
-                $multipleChoiceCount = $dataComponent['counter-answer-' . $value];
+        $answerList = [];
+        foreach ($componentIdList as $componentId) {
+            if ($dataComponent['request-component-name-' . $componentId] === 'multiple-choice') {
+                $multipleChoiceCount = $dataComponent['counter-answer-' . $componentId];
                 for ($i = 0; $i < $multipleChoiceCount; $i++) {
-                    if (isset($dataComponent['answer-' . $value . '-' . $i])) {
-                        $finalArray[] = [
-                            'request-component-name' => $dataComponent['request-component-name-' . $value],
-                            'answer' => $dataComponent['answer-' . $value . '-' . $i]
+                    if (isset($dataComponent['answer-' . $componentId . '-' . $i])) {
+                        $answerList[] = [
+                            'request-component-name' => $dataComponent['request-component-name-' . $componentId],
+                            'answer' => $dataComponent['answer-' . $componentId . '-' . $i]
                         ];
                     }
                 }
                 continue;
             }
-            $finalArray[] = [
-                'request-component-name' => $dataComponent['request-component-name-' . $value],
-                'answer' => $dataComponent['answer-' . $value]
+            $answerList[] = [
+                'request-component-name' => $dataComponent['request-component-name-' . $componentId],
+                'answer' => $dataComponent['answer-' . $componentId]
             ];
         }
+
+        return $answerList;
     }
 }

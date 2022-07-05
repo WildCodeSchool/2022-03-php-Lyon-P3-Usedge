@@ -22,7 +22,9 @@ class HomeController extends AbstractController
         $dataComponent = $checkDataUtils->trimData($request);
 
         if (!empty($dataComponent)) {
-            $requestUtils->newRequest($dataComponent);
+            $answerList = $requestUtils->researchRequestSortAnswer($dataComponent);
+            var_dump($answerList);
+            die();
         }
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
 
