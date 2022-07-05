@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ResearchTemplateRepository;
 use App\Service\CheckDataUtils;
+use App\Service\ResearchRequestUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,14 +16,14 @@ class HomeController extends AbstractController
     public function index(
         ResearchTemplateRepository $researchTemplates,
         CheckDataUtils $checkDataUtils,
-        Request $request
+        Request $request,
+        ResearchRequestUtils $requestUtils,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-        if (!empty($dataComponent)) {
-            var_dump($dataComponent);
-            die();
-        }
 
+        if (!empty($dataComponent)) {
+            $requestUtils->newRequest($dataComponent);
+        }
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
 
         return $this->render('home/index.html.twig', [

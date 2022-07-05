@@ -10,7 +10,7 @@
                 {% endif %}
             </p>
             <div class="request-multiple-choice-template-answers">
-                {% set numberOrder = 1 %}
+                {% set numberOrder = 0 %}
                 {% for answer in requestComponent.component.answers %}
                     <div class="request-multiple-choice-template-answer">
                         <input class="request-answer-input" type="checkbox" value="{{answer.answer}}" name="answer-{{ requestComponent.component.id ~ '-' ~ numberOrder }}">
@@ -20,6 +20,7 @@
                     </div>
                     {% set numberOrder = numberOrder + 1 %}
                 {% endfor %}
+                <input type="hidden" name="counter-answer-{{ requestComponent.component.id }}" value="{{ numberOrder }}">
             </div>
         </div>
     </div>
