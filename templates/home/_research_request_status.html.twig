@@ -1,0 +1,20 @@
+{% if researchRequest.status is same as 'Waiting list' %}
+    <div class="waiting-list">
+        <p><img src="{{ asset('build/images/icons/orange-dot.png')}}">{{ researchRequest.status }}</p>
+    </div>
+{% endif %}
+{% if researchRequest.status is same as 'Dropped' %}
+    <div class="dropped">
+        <p><img src="{{ asset('build/images/icons/red-dot.png')}}">{{ researchRequest.status }}</p>
+    </div>
+{% endif %}
+{% if researchRequest.status is same as 'Solved' %}
+    <div class="solved">
+        <p><img src="{{ asset('build/images/icons/green-dot.png')}}">{{ researchRequest.status }}</p>
+    </div>
+{% endif %}
+{% if researchRequest.status is same as 'Under review' %}
+    <div class="under-review">
+        <p><img src="{{ asset('build/images/icons/blue-dot.png')}}">{{ researchRequest.status }}</p>
+    </div>
+{% endif %}

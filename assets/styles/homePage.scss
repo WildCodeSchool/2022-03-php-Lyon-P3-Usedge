@@ -122,6 +122,8 @@
             background: $primary-white-1;
             padding: 35px;
             gap: 20px;
+            overflow: scroll;
+            max-height: 790px;
             .requests-header {
                 display: flex;
                 flex-direction: row;
@@ -205,13 +207,51 @@
                     background-color: $primary-white-1;
                     height: 82px;
                     width: 30%;
+                    .waiting-list {
+                        p {
+                            margin: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #FFA94F);
+                            @include dimension(99px, 24px);
+                            border: 1px solid #ECEFFF;
+                            border-radius: 5px;
+                            background-color: #FFF1EA;
+                            img {
+                                @include dimension(7px, 7px);
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                    .dropped {
+                        @extend .waiting-list;
+                        p {               
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #EA6061);
+                            background-color: #FFE8E8;
+                        }
+                    }
+                    .solved {
+                        @extend .waiting-list;
+                        p {
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #71D68F);
+                            background-color: #EDFFEC;
+                        }
+                    }
+                    .under-review {
+                        @extend .waiting-list;
+                        p {
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
+                            background-color: #ECEFFF;
+                        }
+                    }
                 }
                 
                 #view-plans-type {
                     margin-left: 20px;
                     width: 100%;
                 }
-                #view-request-type {
+                .view-request-type {
                     margin-left: 20px;
                     width: 100%;
                 }
@@ -220,6 +260,23 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                }
+                img {
+                    @include dimension(30px, 30px);
+                }
+                .view-request-type-content {
+                    padding-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    p {
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                        margin: 0;
+                    }
+                    .requestType {
+                        @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-1);
+                    }
+                    
+                    
                 }
             }
             

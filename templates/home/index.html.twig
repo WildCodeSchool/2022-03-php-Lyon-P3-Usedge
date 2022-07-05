@@ -69,18 +69,47 @@
                             <td class="sort"></td>
                         </tr>
                     </thead>
-                    <tbody class="result">
-                        <tr>
-                            <td class="view-details" id="view-request-type">No request available</td>
-                        </tr>
-                        <tr class="sort-choice">
-                            <td class="view-details" id="view-requests-project">No project</td>
-                            <td class="view-details" id="view-request-coach-assigned">No coach assigned</td>
-                            <td class="view-details">No owner assigned</td>
-                            <td class="view-details">No status available</td>
-                            <td class="view-details"></td>
-                        </tr>
-                    </tbody>
+                    <div class="view-request-table">
+                        {% for researchRequest in researchRequests %}
+                            <tbody class="result">
+                                <tr>
+                                    <td class="view-details view-request-type" id="view-request-type">
+                                        <img src="{{ asset('build/' ~ researchRequest.researchTemplate.icon ~ '')}}">
+                                        <div class="view-request-type-content">
+                                        <p class="requestType">User interview</p>
+                                        <p>{{ researchRequest.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr class="sort-choice">
+                                    <td class="view-details view-requests">{{ researchRequest.project }}</td>
+                                    <td class="view-details view-requests">{{ researchRequest.researchTemplate.coach }}</td>
+                                    <td class="view-details">No owner assigned</td>
+                                    <td class="view-details">
+                                        {% include "home/_research_request_status.html.twig" %}
+                                    </td>
+                                    <td class="view-details"><button id="request-details-button" class="request-details-button">View</button></td>
+                                </tr>
+                            </tbody>
+                            
+                        {% if researchRequest is empty %}
+                            <tbody class="result">
+                                <tr>
+                                    <td class="view-details" id="view-request-type">No request available</td>
+                                </tr>
+                                <tr class="sort-choice">
+                                    <td class="view-details" id="view-requests-project">No project</td>
+                                    <td class="view-details" id="view-request-coach-assigned">No coach assigned</td>
+                                    <td class="view-details">No owner assigned</td>
+                                    <td class="view-details">No status available</td>
+                                    <td class="view-details"><button id="request-details-button" class="request-details-button">View</button></td>
+                                </tr>
+                            </tbody>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </table>
             </div>
             <div class="plans-list-none" id="plans-list-none">
@@ -109,8 +138,8 @@
                         <td class="view-details" id="view-plans-type">No plans available</td>
                     </tr>
                     <tr class="sort-choice">
-                        <td class="view-details" id="view-plans-project">No project</td>
-                        <td class="view-details" id="view-plans-assigned-request">No assigned request</td>
+                        <td class="view-details view-plans">No project</td>
+                        <td class="view-details view-plans">No assigned request</td>
                         <td class="view-details">No coach assigned</td>
                         <td class="view-details">No status available</td>
                         <td class="view-details"></td>
