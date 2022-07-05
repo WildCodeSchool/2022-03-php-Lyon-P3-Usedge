@@ -12,9 +12,10 @@
 @import 'modals/modal_single_choice.scss';
 @import 'modals/modal_evaluation_scale.scss';
 @import 'modals/modal_section.scss';
+@import 'modals/modal_open_question.scss';
 @import 'modals/modal_date_picker.scss';
 @import 'modals/modal_external_link.scss';
-@import 'modals/modal_selector.scss';
+@import 'modals/modal_available_templates.scss';
 
 // import display selected component
 @import 'display-selected-component/display_external_link.scss';
@@ -22,9 +23,9 @@
 @import 'display-selected-component/display_single_choice.scss';
 @import 'display-selected-component/display_multiple_choice.scss';
 @import 'display-selected-component/display_section.scss';
+@import 'display-selected-component/display_open_question.scss';
 @import 'display-selected-component/display_separator.scss';
 @import "display-selected-component/display-date-picker.scss";
-@import "display-selected-component/display_selector.scss";
 
 // import edit selected component
 @import 'edit-selected-component/edit_section.scss';
@@ -40,3 +41,7 @@
 
 // import cards
 @import "cards/_research_template_card.scss";
+<<<<<<< HEAD
+=======
+@import "cards/_research_template_home_active_card.scss";
+>>>>>>> dev

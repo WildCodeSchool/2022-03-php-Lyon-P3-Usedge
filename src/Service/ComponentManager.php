@@ -17,7 +17,7 @@ class ComponentManager
         'separator' => 'separator',
         'date-picker' => 'datePicker',
         'external-link' => 'externalLink',
-        'select' => 'select',
+        'open-question' => 'openQuestion',
     ];
 
     public function __construct(ComponentUtils $componentUtils)
@@ -84,9 +84,9 @@ class ComponentManager
             return $id;
     }
 
-    public function select(): int|null
+    public function openQuestion(): int|null
     {
-            $this->componentUtils->loadSelector($this->researchTemplate, $this->dataComponent);
+            $this->componentUtils->loadOpenQuestion($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }

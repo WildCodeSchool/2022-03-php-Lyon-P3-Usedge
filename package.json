@@ -22,7 +22,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "sortablejs": "^1.15.0",
-        "draggable": "^4.2.0"
+        "draggable": "^4.2.0",
+        "sortablejs": "^1.15.0"
     }
 }

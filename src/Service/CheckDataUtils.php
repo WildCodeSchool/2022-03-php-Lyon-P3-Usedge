@@ -103,22 +103,18 @@ class CheckDataUtils
         return $this->checkErrors;
     }
 
-    public function checkDataSelector(array $dataComponent, array $answersValue): array
+    public function checkDataOpenQuestion(array $dataComponent): array
     {
+        if (strlen($dataComponent['open_question-question']) > 255) {
+            $this->checkErrors[] = 'Maximum length for question is 255 characters.';
+        }
         foreach ($dataComponent as $data) {
             if (empty($data)) {
-                $this->checkErrors[] = 'All fields are mandatory.';
+                $this->checkErrors[] = 'This field is mandatory.';
             }
         }
-
-        if (empty($answersValue)) {
-            $this->checkErrors[] = 'At least one datatype is mandatory.';
-        }
-
-        foreach ($answersValue as $answerValue) {
-            if (strlen($answerValue) > 255) {
-                $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
-            }
+        if (strlen($dataComponent['open-question-answer']) > 255) {
+            $this->checkErrors[] = 'Maximum length for low label is 255 characters.';
         }
         return $this->checkErrors;
     }
