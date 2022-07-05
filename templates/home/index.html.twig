@@ -98,22 +98,22 @@
                                     </td>
                                 </tr>
                             </tbody>
-                            
-                        {% if researchRequest is empty %}
+                            {% endfor %}
+                        {% if researchRequests is empty %}
                             <tbody class="result">
                                 <tr>
-                                    <td class="view-details" id="view-request-type">No request available</td>
+                                    <td class="view-details view-request-type" id="view-request-type">No request available</td>
                                 </tr>
                                 <tr class="sort-choice">
-                                    <td class="view-details" id="view-requests-project">No project</td>
-                                    <td class="view-details" id="view-request-coach-assigned">No coach assigned</td>
+                                    <td class="view-details view-requests">No project</td>
+                                    <td class="view-details view-requests">No coach assigned</td>
                                     <td class="view-details">No owner assigned</td>
                                     <td class="view-details">No status available</td>
-                                    <td class="view-details"><button class="request-details-button">View</button></td>
+                                    <td class="view-details"></td>
                                 </tr>
                             </tbody>
                             {% endif %}
-                        {% endfor %}
+                       
                     </div>
                 </table>
             </div>
