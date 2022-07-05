@@ -20,11 +20,13 @@ class ResearchRequestController extends AbstractController
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
         $project = $dataComponent['project'];
+        $templateId = $dataComponent['template_id'];
         $requestComponents = $tempCompRepository->findBy(['researchTemplate' => $id], ['numberOrder' => 'ASC']);
 
         return $this->render('research_request/add.html.twig', [
             'requestComponents' => $requestComponents,
             'project' => $project,
+            'templateId' => $templateId,
         ]);
     }
 }
