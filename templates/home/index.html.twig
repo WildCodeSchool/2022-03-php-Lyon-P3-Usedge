@@ -5,6 +5,7 @@
 {% block body %}
     <main class="page-content">
         {% include "home/modals/_modal_available_templates.html.twig" %}
+        {% include "home/modals/_modal_interview_planning_request.html.twig" %}
         <header class="header">
             <div class="header-title">
                 <p>RESEARCH CENTER/PLANS</p>
@@ -66,7 +67,7 @@
                             <td class="sort" id="requests-coach-assigned">COACH ASSIGNED</td>
                             <td class="sort" id="requests-owner">OWNER</td>
                             <td class="sort" id="status">STATUS</td>
-                            <td class="sort"></td>
+                            <td class="sort"><button id="button-view-research-request">View</button></td>
                         </tr>
                     </thead>
                     <tbody class="result">

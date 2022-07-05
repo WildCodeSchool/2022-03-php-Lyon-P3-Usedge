@@ -18,21 +18,24 @@ if (document.getElementById('reasearch-plans')) {
     const researchTemplateActiveCardButtons = document.querySelectorAll('.research-template-list-active-card-link-button');
     const researchRequestModals = document.querySelectorAll('.new-research-request-modal');
     const researchRequestModalClose = document.querySelectorAll('.new-research-request-modal-close');
+    const buttonViewResearchRequest = document.getElementById('button-view-research-request');
+    const modalInterviewPlanningRequest = document.getElementById('modal-interview-planning-request');
+    const buttoninterviewPlanningModalClose = document.getElementById('interview-planning-header-close');
 
-    researchRequests.onchange = function() {
+    researchRequests.onchange = function () {
         researchPlans.checked = true;
-        if(researchRequests.checked == true && researchPlans.checked == true){
+        if (researchRequests.checked == true && researchPlans.checked == true) {
             plansListNone.className = 'share-plans-list';
             requestsList.className = 'share-requests-list';
             PviewlansAssignedRequest.className = 'view-details-none';
-            viewPlansProject.className = 'view-details-none' ;
+            viewPlansProject.className = 'view-details-none';
             viewRequestCoachAssigned.className = 'view-details-none';
             viewRequestsProject.className = 'view-details-none';
             requestsProject.className = 'sort-none';
             requestsCoachAssigned.className = 'sort-none';
             plansProject.className = 'sort-none';
             plansAssignedRequest.className = 'sort-none';
-            
+
         } else {
             requestsList.className = 'requests-list-none ';
             plansListNone.className = 'plans-list';
@@ -45,14 +48,14 @@ if (document.getElementById('reasearch-plans')) {
             plansProject.className = 'sort';
             plansAssignedRequest.className = 'sort';
         }
-    } 
-    researchPlans.onchange = function() {
+    }
+    researchPlans.onchange = function () {
         researchRequests.checked = true;
-        if(researchRequests.checked == true && researchPlans.checked == true){
+        if (researchRequests.checked == true && researchPlans.checked == true) {
             plansListNone.className = 'share-plans-list';
             requestsList.className = 'share-requests-list';
             PviewlansAssignedRequest.className = 'view-details-none';
-            viewPlansProject.className = 'view-details-none' ;
+            viewPlansProject.className = 'view-details-none';
             viewRequestCoachAssigned.className = 'view-details-none';
             viewRequestsProject.className = 'view-details-none ';
             requestsProject.className = 'sort-none';
@@ -70,7 +73,7 @@ if (document.getElementById('reasearch-plans')) {
             requestsCoachAssigned.className = 'sort';
             plansProject.className = 'sort';
             plansAssignedRequest.className = 'sort';
-        } 
+        }
     }
 
     // function used to open the availables templates popup
@@ -82,7 +85,7 @@ if (document.getElementById('reasearch-plans')) {
     researchCenterAvailableTemplatesClose.addEventListener('click', () => {
         researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
 
-    });  
+    });
 
     // function used to open and close research request creation modals
     for (let i = 0; i < researchTemplateActiveCardButtons.length; i++) {
@@ -93,4 +96,15 @@ if (document.getElementById('reasearch-plans')) {
             researchRequestModals[i].classList.remove('new-research-request-modal-display');
         })
     }
+
+    // function used to open the view of Interview planning requests
+    buttonViewResearchRequest.addEventListener('click', () => {
+        modalInterviewPlanningRequest.classList.add('modal-interview-planning-request-display');
+    });
+
+    // function used to close the view of Interview planning requests
+    buttoninterviewPlanningModalClose.addEventListener('click', () => {
+        modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
+
+    });
 }
