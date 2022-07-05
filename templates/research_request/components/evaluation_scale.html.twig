@@ -1,6 +1,7 @@
 {% if "evaluation-scale" in requestComponent.component.name %}
     <div class="request-evaluation-scale-template-creation" id="evaluation-scale-template-creation">
         <div class="request-evaluation-scale-template-content">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
             <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
             <p class="request-evaluation-scale-template-question" id="evaluation-scale-template-question">
                 {{ requestComponent.component.question }}

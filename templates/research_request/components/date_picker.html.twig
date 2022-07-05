@@ -1,6 +1,7 @@
 {% if "date-picker" in requestComponent.component.name %}
     <div class="request-date-picker-template-creation">
         <div class="request-date-picker-template-content">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
             <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
             <p class="request-date-picker-template-title" id="date-picker-template-title">
                 {{requestComponent.component.title}}

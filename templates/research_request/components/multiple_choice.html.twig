@@ -1,6 +1,7 @@
 {% if "multiple-choice" in requestComponent.component.name %}
     <div class="request-multiple-choice-template-creation">
         <div class="request-multiple-choice-template-content">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
             <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
             <p class="request-multiple-choice-template-question" id="multiple-choice-template-question">
                 {{requestComponent.component.question}}
