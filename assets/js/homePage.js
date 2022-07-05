@@ -3,7 +3,15 @@ if (document.getElementById('reasearch-plans')) {
     const researchPlans = document.getElementById('reasearch-plans');
     const researchRequests = document.getElementById('reasearch-requests');
     const requestsList = document.getElementById('requests-list');
+    const researchCenterTitleRequests = document.getElementById('research-center-title-requests');
+    const researchCenterTitlePlans = document.getElementById('research-center-title-plans');
+    const researchCenterTitleAllRequests = document.getElementById('research-center-title-all-requests');
+    const requestsQuantity = document.getElementById('requests-quantity');
+    const plansQuantity = document.getElementById('plans-quantity');
+    const allElementsQuantity = document.getElementById('all-elements-quantity');
     const plansListNone = document.getElementById('plans-list-none');
+    const status = document.getElementById('status');
+    const plansStatus = document.getElementById('plans-status');
     const viewRequests = document.getElementsByClassName('view-requests');
     const viewPlans = document.getElementsByClassName('view-plans');
     const requestsProject = document.getElementById('requests-project');
@@ -22,6 +30,21 @@ if (document.getElementById('reasearch-plans')) {
         if(researchRequests.checked == true && researchPlans.checked == true){
             plansListNone.className = 'share-plans-list';
             requestsList.className = 'share-requests-list';
+
+            allElementsQuantity.classList.add('all-elements-quantity');
+            allElementsQuantity.classList.remove('all-elements-quantity-none');
+            requestsQuantity.classList.add('requests-quantity-none');
+            requestsQuantity.classList.remove('requests-quantity');
+            plansQuantity.classList.add('plans-quantity-none');
+            plansQuantity.classList.remove('plans-quantity');
+
+            researchCenterTitleRequests.classList.add('research-center-title-requests-none');
+            researchCenterTitleRequests.classList.remove('research-center-title-requests');
+            researchCenterTitleAllRequests.classList.add('research-center-title-all-requests');
+            researchCenterTitleAllRequests.classList.remove('research-center-title-all-requests-none');
+            researchCenterTitlePlans.classList.add('research-center-title-plans-none');
+            researchCenterTitlePlans.classList.remove('research-center-title-plans');
+
             for (const viewRequest of viewRequests) {
                 viewRequest.classList.remove('view-details');
                 viewRequest.classList.add('view-details-none');
@@ -39,6 +62,21 @@ if (document.getElementById('reasearch-plans')) {
         } else {
             requestsList.className = 'requests-list-none ';
             plansListNone.className = 'plans-list';
+
+            allElementsQuantity.classList.add('all-elements-quantity-none');
+            allElementsQuantity.classList.remove('all-elements-quantity');
+            plansQuantity.classList.add('plans-quantity');
+            plansQuantity.classList.remove('plans-quantity-none');
+            requestsQuantity.classList.add('requests-quantity-none');
+            requestsQuantity.classList.remove('requests-quantity');
+
+            researchCenterTitleRequests.classList.add('research-center-title-requests-none');
+            researchCenterTitleRequests.classList.remove('research-center-title-requests');
+            researchCenterTitleAllRequests.classList.add('research-center-title-all-requests-none');
+            researchCenterTitleAllRequests.classList.remove('research-center-title-all-requests');
+            researchCenterTitlePlans.classList.add('research-center-title-plans');
+            researchCenterTitlePlans.classList.remove('research-center-title-plans-none');
+
             for (const viewRequest of viewRequests) {
                 viewRequest.classList.remove('view-details-none');
                 viewRequest.classList.add('view-details');
@@ -58,6 +96,21 @@ if (document.getElementById('reasearch-plans')) {
         if(researchRequests.checked == true && researchPlans.checked == true){
             plansListNone.className = 'share-plans-list';
             requestsList.className = 'share-requests-list';
+
+            allElementsQuantity.classList.add('all-elements-quantity');
+            allElementsQuantity.classList.remove('all-elements-quantity-none');
+            requestsQuantity.classList.add('requests-quantity-none');
+            requestsQuantity.classList.remove('requests-quantity');
+            plansQuantity.classList.add('plans-quantity-none');
+            plansQuantity.classList.remove('plans-quantity');
+
+            researchCenterTitleRequests.classList.add('research-center-title-requests-none');
+            researchCenterTitleRequests.classList.remove('research-center-title-requests');
+            researchCenterTitleAllRequests.classList.add('research-center-title-all-requests');
+            researchCenterTitleAllRequests.classList.remove('research-center-title-all-requests-none');
+            researchCenterTitlePlans.classList.add('research-center-title-plans-none');
+            researchCenterTitlePlans.classList.remove('research-center-title-plans');
+
             for (const viewRequest of viewRequests) {
                 viewRequest.classList.remove('view-details');
                 viewRequest.classList.add('view-details-none');
@@ -73,6 +126,21 @@ if (document.getElementById('reasearch-plans')) {
         } else {
             requestsList.className = 'requests-list';
             plansListNone.className = 'plans-list-none';
+
+            allElementsQuantity.classList.add('all-elements-quantity-none');
+            allElementsQuantity.classList.remove('all-elements-quantity');
+            requestsQuantity.classList.add('requests-quantity');
+            requestsQuantity.classList.remove('requests-quantity-none');
+            plansQuantity.classList.add('plans-quantity-none');
+            plansQuantity.classList.remove('plans-quantity');
+
+            researchCenterTitleRequests.classList.add('research-center-title-requests');
+            researchCenterTitleRequests.classList.remove('research-center-title-requests-none');
+            researchCenterTitleAllRequests.classList.add('research-center-title-all-requests-none');
+            researchCenterTitleAllRequests.classList.remove('research-center-title-all-requests');
+            researchCenterTitlePlans.classList.add('research-center-title-plans-none');
+            researchCenterTitlePlans.classList.remove('research-center-title-plans');
+
             for (const viewRequest of viewRequests) {
                 viewRequest.classList.remove('view-details-none');
                 viewRequest.classList.add('view-details');

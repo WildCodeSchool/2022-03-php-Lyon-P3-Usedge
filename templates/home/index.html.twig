@@ -7,8 +7,11 @@
         {% include "home/modals/_modal_available_templates.html.twig" %}
         <header class="header">
             <div class="header-title">
-                <p>RESEARCH CENTER/PLANS</p>
-                <p>No requests submitted by your team</p>
+                {% include "home/_research_center_title.html.twig" %}
+                {% include "home/_display_quantity_of_elements.html.twig" %}
+                {% if researchRequests is empty %}
+                    <p>No requests submitted by your team</p>
+                {% endif %}
             </div>
             <a href="{{ path("research_template_index")}}"><button type="submit" class="view-session">View requests templates</button></a>
         </header>
@@ -84,14 +87,18 @@
                                 </tr>
 
                                 <tr class="sort-choice">
-                                    <td class="view-details view-requests">{{ researchRequest.project }}</td>
+                                    <td class="view-details view-requests view-project">{{ researchRequest.project }}</td>
                                     <td class="view-details view-requests"><img class="coach-picture" src="https://i.pravatar.cc">{{ researchRequest.researchTemplate.coach }}</td>
                                     <td class="view-details"><img class="owner-picture" src="https://i.pravatar.cc">{{ researchRequest.owner }}</td>
-                                    <td class="view-details">
+                                    <td class="view-details color-status">
                                         {% include "home/_research_request_status.html.twig" %}
                                     </td>
                                     <td class="view-details">                                      
-                                        {% include "home/_view_request_details_button.html.twig" %}
+                                        {% if 'Draft' in researchRequest.status %}
+                                            <button class="edit-request-button">Edit</button>
+                                        {% else %}
+                                            <button class="request-details-button">View</button>
+                                        {% endif %}
                                     </td>
                                     <td class="icon-see-more">
                                         <img src="{{ asset('build/images/icons/ic_More.png')}}">
@@ -134,7 +141,7 @@
                             <td class="sort" id="plans-project">PROJECT</td>
                             <td class="sort"  id="plans-assigned-request">ASSIGNED REQUEST</td>
                             <td class="sort"  id="plans-coach-assigned">COACH ASSIGNED</td>
-                            <td class="sort" id="status" >STATUS</td>
+                            <td class="sort" id="plans-status">STATUS</td>
                             <td class="sort" ></td>
                         </tr>
                     </thead>
