@@ -1,0 +1,27 @@
+<div class="full-screen-container-modal-close-open-question" id="full-screen-container-modal-close-open-question">
+	<div class="open-question-creation-modal" id="open-question-creation-modal">
+		<form method="POST" class="open-question-modal-fields">
+			<div class="modal_content_open_question">
+				<div class="open-question-modal-close" id="open-question-modal-close">
+					<span class="open-question-modal-cross"></span>
+					<span class="open-question-modal-cross"></span>
+				</div>
+				<header id="open-question-draggable-handle">
+					<h4 class="open-question-modal-title">Create an open question</h4>
+				</header>
+				<input class="open-question-input" type="text" name="open_question-question" id="open_question-question" placeholder="What is your question" required>
+				<input class="open-question-input" type="text" name="open-question-answer" id="open_question-answer" placeholder="Answer field placeholder" required>
+				<div class="checkbox-helper-text-open-question" id="checkbox-helper-text-open-question">
+					<input type="checkbox" id="addAHelpertext" name="addHelpertext">
+					<label for="addAHelpertext">Add a helper text</label>
+				</div>
+				<div class="open-question-modal-mandatory" id="open-question-modal-mandatory">
+					<input type="checkbox" id="isMandatory" name="is_mandatory">
+					<label for="isMandatory">This field is mandatory</label>
+				</div>
+				<input type="hidden" name="name" value="open-question">
+				<button id="button-create-open-question" class="btn btn-primary"><img src="{{ asset('build/images/icons/Path.png') }}">Add open question</button>
+			</form>
+		</div>
+	</div>
+</div>
