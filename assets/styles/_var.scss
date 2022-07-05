@@ -18,9 +18,11 @@ $primary-white-2: #FAFAFB;
 //var secondary colors
 $secondary-orange-1: #FFA94F;
 $secondary-red-1: #EA6061;
+$secondary-dark-red-1: #DA1414;
 $secondary-green-1: #71D68F;
 $secondary-lightgreen: #EDFFEC;
 $secondary-lightred: #FFE8E8;
+$disable-color: rgba(0, 0, 0, 0.3);
 
 // var font-family
 $title-font: 'League Spartan', sans-serif;
@@ -114,3 +116,7 @@ $border-radius-20: 20px;
     border-radius: 20px;
     border: none;
   }
+
+.disable {
+    color: $disable-color !important;
+}

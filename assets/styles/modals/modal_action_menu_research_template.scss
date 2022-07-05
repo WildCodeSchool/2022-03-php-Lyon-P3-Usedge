@@ -1,0 +1,79 @@
+@import '../_var.scss';
+
+.actions-menu-container {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px 0px 0px 80px;
+    padding: 17px 17px 17px 17px;
+    position: absolute;
+    width: 176px;
+    height: 170px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 2;
+
+    .action-container {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+
+        a {
+            text-decoration: none;
+        }
+
+        .edit-action-img {
+            width: 12px;
+            height: 12px;
+        }
+
+        .view-action-img {
+            width: 14px;
+            height: 12px;
+        }
+
+        .viewall-action-img {
+            width: 12px;
+            height: 12px;
+        }
+
+        .delete-action-img {
+            width: 12px;
+            height: 12px;
+        }
+
+        p {
+            padding-left: 5px;
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: $primary-dark-1;
+        }
+
+        .delete-action-p {
+            color: $secondary-dark-red-1;
+        }
+    }
+}
+
+.full-screen-action-menu-container-modal-close {
+    display: none;
+    @include dimension(100%, 100%);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+.actions-menu-container-flex {
+    display: flex;
+}
+
+.full-screen-action-menu-container-modal-close-display {
+    display: block;
+}
