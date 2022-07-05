@@ -56,10 +56,10 @@ class RetrieveAnswers
 
     public function retrieveUpdateAnswers(array $dataComponent): array
     {
-        $inputAnswerNumber  = $dataComponent['answer-update'];
+        $inputAnswerNumber  = $dataComponent['input-answer-count'];
         for ($i = 0; $i < $inputAnswerNumber; $i++) {
             if (isset($dataComponent['answer-update-' . $i])) {
-                $this->answersUpdateValue[] = $dataComponent['answer-update' . $i];
+                $this->answersUpdateValue[] = $dataComponent['answer-update-' . $i];
             }
         }
         return $this->answersUpdateValue;

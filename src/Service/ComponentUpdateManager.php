@@ -8,6 +8,7 @@ class ComponentUpdateManager
 {
     private array $dataComponent;
     private ComponentUpdateUtils $compUpdateUtils;
+    private ComponentUpdateUtilsTwo $compUpdateUtilsTwo;
     private ResearchTemplate $researchTemplate;
     private int $componentId;
     private array $componentNames = [
@@ -19,9 +20,12 @@ class ComponentUpdateManager
         'multiple-choice' => 'multipleChoice',
     ];
 
-    public function __construct(ComponentUpdateUtils $compUpdateUtils)
-    {
+    public function __construct(
+        ComponentUpdateUtils $compUpdateUtils,
+        ComponentUpdateUtilsTwo $compUpdateUtilsTwo
+    ) {
         $this->compUpdateUtils = $compUpdateUtils;
+        $this->compUpdateUtilsTwo = $compUpdateUtilsTwo;
     }
 
     public function updateComponent(
@@ -54,7 +58,7 @@ class ComponentUpdateManager
 
     public function singleChoice(): int|null
     {
-            $this->compUpdateUtils->loadUpdateSingleChoice($this->dataComponent, $this->componentId);
+            $this->compUpdateUtilsTwo->loadUpdateSingleChoice($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
     }
@@ -73,10 +77,10 @@ class ComponentUpdateManager
             return $id;
     }
 
-    public function multipleChoice(): int|null
+/*     public function multipleChoice(): int|null
     {
-            $this->compUpdateUtils->loadUpdateMultipleChoice($this->dataComponent, $this->componentId);
+            $this->compUpdateUtilsTwo->loadUpdateMultipleChoice($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
-    }
+    } */
 }
