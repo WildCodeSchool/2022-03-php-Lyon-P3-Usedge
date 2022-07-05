@@ -74,7 +74,7 @@
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
-                                        <img src="{{ asset('build/' ~ researchRequest.researchTemplate.icon ~ '')}}">
+                                        <img class="template-icon" src="{{ asset('build/' ~ researchRequest.researchTemplate.icon ~ '')}}">
                                         <div class="view-request-type-content">
                                         <p class="requestType">User interview</p>
                                         <p>{{ researchRequest.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
@@ -85,12 +85,14 @@
 
                                 <tr class="sort-choice">
                                     <td class="view-details view-requests">{{ researchRequest.project }}</td>
-                                    <td class="view-details view-requests">{{ researchRequest.researchTemplate.coach }}</td>
-                                    <td class="view-details">No owner assigned</td>
+                                    <td class="view-details view-requests"><img class="coach-picture" src="https://i.pravatar.cc">{{ researchRequest.researchTemplate.coach }}</td>
+                                    <td class="view-details"><img class="owner-picture" src="https://i.pravatar.cc">{{ researchRequest.owner }}</td>
                                     <td class="view-details">
                                         {% include "home/_research_request_status.html.twig" %}
                                     </td>
-                                    <td class="view-details"><button id="request-details-button" class="request-details-button">View</button></td>
+                                    <td class="view-details">                                      
+                                        {% include "home/_view_request_details_button.html.twig" %}
+                                    </td>
                                 </tr>
                             </tbody>
                             

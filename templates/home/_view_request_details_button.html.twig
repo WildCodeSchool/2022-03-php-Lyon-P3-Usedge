@@ -1,0 +1,14 @@
+{% if researchRequest.status is same as 'Draft' %}
+    <div>
+    <button class="edit-request-button">Edit</button>
+    <img class="icon-see-more" src="{{ asset('build/images/icons/ic_More.png')}}">
+    </div>
+{% else %}
+    <div>
+        <button class="request-details-button">View</button>
+        <img class="icon-see-more" src="{{ asset('build/images/icons/ic_More.png')}}">
+    </div> 
+{% endif %}
+
+
+
