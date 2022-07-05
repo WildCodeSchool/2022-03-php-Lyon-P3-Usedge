@@ -1,0 +1,34 @@
+{% if "multiple-choice" in templateComponent.component.name %}
+    {% if componentId is same as templateComponent.component.id %}
+     <form method="POST" class="multiple-choice-edit-form">
+        <div class="handle-template-component-draggable">
+            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+        </div>
+        <div class="edit-component-multiple-choice">
+            <p class="edit-component-multiple-choice-title">
+                    <input type="hidden" id="update-multiple-choice-name" name="name" value="multiple-choice">
+                    <input class="form-control edit-multiple-choice-input" type="text" name="question" value="{{ templateComponent.component.question}}">
+            </p>
+            <div class="edit-multiple-choice-answers">
+                {% set i = 0 %}
+                {% for answer in templateComponent.component.answers %}
+                    <div class="multiple-choice-template-answer">
+                        <input type="text" class="multiple-choice-template-answer-label" id="multiple-choice-template-answer-label"
+                       name="answer{{i}}" value="{{answer.answer}}">
+                    </div>
+                    {% set i = i + 1 %}
+                {% endfor %}
+            </div>
+            <div>
+                <input type="checkbox" id="input-mandatory-update-external-link" name="is_mandatory">
+                <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
+            </div>
+        </div>
+        <div class="section-actions">
+            <button class="update-button">Edit</button>
+        </div>
+    </form>
+    {% else %}
+		{% include 'display-selected-component/_display_multiple_choice.html.twig' %}
+	{% endif %}
+{% endif %}

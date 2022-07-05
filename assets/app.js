@@ -27,8 +27,3 @@ import './js/modals/modal_selector';
 // Bootstrap import
 import './bootstrap';
 require('bootstrap');
-
-//edit files
-import './js/modals/edit/update_single_choice.js';
-
-

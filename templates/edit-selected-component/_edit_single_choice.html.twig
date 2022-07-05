@@ -9,19 +9,12 @@
                     <input type="hidden" id="update-single-choice-name" name="name" value="single-choice">
                     <input class="form-control edit-single-choice-input" type="text" name="question" value="{{ templateComponent.component.question}}">
                 </div>
-                <div class="input-answer-number">
+                <div class="edit-component-single-choice-answer">
                     {% set i = 0 %}
                     {% for answer in templateComponent.component.answers %}
-                        {# <input type="text" value="{{answer.answer}}" name="answer{{ i }}"> #}
-                    {# <input type="hidden" name="input-answer-number" id="input-answer-number">
-                    <input type="text" value="{{answer.answer}}" name="answer{{ i }}" id="single-choice-name"> #}
-
-                <div class="input-answer-update-number">
-                    <input type="hidden" class="input-answer-update">
-                    <input type="text" id="input-answer-update-number" name="answer{{ i }}" value="{{answer.answer}}">
-                </div>
-                       {% set i = i + 1 %}
-                    {% endfor %}
+                        <input class="form-control edit-answer-single-choice-input" type="text" name="answer-update" value="{{answer.answer}}">
+                     {% set i = i + 1 %}
+                    {% endfor %} 
                 </div>
                 <div>
                     <input type="checkbox" id="input-mandatory-update-external-link" name="is_mandatory">

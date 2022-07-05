@@ -16,6 +16,7 @@ class ComponentUpdateManager
         'single-choice' => 'singleChoice',
         'date-picker' => 'datePicker',
         'evaluation-scale' => 'evaluationScale',
+        'multiple-choice' => 'multipleChoice',
     ];
 
     public function __construct(ComponentUpdateUtils $compUpdateUtils)
@@ -68,6 +69,13 @@ class ComponentUpdateManager
     public function evaluationScale(): int|null
     {
             $this->compUpdateUtils->loadUpdateEvaluationScale($this->dataComponent, $this->componentId);
+            $id = $this->researchTemplate->getId();
+            return $id;
+    }
+
+    public function multipleChoice(): int|null
+    {
+            $this->compUpdateUtils->loadUpdateMultipleChoice($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
     }
