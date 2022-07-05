@@ -11,19 +11,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ResearchRequestController extends AbstractController
 {
-    #[Route('/research-request/add', name: 'research_request_add', methods: ['GET', 'POST'])]
+    #[Route('/research-request/add/{id}', name: 'research_request_add', methods: ['GET', 'POST'])]
     public function index(
+        int $id,
         TemplateComponentRepository $tempCompRepository,
         CheckDataUtils $checkDataUtils,
         Request $request
     ): Response {
-        //$dataComponent = $checkDataUtils->trimData($request);
-        //var_dump($dataComponent);
-        //die();
-        $requestComponents = $tempCompRepository->findBy(['researchTemplate' => '31'], ['numberOrder' => 'ASC']);
+        $dataComponent = $checkDataUtils->trimData($request);
+        $project = $dataComponent['project'];
+        $requestComponents = $tempCompRepository->findBy(['researchTemplate' => $id], ['numberOrder' => 'ASC']);
 
         return $this->render('research_request/add.html.twig', [
             'requestComponents' => $requestComponents,
+            'project' => $project,
         ]);
     }
 }
