@@ -1,18 +1,35 @@
 <div class="modal-interview-planning-request" id="modal-interview-planning-request">
 	<div class="modal-interview-planning-request-header">
 		<div class="interview-planning-header-title">
-			<p class="interview-planning-header-first-title">
-				Interview planning requests
-			</p>
+			<div class="interview-planning-header-first-title-container">
+				{% include "status-tags/_active.html.twig" %}
+				<p class="interview-planning-header-first-title">
+					Interview planning requests
+				</p>
+			</div>
 			<p class="interview-planning-header-subtitle">
-				Updated by John Hon, 22 hours ago
+				Updated by
+				<span>John Hon</span>, 22 hours ago
 			</p>
 		</div>
+
 		<div class="interview-planning-header-actions">
 			<img src="{{ asset('build/images/icons/option-dots.png') }}" class="interview-planning-header-options" id="interview-planning-header-options">
 			<img src="{{ asset('build/images/icons/close-dark-blue.png') }}" class="interview-planning-header-close" id="interview-planning-header-close">
 		</div>
 	</div>
+
+
+	<div class="separator"></div>
+
+
+
+
+    
+	<div class="separator"></div>
+
+
+	<div></div>
 
 
 </div>

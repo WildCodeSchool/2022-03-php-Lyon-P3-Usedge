@@ -27,15 +27,27 @@
             flex-direction: column;
             justify-content: center;
 
-            .interview-planning-header-first-title {
-                @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
-                line-height: 17px;
-                margin-bottom: 0;
+            .interview-planning-header-first-title-container {
+
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .interview-planning-header-first-title {
+                    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
+                    line-height: 17px;
+                    margin-bottom: 0;
+                }
             }
 
             .interview-planning-header-subtitle {
-                @include textStyle($text-font, $font-size-16, $font-weight-500, $primary-grey-3);
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
                 margin-bottom: 0;
+                line-height: 20px;
+
+                span {
+                    color: $primary-blue-1;
+                }
             }
         }
 
@@ -55,6 +67,11 @@
                 cursor: pointer;
             }
         }
+    }
+
+    .separator {
+        width: 800px;
+        border-bottom: 1px solid $primary-grey-5;
     }
 }
 
