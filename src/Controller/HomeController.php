@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ResearchRequestRepository;
 use App\Repository\ResearchTemplateRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ResearchRequestUtils;
@@ -18,18 +19,21 @@ class HomeController extends AbstractController
         CheckDataUtils $checkDataUtils,
         Request $request,
         ResearchRequestUtils $requestUtils,
+        ResearchRequestRepository $researchRequestRepo,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
 
         if (!empty($dataComponent)) {
             $answerList = $requestUtils->researchRequestSortAnswer($dataComponent);
-            var_dump($answerList);
-            die();
+            $requestUtils->addResearchRequest($dataComponent, $answerList);
+            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
+        $researchRequests = $researchRequestRepo->findBy([], ['id' => 'DESC']);
 
         return $this->render('home/index.html.twig', [
             'researchTemplates' => $researchTemplateList,
+            'researchRequests' => $researchRequests,
         ]);
     }
 }

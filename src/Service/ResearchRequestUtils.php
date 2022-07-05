@@ -2,16 +2,24 @@
 
 namespace App\Service;
 
-//use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\AnswerRequest;
+use App\Entity\ResearchRequest;
+use App\Repository\ResearchTemplateRepository;
+use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ResearchRequestUtils
 {
-    /* private EntityManagerInterface $entityManager;
+    private EntityManagerInterface $entityManager;
+    private ResearchTemplateRepository $resTempRepository;
 
-    public function __construct(EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        ResearchTemplateRepository $resTempRepository,
+    ) {
         $this->entityManager = $entityManager;
-    } */
+        $this->resTempRepository = $resTempRepository;
+    }
 
     public function researchRequestSortAnswer(array $dataComponent): array
     {
@@ -43,5 +51,29 @@ class ResearchRequestUtils
         }
 
         return $answerList;
+    }
+
+    public function addResearchRequest(array $dataComponent, array $answerList): void
+    {
+        $researchTemplate = $this->resTempRepository->findOneBy(['id' => $dataComponent['template_id']]);
+        $entityManager = $this->entityManager;
+        $researchRequest = new ResearchRequest();
+        $creationDate = new DateTime("now");
+
+        $researchRequest->setResearchTemplate($researchTemplate);
+        $researchRequest->setCreationDate($creationDate);
+        $researchRequest->setStatus($dataComponent['research-request-status']);
+        $researchRequest->setProject($dataComponent['project']);
+        $entityManager->persist($researchRequest);
+
+        foreach ($answerList as $answers) {
+            $requestAnswers = new AnswerRequest();
+            $requestAnswers->setResearchRequest($researchRequest);
+            $requestAnswers->setName($answers['request-component-name']);
+            $requestAnswers->setAnswer($answers['answer']);
+            $entityManager->persist($requestAnswers);
+        }
+
+        $entityManager->flush();
     }
 }
