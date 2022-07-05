@@ -12,6 +12,7 @@ import './styles/app.scss';
 import './js/homePage.js';
 import './js/add_research_template.js';
 import './js/drag_and_drop.js';
+import './js/add_research_request.js';
 
 // import modal js
 import './js/modals/modal_external_link.js';
@@ -23,6 +24,7 @@ import './js/modals/modal_evaluation_scale.js';
 import './js/modals/modal_section.js';
 import './js/modals/modal_open_question.js';
 import './js/modals/modal_date_picker.js';
+import './js/modals/modal_action_menu_research_template';
 
 // Bootstrap import
 import './bootstrap';
