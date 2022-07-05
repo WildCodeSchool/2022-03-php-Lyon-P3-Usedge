@@ -6,7 +6,7 @@
                 Add details for this request
             </p>
         </div>
-        <form method ="POST" class="new-research-request-modal-content-form">
+        <form method ="POST" action="{{ path('research_request_add', {id: researchTemplate.id}) }}" class="new-research-request-modal-content-form">
             <div class="new-research-request-modal-content-select">
                 <label class="new-research-request-modal-select-label" for="research-request-project">
                     Select a project <span class="red-star">*</span>
@@ -18,10 +18,10 @@
                     <option value="Project 3">Project 3</option>
                 </select>
             </div>
-            <a class="new-research-request-link" href=""><button class="new-research-request-modal-select-button" id="new-research-request-modal-select-button">
+            <button type="submit" class="new-research-request-modal-select-button" id="new-research-request-modal-select-button">
                 <img class="new-research-request-modal-select-button-icon" src="{{ asset('build/images/icons/Path.png') }}"/>
                 Create a research request
-            </button></a>
+            </button>
         </form>
     </div>
 </div>

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New research request{% endblock %}
+
+{% block body %}
+    <header id="add-research-request-header" class="add-research-request-header">
+        <div class="add-research-request-header-logo-container">
+            <img class="add-research-request-header-logo" src="{{ asset('build/images/usedge-logo.png') }}"/>
+            <p class="add-research-request-header-title">New research request<p>
+        </div>
+        <button form="add-research-request-form" class="add-research-request-header-button" id="add-research-request-header-button">
+            <img class="add-research-request-header-button-icon" src="{{ asset('build/images/icons/logout-dark.png') }}"/>
+            <p class="add-research-request-header-button-text">Save and continue later</p>
+        </button>
+    </header>
+    <main class="add-research-request-main-content">
+        <form method="POST" action="{{ path('app_home') }}" id="add-research-request-form" class="add-research-request-form">
+            <input id="research-request-status" type="hidden" name="research-request-status">
+            <input type="hidden" name="project" value="{{ project }}">
+            <input type="hidden" name="owner" value="Jason Brand">
+            <div class="add-research-request-form-builder">
+            {% if requestComponents %}
+                {% for requestComponent in requestComponents %}
+                    {% include "research_request/components/section.html.twig" %}
+                    {% include "research_request/components/single_choice.html.twig" %}
+                    {% include "research_request/components/date_picker.html.twig" %}
+                    {% include "research_request/components/separator.html.twig" %}
+                    {% include "research_request/components/multiple_choice.html.twig" %}
+                    {% include "research_request/components/evaluation_scale.html.twig" %}
+                    {% include "research_request/components/external_link.html.twig" %}
+                    {% include "research_request/components/open_question.html.twig" %}
+                {% endfor %}
+            {% endif %}
+            </div>
+            <button type="submit" class="add-research-request-form-button" id="add-research-request-form-button">
+                <img class="add-research-request-form-button-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
+                <p class="add-research-request-form-button-text">Send/Update this research request</p>
+            </button>
+        </form>
+    </main>
+{% endblock %}

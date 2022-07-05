@@ -5,6 +5,7 @@
 @import 'newTemp.scss';
 @import 'add_research_template.scss';
 @import 'sidebar/usedge_sidebar.scss';
+@import 'add_research_request.scss';
 
 // import modals
 @import 'modals/modal_new_research_template_.scss';
@@ -36,4 +37,14 @@
 
 // import cards
 @import "cards/_research_template_card.scss";
+
+//import components in research request form (different from research template)
+@import "research-request-components/section.scss";
+@import "research-request-components/single_choice.scss";
+@import "research-request-components/date_picker.scss";
+@import "research-request-components/separator.scss";
+@import "research-request-components/multiple_choice.scss";
+@import "research-request-components/evaluation_scale.scss";
+@import "research-request-components/external_link.scss";
+@import "research-request-components/open_question.scss";
 @import "cards/_research_template_home_active_card.scss";
