@@ -77,10 +77,10 @@ class ComponentUpdateManager
             return $id;
     }
 
-/*     public function multipleChoice(): int|null
+    public function multipleChoice(): int|null
     {
             $this->compUpdateUtilsTwo->loadUpdateMultipleChoice($this->dataComponent, $this->componentId);
             $id = $this->researchTemplate->getId();
             return $id;
-    } */
+    }
 }

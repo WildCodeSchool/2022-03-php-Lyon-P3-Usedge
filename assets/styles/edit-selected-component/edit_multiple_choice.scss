@@ -1,6 +1,6 @@
 @import '../_var.scss';
 
-.single-choice-edit-form {
+.multiple-choice-edit-form {
     width: 995px;
     display: flex;
     padding: 0;
@@ -9,7 +9,7 @@
     &:hover>.handle-template-component-draggable{
         display: flex;
     }
-    .edit-component-single-choice {
+    .edit-component-multiple-choice {
         display: flex;
         flex-direction: column;
         .handle-template-component-draggable {
@@ -18,25 +18,25 @@
                 width: 22px;
             }
         }
-        .edit-component-single-choice-question {
+        .edit-component-multiple-choice-question {
             width: 868px;
             @include textStyle ($text-font, $font-size-18,
             $font-weight-600,$primary-blue-3 );
             display: flex;
             align-items: flex-start;
             font-style: normal;
-            .edit-single-choice-input {
+            .edit-multiple-choice-input {
             border-radius: 8px;
             border: 2px solid $primary-blue-2;
             }
         }
-        .edit-single-choice-answer {
-            .edit-answer-single-choice-input {
+        .edit-multiple-choice-answer {
+            .edit-answer-multiple-choice-input {
             border-radius: 8px;
             border: 2px solid $primary-blue-2;
             }
         }
-        #input-mandatory-single-choice {
+        #input-mandatory-multiple-choice {
             width: 16px;
             height: 16px;
         }

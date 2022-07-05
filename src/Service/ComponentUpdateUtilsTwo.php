@@ -3,8 +3,10 @@
 namespace App\Service;
 
 use App\Repository\AnswerRepository;
+use App\Repository\MultipleChoiceRepository;
 use App\Repository\SingleChoiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use PhpParser\Parser\Multiple;
 
 class ComponentUpdateUtilsTwo
 {
@@ -14,6 +16,7 @@ class ComponentUpdateUtilsTwo
     private SingleChoiceRepository $singleChoiceRepo;
     private RetrieveAnswers $retrieveAnswers;
     private AnswerRepository $answerRepository;
+    private MultipleChoiceRepository $multipleChoiceRepo;
 
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -21,12 +24,14 @@ class ComponentUpdateUtilsTwo
         SingleChoiceRepository $singleChoiceRepo,
         RetrieveAnswers $retrieveAnswers,
         AnswerRepository $answerRepository,
+        MultipleChoiceRepository $multipleChoiceRepo,
     ) {
         $this->entityManager = $entityManager;
         $this->checkDataUtils = $checkDataUtils;
         $this->singleChoiceRepo = $singleChoiceRepo;
         $this->retrieveAnswers = $retrieveAnswers;
         $this->answerRepository = $answerRepository;
+        $this->multipleChoiceRepo = $multipleChoiceRepo;
     }
 
     public function loadUpdateSingleChoice(array $dataComponent, int $id): void
@@ -55,43 +60,29 @@ class ComponentUpdateUtilsTwo
         }
     }
 
-
-/*     public function loadUpdateMultipleChoice(array $dataComponent, int $id): void
+    public function loadUpdateMultipleChoice(array $dataComponent, int $id): void
     {
         $entityManager = $this->entityManager;
         $multipleChoice = $this->multipleChoiceRepo->find($id);
-        $answersValue = $this->retrieveAnswers->retrieveAnswersMultiple($dataComponent);
-        $this->checkErrors = $this->checkDataUtils->checkDataSingleAndMultipleChoice($dataComponent, $answersValue);
+        $answerUpdate = $this->answerRepository->findBy(['question' => $multipleChoice]);
+        $answersUpdateValue = $this->retrieveAnswers->retrieveUpdateAnswers($dataComponent);
+        $this->checkErrors = $this->checkDataUtils
+        ->checkDataSingleAndMultipleChoice($dataComponent, $answersUpdateValue);
 
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
         }
 
         if (empty($this->checkErrors)) {
-            $entityManager = $this->entityManager;
-
+            $multipleChoice->setName($dataComponent['name']);
             $multipleChoice->setQuestion($dataComponent['question']);
             $multipleChoice->setIsMandatory($dataComponent['is_mandatory']);
-            $multipleChoice->setName($dataComponent['name']);
-            $entityManager->persist($multipleChoice); */
-/*             foreach ($answersValue as $answerValue) {
-                $answer = $this->answerRepository->getId();
-                $answer->setAnswer($answerValue);
-            } */
-/*             $orderAnswer = 0;
-            foreach ($answersValue as $answerValue) {
-                    $answer = new Answer();
-                    $answer->setAnswer($answerValue);
-                    $answer->setQuestion($multipleChoice);
-                    $answer->setNumberOrder(++$orderAnswer);
-                    $entityManager->persist($answer);
-            }
-            $templateComponent->setResearchTemplate($researchTemplate);
-            $templateComponent->setComponent($multipleChoice);
-            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
-            $entityManager->persist($templateComponent); */
 
-/*             $entityManager->flush();
+            $inputAnswerNumber  = $dataComponent['input-answer-count'];
+            for ($i = 0; $i < $inputAnswerNumber; $i++) {
+                $answerUpdate[$i]->setAnswer($answersUpdateValue[$i]);
+            }
+            $entityManager->flush();
         }
-    } */
+    }
 }
