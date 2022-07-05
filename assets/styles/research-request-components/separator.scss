@@ -1,0 +1,13 @@
+@import '../_var.scss';
+
+.request-separator-template-creation {
+    @include dimension(623px, 0);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 0;
+    .request-separator-template-content {
+        width: 623px;
+        border-bottom: 1px solid $primary-blue-2;
+    }
+}

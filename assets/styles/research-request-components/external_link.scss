@@ -1,0 +1,35 @@
+@import '../_var.scss';
+
+.request-external-link-template-creation {
+    @include dimension(623px, 76px);
+    display: flex;
+    padding: 0;
+    gap: 20px;
+    .request-external-link-template-content {
+        width: 868px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .request-external-link-template-title {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            @include dimension(100%, 50%);
+            margin-bottom: 15px;
+            line-height: 18px;
+            .request-external-link-red-star {
+                color: $secondary-red-1;
+            }
+        }
+        .request-external-link-input {
+            display: flex;
+            align-items: center;
+            @include dimension(100%, 100%);
+            #request-select-external-link {
+                height: 42px;
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                background-color: $primary-white-1;
+                border-radius: 8px;
+                border: 2px solid $primary-blue-2;
+            }
+        } 
+    }
+}

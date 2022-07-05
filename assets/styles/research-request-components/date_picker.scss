@@ -1,0 +1,40 @@
+@import '../_var.scss';
+
+
+.request-date-picker-template-creation {
+    @include dimension(623px, 76px);
+    display: flex;
+    padding: 0;
+    gap: 20px;
+    .request-date-picker-template-content {
+        width: 868px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .request-date-picker-template-title {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            margin-bottom: 15px;
+            line-height: 18px;
+            .date-picker-red-star {
+                color: $secondary-red-1;
+            }
+        }
+        .request-date-picker-input {
+            display: flex;
+            align-items: center;
+            @include dimension(538px, 100%);
+            #request-select-date {
+                height: 42px;
+                background-image: url(../../images/icons/date.png);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                background-repeat: no-repeat;
+                background-position-y: center;
+                background-position-x: 12px;
+                background-color: $primary-white-1;
+                padding: 0px 0px 0px 32px;
+                border-radius: 8px;
+                border: 2px solid $primary-blue-2;
+            }
+        } 
+    }
+}
