@@ -12,8 +12,13 @@ if (document.getElementById('reasearch-plans')) {
     const requestsCoachAssigned = document.getElementById('requests-coach-assigned');
     const plansProject = document.getElementById('plans-project');
     const plansAssignedRequest = document.getElementById('plans-assigned-request');
+    const createRequestButton = document.getElementById('create-request');
+    const researchCenterAvailableTemplates = document.getElementById('research-center-available-templates');
+    const researchCenterAvailableTemplatesClose = document.getElementById('available-templates-header-close');
+    const researchTemplateActiveCardButtons = document.querySelectorAll('.research-template-list-active-card-link-button');
+    const researchRequestModals = document.querySelectorAll('.new-research-request-modal');
+    const researchRequestModalClose = document.querySelectorAll('.new-research-request-modal-close');
 
-    
     researchRequests.onchange = function() {
         researchPlans.checked = true;
         if(researchRequests.checked == true && researchPlans.checked == true){
@@ -66,5 +71,26 @@ if (document.getElementById('reasearch-plans')) {
             plansProject.className = 'sort';
             plansAssignedRequest.className = 'sort';
         } 
+    }
+
+    // function used to open the availables templates popup
+    createRequestButton.addEventListener('click', () => {
+        researchCenterAvailableTemplates.classList.add('research-center-available-templates-display');
+    });
+
+    // function used to close the availables templates popup
+    researchCenterAvailableTemplatesClose.addEventListener('click', () => {
+        researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
+
+    });  
+
+    // function used to open and close research request creation modals
+    for (let i = 0; i < researchTemplateActiveCardButtons.length; i++) {
+        researchTemplateActiveCardButtons[i].addEventListener('click', () => {
+            researchRequestModals[i].classList.add('new-research-request-modal-display');
+        });
+        researchRequestModalClose[i].addEventListener('click', () => {
+            researchRequestModals[i].classList.remove('new-research-request-modal-display');
+        })
     }
 }
