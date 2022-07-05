@@ -28,6 +28,7 @@ class HomeController extends AbstractController
             $requestUtils->addResearchRequest($dataComponent, $answerList);
             return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }
+
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
         $researchRequests = $researchRequestRepo->findBy([], ['id' => 'DESC']);
 
