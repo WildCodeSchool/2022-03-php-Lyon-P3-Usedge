@@ -24,7 +24,7 @@ import './js/modals/modal_evaluation_scale.js';
 import './js/modals/modal_section.js';
 import './js/modals/modal_open_question.js';
 import './js/modals/modal_date_picker.js';
-import './js/modals/modal_action_menu_research_template';
+import './js/modals/modal_action_menu_research_template.js';
 
 // Bootstrap import
 import './bootstrap';
