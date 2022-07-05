@@ -32,6 +32,9 @@ class ResearchRequest
     #[ORM\Column(type: 'string', length: 255)]
     private string $project;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $owner;
+
     public function __construct()
     {
         $this->answerRequests = new ArrayCollection();
@@ -111,6 +114,18 @@ class ResearchRequest
     public function setProject(string $project): self
     {
         $this->project = $project;
+
+        return $this;
+    }
+
+    public function getOwner(): ?string
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(string $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
