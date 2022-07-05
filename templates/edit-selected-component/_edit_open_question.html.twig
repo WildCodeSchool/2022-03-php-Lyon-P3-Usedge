@@ -12,7 +12,7 @@
                 <div class="edit-open-question-answer">
                     {% set i = 0 %}
                     {% for answer in templateComponent.component.answers %}
-                        <input type="text" class="form-control edit-answer-open-question-input" name="answer-update-{{i}}" value="{{answer.answer}}">
+                        <input type="text" class="form-control mb-1 edit-answer-open-question-input" name="answer-update-{{i}}" value="{{answer.answer}}">
                     {% set i = i + 1 %}
                     {% endfor %}
                     <input type="hidden" name="input-answer-count" value="{{i}}">
@@ -21,11 +21,11 @@
                     {% if  templateComponent.component.addAHelpertext is same as true  %}
                         <input type="checkbox" id="addAHelpertext" name="addHelpertext" checked>
                         <label for="addAHelpertext" class="helpertext">Add a helper text</label>
-                        <input type="text" class="form-control edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
+                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
                     {% else %}
                         <input type="checkbox" id="addAHelpertext" name="addHelpertext">
                         <label for="addAHelpertext">Add a helper text</label>
-                        <input type="text" class="form-control edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
+                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
                     {% endif %}
                 </div>
                 <div>
