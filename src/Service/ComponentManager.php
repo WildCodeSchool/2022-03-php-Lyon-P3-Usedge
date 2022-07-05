@@ -17,6 +17,7 @@ class ComponentManager
         'separator' => 'separator',
         'date-picker' => 'datePicker',
         'external-link' => 'externalLink',
+        'open-question' => 'openQuestion',
     ];
 
     public function __construct(ComponentUtils $componentUtils)
@@ -79,6 +80,13 @@ class ComponentManager
     public function externalLink(): int|null
     {
             $this->componentUtils->loadExternalLink($this->dataComponent, $this->researchTemplate);
+            $id = $this->researchTemplate->getId();
+            return $id;
+    }
+
+    public function openQuestion(): int|null
+    {
+            $this->componentUtils->loadOpenQuestion($this->dataComponent, $this->researchTemplate);
             $id = $this->researchTemplate->getId();
             return $id;
     }
