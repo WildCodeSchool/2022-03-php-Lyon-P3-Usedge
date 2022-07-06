@@ -7,7 +7,7 @@
             <div class="edit-component-date-picker">
                 <div class="edit-component-date-picker-title">
                     <input type="hidden" id="update-date-picker-name" name="name" value="date-picker">
-				    <input class="form-control edit-date-picker-input" type="text" name="title-date-picker" value="{{ templateComponent.component.title}}">
+				    <input class="form-control mt-1 edit-date-picker-input" type="text" name="title-date-picker" value="{{ templateComponent.component.title}}" required>
                 </div>
                 <div>
                     {% include 'edit-selected-component/_edit_is_mandatory.html.twig' %}
@@ -15,8 +15,8 @@
             </div>
             <div class="section-actions">
                 <button class="update-button">Edit</button>
-                <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
             </div>
+            <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
         </form>
 	{% else %}
 		{% include 'display-selected-component/_display_date_picker.html.twig' %}
