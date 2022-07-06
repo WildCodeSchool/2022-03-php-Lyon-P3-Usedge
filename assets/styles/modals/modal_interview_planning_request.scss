@@ -73,6 +73,46 @@
         width: 800px;
         border-bottom: 1px solid $primary-grey-5;
     }
+
+    .research-plan-information-container {
+        padding: 21px 35px;
+        width: 100%;
+        height: 106px;
+        background: $primary-white-1;
+        border: 1px solid $primary-blue-2;
+        box-shadow: 0px 0px 7px rgba(101, 128, 255, 0.2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .research-plan-information {
+            @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-1);
+            letter-spacing: 0.116667px;
+            margin-top: auto;
+            margin-bottom: 5px;
+        }
+
+        .research-plan-information-detail {
+            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-3);
+            width: 527px;
+            font-style: normal;
+            line-height: 18px;
+            margin-bottom: auto;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include button($primary-blue-1, $border-radius-10, 0);
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+            @include dimension(189px, 42px);
+            text-align: center;
+            padding: 12px;
+            gap: 5px;
+        }
+    }
 }
 
 .modal-interview-planning-request-display {
