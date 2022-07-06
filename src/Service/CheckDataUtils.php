@@ -124,8 +124,11 @@ class CheckDataUtils
         if (strlen($dataComponent['open_question-question']) > 255) {
             $this->checkErrors[] = 'Maximum length for question is 255 characters.';
         }
-        if (empty($dataComponent['open_question-question']) && empty($dataComponent['open-question-answer'])) {
-                $this->checkErrors[] = 'This field is mandatory.';
+        if (empty($dataComponent['open_question-question'])) {
+            $this->checkErrors[] = 'This field is mandatory.';
+        }
+        if (empty($dataComponent['open-question-answer'])) {
+            $this->checkErrors[] = 'This field is mandatory.';
         }
         if (strlen($dataComponent['open-question-answer']) > 255) {
             $this->checkErrors[] = 'Maximum length for Answer is 255 characters.';
