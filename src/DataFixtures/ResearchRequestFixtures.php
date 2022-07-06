@@ -26,7 +26,7 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
                 $researchRequest->setStatus($status[array_rand($status)]);
                 $researchRequest->setProject('Webb app');
                 $researchRequest->setOwner($faker->name());
-                $this->addReference('researchRequest_' . $requestNumber, $researchRequest);
+                $this->setReference('researchRequest_' . $requestNumber, $researchRequest);
                 $requestNumber++;
                 $manager->persist($researchRequest);
             }

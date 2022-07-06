@@ -28,7 +28,7 @@ class ResearchTemplateFixtures extends Fixture
             $researchTemplate->setCoach($faker->name());
             $researchTemplate->setIcon($icons[array_rand($icons)]);
             $researchTemplate->setStatus($status[array_rand($status)]);
-            $this->addReference('researchTemplate_' . $t, $researchTemplate);
+            $this->setReference('researchTemplate_' . $t, $researchTemplate);
             $manager->persist($researchTemplate);
         }
         $manager->flush();
