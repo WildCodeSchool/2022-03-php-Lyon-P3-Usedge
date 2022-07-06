@@ -12,7 +12,7 @@ class ResearchRequestUtils
 {
     private EntityManagerInterface $entityManager;
     private ResearchTemplateRepository $resTempRepository;
-    //private array $checkErrors = [];
+    private array $checkErrors = [];
 
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -28,7 +28,6 @@ class ResearchRequestUtils
         foreach ($dataComponent as $specification => $data) {
             if (str_contains($specification, 'request-component-id')) {
                 $componentIdList[] = $data;
-                unset($dataComponent['request-component-id-' . $data]);
             }
         }
 
@@ -42,22 +41,37 @@ class ResearchRequestUtils
                             'request-component-name' => $dataComponent['request-component-name-' . $componentId],
                             'answer' => $dataComponent['answer-' . $componentId . '-' . $i]
                         ];
-                        unset($dataComponent['answer-' . $componentId . '-' . $i]);
                     }
                 }
-                unset($dataComponent['request-component-name-' . $componentId]);
-                unset($dataComponent['counter-answer-' . $componentId]);
                 continue;
             }
             $answerList[] = [
                 'request-component-name' => $dataComponent['request-component-name-' . $componentId],
                 'answer' => $dataComponent['answer-' . $componentId]
             ];
-            unset($dataComponent['request-component-name-' . $componentId]);
-            unset($dataComponent['answer-' . $componentId]);
         }
 
         return $answerList;
+    }
+
+    public function researchRequestCheckErrors(array $answerList): array
+    {
+        foreach ($answerList as $answer) {
+            switch ($answer['request-component-name']) {
+                case 'date-picker':
+                    if (!preg_match("/\d{4}\-\d{2}-\d{2}/", $answer['answer'])) {
+                        $this->checkErrors[] = "This format of date is not available.";
+                    }
+                    break;
+                case 'external-link':
+                    if (!filter_var($answer['answer'], FILTER_VALIDATE_URL)) {
+                        $this->checkErrors[] = "The URL is not valid.";
+                    }
+                    break;
+            }
+        }
+
+        return $this->checkErrors;
     }
 
     public function addResearchRequest(array $dataComponent, array $answerList): void

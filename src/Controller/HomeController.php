@@ -25,10 +25,11 @@ class HomeController extends AbstractController
 
         if (!empty($dataComponent)) {
             $answerList = $requestUtils->researchRequestSortAnswer($dataComponent);
-            //var_dump($dataComponent, $answerList);
-            //die();
-            $requestUtils->addResearchRequest($dataComponent, $answerList);
-            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+            $requestErrors = $requestUtils->researchRequestCheckErrors($answerList);
+            if (empty($requestErrors)) {
+                $requestUtils->addResearchRequest($dataComponent, $answerList);
+                return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+            }
         }
 
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
