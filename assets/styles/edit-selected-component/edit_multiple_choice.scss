@@ -9,15 +9,15 @@
     &:hover>.handle-template-component-draggable{
         display: flex;
     }
+    .handle-template-component-draggable {
+        @include dimension(22px, 21px);
+        img {
+            width: 22px;
+        }
+    }
     .edit-component-multiple-choice {
         display: flex;
         flex-direction: column;
-        .handle-template-component-draggable {
-            @include dimension(22px, 21px);
-            img {
-                width: 22px;
-            }
-        }
         .edit-component-multiple-choice-question {
             width: 868px;
             @include textStyle ($text-font, $font-size-18,
@@ -36,7 +36,7 @@
             border: 2px solid $primary-blue-2;
             }
         }
-        #input-mandatory-multiple-choice {
+        #input-mandatory {
             width: 16px;
             height: 16px;
         }
@@ -62,5 +62,10 @@
                 align-items: center;
                 padding: 12px;
         }
+    }
+    .close-edit {
+        text-decoration: none;
+        font-size: 30px;
+        color: $primary-grey-1;
     }
 }
