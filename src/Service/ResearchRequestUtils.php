@@ -55,7 +55,7 @@ class ResearchRequestUtils
             unset($dataComponent['request-component-name-' . $componentId]);
             unset($dataComponent['answer-' . $componentId]);
         }
-        var_dump($answerList, $dataComponent);
+
         return $answerList;
     }
 
