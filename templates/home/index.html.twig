@@ -77,7 +77,7 @@
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
-                                        <img class="template-icon" src="{{ asset('build/' ~ researchRequest.researchTemplate.icon ~ '')}}">
+                                        <img class="template-icon" src="{{ asset(researchRequest.researchTemplate.icon)}}">
                                         <div class="view-request-type-content">
                                         <p class="requestType">User interview</p>
                                         <p>{{ researchRequest.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
