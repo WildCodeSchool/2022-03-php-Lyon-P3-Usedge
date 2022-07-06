@@ -27,6 +27,7 @@ class ResearchRequestUtils
         foreach ($dataComponent as $specification => $data) {
             if (str_contains($specification, 'request-component-id')) {
                 $componentIdList[] = $data;
+                unset($dataComponent['request-component-id-' . $data]);
             }
         }
 
@@ -40,16 +41,21 @@ class ResearchRequestUtils
                             'request-component-name' => $dataComponent['request-component-name-' . $componentId],
                             'answer' => $dataComponent['answer-' . $componentId . '-' . $i]
                         ];
+                        unset($dataComponent['answer-' . $componentId . '-' . $i]);
                     }
                 }
+                unset($dataComponent['request-component-name-' . $componentId]);
+                unset($dataComponent['counter-answer-' . $componentId]);
                 continue;
             }
             $answerList[] = [
                 'request-component-name' => $dataComponent['request-component-name-' . $componentId],
                 'answer' => $dataComponent['answer-' . $componentId]
             ];
+            unset($dataComponent['request-component-name-' . $componentId]);
+            unset($dataComponent['answer-' . $componentId]);
         }
-
+        var_dump($answerList, $dataComponent);
         return $answerList;
     }
 
