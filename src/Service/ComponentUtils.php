@@ -198,7 +198,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($openQuestion);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();

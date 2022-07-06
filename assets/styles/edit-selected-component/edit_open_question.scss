@@ -16,7 +16,7 @@
         }
     }
     .edit-component-open-question {
-        .edit-component-open-question {
+        .edit-open-question {
             width: 868px;
             @include textStyle ($text-font, $font-size-18,
             $font-weight-600,$primary-blue-3 );
@@ -50,7 +50,7 @@
                 border: 2px solid $primary-blue-2;
             }
         }
-        #input-mandatory-open-question {
+        #input-mandatory {
             width: 16px;
             height: 16px;
             margin-top: 2px;
@@ -77,5 +77,10 @@
                 align-items: center;
                 padding: 12px;
         }
+    }
+    .close-edit {
+        text-decoration: none;
+        font-size: 30px;
+        color: $primary-grey-1;
     }
 }

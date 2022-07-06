@@ -5,13 +5,13 @@
                 <img src="{{ asset('build/images/icons/burger.png') }}"/>
             </div>
             <div class="edit-component-open-question">
-                <div class="edit-component-open-question">
+                <div class="edit-open-question">
                     <input type="hidden" id="update-open-question-name" name="name" value="open-question">
-                    <input class="form-control mb-1 edit-open-question-input" type="text" name="open_question-question" value="{{ templateComponent.component.question}}">
+                    <input class="form-control mb-1 edit-open-question-input" type="text" name="open_question-question" value="{{ templateComponent.component.question}}" required>
                 </div>
                 <div class="edit-open-question-answer">
                     {% for answer in templateComponent.component.answers %}
-                        <input type="text" class="form-control mb-1 edit-answer-open-question-input" name="open-question-answer" value="{{answer.answer}}">
+                        <input type="text" class="form-control mb-1 edit-answer-open-question-input" name="open-question-answer" value="{{answer.answer}}" required>
                     {% endfor %}
                 </div>
                 <div class="open-question-helpertext">
@@ -21,8 +21,8 @@
                         <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
                     {% else %}
                         <input type="checkbox" id="addAHelpertext" name="addHelpertext">
-                        <label for="addAHelpertext">Add a helper text</label>
-                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
+                        <label for="addAHelpertext" class="helpertext">Add a helper text</label>
+                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="">
                     {% endif %}
                 </div>
                 <div>
@@ -31,8 +31,8 @@
             </div>
             <div class="section-actions">
 			    <button class="update-button">Edit</button>
-                <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
 		    </div>
+             <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
         </form>
     {% else %}
 		{% include 'display-selected-component/_display_open_question.html.twig' %}

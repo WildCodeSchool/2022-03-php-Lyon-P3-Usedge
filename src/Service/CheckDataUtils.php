@@ -128,9 +128,6 @@ class CheckDataUtils
         if (strlen($dataComponent['open-question-answer']) > 255) {
             $this->checkErrors[] = 'Maximum length for Answer is 255 characters.';
         }
-        if ($dataComponent['addHelpertext'] == true) {
-            $this->checkErrors[] = 'This field is mandatory.';
-        }
         return $this->checkErrors;
     }
 }
