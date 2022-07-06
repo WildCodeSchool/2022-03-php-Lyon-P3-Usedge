@@ -22,6 +22,9 @@ class AnswerRequest
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $name;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $question;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class AnswerRequest
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?string
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(string $question): self
+    {
+        $this->question = $question;
 
         return $this;
     }
