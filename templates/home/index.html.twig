@@ -53,9 +53,11 @@
             <div class="requests-list" id="requests-list">
                 <div class="requests-header">
                     <div>
-                        <p class="requests-quantity">{{ researchRequests|length }} requests submitted by your team</p>
+                        
                         {% if researchRequests is empty %}
                             <p>No requests submitted by your team</p>
+                        {% else %}
+                            <p class="requests-quantity">{{ researchRequests|length }} requests submitted by your team</p>
                         {% endif %}
                         <p>You can view here all the research requests submitted</p>
                     </div>
