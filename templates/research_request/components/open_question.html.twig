@@ -1,6 +1,7 @@
 {% if "open-question" in requestComponent.component.name %}
     <div class="research-open-question-creation-modal" id="open-question-creation-modal">
         <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
+            <input type="hidden" name="request-component-question-{{ requestComponent.component.id }}" value="{{requestComponent.component.question}}">
         <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
         <p class="research-open-question-template-question" id="open-question-template-question">
             {{ requestComponent.component.question }}

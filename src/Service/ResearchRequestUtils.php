@@ -47,7 +47,8 @@ class ResearchRequestUtils
             }
             $answerList[] = [
                 'request-component-name' => $dataComponent['request-component-name-' . $componentId],
-                'answer' => $dataComponent['answer-' . $componentId]
+                'answer' => $dataComponent['answer-' . $componentId],
+                'question' => $dataComponent['request-component-question-' . $componentId]
             ];
         }
 
