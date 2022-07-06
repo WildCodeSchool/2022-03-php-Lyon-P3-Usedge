@@ -12,6 +12,7 @@ class ResearchRequestUtils
 {
     private EntityManagerInterface $entityManager;
     private ResearchTemplateRepository $resTempRepository;
+    //private array $checkErrors = [];
 
     public function __construct(
         EntityManagerInterface $entityManager,
