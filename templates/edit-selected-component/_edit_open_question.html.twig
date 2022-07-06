@@ -10,12 +10,9 @@
                     <input class="form-control mb-1 edit-open-question-input" type="text" name="open_question-question" value="{{ templateComponent.component.question}}">
                 </div>
                 <div class="edit-open-question-answer">
-                    {% set i = 0 %}
                     {% for answer in templateComponent.component.answers %}
-                        <input type="text" class="form-control mb-1 edit-answer-open-question-input" name="answer-update-{{i}}" value="{{answer.answer}}">
-                    {% set i = i + 1 %}
+                        <input type="text" class="form-control mb-1 edit-answer-open-question-input" name="open-question-answer" value="{{answer.answer}}">
                     {% endfor %}
-                    <input type="hidden" name="input-answer-count" value="{{i}}">
                 </div>
                 <div class="open-question-helpertext">
                     {% if  templateComponent.component.addAHelpertext is same as true  %}
