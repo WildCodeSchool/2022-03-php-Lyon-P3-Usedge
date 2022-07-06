@@ -27,11 +27,6 @@
         border: 2px solid $primary-blue-2;
         }  
     }
-    .close-edit {
-        text-decoration: none;
-        font-size: 30px;
-        color: $primary-grey-1;
-    }
     .section-actions {
         align-items: center;
         width: 86px;
@@ -49,5 +44,10 @@
                 align-items: center;
                 padding: 12px;
         }
+    }
+    .close-edit {
+        text-decoration: none;
+        font-size: 30px;
+        color: $primary-grey-1;
     }
 }

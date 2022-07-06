@@ -1,8 +1,8 @@
 {# template edit is_mandatory #}
 {% if  templateComponent.component.isMandatory is same as true  %}
-    <input type="checkbox" id="input-mandatory-multiple-choice" name="is_mandatory" checked>
+    <input type="checkbox" id="input-mandatory" name="is_mandatory" checked>
     <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
 {% else %}
-    <input type="checkbox" id="input-mandatory-multiple-choice" name="is_mandatory">
+    <input type="checkbox" id="input-mandatory" name="is_mandatory">
     <label for="is_mandatory" class="input_mandatory">This field is mandatory</label>
 {% endif %}

@@ -7,12 +7,12 @@
             <div class="edit-component-single-choice">
                 <div class="edit-component-single-choice-question">
                     <input type="hidden" id="update-single-choice-name" name="name" value="single-choice">
-                    <input class="form-control mb-1 edit-single-choice-input" type="text" name="question" value="{{ templateComponent.component.question}}">
+                    <input class="form-control mb-1 edit-single-choice-input" type="text" name="question" value="{{ templateComponent.component.question}}" required>
                 </div>
                 <div class="edit-single-choice-answer">
                     {% set i = 0 %}
                     {% for answer in templateComponent.component.answers %}
-                        <input class="form-control mt-1 edit-answer-single-choice-input" type="text" name="answer-update-{{i}}" value="{{answer.answer}}">
+                        <input class="form-control mt-1 edit-answer-single-choice-input" type="text" name="answer-update-{{i}}" value="{{answer.answer}}" required>
                     {% set i = i + 1 %}
                     {% endfor %} 
                     <input type="hidden" name="input-answer-count" value="{{i}}">
@@ -23,8 +23,8 @@
             </div>
             <div class="section-actions">
 			    <button class="update-button">Edit</button>
-                <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
 		    </div>
+            <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
         </form>
     {% else %}
 		{% include 'display-selected-component/_display_single_choice.html.twig' %}

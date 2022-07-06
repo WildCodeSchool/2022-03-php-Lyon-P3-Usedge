@@ -28,15 +28,12 @@ class CheckDataUtils
                 $this->checkErrors[] = 'All fields are mandatory.';
             }
         }
-
         if (strlen($dataComponent['question']) > 255) {
             $this->checkErrors[] = 'Maximum length for question is 255 characters.';
         }
-
         if (empty($answersValue)) {
             $this->checkErrors[] = 'At least one choice is mandatory.';
         }
-
         foreach ($answersValue as $answerValue) {
             if (strlen($answerValue) > 255) {
                 $this->checkErrors[] = 'Maximum length for Answer is 255 characters.';
@@ -52,11 +49,9 @@ class CheckDataUtils
                 $this->checkErrors[] = 'All fields are mandatory.';
             }
         }
-
         if (strlen($dataComponent['low-label']) > 255) {
             $this->checkErrors[] = 'Maximum length for low label is 255 characters.';
         }
-
         if (strlen($dataComponent['high-label']) > 255) {
             $this->checkErrors[] = 'Maximum length for high label is 255 characters.';
         }
