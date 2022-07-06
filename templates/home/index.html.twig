@@ -7,11 +7,10 @@
         {% include "home/modals/_modal_available_templates.html.twig" %}
         <header class="header">
             <div class="header-title">
-                {% include "home/_research_center_title.html.twig" %}
-                {% include "home/_display_quantity_of_elements.html.twig" %}
-                {% if researchRequests is empty %}
-                    <p>No requests submitted by your team</p>
-                {% endif %}
+                <p>RESEARCH CENTER</p>
+                <p>Research requests and plan management</p>
+
+                
             </div>
             <a href="{{ path("research_template_index")}}"><button type="submit" class="view-session">View requests templates</button></a>
         </header>
@@ -54,7 +53,10 @@
             <div class="requests-list" id="requests-list">
                 <div class="requests-header">
                     <div>
-                        <p>Research requests</p>
+                        <p class="requests-quantity">{{ researchRequests|length }} requests submitted by your team</p>
+                        {% if researchRequests is empty %}
+                            <p>No requests submitted by your team</p>
+                        {% endif %}
                         <p>You can view here all the research requests submitted</p>
                     </div>
                     <button id="create-request"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research request</button>
@@ -127,7 +129,7 @@
             <div class="plans-list-none" id="plans-list-none">
                 <div class="plans-header">
                     <div>
-                        <p>Research plans</p>
+                        <p class="plans-quantity">No plans available</p>
                         <p>You can view here all the research plans created</p>
                     </div>
                     <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>

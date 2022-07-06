@@ -8,25 +8,12 @@
         display: flex;
         flex-direction: column;
         padding: 0;
-        .research-center-title-requests {
+        p {
+            @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
             margin: 0;
-            @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-grey-4);
-        }
-        .research-center-title-plans-none{
-            display: none;
-        }
-        .research-center-title-all-requests-none {
-            display: none;
-        }
-        .requests-quantity {
-            margin: 0;
-            @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-5);
-        }
-        .plans-quantity-none {
-            display: none;
-        }
-        .all-elements-quantity-none{
-            display: none;
+            &:nth-child(2) {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+            }
         }
     }
     .view-session {
@@ -144,11 +131,17 @@
                 border-bottom: 1px solid $primary-grey-5;
                 padding-bottom: 20px;
                 p {
-                    @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
-                    margin: 0;
                     &:nth-child(2) {
                         @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                     }
+                }
+                .plans-quantity {
+                    margin: 0;
+                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                }
+                .requests-quantity {
+                    margin: 0;
+                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
                 }
                 #create-request {
                     display: flex;
@@ -349,34 +342,6 @@
             display: none;
         }
     }
-}
-
-.research-center-title-requests-none {
-    display: none;
-}
-
-.research-center-title-plans{
-    margin: 0;
-    @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-grey-4);
-}
-
-.research-center-title-all-requests {
-    margin: 0;
-    @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-grey-4);
-}
-
-.requests-quantity-none {
-  
-    display: none;
-}
-.plans-quantity {
-    margin: 0;
-    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-5);
-}
-
-.all-elements-quantity {
-    margin: 0;
-    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-5);
 }
 
 .share-requests-list {
