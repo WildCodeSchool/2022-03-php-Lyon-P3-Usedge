@@ -16,13 +16,13 @@
                 </div>
                 <div class="open-question-helpertext">
                     {% if  templateComponent.component.addAHelpertext is same as true  %}
-                        <input type="checkbox" id="addAHelpertext" name="addHelpertext" checked>
+                        <input type="checkbox" id="editAddAHelpertext" name="addHelpertext" checked>
                         <label for="addAHelpertext" class="helpertext">Add a helper text</label>
-                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="{{templateComponent.component.helperText}}">
+                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" id="checkbox-helper-text" name="helperText" value="{{templateComponent.component.helperText}}" required>
                     {% else %}
-                        <input type="checkbox" id="addAHelpertext" name="addHelpertext">
+                        <input type="checkbox" id="editAddAHelpertext" name="addHelpertext">
                         <label for="addAHelpertext" class="helpertext">Add a helper text</label>
-                        <input type="text" class="form-control mb-1 edit-answer-helpertext-input" name="helperText" value="">
+                        <input type="hidden" class="form-control mb-1 edit-answer-helpertext-input" id="checkbox-helper-text" name="helperText" value="" required>
                     {% endif %}
                 </div>
                 <div>

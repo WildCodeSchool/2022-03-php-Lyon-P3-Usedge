@@ -108,11 +108,12 @@ class ComponentUpdateUtilsTwo
             $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
             if ($dataComponent['addHelpertext'] == true) {
                 $openQuestion->setHelperText($dataComponent['helperText']);
-            } elseif ($dataComponent['addHelpertext'] == false) {
-                $openQuestion->setHelperText('');
+            } else {
+                $openQuestion->setHelperText();
             }
             $openQuestion->setIsMandatory($dataComponent['is_mandatory']);
             $answerUpdate->setAnswer($dataComponent['open-question-answer']);
+
             $entityManager->flush();
         }
     }

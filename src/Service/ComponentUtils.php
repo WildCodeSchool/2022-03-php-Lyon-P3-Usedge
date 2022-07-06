@@ -193,7 +193,7 @@ class ComponentUtils
             $answer = new Answer();
             $answer->setAnswer($dataComponent['open-question-answer']);
             $answer->setQuestion($openQuestion);
-            $answer->setNumberOrder(4);
+            $answer->setNumberOrder(1);
             $entityManager->persist($answer);
 
             $templateComponent->setResearchTemplate($researchTemplate);

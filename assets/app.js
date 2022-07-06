@@ -8,6 +8,9 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 
+//import edit
+import './js/modals/edit_open_question.js';
+
 // import main page js
 import './js/homePage.js';
 import './js/add_research_template.js';
