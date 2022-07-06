@@ -15,8 +15,8 @@
 			</div>
 			<div class="section-actions">
 				<button class="update-button">Edit</button>
-				<a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
 			</div>
+			<a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
 		</form>
 	{% else %}
 		{% include 'display-selected-component/_display_external_link.html.twig' %}
