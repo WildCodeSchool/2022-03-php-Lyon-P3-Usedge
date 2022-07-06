@@ -94,7 +94,6 @@ class ComponentUpdateUtilsTwo
         $entityManager = $this->entityManager;
         $openQuestion = $this->openQuestionRepo->find($id);
         $answerUpdate = $this->answerRepository->findOneBy(['question' => $openQuestion]);
-        $this->checkErrors = $this->checkDataUtils->checkUpdateOpenQuestion($dataComponent);
 
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
@@ -108,11 +107,13 @@ class ComponentUpdateUtilsTwo
             $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
             if ($dataComponent['addHelpertext'] == true) {
                 $openQuestion->setHelperText($dataComponent['helperText']);
-            } else {
+            } elseif ($dataComponent['addHelpertext'] == false) {
                 $openQuestion->setHelperText('');
             }
             $openQuestion->setIsMandatory($dataComponent['is_mandatory']);
             $answerUpdate->setAnswer($dataComponent['open-question-answer']);
+
+            $this->checkErrors = $this->checkDataUtils->checkUpdateOpenQuestion($dataComponent);
             $entityManager->flush();
         }
     }
