@@ -32,6 +32,7 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
                             $answerRequest->setResearchRequest($this->getReference('researchRequest_' . $r));
                             $answerRequest->setName($name);
                             $answerRequest->setAnswer($faker->sentence(1));
+                            $answerRequest->setQuestion($faker->sentence(1));
                             $manager->persist($answerRequest);
                         }
                     } else {
@@ -39,6 +40,7 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
                         $answerRequest->setResearchRequest($this->getReference('researchRequest_' . $r));
                         $answerRequest->setName($name);
                         $answerRequest->setAnswer($faker->sentence(1));
+                        $answerRequest->setQuestion($faker->sentence(1));
 
                         $manager->persist($answerRequest);
                     }
