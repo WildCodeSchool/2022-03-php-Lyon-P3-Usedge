@@ -70,6 +70,7 @@ class ResearchRequestUtils
         $researchRequest->setCreationDate($creationDate);
         $researchRequest->setStatus($dataComponent['research-request-status']);
         $researchRequest->setProject($dataComponent['project']);
+        $researchRequest->setOwner($dataComponent['owner']);
         $entityManager->persist($researchRequest);
 
         foreach ($answerList as $answers) {
