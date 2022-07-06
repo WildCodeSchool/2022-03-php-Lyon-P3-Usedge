@@ -75,5 +75,4 @@ if (document.getElementById('add-research-request-header')) {
             e.preventDefault();
         }
     });
-
 }
