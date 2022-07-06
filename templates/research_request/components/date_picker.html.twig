@@ -9,9 +9,15 @@
                     <span class="date-picker-red-star" id="date-picker-red-star">*</span>
                 {% endif %}
             </p>
+            {% if requestComponent.component.isMandatory %}
+            <div class="request-date-picker-input">
+                <input type="date" name="answer-{{ requestComponent.component.id }}" class="form-control request-answer-input" id="request-select-date" required>
+            </div>
+            {% else %}
             <div class="request-date-picker-input">
                 <input type="date" name="answer-{{ requestComponent.component.id }}" class="form-control request-answer-input" id="request-select-date">
             </div>
+            {% endif %}
         </div>
     </div>
 {% endif %}

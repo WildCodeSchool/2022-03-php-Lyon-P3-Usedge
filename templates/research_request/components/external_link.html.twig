@@ -9,9 +9,15 @@
 					<span class="request-external-link-red-star" id="external-link-red-star">*</span>
 				{% endif %}
 			</p>
+            {% if requestComponent.component.isMandatory %}
+			<div class="request-external-link-input">
+				<input class="request-answer-input" type="url" name="answer-{{ requestComponent.component.id }}" class="form-control" id="request-select-external-link" placeholder="https://www.google.com/..." required>
+			</div>
+            {% else %}
 			<div class="request-external-link-input">
 				<input class="request-answer-input" type="url" name="answer-{{ requestComponent.component.id }}" class="form-control" id="request-select-external-link" placeholder="https://www.google.com/...">
 			</div>
+            {% endif %}
 		</div>
 	</div>
 {% endif %}

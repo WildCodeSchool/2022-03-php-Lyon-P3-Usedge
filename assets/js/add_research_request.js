@@ -3,6 +3,8 @@ if (document.getElementById('add-research-request-header')) {
     const bodyWithSideBar = document.querySelector('body');
     const newResearchRequestHeaderButton = document.getElementById('add-research-request-header-button');
     const newResearchRequestFormButton = document.getElementById('add-research-request-form-button');
+    const requiredCheckbox = document.querySelectorAll('.required');
+    const requiredEvaluationScale = document.querySelectorAll('.ratinginput');
 
     bodyWithSideBar.classList.remove('body');
     bodyWithSideBar.classList.add('body-without-sidebar');
@@ -22,14 +24,56 @@ if (document.getElementById('add-research-request-header')) {
         });
     }
 
-    newResearchRequestHeaderButton.addEventListener('click', () => {
+    newResearchRequestHeaderButton.addEventListener('click', (e) => {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'Draft';
+        let countCheckboxRequired = 0;
+        requiredCheckbox.forEach(checkbox => {
+            if (checkbox.checked == true) {
+                countCheckboxRequired++;
+            }
+        });
+        if (countCheckboxRequired === 0) {
+            alert('All stared fields are mandatory');
+            e.preventDefault();
+        }
+
+        let countEvalScaleRequired = 0;
+        requiredEvaluationScale.forEach(evaluationScale => {
+            if (evaluationScale.checked == true) {
+                countEvalScaleRequired++;
+            }
+        });
+        if (countEvalScaleRequired === 0) {
+            alert('All stared fields are mandatory');
+            e.preventDefault();
+        }
     });
 
-    newResearchRequestFormButton.addEventListener('click', () => {
+    newResearchRequestFormButton.addEventListener('click', (e) => {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'Waiting list';
+        let countCheckboxRequired = 0;
+        requiredCheckbox.forEach(checkbox => {
+            if (checkbox.checked == true) {
+                countCheckboxRequired++;
+            }
+        });
+        if (countCheckboxRequired === 0) {
+            alert('All stared fields are mandatory');
+            e.preventDefault();
+        }
+
+        let countEvalScaleRequired = 0;
+        requiredEvaluationScale.forEach(evaluationScale => {
+            if (evaluationScale.checked == true) {
+                countEvalScaleRequired++;
+            }
+        });
+        if (countEvalScaleRequired === 0) {
+            alert('All stared fields are mandatory');
+            e.preventDefault();
+        }
     });
 
 }
