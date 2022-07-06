@@ -24,12 +24,12 @@ if (document.getElementById('add-research-request-header')) {
 
     newResearchRequestHeaderButton.addEventListener('click', () => {
         const statusInput = document.getElementById('research-request-status');
-        statusInput.value = 'draft';
+        statusInput.value = 'Draft';
     });
 
     newResearchRequestFormButton.addEventListener('click', () => {
         const statusInput = document.getElementById('research-request-status');
-        statusInput.value = 'waiting list';
+        statusInput.value = 'Waiting list';
     });
 
 }
