@@ -39,7 +39,8 @@ class ResearchRequestUtils
                     if (isset($dataComponent['answer-' . $componentId . '-' . $i])) {
                         $answerList[] = [
                             'request-component-name' => $dataComponent['request-component-name-' . $componentId],
-                            'answer' => $dataComponent['answer-' . $componentId . '-' . $i]
+                            'answer' => $dataComponent['answer-' . $componentId . '-' . $i],
+                            'question' => $dataComponent['request-component-question-' . $componentId]
                         ];
                     }
                 }
@@ -94,6 +95,7 @@ class ResearchRequestUtils
             $requestAnswers->setResearchRequest($researchRequest);
             $requestAnswers->setName($answers['request-component-name']);
             $requestAnswers->setAnswer($answers['answer']);
+            $requestAnswers->setQuestion($answers['question']);
             $entityManager->persist($requestAnswers);
         }
 
