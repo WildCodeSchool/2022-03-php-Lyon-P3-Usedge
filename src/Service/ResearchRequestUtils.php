@@ -74,34 +74,6 @@ class ResearchRequestUtils
 
         return $answerList;
     }
-/*
-    public function researchRequestCheckErrors(array $answerList): array
-    {
-        foreach ($answerList as $answer) {
-            switch ($answer['request-component-name']) {
-                case 'date-picker':
-                    if (
-                        !empty($answer['answer']) &&
-                        $answer['answer'] !== 'No answer' &&
-                        !preg_match("/\d{4}\-\d{2}-\d{2}/", $answer['answer'])
-                    ) {
-                        $this->checkErrors[] = "This format of date is not available.";
-                    }
-                    break;
-                case 'external-link':
-                    if (
-                        !empty($answer['answer']) &&
-                        $answer['answer'] !== 'No answer' &&
-                        !filter_var($answer['answer'], FILTER_VALIDATE_URL)
-                    ) {
-                        $this->checkErrors[] = "The URL is not valid.";
-                    }
-                    break;
-            }
-        }
-
-        return $this->checkErrors;
-    }*/
 
     public function researchRequestCheckDate(array $answerList): void
     {
