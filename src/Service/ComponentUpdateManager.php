@@ -32,7 +32,7 @@ class ComponentUpdateManager
     public function updateComponent(
         array $dataComponent,
         ResearchTemplate $researchTemplate,
-        int $componentId
+        int|null $componentId
     ): int|null {
         $this->dataComponent = $dataComponent;
         $this->researchTemplate = $researchTemplate;

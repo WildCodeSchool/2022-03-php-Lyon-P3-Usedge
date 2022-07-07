@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Section;
 use App\Repository\ComponentEvaluationScaleRepository;
 use App\Repository\DatePickerRepository;
 use App\Repository\ExternalLinkRepository;
@@ -40,7 +41,7 @@ class ComponentUpdateUtils
         $section = $this->sectionRepository->find($id);
         $this->checkErrors = $this->checkDataUtils->checkDataSection($dataComponent);
 
-        if (empty($this->checkErrors)) {
+        if ($section instanceof Section && empty($this->checkErrors)) {
             $section->setTitle($dataComponent['title']);
             $entityManager->flush();
         }
