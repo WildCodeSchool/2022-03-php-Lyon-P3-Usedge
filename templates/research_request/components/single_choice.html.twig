@@ -1,0 +1,38 @@
+{% if "single-choice" in requestComponent.component.name %}
+    <div class="request-single-choice">
+        <div class="request-single-choice-content">
+            <p class="request-single-choice-question" id="single-choice-template-question">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
+            <input type="hidden" name="request-component-question-{{ requestComponent.component.id }}" value="{{requestComponent.component.question}}">
+            <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
+                {{requestComponent.component.question}}
+                {% if requestComponent.component.isMandatory %}
+                    <span class="single-choice-red-star" id="single-choice-red-star">*</span>
+                {% endif %}
+            </p>
+            {% if requestComponent.component.isMandatory %}
+            <div class="request-single-choice-answers">
+                {% for answer in requestComponent.component.answers %}
+                    <div class="request-single-choice-template-answer">
+                        <input class="request-answer-input" type="radio" value="{{answer.answer}}" name="answer-{{ requestComponent.component.id }}" required>
+                        <label for="single-choice-answer" class="single-choice-template-answer-label" id="single-choice-template-answer-label">
+                        {{answer.answer}}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="request-single-choice-answers">
+                {% for answer in requestComponent.component.answers %}
+                    <div class="request-single-choice-template-answer">
+                        <input class="request-answer-input" type="radio" value="{{answer.answer}}" name="answer-{{ requestComponent.component.id }}">
+                        <label for="single-choice-answer" class="single-choice-template-answer-label" id="single-choice-template-answer-label">
+                        {{answer.answer}}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

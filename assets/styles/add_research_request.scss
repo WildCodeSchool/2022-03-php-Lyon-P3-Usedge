@@ -1,0 +1,85 @@
+@import '_var.scss';
+
+.add-research-request-header {
+    @include dimension (1920px, 68px);
+    background-color: $primary-white-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    .add-research-request-header-logo-container {
+        @include dimension(346px, 36px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        gap: 50px;
+        .add-research-request-header-logo {
+            @include dimension(87px, 36px);
+        }
+        .add-research-request-header-title {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-grey-4);
+            margin-bottom: 0;
+        }
+    }
+    .add-research-request-header-button {
+        @include button($primary-white-1, $border-radius-10, 2px solid $primary-blue-2);
+        @include dimension(191px, 48px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 10px;
+        gap: 10px;
+        .add-research-request-header-button-icon {
+            @include dimension(15px, 15px);
+        }
+        .add-research-request-header-button-text {
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-1);
+            margin-bottom: 0;
+        }
+    }
+}
+
+.add-research-request-main-content {
+    @include dimension(1920px, 1012px);
+    position: relative;
+    .add-research-request-form {
+        @include dimension(750px, 942px);
+        @include absolutePosition(50%, 50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 50px;
+        gap: 25px;
+        background-color: $primary-white-1;
+        border-radius: $border-radius-20;
+        filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
+        .add-research-request-form-builder {
+            @include dimension(650px, 775px);
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 2px 0;
+            gap: 25px;
+        }
+        .add-research-request-form-button {
+            @include dimension(650px, 42px);
+            @include button($primary-blue-1, $border-radius-10, none);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            gap: 5px;
+            .add-research-request-form-button-icon {
+                @include dimension(15px, 15px);
+            }
+            .add-research-request-form-button-text {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                margin-bottom: 0;
+            }
+        }
+    }
+}

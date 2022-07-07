@@ -1,9 +1,10 @@
 {% if "date-picker" in templateComponent.component.name %}
     <div class="date-picker-template-creation" draggable="true">
-        <div class="date-picker-template-draggable">
+        <div class="handle-template-component-draggable">
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="date-picker-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
             <p class="date-picker-template-title" id="date-picker-template-title">
                 {{templateComponent.component.title}}
                 {% if templateComponent.component.isMandatory %}
@@ -15,8 +16,8 @@
             </div>
         </div>
         <div class="date-picker-template-actions">
-            <img src="{{ asset('build/images/icons/edit.png') }}"/>
-            <img src="{{ asset('build/images/icons/close.png') }}"/>
+            {% include "layout_edit.html.twig" %}
+            {% include "display-selected-component/_delete_component.html.twig" %}
         </div>
     </div>
 {% endif %}

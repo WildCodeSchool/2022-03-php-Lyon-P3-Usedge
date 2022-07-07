@@ -5,22 +5,55 @@
 @import 'newTemp.scss';
 @import 'add_research_template.scss';
 @import 'sidebar/usedge_sidebar.scss';
+@import 'add_research_request.scss';
 
 // import modals
 @import 'modals/modal_new_research_template_.scss';
+@import 'modals/modal_action_menu_research_template.scss';
 @import 'modals/modal_multiple_choice.scss';
 @import 'modals/modal_single_choice.scss';
 @import 'modals/modal_evaluation_scale.scss';
 @import 'modals/modal_section.scss';
+@import 'modals/modal_open_question.scss';
 @import 'modals/modal_date_picker.scss';
 @import 'modals/modal_external_link.scss';
-@import 'modals/modal_selector.scss';
+@import 'modals/modal_new_research_request.scss';
+@import 'modals/modal_available_templates.scss';
 
 // import display selected component
 @import 'display-selected-component/display_external_link.scss';
 @import 'display-selected-component/display_evaluation_scale.scss';
 @import 'display-selected-component/display_single_choice.scss';
+@import 'display-selected-component/display_multiple_choice.scss';
 @import 'display-selected-component/display_section.scss';
+@import 'display-selected-component/display_open_question.scss';
 @import 'display-selected-component/display_separator.scss';
 @import "display-selected-component/display-date-picker.scss";
-@import "display-selected-component/display_selector.scss";
+
+// import edit selected component
+@import 'edit-selected-component/edit_section.scss';
+@import 'edit-selected-component/edit_external_link.scss';
+@import 'edit-selected-component/edit_date_picker.scss';
+@import 'edit-selected-component/edit_evaluation_scale.scss';
+@import 'edit-selected-component/edit_single_choice.scss';
+@import 'edit-selected-component/edit_multiple_choice.scss';
+@import 'edit-selected-component/edit_open_question.scss';
+
+// import status tags
+@import "status-tags/_draft.scss";
+@import "status-tags/_active.scss";
+@import "status-tags/_dropped.scss";
+
+// import cards
+@import "cards/_research_template_card.scss";
+
+//import components in research request form (different from research template)
+@import "research-request-components/section.scss";
+@import "research-request-components/single_choice.scss";
+@import "research-request-components/date_picker.scss";
+@import "research-request-components/separator.scss";
+@import "research-request-components/multiple_choice.scss";
+@import "research-request-components/evaluation_scale.scss";
+@import "research-request-components/external_link.scss";
+@import "research-request-components/open_question.scss";
+@import "cards/_research_template_home_active_card.scss";

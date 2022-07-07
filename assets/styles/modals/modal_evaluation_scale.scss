@@ -7,7 +7,6 @@
     z-index: 1; 
     left: 0;
     top: 0;
-    overflow: auto;
     .add-evaluation-scale-modal {
         display: flex;
         flex-direction: column;
@@ -52,7 +51,7 @@
             }
             .evaluation-scale-input {
                 @include dimension(320px, 42px);
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 box-sizing: border-box;
                 display: flex;
                 align-items: center;
@@ -77,6 +76,7 @@
                     display: none;
                 }
                 .evaluation-scale-template-rate {
+                    @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                     @include dimension(27.5px, 27.5px);
                     img {
                         width: 27.5px;
@@ -100,17 +100,16 @@
                 }
             }
             .evaluation-scale-modal-button {
-                @include button($primary-blue-1, $border-radius-10, none);
-                @include dimension(320px, 42px);
+                @include button($primary-blue-1, $border-radius-10,0);
+                @include dimension(100%, 42px);
+                margin-top: 20px;
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding: 12px;
-                font
-                .evaluation-scale-icon-modal-button {
-                    width: 11.25px;
-                    margin-right: 5px;
+                img {
+                    padding-right: 5px;
                 }
             }
         }

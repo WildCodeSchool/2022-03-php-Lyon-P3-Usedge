@@ -1,0 +1,24 @@
+{% if "external-link" in requestComponent.component.name %}
+	<div class="request-external-link-template-creation">
+		<div class="request-external-link-template-content">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
+            <input type="hidden" name="request-component-question-{{ requestComponent.component.id }}" value="{{requestComponent.component.title}}">
+            <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
+			<p class="request-external-link-template-title" id="external-link-template-title">
+				{{requestComponent.component.title}}
+				{% if requestComponent.component.isMandatory %}
+					<span class="request-external-link-red-star" id="external-link-red-star">*</span>
+				{% endif %}
+			</p>
+            {% if requestComponent.component.isMandatory %}
+			<div class="request-external-link-input">
+				<input class="request-answer-input" type="url" name="answer-{{ requestComponent.component.id }}" class="form-control" id="request-select-external-link" placeholder="https://www.google.com/..." required>
+			</div>
+            {% else %}
+			<div class="request-external-link-input">
+				<input class="request-answer-input" type="url" name="answer-{{ requestComponent.component.id }}" class="form-control" id="request-select-external-link" placeholder="https://www.google.com/...">
+			</div>
+            {% endif %}
+		</div>
+	</div>
+{% endif %}

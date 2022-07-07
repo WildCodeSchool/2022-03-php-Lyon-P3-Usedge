@@ -3,20 +3,11 @@
 .single-choice-template-creation {
     @include dimension(995px, 65px);
     display: flex;
-    align-items: stretch;
     padding: 0;
     margin-bottom: 30px;
     gap: 20px;
     &:hover>.single-choice-template-actions {
         display: flex;
-    }
-    .single-choice-template-draggable {
-        display: flex;
-        align-items: center;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
     }
     .single-choice-template-content {
         width: 868px;

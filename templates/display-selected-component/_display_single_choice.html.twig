@@ -1,9 +1,10 @@
 {% if "single-choice" in templateComponent.component.name %}
-    <div class="single-choice-template-creation">
-        <div class="single-choice-template-draggable">
+    <div class="single-choice-template-creation" draggable="false">
+        <div class="handle-template-component-draggable">
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="single-choice-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
             <p class="single-choice-template-question" id="single-choice-template-question">
                 {{templateComponent.component.question}}
                 {% if templateComponent.component.isMandatory %}
@@ -22,8 +23,8 @@
             </div>
         </div>
         <div class="single-choice-template-actions">
-            <img src="{{ asset('build/images/icons/edit.png') }}"/>
-            <img src="{{ asset('build/images/icons/close.png') }}"/>
+            {% include "layout_edit.html.twig" %}
+            {% include "display-selected-component/_delete_component.html.twig" %} 
         </div>
     </div>
 {% endif %}

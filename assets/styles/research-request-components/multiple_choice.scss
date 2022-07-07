@@ -1,0 +1,44 @@
+@import '../_var.scss';
+
+.request-multiple-choice-template-creation {
+    @include dimension(594px, 60px);
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    gap: 20px;
+    .request-multiple-choice-template-draggable {
+        display: flex;
+        align-items: center;
+        @include dimension(22px, 100%);
+        img {
+            width: 22px;
+        }
+    }
+    .request-multiple-choice-template-content {
+        width: 868px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        .request-multiple-choice-template-question {
+            @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
+            line-height: 20px;
+            margin-bottom: 0;
+            .request-multiple-choice-red-star {
+                color: $secondary-red-1;
+            }
+        }
+        .request-multiple-choice-template-answers {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            @include dimension(100%, 30px);
+            position: relative;
+            .request-multiple-choice-template-answer {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                margin-top: 9.25px;
+                margin-right: 10px;
+            }
+        }
+    }
+}

@@ -18,7 +18,7 @@
                 letter-spacing: 0.116667px;
             }
             .new-template-title {
-                @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-5);
+                @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-5);
                 margin-bottom: 20px;
                 font-style: normal;
                 line-height: 20px;
@@ -72,13 +72,9 @@
                     .status-container-2{
                         p {
                             @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-dark-1);
-                            font-family: $text-font;
                             font-style: normal;
-                            font-weight: $font-weight-600;
-                            font-size: $font-size-14;
                             line-height: 18px;
                             letter-spacing: 0.116667px;
-                            color: $primary-dark-1;
                             span {
                                 color: #fe7677;
                             }
@@ -124,7 +120,7 @@
                         line-height: 23px;
                         letter-spacing: 0.116667px;
                     }
-                    p {
+                    &:nth-child(2) {
                         @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
                         margin-bottom: 20px;
                         font-style: normal;
@@ -168,12 +164,15 @@
                                     line-height: 20px;
                                     letter-spacing: 0.116667px;
                                 }
-                                p {
+                                &:nth-child(2) {
                                     @include textStyle($text-font, $font-size-12, $font-weight-400, $primary-grey-4);
                                     margin-bottom: 5px;
                                     font-style: normal;
                                     line-height: 15px;
                                     letter-spacing: 0.116667px;
+                                }
+                                .component-title-text {
+                                    margin-bottom: 0;
                                 }
                             }
                             .component-picture-2 {
@@ -203,9 +202,37 @@
                 padding: 50px 50px 35px;
                 background: $primary-white-1;
                 border-radius: $border-radius-10;
-                overflow: auto;
+                overflow: hidden;
+                .form-builder-component-display {
+                    @include dimension(1022px, 798px);
+                    padding: 2px 0;
+                    gap: 20px;
+                    overflow-y: scroll;
+                }
+                .form-builder-save-container {
+                    @include dimension(1022px, 42px);
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                    padding: 0;
+                    gap: 10px;
+                    margin-top: 30px;
+                    .form-builder-save-button {
+                        @include dimension(1022px, 42px);
+                        @include button($primary-blue-1, $border-radius-10, none);
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-white-1);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .form-builder-save-button-icon {
+                            width: 15px;
+                            height: 15px;
+                            margin-right: 8px;
+                        }
+                    }
+                }
                 h2 {
-                    @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
                     font-style: normal;
                     line-height: 20px;
                     letter-spacing: -0.8px;
@@ -237,14 +264,28 @@
                         line-height: 18px;
                         letter-spacing: 0.116667px;
                     }
+                    
                 }
                 .handle-template-component-draggable {
                     display: flex;
-                    align-items: flex-start;
+                    align-items: center;
+                    @include dimension(22px, 100%);
+                    cursor: grabbing;
+                    img {
+                        width: 22px;
+                    }
+                }
+                .handle-template-component-draggable {
+                    display: flex;
+                    align-items: center;
                     @include dimension(22px, 100%);
                     img {
                         width: 22px;
                     }
+                }
+                .remove-btn {
+                    background-color: transparent;
+                    border: 0;
                 }
             }
         }

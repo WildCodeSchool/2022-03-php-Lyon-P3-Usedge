@@ -1,0 +1,71 @@
+{% if "evaluation-scale" in requestComponent.component.name %}
+    <div class="request-evaluation-scale-template-creation" id="evaluation-scale-template-creation">
+        <div class="request-evaluation-scale-template-content">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
+            <input type="hidden" name="request-component-question-{{ requestComponent.component.id }}" value="{{requestComponent.component.question}}">
+            <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
+            <p class="request-evaluation-scale-template-question" id="evaluation-scale-template-question">
+                {{ requestComponent.component.question }}
+                {% if requestComponent.component.isMandatory %}
+                    <span class="request-evaluation-scale-red-star" id="evaluation-scale-red-star">*</span>
+                {% endif %}
+            </p>
+            {% if requestComponent.component.isMandatory %}
+            <div class="request-evaluation-scale-template-star-container">
+                <input class="ratinginput request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-1" value="1" required>
+                <label for="evaluation-scale-rate-1" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="ratinginput request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-2" value="2">
+                <label for="evaluation-scale-rate-2" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="ratinginput request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-3" value="3">
+                <label for="evaluation-scale-rate-3" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="ratinginput request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-4" value="4">
+                <label for="evaluation-scale-rate-4" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="ratinginput request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-5" value="5">
+                <label for="evaluation-scale-rate-5" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+            </div>
+            {% else %}
+                <div class="request-evaluation-scale-template-star-container">
+                <input class="request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-1" value="1">
+                <label for="evaluation-scale-rate-1" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-2" value="2">
+                <label for="evaluation-scale-rate-2" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-3" value="3">
+                <label for="evaluation-scale-rate-3" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-4" value="4">
+                <label for="evaluation-scale-rate-4" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+                <input class="request-answer-input" type="radio" name="answer-{{ requestComponent.component.id }}" id="evaluation-scale-rate-5" value="5">
+                <label for="evaluation-scale-rate-5" class="request-evaluation-scale-template-rate">
+                    <img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+                </label>
+            </div>
+            {% endif %}
+            
+            <div class="request-evaluation-scale-template-levels">
+                <p class="request-evaluation-scale-template-low-label" id="evaluation-scale-template-low-label">
+                    {{ requestComponent.component.lowLabel }}
+                </p>
+                <p class="request-evaluation-scale-template-high-label" id="evaluation-scale-template-high-label">
+                    {{ requestComponent.component.highLabel }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endif %}

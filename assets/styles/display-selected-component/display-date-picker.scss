@@ -10,14 +10,6 @@
     &:hover>.date-picker-template-actions {
         display: flex;
     }
-    .date-picker-template-draggable {
-        display: flex;
-        align-items: center;
-        @include dimension(22px, 100%);
-        img {
-            width: 22px;
-        }
-    }
     .date-picker-template-content {
         width: 868px;
         display: flex;
@@ -47,6 +39,8 @@
                 background-position-x: 12px;
                 background-color: $primary-white-1;
                 padding: 0px 0px 0px 32px;
+                border-radius: 8px;
+                border: 2px solid $primary-blue-2;
             }
         } 
     }

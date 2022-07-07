@@ -55,9 +55,13 @@ class ResearchTemplate
     #[ORM\OneToMany(mappedBy: 'researchTemplate', targetEntity: TemplateComponent::class)]
     private Collection $templateComponents;
 
+    #[ORM\OneToMany(mappedBy: 'researchTemplate', targetEntity: ResearchRequest::class, orphanRemoval: true)]
+    private Collection $researchRequests;
+
     public function __construct()
     {
         $this->templateComponents = new ArrayCollection();
+        $this->researchRequests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -118,7 +122,7 @@ class ResearchTemplate
         return $this->status;
     }
 
-    public function setStatus(?string $status): self
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
@@ -146,6 +150,31 @@ class ResearchTemplate
     public function removeTemplateComponent(TemplateComponent $templateComponent): self
     {
         $this->templateComponents->removeElement($templateComponent);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ResearchRequest>
+     */
+    public function getResearchRequests(): Collection
+    {
+        return $this->researchRequests;
+    }
+
+    public function addResearchRequest(ResearchRequest $researchRequest): self
+    {
+        if (!$this->researchRequests->contains($researchRequest)) {
+            $this->researchRequests[] = $researchRequest;
+            $researchRequest->setResearchTemplate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResearchRequest(ResearchRequest $researchRequest): self
+    {
+        $this->researchRequests->removeElement($researchRequest);
 
         return $this;
     }

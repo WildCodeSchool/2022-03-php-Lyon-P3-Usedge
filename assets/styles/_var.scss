@@ -18,7 +18,11 @@ $primary-white-2: #FAFAFB;
 //var secondary colors
 $secondary-orange-1: #FFA94F;
 $secondary-red-1: #EA6061;
+$secondary-dark-red-1: #DA1414;
 $secondary-green-1: #71D68F;
+$secondary-lightgreen: #EDFFEC;
+$secondary-lightred: #FFE8E8;
+$disable-color: rgba(0, 0, 0, 0.3);
 
 // var font-family
 $title-font: 'League Spartan', sans-serif;
@@ -32,6 +36,7 @@ $font-size-18: 18px;
 
 //var font-weight
 $font-weight-400: 400;
+$font-weight-500: 500;
 $font-weight-600: 600;
 
 //var border-radius
@@ -69,13 +74,23 @@ $border-radius-20: 20px;
     border: $b;   
 }
 
-body {
+.body {
     display: flex;
     align-items: flex-start;
     background-color: $primary-white-2;
     gap: 40px;
     .usedge-aside-sidebar {
         @include dimension(270px, 1080px);
+    }
+}
+
+.body-without-sidebar {
+    @include dimension(1920px, 1080px);
+    background-image: url('../images/Usedge-bckground.png');
+    display: flex;
+    flex-direction: column;
+    .usedge-aside-sidebar {
+        display: none !important;
     }
 }
 
@@ -101,3 +116,7 @@ body {
     border-radius: 20px;
     border: none;
   }
+
+.disable {
+    color: $disable-color !important;
+}
