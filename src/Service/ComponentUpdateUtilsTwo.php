@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Answer;
 use App\Entity\MultipleChoice;
 use App\Entity\OpenQuestion;
 use App\Entity\SingleChoice;
@@ -60,7 +61,9 @@ class ComponentUpdateUtilsTwo
 
             $inputAnswerNumber  = $dataComponent['input-answer-count'];
             for ($i = 0; $i < $inputAnswerNumber; $i++) {
-                $answerUpdate[$i]->setAnswer($answersUpdateValue[$i]);
+                if ($answerUpdate[$i] instanceof Answer) {
+                    $answerUpdate[$i]->setAnswer($answersUpdateValue[$i]);
+                }
             }
             $entityManager->flush();
         }
@@ -86,7 +89,9 @@ class ComponentUpdateUtilsTwo
 
             $inputAnswerNumber  = $dataComponent['input-answer-count'];
             for ($i = 0; $i < $inputAnswerNumber; $i++) {
-                $answerUpdate[$i]->setAnswer($answersUpdateValue[$i]);
+                if ($answerUpdate[$i] instanceof Answer) {
+                    $answerUpdate[$i]->setAnswer($answersUpdateValue[$i]);
+                }
             }
             $entityManager->flush();
         }
@@ -105,7 +110,7 @@ class ComponentUpdateUtilsTwo
         if (!isset($dataComponent['addHelpertext'])) {
             $dataComponent['addHelpertext'] = false;
         }
-        if ($openQuestion instanceof OpenQuestion && empty($this->checkErrors)) {
+        if ($openQuestion instanceof OpenQuestion && $answerUpdate instanceof Answer && empty($this->checkErrors)) {
             $openQuestion->setName($dataComponent['name']);
             $openQuestion->setQuestion($dataComponent['open_question-question']);
             $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);
