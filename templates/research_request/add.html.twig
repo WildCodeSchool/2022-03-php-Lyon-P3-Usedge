@@ -15,9 +15,10 @@
     </header>
     <main class="add-research-request-main-content">
         <form method="POST" action="{{ path('app_home') }}" id="add-research-request-form" class="add-research-request-form">
-            <input id="research-request-status" type="hidden" name="research-request-status">
+            <input type="hidden" name="template_id" value="{{ templateId }}">
             <input type="hidden" name="project" value="{{ project }}">
             <input type="hidden" name="owner" value="Jason Brand">
+            <input id="research-request-status" type="hidden" name="research-request-status">
             <div class="add-research-request-form-builder">
             {% if requestComponents %}
                 {% for requestComponent in requestComponents %}

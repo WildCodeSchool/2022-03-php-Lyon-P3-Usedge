@@ -1,6 +1,8 @@
 {% if "multiple-choice" in requestComponent.component.name %}
     <div class="request-multiple-choice-template-creation">
         <div class="request-multiple-choice-template-content">
+            <input type="hidden" name="request-component-id-{{ requestComponent.component.id }}" value="{{ requestComponent.component.id }}">
+            <input type="hidden" name="request-component-question-{{ requestComponent.component.id }}" value="{{requestComponent.component.question}}">
             <input class="request-name-input" type="hidden" name="request-component-name-{{ requestComponent.component.id }}" value="{{ requestComponent.component.name }}">
             <p class="request-multiple-choice-template-question" id="multiple-choice-template-question">
                 {{requestComponent.component.question}}
@@ -9,7 +11,19 @@
                 {% endif %}
             </p>
             <div class="request-multiple-choice-template-answers">
-                {% set numberOrder = 1 %}
+            {% if requestComponent.component.isMandatory %}
+                {% set numberOrder = 0 %}
+                {% for answer in requestComponent.component.answers %}
+                    <div class="request-multiple-choice-template-answer">
+                        <input class="request-answer-input required" type="checkbox" value="{{answer.answer}}" name="answer-{{ requestComponent.component.id ~ '-' ~ numberOrder }}">
+                        <label for="multiple-choice-answer" class="request-multiple-choice-template-answer-label" id="multiple-choice-template-answer-label">
+                        {{answer.answer}}
+                        </label>
+                    </div>
+                    {% set numberOrder = numberOrder + 1 %}
+                {% endfor %}
+            {% else %}
+                {% set numberOrder = 0 %}
                 {% for answer in requestComponent.component.answers %}
                     <div class="request-multiple-choice-template-answer">
                         <input class="request-answer-input" type="checkbox" value="{{answer.answer}}" name="answer-{{ requestComponent.component.id ~ '-' ~ numberOrder }}">
@@ -19,6 +33,8 @@
                     </div>
                     {% set numberOrder = numberOrder + 1 %}
                 {% endfor %}
+            {% endif %}
+                <input type="hidden" name="counter-answer-{{ requestComponent.component.id }}" value="{{ numberOrder }}">
             </div>
         </div>
     </div>
