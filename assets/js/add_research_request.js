@@ -27,52 +27,67 @@ if (document.getElementById('add-research-request-header')) {
     newResearchRequestHeaderButton.addEventListener('click', (e) => {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'Draft';
-        let countCheckboxRequired = 0;
-        requiredCheckbox.forEach(checkbox => {
-            if (checkbox.checked == true) {
-                countCheckboxRequired++;
+
+        if (requiredCheckbox[0]) {
+            let countCheckboxRequired = 0;
+            requiredCheckbox.forEach(checkbox => {
+                if (checkbox.checked == true) {
+                    countCheckboxRequired++;
+                }
+            });
+            if (countCheckboxRequired === 0) {
+                
+                alert('All stared fields are mandatory');
+                e.preventDefault();
             }
-        });
-        if (countCheckboxRequired === 0) {
-            alert('All stared fields are mandatory');
-            e.preventDefault();
         }
 
-        let countEvalScaleRequired = 0;
-        requiredEvaluationScale.forEach(evaluationScale => {
-            if (evaluationScale.checked == true) {
-                countEvalScaleRequired++;
+        if (requiredEvaluationScale[0]) {
+            let countEvalScaleRequired = 0;
+            requiredEvaluationScale.forEach(evaluationScale => {
+                if (evaluationScale.checked == true) {
+                    countEvalScaleRequired++;
+                }
+            });
+            if (countEvalScaleRequired === 0) {
+                
+                alert('All stared fields are mandatory');
+                e.preventDefault();
             }
-        });
-        if (countEvalScaleRequired === 0) {
-            alert('All stared fields are mandatory');
-            e.preventDefault();
         }
+
     });
 
     newResearchRequestFormButton.addEventListener('click', (e) => {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'Waiting list';
-        let countCheckboxRequired = 0;
-        requiredCheckbox.forEach(checkbox => {
-            if (checkbox.checked == true) {
-                countCheckboxRequired++;
+
+        if (requiredCheckbox[0]) {
+            let countCheckboxRequired = 0;
+            requiredCheckbox.forEach(checkbox => {
+                if (checkbox.checked == true) {
+                    countCheckboxRequired++;
+                }
+            });
+            if (countCheckboxRequired === 0) {
+                
+                alert('All stared fields are mandatory');
+                e.preventDefault();
             }
-        });
-        if (countCheckboxRequired === 0) {
-            alert('All stared fields are mandatory');
-            e.preventDefault();
         }
 
-        let countEvalScaleRequired = 0;
-        requiredEvaluationScale.forEach(evaluationScale => {
-            if (evaluationScale.checked == true) {
-                countEvalScaleRequired++;
+        if (requiredEvaluationScale[0]) {
+            let countEvalScaleRequired = 0;
+            requiredEvaluationScale.forEach(evaluationScale => {
+                if (evaluationScale.checked == true) {
+                    countEvalScaleRequired++;
+                }
+            });
+            if (countEvalScaleRequired === 0) {
+                
+                alert('All stared fields are mandatory');
+                e.preventDefault();
             }
-        });
-        if (countEvalScaleRequired === 0) {
-            alert('All stared fields are mandatory');
-            e.preventDefault();
         }
     });
 }

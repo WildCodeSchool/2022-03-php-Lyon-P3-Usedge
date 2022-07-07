@@ -22,6 +22,11 @@ class ResearchRequestUtils
         $this->resTempRepository = $resTempRepository;
     }
 
+    public function getCheckErrors(): array
+    {
+        return $this->checkErrors;
+    }
+
     public function researchRequestSortAnswer(array $dataComponent): array
     {
         $componentIdList = [];
@@ -42,31 +47,53 @@ class ResearchRequestUtils
                             'answer' => $dataComponent['answer-' . $componentId . '-' . $i],
                             'question' => $dataComponent['request-component-question-' . $componentId]
                         ];
+                    } else {
+                        $answerList[] = [
+                            'request-component-name' => $dataComponent['request-component-name-' . $componentId],
+                            'answer' => 'No answer',
+                            'question' => $dataComponent['request-component-question-' . $componentId]
+                        ];
                     }
                 }
                 continue;
             }
-            $answerList[] = [
-                'request-component-name' => $dataComponent['request-component-name-' . $componentId],
-                'answer' => $dataComponent['answer-' . $componentId],
-                'question' => $dataComponent['request-component-question-' . $componentId]
-            ];
+            if (!empty($dataComponent['answer-' . $componentId])) {
+                $answerList[] = [
+                    'request-component-name' => $dataComponent['request-component-name-' . $componentId],
+                    'answer' => $dataComponent['answer-' . $componentId],
+                    'question' => $dataComponent['request-component-question-' . $componentId]
+                ];
+            } else {
+                $answerList[] = [
+                    'request-component-name' => $dataComponent['request-component-name-' . $componentId],
+                    'answer' => 'No answer',
+                    'question' => $dataComponent['request-component-question-' . $componentId]
+                ];
+            }
         }
 
         return $answerList;
     }
-
+/*
     public function researchRequestCheckErrors(array $answerList): array
     {
         foreach ($answerList as $answer) {
             switch ($answer['request-component-name']) {
                 case 'date-picker':
-                    if (!preg_match("/\d{4}\-\d{2}-\d{2}/", $answer['answer'])) {
+                    if (
+                        !empty($answer['answer']) &&
+                        $answer['answer'] !== 'No answer' &&
+                        !preg_match("/\d{4}\-\d{2}-\d{2}/", $answer['answer'])
+                    ) {
                         $this->checkErrors[] = "This format of date is not available.";
                     }
                     break;
                 case 'external-link':
-                    if (!filter_var($answer['answer'], FILTER_VALIDATE_URL)) {
+                    if (
+                        !empty($answer['answer']) &&
+                        $answer['answer'] !== 'No answer' &&
+                        !filter_var($answer['answer'], FILTER_VALIDATE_URL)
+                    ) {
                         $this->checkErrors[] = "The URL is not valid.";
                     }
                     break;
@@ -74,6 +101,36 @@ class ResearchRequestUtils
         }
 
         return $this->checkErrors;
+    }*/
+
+    public function researchRequestCheckDate(array $answerList): void
+    {
+        foreach ($answerList as $answer) {
+            if ($answer['request-component-name'] === 'date-picker') {
+                if (
+                    !empty($answer['answer']) &&
+                    $answer['answer'] !== 'No answer' &&
+                    !preg_match("/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/", $answer['answer'])
+                ) {
+                    $this->checkErrors[] = "This format of date is not available.";
+                }
+            }
+        }
+    }
+
+    public function researchRequestCheckURL(array $answerList): void
+    {
+        foreach ($answerList as $answer) {
+            if ($answer['request-component-name'] === 'external-link') {
+                if (
+                    !empty($answer['answer']) &&
+                    $answer['answer'] !== 'No answer' &&
+                    !filter_var($answer['answer'], FILTER_VALIDATE_URL)
+                ) {
+                    $this->checkErrors[] = "The URL is not valid.";
+                }
+            }
+        }
     }
 
     public function addResearchRequest(array $dataComponent, array $answerList): void

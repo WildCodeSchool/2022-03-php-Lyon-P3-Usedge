@@ -22,10 +22,12 @@ class HomeController extends AbstractController
         ResearchRequestRepository $researchRequestRepo,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-
+        $requestErrors = [];
         if (!empty($dataComponent)) {
             $answerList = $requestUtils->researchRequestSortAnswer($dataComponent);
-            $requestErrors = $requestUtils->researchRequestCheckErrors($answerList);
+            $requestUtils->researchRequestCheckDate($answerList);
+            $requestUtils->researchRequestCheckURL($answerList);
+            $requestErrors = $requestUtils->getCheckErrors();
             if (empty($requestErrors)) {
                 $requestUtils->addResearchRequest($dataComponent, $answerList);
                 return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
@@ -38,6 +40,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'researchTemplates' => $researchTemplateList,
             'researchRequests' => $researchRequests,
+            'requestErrors' => $requestErrors,
         ]);
     }
 }
