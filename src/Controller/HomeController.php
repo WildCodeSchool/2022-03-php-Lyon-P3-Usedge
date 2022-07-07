@@ -40,7 +40,6 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'researchTemplates' => $researchTemplateList,
             'researchRequests' => $researchRequests,
-            'requestErrors' => $requestErrors,
         ]);
     }
 }
