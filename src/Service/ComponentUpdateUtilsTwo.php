@@ -2,6 +2,9 @@
 
 namespace App\Service;
 
+use App\Entity\MultipleChoice;
+use App\Entity\OpenQuestion;
+use App\Entity\SingleChoice;
 use App\Repository\AnswerRepository;
 use App\Repository\MultipleChoiceRepository;
 use App\Repository\OpenQuestionRepository;
@@ -50,7 +53,7 @@ class ComponentUpdateUtilsTwo
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (empty($this->checkErrors)) {
+        if ($singleChoice instanceof SingleChoice && empty($this->checkErrors)) {
             $singleChoice->setName($dataComponent['name']);
             $singleChoice->setQuestion($dataComponent['question']);
             $singleChoice->setIsMandatory($dataComponent['is_mandatory']);
@@ -76,7 +79,7 @@ class ComponentUpdateUtilsTwo
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (empty($this->checkErrors)) {
+        if ($multipleChoice instanceof MultipleChoice && empty($this->checkErrors)) {
             $multipleChoice->setName($dataComponent['name']);
             $multipleChoice->setQuestion($dataComponent['question']);
             $multipleChoice->setIsMandatory($dataComponent['is_mandatory']);
@@ -102,7 +105,7 @@ class ComponentUpdateUtilsTwo
         if (!isset($dataComponent['addHelpertext'])) {
             $dataComponent['addHelpertext'] = false;
         }
-        if (empty($this->checkErrors)) {
+        if ($openQuestion instanceof OpenQuestion && empty($this->checkErrors)) {
             $openQuestion->setName($dataComponent['name']);
             $openQuestion->setQuestion($dataComponent['open_question-question']);
             $openQuestion->setAddAHelpertext($dataComponent['addHelpertext']);

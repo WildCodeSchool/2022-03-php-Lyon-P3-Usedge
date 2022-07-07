@@ -2,6 +2,9 @@
 
 namespace App\Service;
 
+use App\Entity\ComponentEvaluationScale;
+use App\Entity\DatePicker;
+use App\Entity\ExternalLink;
 use App\Entity\Section;
 use App\Repository\ComponentEvaluationScaleRepository;
 use App\Repository\DatePickerRepository;
@@ -57,7 +60,7 @@ class ComponentUpdateUtils
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (empty($this->checkErrors)) {
+        if ($externalLink instanceof ExternalLink && empty($this->checkErrors)) {
             $externalLink->setName($dataComponent['name']);
             $externalLink->setTitle($dataComponent['title-external-link']);
             $externalLink->setIsMandatory($dataComponent['is_mandatory']);
@@ -68,17 +71,17 @@ class ComponentUpdateUtils
     public function loadUpdateDatePicker(array $dataComponent, int $id): void
     {
         $entityManager = $this->entityManager;
-        $externalLink = $this->datePickerRepository->find($id);
+        $datePicker = $this->datePickerRepository->find($id);
         $this->checkErrors = $this->checkDataUtils->checkDataDatePicker($dataComponent);
 
         if (!isset($dataComponent['is_mandatory'])) {
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (empty($this->checkErrors)) {
-            $externalLink->setName($dataComponent['name']);
-            $externalLink->setTitle($dataComponent['title-date-picker']);
-            $externalLink->setIsMandatory($dataComponent['is_mandatory']);
+        if ($datePicker instanceof DatePicker && empty($this->checkErrors)) {
+            $datePicker->setName($dataComponent['name']);
+            $datePicker->setTitle($dataComponent['title-date-picker']);
+            $datePicker->setIsMandatory($dataComponent['is_mandatory']);
             $entityManager->flush();
         }
     }
@@ -93,7 +96,7 @@ class ComponentUpdateUtils
             $dataComponent['is_mandatory'] = false;
         }
 
-        if (empty($this->checkErrors)) {
+        if ($evaluationScale instanceof ComponentEvaluationScale && empty($this->checkErrors)) {
             $evaluationScale->setName($dataComponent['name']);
             $evaluationScale->setQuestion($dataComponent['question-evaluation-scale']);
             $evaluationScale->setLowLabel($dataComponent['low-label']);
