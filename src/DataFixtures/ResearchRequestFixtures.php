@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\ResearchRequest;
+use App\Entity\ResearchTemplate;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -21,9 +22,7 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
             for ($r = 0; $r <  3; $r++) {
                 $date = new DateTime();
                 $researchRequest = new ResearchRequest();
-                $researchTemplateRef = $researchRequest->
-                setResearchTemplate($this->getReference('researchTemplate_' . $t));
-                if ($researchTemplateRef == $researchRequest->getResearchTemplate()) {
+                if (($this->getReference('researchTemplate_' . $t) instanceof ResearchTemplate)) {
                     $researchRequest->setResearchTemplate($this->getReference('researchTemplate_' . $t));
                 }
                 $researchRequest->setCreationDate($date);

@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\AnswerRequest;
+use App\Entity\ResearchRequest;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -30,9 +31,7 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
                     if ($name === 'multiple-choice') {
                         for ($m = 0; $m < rand(2, 4); $m++) {
                             $answerRequest = new AnswerRequest();
-                            $researchRequestRef = $answerRequest->
-                            setResearchRequest($this->getReference('researchRequest_' . $r));
-                            if ($researchRequestRef == $answerRequest->getResearchRequest()) {
+                            if ($this->getReference('researchRequest_' . $r) instanceof ResearchRequest) {
                                 $answerRequest->setResearchRequest($this->getReference('researchRequest_' . $r));
                             }
                             $answerRequest->setName($name);
@@ -42,9 +41,7 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
                         }
                     } else {
                         $answerRequest = new AnswerRequest();
-                        $researchRequestRef = $answerRequest->
-                        setResearchRequest($this->getReference('researchRequest_' . $r));
-                        if ($researchRequestRef == $answerRequest->getResearchRequest()) {
+                        if ($this->getReference('researchRequest_' . $r) instanceof ResearchRequest) {
                             $answerRequest->setResearchRequest($this->getReference('researchRequest_' . $r));
                         }
                         $answerRequest->setName($name);
