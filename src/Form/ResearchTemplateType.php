@@ -21,17 +21,17 @@ class ResearchTemplateType extends AbstractType
                 ],
                 'choices' => [
                     '1'
-                    => 'build\images\icons\template_icon_0.png',
+                    => 'build/images/icons/template_icon_0.png',
                     '2'
-                    => 'build\images\icons\template_icon_1.png',
+                    => 'build/images/icons/template_icon_1.png',
                     '3'
-                    => 'build\images\icons\template_icon_2.png',
+                    => 'build/images/icons/template_icon_2.png',
                     '4'
-                    => 'build\images\icons\template_icon_3.png',
+                    => 'build/images/icons/template_icon_3.png',
                     '5'
-                    => 'build\images\icons\template_icon_4.png',
+                    => 'build/images/icons/template_icon_4.png',
                     '6'
-                    => 'build\images\icons\template_icon_5.png',
+                    => 'build/images/icons/template_icon_5.png',
                 ],
                 'expanded' => true,
                 'multiple' => false,

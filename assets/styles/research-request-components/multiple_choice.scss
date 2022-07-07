@@ -24,7 +24,7 @@
             @include textStyle($text-font, $font-size-16, $font-weight-600, $primary-blue-3);
             line-height: 20px;
             margin-bottom: 0;
-            .multiple-choice-red-star {
+            .request-multiple-choice-red-star {
                 color: $secondary-red-1;
             }
         }
