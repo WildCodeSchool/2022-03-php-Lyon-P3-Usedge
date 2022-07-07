@@ -14,9 +14,9 @@
         </button>
     </header>
     <main class="add-research-request-main-content">
-        <form method="POST" action="{{ path('app_home') }}" id="add-research-request-form" class="add-research-request-form">
+        <form method="POST" action="{{ path('research_request_add', {id: templateId}) }}" id="add-research-request-form" class="add-research-request-form">
             <input type="hidden" name="template_id" value="{{ templateId }}">
-            <input type="hidden" name="project" value="{{ project }}">
+            <input type="hidden" name="request_project" value="{{ project }}">
             <input type="hidden" name="owner" value="Jason Brand">
             <input id="research-request-status" type="hidden" name="research-request-status">
             <div class="add-research-request-form-builder">
@@ -38,17 +38,5 @@
                 <p class="add-research-request-form-button-text">Send/Update this research request</p>
             </button>
         </form>
-        <div class="research-request-confirm-modal" id="research-request-confirm-modal">
-            <div class="research-request-confirm-modal-content">
-                <div class="check_perspective_matte">
-                    <img src="{{ asset('build/images/icons/Check_perspective_matte.png') }}" class="icons_check_perspective_matte" id="icons_check_perspective_matte">
-                </div>
-                <div class="research-request-confirm-modal-text">
-                    <p class="research-request-confirm-modal-first-text">Your request has been sent successfully to the coach assigned</p>
-                    <p class="research-request-confirm-modal-second-text">You should receive shortly a feedback concerning your research plan</p>
-                </div>
-                <button form="add-research-request-form" class="research-request-confirm-modal-button" type="submit"><img src="{{ asset('build/images/icons/return.png')}}">Back to dashboard</button>
-            </div>
-        </div>
     </main>
 {% endblock %}

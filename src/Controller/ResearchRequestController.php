@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
+use App\Service\ResearchRequestUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,17 +17,33 @@ class ResearchRequestController extends AbstractController
         int $id,
         TemplateComponentRepository $tempCompRepository,
         CheckDataUtils $checkDataUtils,
-        Request $request
+        Request $request,
+        ResearchRequestUtils $requestUtils,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-        $project = $dataComponent['project'];
-        $templateId = $dataComponent['template_id'];
-        $requestComponents = $tempCompRepository->findBy(['researchTemplate' => $id], ['numberOrder' => 'ASC']);
+        $requestErrors = [];
 
-        return $this->render('research_request/add.html.twig', [
-            'requestComponents' => $requestComponents,
-            'project' => $project,
-            'templateId' => $templateId,
-        ]);
+        if (isset($dataComponent['project'])) {
+            $project = $dataComponent['project'];
+            $templateId = $dataComponent['template_id'];
+            $requestComponents = $tempCompRepository->findBy(['researchTemplate' => $id], ['numberOrder' => 'ASC']);
+
+            return $this->render('research_request/add.html.twig', [
+                'requestComponents' => $requestComponents,
+                'project' => $project,
+                'templateId' => $templateId,
+            ]);
+        }
+
+        if ($dataComponent['request_project']) {
+            $answerList = $requestUtils->researchRequestSortAnswer($dataComponent);
+            $requestUtils->researchRequestCheckDate($answerList);
+            $requestUtils->researchRequestCheckURL($answerList);
+            $requestErrors = $requestUtils->getCheckErrors();
+            if (empty($requestErrors)) {
+                $requestUtils->addResearchRequest($dataComponent, $answerList);
+            }
+        }
+        return $this->render('research_request/confirm.html.twig', ['errors' => $requestErrors]);
     }
 }
