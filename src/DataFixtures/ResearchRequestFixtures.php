@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\ResearchRequest;
-use App\Entity\ResearchTemplate;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -12,8 +11,6 @@ use Faker\Factory;
 
 class ResearchRequestFixtures extends Fixture implements DependentFixtureInterface
 {
-    private ResearchTemplate $researchTemplate;
-
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
@@ -22,10 +19,13 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
         $requestNumber = 1;
         for ($t = 1; $t <  16; $t++) {
             for ($r = 0; $r <  3; $r++) {
-                $this->researchTemplate = $this->getReference('researchTemplate_' . $t);
                 $date = new DateTime();
                 $researchRequest = new ResearchRequest();
-                $researchRequest->setResearchTemplate($this->researchTemplate);
+                $researchTemplateRef = $researchRequest->
+                setResearchTemplate($this->getReference('researchTemplate_' . $t));
+                if ($researchTemplateRef == $researchRequest->getResearchTemplate()) {
+                    $researchRequest->setResearchTemplate($this->getReference('researchTemplate_' . $t));
+                }
                 $researchRequest->setCreationDate($date);
                 $researchRequest->setStatus($status[array_rand($status)]);
                 $researchRequest->setProject('Webb app');
