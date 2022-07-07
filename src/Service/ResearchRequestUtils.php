@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\AnswerRequest;
 use App\Entity\ResearchRequest;
+use App\Entity\ResearchTemplate;
 use App\Repository\ResearchTemplateRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -112,7 +113,9 @@ class ResearchRequestUtils
         $researchRequest = new ResearchRequest();
         $creationDate = new DateTime("now");
 
-        $researchRequest->setResearchTemplate($researchTemplate);
+        if ($researchTemplate instanceof ResearchTemplate) {
+            $researchRequest->setResearchTemplate($researchTemplate);
+        }
         $researchRequest->setCreationDate($creationDate);
         $researchRequest->setStatus($dataComponent['research-request-status']);
         $researchRequest->setProject($dataComponent['project']);
