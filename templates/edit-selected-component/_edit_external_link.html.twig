@@ -1,0 +1,24 @@
+{% if "external-link" in templateComponent.component.name %}
+	{% if componentId is same as templateComponent.component.id %}
+		<form method="POST" class="external-link-edit-form">
+			<div class="handle-template-component-draggable">
+				<img src="{{ asset('build/images/icons/burger.png') }}"/>
+			</div>
+			<div class="edit-component-external-link">
+				<div class="edit-component-external-link-title">
+					<input type="hidden" id="update-external-link-name" name="name" value="external-link">
+					<input class="form-control edit-external-link-input" type="text" name="title-external-link" value="{{ templateComponent.component.title}}" required>
+				</div>
+				<div>
+					{% include 'edit-selected-component/_edit_is_mandatory.html.twig' %}
+				</div>
+			</div>
+			<div class="section-actions">
+				<button class="update-button">Edit</button>
+			</div>
+			<a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
+		</form>
+	{% else %}
+		{% include 'display-selected-component/_display_external_link.html.twig' %}
+	{% endif %}
+{% endif %}

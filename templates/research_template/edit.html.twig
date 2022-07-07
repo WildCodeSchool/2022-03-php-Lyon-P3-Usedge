@@ -51,13 +51,12 @@
 								</div>
 								<div class="component-title">
 									<h3>Section</h3>
-									<p class="component-title-text">Delimitate a part of your template.</p>
+									<p>Delimitate a part of your template.</p>
 								</div>
 								<div class="component-picture-2">
 									<a id="add-section-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
-							</div>
-							{% include 'modals/_modal_section.html.twig' %}
+							</div>							
 							
 							{# Single choice component #}
 							<div class="component">
@@ -66,13 +65,26 @@
 								</div>
 								<div class="component-title">
 									<h3>Single choice</h3>
-									<p class="component-title-text">Give a single option for your user.</p>
+									<p>Give a single option for your user.</p>
 								</div>
 								<div class="component-picture-2">
 									<a id="add-single-choice-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
+							</div>							
+
+							{# Selector component #}
+							<div class="component">
+								<div class="component-picture-1">
+									<img class="image" src="{{ asset('build/images/logo_component/selector.png') }}" alt="logo selector">
+								</div>
+								<div class="component-title">
+									<h3>Selector</h3>
+									<p>Select an element from a list.</p>
+								</div>
+								<div class="component-picture-2">
+									<a id="add-select-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+								</div>
 							</div>
-							{% include "modals/_modal_single_choice.html.twig" %}
 
 							{# Date component #}
 							<div class="component">
@@ -81,13 +93,12 @@
 								</div>
 								<div class="component-title">
 									<h3>Date</h3>
-									<p class="component-title-text">Ask for a date to your user.</p>
+									<p>Ask for a date to your user.</p>
 								</div>
 								<div class="component-picture-2">
 									<a id="add-date-picker-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_date_picker.htm.twig" %}
 
 							{# Separator component #}
 							<div class="component">
@@ -96,7 +107,7 @@
 								</div>
 								<div class="component-title">
 									<h3>Separator</h3>
-									<p class="component-title-text">To add some space.</p>
+									<p>To add some space.</p>
 								</div>
 								<form class="component-picture-2" method="POST">
 									<input type="hidden" id="separator-name" name="name" value="separator">
@@ -111,13 +122,12 @@
 								</div>
 								<div class="component-title">
 									<h3>Multiple choice</h3>
-									<p class="component-title-text">Give multiples choices to your user.</p>
+									<p>Give multiples choices to your user.</p>
 								</div>
 								<div class="component-picture-2">
 									<a id="add-multiple-choice-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_multiple_choice.html.twig" %}
 
 							{# Open question component #}
 							<div class="component">
@@ -126,28 +136,26 @@
 								</div>
 								<div class="component-title">
 									<h3>Open question</h3>
-									<p class="component-title-text">Get open answers from user.</p>
+									<p>Get open answers from user.</p>
 								</div>
 								<div class="component-picture-2">
-									<a id="open-question-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
+									<a id="buttonAction" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_open_question.html.twig" %}
-							
-							{# EVALUATION SCALE STARTS HERE - DON'T FORGET TO DELETE THIS COMMENT #}
+
+							{# Evaluation scale component #}
 							<div class="component">
 								<div class="component-picture-1">
 									<img class="image" src="{{ asset('build/images/logo_component/evaluation_scale.png') }}" alt="logo evaluation scale">
 								</div>
 								<div class="component-title">
 									<h3>Evaluation scale</h3>
-									<p class="component-title-text">For an optimum overview. </p>
+									<p>For an optimum overview. </p>
 								</div>
 								<div class="component-picture-2">
 									<a id="evaluation-scale-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_evaluation_scale.html.twig" %}
 
 							{# External link component #}
 							<div class="component">
@@ -156,46 +164,33 @@
 								</diV>
 								<div class="component-title">
 									<h3>External link</h3>
-									<p class="component-title-text">For an optimum overview.</p>
+									<p>For an optimum overview.</p>
 								</div>
 								<div class="component-picture-2">
 									<a id="add-external-link-button" class="buttonAction del-name-separator"><img src="{{ asset('build/images/icons/add_button.png') }}"></a>
 								</div>
 							</div>
-							{% include "modals/_modal_external_link.html.twig" %}
 						</div>
 					</section>
 
 				</div>
 
 				{# Form builder #}
-				<form method="post" id="form-builder" class="form-builder">
-					<input type="hidden" name="research-template-id" value="{{ researchTemplate.id }}">
-					<input type="hidden" name="components-number-count" id="components-number-count">
-					<input type="hidden" name="research-template-status" id="research-template-status" value="draft">
-					{% if researchTemplate.templateComponents.0.id is defined %}
-					<div class="form-builder-component-display" id="display_form_builder">
+				<div id="form-builder" class="form-builder">
+					<div id="display_form_builder">
 						{% for error in errors %}
 							<p class="text-danger">{{ error }}</p>
 						{% endfor %}
 						{% for templateComponent in researchTemplate.templateComponents|sort((a, b) => a.numberOrder <=> b.numberOrder) %}
-							{% include "display-selected-component/_display_single_choice.html.twig" %}
-							{% include "display-selected-component/_display_multiple_choice.html.twig" %}
-							{% include "display-selected-component/_display_evaluation_scale.html.twig" %}
-							{% include 'display-selected-component/_display_section.html.twig' %}	
-							{% include 'display-selected-component/_display_open_question.html.twig' %}	
-							{% include 'display-selected-component/_display_separator.html.twig' %}	
-							{% include 'display-selected-component/_display_date_picker.html.twig' %}
-							{% include 'display-selected-component/_display_external_link.html.twig' %}
+							{% include 'edit-selected-component/_edit_section.html.twig' %}
+							{% include 'edit-selected-component/_edit_external_link.html.twig' %}
+							{% include 'edit-selected-component/_edit_single_choice.html.twig' %}
+							{% include 'edit-selected-component/_edit_date_picker.html.twig' %}
+							{% include 'edit-selected-component/_edit_evaluation_scale.html.twig' %}
+							{% include 'edit-selected-component/_edit_multiple_choice.html.twig' %}
+							{% include 'edit-selected-component/_edit_open_question.html.twig' %}
 						{% endfor %}
 					</div>
-					<div class="form-builder-save-container">
-						<button type="submit" formaction="{{ path('research_template_index') }}" class="form-builder-save-button" id="form-builder-save-button">
-							<img class="form-builder-save-button-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
-							Save / Update this template research request
-						</button>
-					</div>
-					{% endif %}
 					{% if researchTemplate.templateComponents is empty %}
 						<img src="{{ asset('build/images/icons/empty_state_1.png') }}">
 						<h2>No elements have been added to this request template.</h2>
@@ -205,8 +200,7 @@
 							<p>Need help?</p>
 						</div>
 					{% endif %}
-				</form>
-
+				</div>
 			</div>
 		</div>
 	</div>

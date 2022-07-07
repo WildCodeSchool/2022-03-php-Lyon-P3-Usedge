@@ -1,0 +1,32 @@
+{% if "multiple-choice" in templateComponent.component.name %}
+    {% if componentId is same as templateComponent.component.id %}
+        <form method="POST" class="multiple-choice-edit-form" draggable="false">
+            <div class="handle-template-component-draggable">
+                <img src="{{ asset('build/images/icons/burger.png') }}"/>
+            </div>
+            <div class="edit-component-multiple-choice">
+                <div class="edit-component-multiple-choice-question">
+                        <input type="hidden" id="update-multiple-choice-name" name="name" value="multiple-choice">
+                        <input class="form-control mb-1 edit-multiple-choice-input" type="text" name="question" value="{{ templateComponent.component.question}}" required>
+                </div>
+                <div class="edit-multiple-choice-answer">
+                    {% set i = 0 %}
+                    {% for answer in templateComponent.component.answers %}
+                        <input class="form-control mb-1 edit-answer-multiple-choice-input" type="text" name="answer-update-{{i}}" value="{{answer.answer}}" required>
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                    <input type="hidden" name="input-answer-count" value="{{i}}">
+                </div>
+                <div>
+                    {% include 'edit-selected-component/_edit_is_mandatory.html.twig' %}
+                </div>
+            </div>
+            <div class="section-actions">
+                <button class="update-button">Edit</button>
+            </div>
+            <a href="{{ path('research_template_add', {id: researchTemplate.id}) }}" class="close-edit">&times;</a>
+        </form>
+    {% else %}
+		{% include 'display-selected-component/_display_multiple_choice.html.twig' %}
+	{% endif %}
+{% endif %}

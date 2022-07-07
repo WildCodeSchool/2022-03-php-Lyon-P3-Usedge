@@ -30,6 +30,15 @@
 @import 'display-selected-component/display_separator.scss';
 @import "display-selected-component/display-date-picker.scss";
 
+// import edit selected component
+@import 'edit-selected-component/edit_section.scss';
+@import 'edit-selected-component/edit_external_link.scss';
+@import 'edit-selected-component/edit_date_picker.scss';
+@import 'edit-selected-component/edit_evaluation_scale.scss';
+@import 'edit-selected-component/edit_single_choice.scss';
+@import 'edit-selected-component/edit_multiple_choice.scss';
+@import 'edit-selected-component/edit_open_question.scss';
+
 // import status tags
 @import "status-tags/_draft.scss";
 @import "status-tags/_active.scss";
