@@ -17,50 +17,37 @@
     }
 }
 .assign-workshop {
-    width: 760px;
-    height: 188px;
-    border: 1.5px dashed $primary-blue-1;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    text-decoration: none;
+    @include dimension(760px, 188px);
+    @include button($primary-white-1, $border-radius-10,
+    1.5px dashed $primary-blue-1);
+    @include textStyle($text-font, $font-size-18,
+    $font-weight-600, $primary-blue-1);
+    line-height: 23px;
     img {
         width: 60px;
-    }
-    a {
-        margin-top: 10px;
-        text-decoration: none;
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 23px;
-        color: $primary-blue-1;
     }
 }
 .create-recommandation {
-    margin-top: 20px;
-    width: 760px;
-    height: 188px;
-    border: 1.5px dashed $primary-blue-1;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    text-decoration: none;
+    @include dimension(760px, 188px);
+    @include button($primary-white-1, $border-radius-10,
+    1.5px dashed $primary-blue-1);
+    @include textStyle($text-font, $font-size-18,
+    $font-weight-600, $primary-blue-1);
+    line-height: 23px;
     img {
         width: 60px;
-    }
-    a {
-        margin-top: 10px;
-        text-decoration: none;
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 23px;
-        color: $primary-blue-1;
     }
 }
 .add-objectives {
