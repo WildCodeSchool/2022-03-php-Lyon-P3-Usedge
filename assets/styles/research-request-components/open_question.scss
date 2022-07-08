@@ -26,6 +26,8 @@
             @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
             padding-top: 10px;
             height: 42px;
+            border: 1px solid #ECEFFF;
+            border-radius: 8px;
         }
     }
     .research-open-question-template-helpertext {
