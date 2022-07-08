@@ -23,11 +23,14 @@
     @include dimension(760px, 188px);
     @include button($primary-white-1, $border-radius-10,
     1.5px dashed $primary-blue-1);
-    @include textStyle($text-font, $font-size-18,
-    $font-weight-600, $primary-blue-1);
     line-height: 23px;
     img {
         width: 60px;
+    }
+    p {
+        @include textStyle($text-font, $font-size-18,
+        $font-weight-600, $primary-blue-1);
+        margin-top: 10px;
     }
 }
 .create-recommandation {
@@ -40,11 +43,14 @@
     @include dimension(760px, 188px);
     @include button($primary-white-1, $border-radius-10,
     1.5px dashed $primary-blue-1);
-    @include textStyle($text-font, $font-size-18,
-    $font-weight-600, $primary-blue-1);
     line-height: 23px;
     img {
         width: 60px;
+    }
+    p {
+        @include textStyle($text-font, $font-size-18,
+        $font-weight-600, $primary-blue-1);
+        margin-top: 10px;
     }
 }
 .add-objectives {
