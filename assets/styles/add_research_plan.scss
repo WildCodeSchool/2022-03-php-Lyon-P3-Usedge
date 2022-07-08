@@ -40,11 +40,8 @@ header {
             align-items: flex-start;
             padding: 15px 25px 25px;
             gap: 10px;
-            position: absolute;
-            width: 307px;
-            height: 115px;
-            left: 374px;
-            top: 108px;
+            @include dimension(307px, 115px);
+            @include absolutePosition(108px, 374px);
             h1 {
                 @include textStyle($text-font, $font-size-18,
                 $font-weight-600, $primary-dark-1);
@@ -52,8 +49,7 @@ header {
             }
             .link-view-request {
                 text-decoration: none;
-                width: 257px;
-                height: 42px;
+                @include dimension(257px, 42px);
                 text-align: center;
                 background: $primary-white-1;
                 border-radius: 10px;
@@ -68,37 +64,27 @@ header {
             align-items: flex-start;
             padding: 15px 25px 25px;
             gap: 10px;
-            position: absolute;
-            width: 307px;
-            height: 198px;
-            left: 374px;
-            top: 243px;
+            @include dimension(307px, 198px);
+            @include absolutePosition(243px, 374px);
             h1 {
                 @include textStyle($text-font, $font-size-18,
                 $font-weight-600, $primary-dark-1);
                 line-height: 23px;
             }
             .button-untitled {
-                width: 257px;
-                height: 53px;
-                background: $primary-blue-2;
-                border-radius: 10px;
-                font-family: 'Source Sans Pro';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 18px;
+                @include dimension(257px, 53px);
+                @include button($primary-blue-2, $border-radius-10, none);
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-blue-1);
                 line-height: 23px;
                 letter-spacing: 0.116667px;
-                color: $primary-blue-1;
             }
             .button-add-section {
-                width: 257px;
-                height: 53px;
-                background: #FFFFFF;
-                border: 1.5px dashed $primary-grey-4;
-                border-radius: 10px;
+                @include dimension(257px, 53px);
+                @include button($primary-white-1, $border-radius-10, 1.5px dashed $primary-grey-4);
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-grey-4);
                 letter-spacing: 0.116667px;
-                color: $primary-grey-4;
             }
         }
     }
@@ -109,27 +95,18 @@ header {
         align-items: flex-start;
         padding: 40px;
         gap: 19px;
-        position: absolute;
-        width: 840px;
-        height: 923px;
-        left: 706px;
-        top: 108px;
-        
+        @include dimension(840px, 923px);
+        @include absolutePosition(108px, 706px);
         .send-research-plan {
-            width: 760px;
-            height: 42px;
-            background: #6580FF;
-            border-radius: 10px;
+            @include dimension(760px, 42px);
+            @include button($primary-blue-1, $border-radius-10, none);
+            @include textStyle($text-font, $font-size-14,
+            $font-weight-600, $primary-white-1);
             position: absolute; 
             padding: 10px 10px 10px 10px; 
             bottom: 0;
             margin-bottom: 50px;
-            font-family: 'Source Sans Pro';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
             line-height: 18px;
-            color: #FFFFFF;
             img {
                 padding-bottom: 5px;
             }
