@@ -40,6 +40,8 @@ header {
             align-items: flex-start;
             padding: 15px 25px 25px;
             gap: 10px;
+            background-color: $primary-white-1;
+            border-radius: 15px;
             @include dimension(307px, 115px);
             @include absolutePosition(108px, 374px);
             h1 {
@@ -66,6 +68,8 @@ header {
             gap: 10px;
             @include dimension(307px, 198px);
             @include absolutePosition(243px, 374px);
+            background-color: $primary-white-1;
+            border-radius: 15px;
             h1 {
                 @include textStyle($text-font, $font-size-18,
                 $font-weight-600, $primary-dark-1);
@@ -97,6 +101,8 @@ header {
         gap: 19px;
         @include dimension(840px, 923px);
         @include absolutePosition(108px, 706px);
+        background-color: $primary-white-1;
+        border-radius: 15px;
         .send-research-plan {
             @include dimension(760px, 42px);
             @include button($primary-blue-1, $border-radius-10, none);

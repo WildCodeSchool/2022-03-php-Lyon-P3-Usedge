@@ -5,11 +5,9 @@
     flex-direction: row;
     justify-content: space-between;
     h1 {
-        width: 357px;
-        height: 31px;
-        font-family: 'League Spartan';
-        font-style: normal;
-        font-weight: 500;
+        @include dimension(357px, 31px);
+        font-family: $title-font;
+        font-weight: $font-weight-500;
         font-size: 24px;
         line-height: 22px;
         color: $primary-blue-3;
@@ -21,7 +19,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     text-decoration: none;
     @include dimension(760px, 188px);
     @include button($primary-white-1, $border-radius-10,
@@ -51,31 +48,28 @@
     }
 }
 .add-objectives {
+    @include button($primary-white-1, $border-radius-10,
+    1.5px dashed $primary-blue-1);
+    @include dimension(760px, 72px);
     margin-top: 20px;
-    border: 1.5px dashed #6580FF;
-    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 760px;
-    height: 72px;
     p {
         margin-left: 35px;
         margin-top: 26px;
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
+        @include textStyle($text-font, $font-size-16,
+        $font-weight-600, $primary-blue-3);
         line-height: 20px;
         display: flex;
         align-items: center;
-        color: #1D2A78;
     }
     button {
+        @include button($primary-white-1, $border-radius-10,
+        1.5px dashed $primary-blue-1);
+        @include dimension(171px, 42px);
         margin-right: 10px;
         margin-top: 15px;
-        width: 171px;
-        height: 42px;
         background: #6580FF;
         border-radius: 10px;
         color: $primary-white-1;
