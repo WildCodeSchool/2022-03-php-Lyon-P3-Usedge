@@ -4,6 +4,7 @@
             <img src="{{ asset('build/images/icons/burger.png') }}"/>
         </div>
         <div class="open-question-template-content">
+            {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
             <p class="open-question-template-question" id="open-question-template-question">
                 {{ templateComponent.component.question }}
                 {% if templateComponent.component.isMandatory %}
@@ -13,7 +14,7 @@
 
             <div class="open-question-template-answers">
                 {% for answer in templateComponent.component.answers %}
-                        <textarea class="form-control" name="answer-open_question"
+                        <textarea class="open-question-template-textarea form-control" name="answer-open_question"
                          placeholder="{{answer.answer}}" wrap></textarea>
                         <label for="answer{{templateComponent.component.id}}" 
                         class="open-question-template-answer-label" id="open-question-template-answer-label">

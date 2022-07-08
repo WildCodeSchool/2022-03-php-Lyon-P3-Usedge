@@ -22,6 +22,23 @@
             margin-bottom: 0;
         }
     }
+    .add-research-request-confirm-header-button {
+        @include button($primary-white-1, $border-radius-10, 2px solid $primary-blue-2);
+        @include dimension(191px, 48px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 10px;
+        gap: 10px;
+        .add-research-request-header-button-icon {
+            @include dimension(15px, 15px);
+        }
+        .add-research-request-header-button-text {
+            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-1);
+            margin-bottom: 0;
+        }
+        opacity: 0;
+    }
     .add-research-request-header-button {
         @include button($primary-white-1, $border-radius-10, 2px solid $primary-blue-2);
         @include dimension(191px, 48px);
@@ -80,6 +97,82 @@
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
                 margin-bottom: 0;
             }
+        }
+    }
+    .research-request-confirm-modal {
+        @include dimension(750px, 283px);
+        @include absolutePosition(100px, 585px);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0px;
+        filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
+        border-radius: $border-radius-20;
+        .research-request-confirm-modal-content {
+            @include dimension(750px, 283px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            gap: 25px;
+            background: #ffffff;
+            border-radius: $border-radius-10;
+        }
+        .research-request-confirm-modal-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px;
+            gap: 5px;
+            .research-request-alert-modal-first-text {
+                @include textStyle($title-font, $font-size-18, $font-weight-500, $secondary-dark-red-1);
+                line-height: 17px;
+                margin-bottom: 0;
+                text-align: center;
+            }
+            .research-request-confirm-modal-first-text {
+                @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
+                font-style: normal;
+                line-height: 17px;
+                margin-bottom: 0;
+                text-align: center;
+            }
+              .research-request-confirm-modal-second-text {
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                font-style: normal;
+                line-height: 20px;
+                text-align: center;
+                margin: 0;
+            }
+        }
+        .research-request-confirm-modal-link {
+            text-decoration: none;
+            .research-request-confirm-modal-button {
+                @include dimension(180px, 42px);
+                @include button($primary-blue-1, $border-radius-10, none);
+                @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                gap: 5px;
+                font-style: normal;
+                line-height: 18px;
+                text-align: center;
+            }
+        }
+        .research-request-alert-modal-button {
+            @include dimension(180px, 42px);
+            @include button($secondary-red-1, $border-radius-10, none);
+            @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-white-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            gap: 5px;
+            font-style: normal;
+            line-height: 18px;
+            text-align: center;
         }
     }
 }
