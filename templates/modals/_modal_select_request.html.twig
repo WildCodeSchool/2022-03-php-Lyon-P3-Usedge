@@ -13,35 +13,42 @@
                 </p>
             </div>
         </div>
+        
         <div class="request-research-list">
             <div class="requests-list-modal" id="requests-list">
                 <table>
                     {% for researchRequest in researchRequests %}
-                        <tbody class="request-result">
-                            <tr class="sort-choice">
-                                <td class="request-details" id="view-request-type">
-                                    <img class="template-icon-modal" src="{{ asset(researchRequest.researchTemplate.icon)}}">
-                                    <div class="view-request-type-content-modal">
-                                        <p class="requestType">User interview</p>
-                                        <p>{{ researchRequest.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
-                                    </div>
-                                </td>
-                                <td class="request-details">
-                                    <img class="request-owner-picture" src="https://i.pravatar.cc">{{ researchRequest.owner }}
-                                </td>
-                                <td class="request-details color-status">
-                                    {% include "home/_research_request_status.html.twig" %}
-                                </td>
-                            </tr>
-                            <tr class="create-plan-button-container">
-                                <td class="request-details">
-                                    <button class="create-plan-button">
-                                        <img src="{{ asset('build/images/icons/Path.png') }}">
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
+                        {% if 'Waiting list' in researchRequest.status or 'Under review' in researchRequest.status %}
+                            <tbody class="request-result">
+                                <tr class="sort-choice">
+                                    <td class="request-details" id="view-request-type">
+                                        <img class="template-icon-modal" src="{{ asset(researchRequest.researchTemplate.icon)}}">
+                                        <div class="view-request-type-content-modal">
+                                            <p class="requestType">User interview</p>
+                                            <p>{{ researchRequest.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
+                                        </div>
+                                    </td>
+                                    <td class="request-details">
+                                        <img class="request-owner-picture" src="https://i.pravatar.cc">{{ researchRequest.owner }}
+                                    </td>
+                                    <td class="request-details color-status">
+                                        {% include "home/_research_request_status.html.twig" %}
+                                    </td>
+                                </tr>
+                                <tr class="create-plan-button-container">
+                                    <td class="request-details">
+                                        <a href="">
+                                            <button class="create-plan-button">
+                                                <img src="{{ asset('build/images/icons/Path.png') }}">
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        {% endif %}
                     {% endfor %}
+                </table>
+                <table>
                     {% if researchRequests is empty %}
                         <tbody class="result">
                             <tr>
