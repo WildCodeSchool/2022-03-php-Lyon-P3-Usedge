@@ -19,15 +19,19 @@ class ResearchRequestMailer
 
     public function researchRequestSendMail(): void
     {
-        $email = (new Email())
-                    ->from((string) $this->parameters->get('mailer_from'))
-                    ->to((string) $this->parameters->get('mailer_to'))
-                    ->subject('A new research request is available !')
-                    ->html(
-                        '<h1>Hello there !</h1>
-                        <p>A new research request is available !</p>
-                        <p>Best Regards</p>'
-                    );
+        $email = new Email();
+        if (is_string($this->parameters->get('mailer_from'))) {
+            $email->from($this->parameters->get('mailer_from'));
+        }
+        if (is_string($this->parameters->get('mailer_to'))) {
+            $email->to($this->parameters->get('mailer_to'));
+        }
+        $email->subject('A new research request is available !');
+        $email->html(
+            '<h1>Hello there !</h1>
+            <p>A new research request is available !</p>
+            <p>Best Regards</p>'
+        );
                 $this->mailer->send($email);
     }
 }
