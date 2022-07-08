@@ -75,7 +75,9 @@
                             <td class="sort"></td>
                         </tr>
                     </thead>
-                    <div class="view-request-table">
+                </table>
+                <div class="table-scroll">
+                    <table>
                         {% for researchRequest in researchRequests %}
                             <tbody class="result">
                                 <tr>
@@ -108,7 +110,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                            {% endfor %}
+                        {% endfor %}
                         {% if researchRequests is empty %}
                             <tbody class="result">
                                 <tr>
@@ -122,47 +124,47 @@
                                     <td class="view-details"></td>
                                 </tr>
                             </tbody>
-                            {% endif %}
-                       
+                        {% endif %}   
+                    </table>
                     </div>
-                </table>
-            </div>
-            <div class="plans-list-none" id="plans-list-none">
-                <div class="plans-header">
-                    <div>
-                        <p class="plans-quantity">No plans available</p>
-                        <p>You can view here all the research plans created</p>
-                    </div>
-                    <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>
                 </div>
-                <table>
-                    <thead class="sort-by">
+                <div class="plans-list-none" id="plans-list-none">
+                    <div class="plans-header">
+                        <div>
+                            <p class="plans-quantity">No plans available</p>
+                            <p>You can view here all the research plans created</p>
+                        </div>
+                        <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>
+                    </div>
+                    <table>
+                        <thead class="sort-by">
+                            <tr>
+                                <td class="sort"  id="plans-type">TYPE AND DATE</td>
+                            </tr>
+                            <tr class="sort-choice">
+                                <td class="sort" id="plans-project">PROJECT</td>
+                                <td class="sort"  id="plans-assigned-request">ASSIGNED REQUEST</td>
+                                <td class="sort"  id="plans-coach-assigned">COACH ASSIGNED</td>
+                                <td class="sort" id="plans-status">STATUS</td>
+                                <td class="sort" ></td>
+                            </tr>
+                        </thead>
+                        <tbody class="result">
                         <tr>
-                            <td class="sort"  id="plans-type">TYPE AND DATE</td>
+                            <td class="view-details" id="view-plans-type">No plans available</td>
                         </tr>
                         <tr class="sort-choice">
-                            <td class="sort" id="plans-project">PROJECT</td>
-                            <td class="sort"  id="plans-assigned-request">ASSIGNED REQUEST</td>
-                            <td class="sort"  id="plans-coach-assigned">COACH ASSIGNED</td>
-                            <td class="sort" id="plans-status">STATUS</td>
-                            <td class="sort" ></td>
+                            <td class="view-details view-plans">No project</td>
+                            <td class="view-details view-plans">No assigned request</td>
+                            <td class="view-details">No coach assigned</td>
+                            <td class="view-details">No status available</td>
+                            <td class="view-details"></td>
                         </tr>
-                    </thead>
-                    <tbody class="result">
-                    <tr>
-                        <td class="view-details" id="view-plans-type">No plans available</td>
-                    </tr>
-                    <tr class="sort-choice">
-                        <td class="view-details view-plans">No project</td>
-                        <td class="view-details view-plans">No assigned request</td>
-                        <td class="view-details">No coach assigned</td>
-                        <td class="view-details">No status available</td>
-                        <td class="view-details"></td>
-                    </tr>
-                </tbody>
+                    </tbody>
                 </table>
             </div>    
         </div>
+        {% include "modals/_modal_select_request.html.twig" %}
     </main>
 
 {% endblock %}

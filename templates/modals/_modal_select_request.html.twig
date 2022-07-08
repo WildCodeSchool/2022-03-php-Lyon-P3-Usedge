@@ -1,0 +1,60 @@
+<div class="full-screen-request-container-modal-close add-name-separator" id="full-screen-request-container-modal-close">
+    <div class="request-details-modal" id="request-details-modal">
+        <div class="request-details-header">
+            <div class="request-details-close" id="request-details-close">
+                <span class="request-details-cross"></span>
+                <span class="request-details-cross"></span>
+            </div>
+            <div class="request-details-title">
+                <p>Select a research request to start</p>
+                <p>
+                    Select in the list one research request you would like to work.
+                    Once you selected an item you will automatically be redirected to the plan creator tool.
+                </p>
+            </div>
+        </div>
+        <div class="request-research-list">
+            <div class="requests-list-modal" id="requests-list">
+                <table>
+                    {% for researchRequest in researchRequests %}
+                        <tbody class="request-result">
+                            <tr class="sort-choice">
+                                <td class="request-details" id="view-request-type">
+                                    <img class="template-icon-modal" src="{{ asset(researchRequest.researchTemplate.icon)}}">
+                                    <div class="view-request-type-content-modal">
+                                        <p class="requestType">User interview</p>
+                                        <p>{{ researchRequest.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
+                                    </div>
+                                </td>
+                                <td class="request-details">
+                                    <img class="request-owner-picture" src="https://i.pravatar.cc">{{ researchRequest.owner }}
+                                </td>
+                                <td class="request-details color-status">
+                                    {% include "home/_research_request_status.html.twig" %}
+                                </td>
+                            </tr>
+                            <tr class="create-plan-button-container">
+                                <td class="request-details">
+                                    <button class="create-plan-button">
+                                        <img src="{{ asset('build/images/icons/Path.png') }}">
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                    {% if researchRequests is empty %}
+                        <tbody class="result">
+                            <tr>
+                                <td class="request-details request-request-type" id="request-request-type">No request available</td>
+                            </tr>
+                            <tr class="sort-choice">
+                                <td class="request-details">No owner assigned</td>
+                                <td class="request-details">No status available</td>
+                            </tr>
+                        </tbody>
+                    {% endif %}
+                </table>
+            </div>
+        </div>   
+    </div>
+</div>
