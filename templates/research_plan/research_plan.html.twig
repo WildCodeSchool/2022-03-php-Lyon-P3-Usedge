@@ -1,0 +1,56 @@
+{% extends 'base-plan.html.twig' %}
+
+{% block title %}New research plan{% endblock %}
+
+{% block body %}
+<header>
+    <div class="title-logo">
+        <img class="logo-usedge" src="{{ asset('build/images/usedge-logo.png') }}" alt="logo usedge">
+        <h1>New research plan</h1>
+    </div>
+    <button class="buttonSave" type="submit"><img src="{{ asset('build/images/icons/logout.png') }}" alt="logout">Save and continue later</button>
+</header>
+
+<main class="sections-container">
+
+    <div class="section-selected">
+        <div class="section-request">
+            <h1>Research request</h1>
+            <a class="link-view-request" href="#">View assigned research request</a>
+        </div>
+
+        <div class="section-plan">
+            <h1>Plan sections</h1>
+            <button type="button" class="button-untitled">Untitled</button>
+            <button type="button" class="button-add-section">+ Add a new section</button>
+        </div>
+    </div>
+
+    <div class="section-form">
+        <form>
+            <div class="section-form-title">
+                <h1>Add section title here</h1>
+                <a href=""><img src="{{ asset('build/images/icons/basket.png') }}" alt="basket"></a>
+            </div>
+
+            <div class="assign-workshop">
+                <img src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
+                <a href="#">Assign a workshop for this phase</a>
+            </div>
+
+            <div>
+                <button>Create a recommandation note</button>
+            </div>
+
+            <div>
+                <p>Would you like to add some objectives for this phase ? </p>
+                <button>Add objectives</button>
+            </div>
+
+            <button>Send research plan to user</button>
+        </form>
+    </div>
+
+</main>
+
+{% endblock %}

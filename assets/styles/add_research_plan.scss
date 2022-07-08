@@ -1,0 +1,156 @@
+@import '_var.scss';
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    @include absolutePosition(0px, 0px);
+    @include dimension(1920px, 68px);
+    .title-logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .logo-usedge {
+            margin: 5px;
+            width: 100px;
+        }
+        h1 {
+            @include textStyle($text-font, $font-size-16,
+            $font-weight-600, $primary-grey-4);
+            padding-left: 50px;
+        }
+    }
+    .buttonSave {
+        @include textStyle($text-font, $font-size-14,
+        $font-weight-600, $primary-grey-4);
+        color: $primary-grey-1;
+        @include button($primary-white-1, $border-radius-10,
+        2px solid $primary-grey-2);
+        padding: 10px;
+    }
+}
+
+.sections-container {
+    .section-selected {
+        .section-request {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px 25px 25px;
+            gap: 10px;
+            position: absolute;
+            width: 307px;
+            height: 115px;
+            left: 374px;
+            top: 108px;
+            h1 {
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-dark-1);
+                line-height: 23px;
+            }
+            .link-view-request {
+                text-decoration: none;
+                width: 257px;
+                height: 42px;
+                text-align: center;
+                background: $primary-white-1;
+                border-radius: 10px;
+                @include textStyle($text-font, $font-size-14,
+                $font-weight-600, $primary-blue-1);
+                line-height: 18px;
+            }
+        }
+        .section-plan {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px 25px 25px;
+            gap: 10px;
+            position: absolute;
+            width: 307px;
+            height: 198px;
+            left: 374px;
+            top: 243px;
+            h1 {
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-dark-1);
+                line-height: 23px;
+            }
+            .button-untitled {
+                width: 257px;
+                height: 53px;
+                background: $primary-blue-2;
+                border-radius: 10px;
+                font-family: 'Source Sans Pro';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 23px;
+                letter-spacing: 0.116667px;
+                color: #6580FF;
+            }
+            .button-add-section {
+                width: 257px;
+                height: 53px;
+                background: #FFFFFF;
+                border: 1.5px dashed #ADADB5;
+                border-radius: 10px;
+                letter-spacing: 0.116667px;
+                color: #ADADB5;
+            }
+        }
+    }
+    .section-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 40px;
+        gap: 19px;
+        position: absolute;
+        width: 840px;
+        height: 923px;
+        left: 706px;
+        top: 108px;
+        .section-form-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            h1 {
+                width: 357px;
+                height: 31px;
+                font-family: 'League Spartan';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 22px;
+                color: $primary-blue-3;
+                opacity: 0.3; 
+            }
+            img {
+                width: 17.25px;
+                height: 20.7px;
+                position: absolute;
+                left: 74.1%;
+                right: 6.39%;
+                top: 4.5%;
+                bottom: 0%;
+            }
+        }
+        .assign-workshop {
+            width: 760px;
+            height: 188px;
+            border: 1.5px dashed #6580FF;
+            border-radius: 10px;
+            img {
+                position: absolute;
+                left: 4.17%;
+                right: 4.17%;
+                top: 12.5%;
+                bottom: 8.33%;
+            }
+        }
+    }
+}
