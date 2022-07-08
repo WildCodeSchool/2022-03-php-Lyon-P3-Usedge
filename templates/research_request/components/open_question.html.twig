@@ -12,7 +12,10 @@
         {% if requestComponent.component.isMandatory %}
         <div class="research-open-question-template-answers">
                 <textarea class="form-control research-open-question-text-area request-answer-input" name="answer-{{ requestComponent.component.id }}" id="research-open-question-text-area"
-                placeholder="Default state" wrap required></textarea>
+                {% for answer in requestComponent.component.answers %}
+                    placeholder="{{answer.answer}}"
+                {% endfor %}
+                 wrap required></textarea>
                 <label for="answer-open-question" 
                 class="research-open-question-template-answer-label" id="open-question-template-answer-label">
                 </label>
@@ -20,7 +23,10 @@
         {% else %}
         <div class="research-open-question-template-answers">
                 <textarea class="form-control research-open-question-text-area request-answer-input" name="answer-{{ requestComponent.component.id }}" id="research-open-question-text-area"
-                placeholder="Default state" wrap></textarea>
+                {% for answer in requestComponent.component.answers %}
+                    placeholder="{{answer.answer}}"
+                {% endfor %}
+                wrap></textarea>
                 <label for="answer-open-question" 
                 class="research-open-question-template-answer-label" id="open-question-template-answer-label">
                 </label>
