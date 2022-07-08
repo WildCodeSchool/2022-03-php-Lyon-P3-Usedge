@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    h1 {
+    p {
         @include dimension(357px, 31px);
         font-family: $title-font;
         font-weight: $font-weight-500;
@@ -12,6 +12,10 @@
         line-height: 22px;
         color: $primary-blue-3;
         opacity: 0.3; 
+    }
+    img {
+        width: 20px;
+        height: 25px;
     }
 }
 .assign-workshop {
