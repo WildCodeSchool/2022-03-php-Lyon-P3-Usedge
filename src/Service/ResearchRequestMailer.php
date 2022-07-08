@@ -20,8 +20,8 @@ class ResearchRequestMailer
     public function researchRequestSendMail(): void
     {
         $email = (new Email())
-                    ->from($this->parameters->get('mailer_from'))
-                    ->to($this->parameters->get('mailer_to'))
+                    ->from((string) $this->parameters->get('mailer_from'))
+                    ->to((string) $this->parameters->get('mailer_to'))
                     ->subject('A new research request is available !')
                     ->html(
                         '<h1>Hello there !</h1>
