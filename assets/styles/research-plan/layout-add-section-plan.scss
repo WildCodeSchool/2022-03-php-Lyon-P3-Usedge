@@ -1,0 +1,104 @@
+@import '../_var.scss';
+
+.section-form-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h1 {
+        width: 357px;
+        height: 31px;
+        font-family: 'League Spartan';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 22px;
+        color: $primary-blue-3;
+        opacity: 0.3; 
+    }
+}
+.assign-workshop {
+    width: 760px;
+    height: 188px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 60px;
+    }
+    a {
+        margin-top: 10px;
+        text-decoration: none;
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 23px;
+        color: $primary-blue-1;
+    }
+}
+.create-recommandation {
+    margin-top: 20px;
+    width: 760px;
+    height: 188px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 60px;
+    }
+    a {
+        margin-top: 10px;
+        text-decoration: none;
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 23px;
+        color: $primary-blue-1;
+    }
+}
+.add-objectives {
+    margin-top: 20px;
+    border: 1.5px dashed #6580FF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 760px;
+    height: 72px;
+    p {
+        margin-left: 35px;
+        margin-top: 26px;
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: #1D2A78;
+    }
+    button {
+        margin-right: 10px;
+        margin-top: 15px;
+        width: 171px;
+        height: 42px;
+        background: #6580FF;
+        border-radius: 10px;
+        color: $primary-white-1;
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        img {
+            padding-bottom: 5px;
+        }
+    }
+}

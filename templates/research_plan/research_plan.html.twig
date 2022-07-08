@@ -27,29 +27,10 @@
     </div>
 
     <div class="section-form">
-        <form>
-            <div class="section-form-title">
-                <h1>Add section title here</h1>
-                <a href=""><img src="{{ asset('build/images/icons/basket.png') }}" alt="basket"></a>
-            </div>
-
-            <div class="assign-workshop">
-                <img src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
-                <a href="#">Assign a workshop for this phase</a>
-            </div>
-
-            <div class="create-recommandation">
-                <img src="{{ asset('build/images/icons/recommandation.png') }}" alt="bubble of recommendation">
-                <a href="#">Create a recommandation note</a>
-            </div>
-
-            <div class="">
-                <p>Would you like to add some objectives for this phase ? </p>
-                <button>Add objectives</button>
-            </div>
-
-            <button>Send research plan to user</button>
-        </form>
+        <div>
+            {% include 'research_plan/_layout_add_section_plan.html.twig' %}
+            <button class="send-research-plan"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
+        </div>
     </div>
 
 </main>

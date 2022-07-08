@@ -114,67 +114,24 @@ header {
         height: 923px;
         left: 706px;
         top: 108px;
-        .section-form-title {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            h1 {
-                width: 357px;
-                height: 31px;
-                font-family: 'League Spartan';
-                font-style: normal;
-                font-weight: 500;
-                font-size: 24px;
-                line-height: 22px;
-                color: $primary-blue-3;
-                opacity: 0.3; 
-            }
-        }
-        .assign-workshop {
+        
+        .send-research-plan {
             width: 760px;
-            height: 188px;
-            border: 1.5px dashed $primary-blue-1;
+            height: 42px;
+            background: #6580FF;
             border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            position: absolute; 
+            padding: 10px 10px 10px 10px; 
+            bottom: 0;
+            margin-bottom: 50px;
+            font-family: 'Source Sans Pro';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+            color: #FFFFFF;
             img {
-                width: 60px;
-            }
-            a {
-                margin-top: 10px;
-                text-decoration: none;
-                font-family: 'Source Sans Pro';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 18px;
-                line-height: 23px;
-                color: $primary-blue-1;
-            }
-        }
-        .create-recommandation {
-            margin-top: 20px;
-            width: 760px;
-            height: 188px;
-            border: 1.5px dashed $primary-blue-1;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            img {
-                width: 60px;
-            }
-            a {
-                margin-top: 10px;
-                text-decoration: none;
-                font-family: 'Source Sans Pro';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 18px;
-                line-height: 23px;
-                color: $primary-blue-1;
+                padding-bottom: 5px;
             }
         }
     }
