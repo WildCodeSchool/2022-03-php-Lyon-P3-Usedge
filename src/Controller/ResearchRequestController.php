@@ -4,12 +4,11 @@ namespace App\Controller;
 
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
+use App\Service\ResearchRequestMailer;
 use App\Service\ResearchRequestUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ResearchRequestController extends AbstractController
@@ -21,7 +20,7 @@ class ResearchRequestController extends AbstractController
         CheckDataUtils $checkDataUtils,
         Request $request,
         ResearchRequestUtils $requestUtils,
-        MailerInterface $mailer,
+        ResearchRequestMailer $mailer,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
         $requestErrors = [];
@@ -44,16 +43,7 @@ class ResearchRequestController extends AbstractController
             $requestErrors = $requestUtils->getCheckErrors();
             if (empty($requestErrors)) {
                 $requestUtils->addResearchRequest($dataComponent, $answerList);
-                $email = (new Email())
-                    ->from($this->getParameter('mailer_from'))
-                    ->to('contact@wildcodeschool.fr')
-                    ->subject('A new research request is available !')
-                    ->html(
-                        '<h1>Hello there !</h1><br>
-                        <p>A new research request is available !</p><br>
-                        <p>Best Regards</p>'
-                    );
-                $mailer->send($email);
+                $mailer->researchRequestSendMail();
             }
         }
         return $this->render('research_request/confirm.html.twig', ['errors' => $requestErrors]);

@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
+    mailer_to: '%env(resolve:MAILER_TO_ADDRESS)%'
 
 services:
     # default configuration for services in *this* file
