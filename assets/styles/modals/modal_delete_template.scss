@@ -1,0 +1,228 @@
+@import '../_var.scss';
+
+/*delete template*/
+
+.modal_delete_template {
+    /* Overlayer */
+  
+    box-sizing: border-box;
+  
+    /* Auto layout */
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 20px;
+  
+    position: relative;
+    width: 710px;
+    height: 299px;
+  
+    /* Primary/White */
+  
+    background: #ffffff;
+    /* Primary/Light-blue */
+  
+    border: 2px solid #ecefff;
+    /* L */
+  
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+  
+  .setting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 630px;
+    height: 224px;
+  
+    /* Primary/White */
+  
+    background: #ffffff;
+  }
+  
+  .select {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 20px;
+    gap: 10px;
+  
+    width: 630px;
+    height: 172px;
+  }
+  
+  .frame_1098 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 630px;
+    height: 152px;
+  }
+  
+  .frame_1097 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+  
+    width: 630px;
+    height: 102px;
+  }
+  
+  .first_text_delete_template {
+    /* Title/H5/Default */
+  
+    font-family: "League Spartan";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 17px;
+    /* identical to box height */
+  
+    display: flex;
+    align-items: center;
+  
+    /* Primary/Darker-blue */
+  
+    color: #12033b;
+  }
+  
+  .second_text_delete_template {
+    /* Paragraph/Regular/Default */
+  
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    /* Primary/Gray/Gray 4 */
+  
+    color: #676874;
+  }
+  
+  .frame_1095 {
+    /* Auto layout */
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 630px;
+    height: 42px;
+  }
+  
+  .frame_1996 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+  
+    width: 630px;
+    height: 42px;
+  }
+  
+  .no_keep_the_template {
+    /* buttons */
+  
+    box-sizing: border-box;
+  
+    /* Auto layout */
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+  
+    width: 310px;
+    height: 42px;
+  
+    /* Secondary/Red */
+  
+    border: 1px solid #ea6061;
+    border-radius: 10px;
+    background: #ffffff;
+  
+    /* Small/Medium/Default */
+  
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    /* Secondary/Red */
+  
+    color: #ea6061;
+  }
+  
+  .yes_remove_my_template {
+    /* buttons */
+  
+    /* Auto layout */
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 5px;
+  
+    width: 310px;
+    height: 42px;
+  
+    /* Secondary/Red */
+  
+    background: #ea6061;
+    border-radius: 10px;
+  
+    /* Small/Medium/Default */
+  
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    /* Primary/White */
+  
+    color: #ffffff;
+  }
+  
+  .modal_delete_template{
+      display: none;
+  }
+  
+  .actions-menu-container-flex {
+      display: flex !important;
+  }
+  
