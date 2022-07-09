@@ -1,101 +1,41 @@
-@import '../_var.scss';
+@import '../var.scss';
 
-.research-center-available-templates {
+.research-plan-available-workshops-modal {
     position: absolute;
     top: 0px;
     right: 0px;
     @include dimension(900px, 1080px);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     background-color: $primary-white-1;
-    border-radius: 20px 0 0 20px;
+    border-radius: 10px 0 0 10px;
     padding: 50px;
-    gap: 20px;
+    gap: 25px;
     transition: 0.3s;
     z-index: 3;
-    .research-center-available-templates-header {
-        @include dimension(800px, 44px);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0;
-        .available-templates-header-title {
-            @include dimension(546px, 44px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            .available-templates-header-first-title {
-                @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
-                line-height: 17px;
-                margin-bottom: 0;
-            }
-            .available-templates-header-subtitle {
-                @include textStyle($text-font, $font-size-16, $font-weight-500, $primary-grey-3);
-                margin-bottom: 0;
-            }
-        }
-        .available-templates-header-actions {
-            @include dimension(75px, 44px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .available-templates-header-options {
-                @include dimension(30px, 30px);
-                cursor: pointer;
-            }
-            .available-templates-header-close {
-                @include dimension(30px, 30px);
-                cursor: pointer;
-            }
-        }
+    .research-plan-available-workshops-modal-close {
+        @include dimension(30px, 30px);
+        @include absolutePosition(20px, 850px);
+        cursor: pointer;
     }
-    .available-templates-header-information {
-        @include dimension(800px, 87px);
+    .research-plan-available-workshops-header {
+        @include dimension(800px, 84px);
         display: flex;
-        justify-content: flex-start;
+        flex-direction: column;
+        justify-content: flex-end;
         align-items: center;
-        background-color: $primary-blue-1;
-        border: 1px solid $primary-blue-2;
-        border-radius: $border-radius-10;
-        .available-templates-header-information-icon {
-            @include dimension(35px, 37.5px);
-            margin-right: 15.5px;
-            margin-left: 33.5px;
+        .research-plan-available-workshops-header-title {
+            @include textStyle($title-font, 28px, $font-weight-500, $primary-blue-3);
+            margin-bottom: 0;
         }
-        .available-templates-header-information-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            .available-templates-header-information-first-text {
-                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-white-1);
-                margin-bottom: 0;
-                letter-spacing: 0.116667px;
-                line-height: 18px;
-            }
-            .available-templates-header-information-second-text {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-white-1);
-                margin-bottom: 0;
-                .available-templates-header-information-link {
-                    color: $primary-white-1;
-                }
-            }
+        .research-plan-available-workshops-header-subtitle {
+            @include textStyle($text-font, $font-size-18, $font-weight-400, $primary-grey-1);
+            margin-bottom: 0;
         }
-    }
-    .available-templates-content {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        width: 800px;
-        max-height: 838px;
-        overflow-y: scroll;
-        display: flex;
-        gap: 16px;
     }
 }
 
-.research-center-available-templates-display {
-    right: -50px;
+.research-plan-available-workshops-display {
+    right: 0px;
 }
