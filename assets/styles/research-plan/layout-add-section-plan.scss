@@ -4,14 +4,24 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    p {
+    margin-bottom: 10px;
+    .title-section-research-plan {
         @include dimension(357px, 31px);
+        border: none;
+        font-family: $title-font;
+        font-weight: $font-weight-500;
+        font-size: 24px;
+        line-height: 22px;
+        opacity: 0.3; 
+    }
+    .newTitleSection {
+        @include dimension(357px, 31px);
+        border: none;
         font-family: $title-font;
         font-weight: $font-weight-500;
         font-size: 24px;
         line-height: 22px;
         color: $primary-blue-3;
-        opacity: 0.3; 
     }
     img {
         width: 20px;
