@@ -23,9 +23,12 @@
         line-height: 22px;
         color: $primary-blue-3;
     }
+    &:focus {
+        outline: none;
+    }
     img {
         width: 20px;
-        height: 25px;
+        height: 20px;
     }
 }
 .assign-workshop {
