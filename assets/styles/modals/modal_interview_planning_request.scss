@@ -33,6 +33,64 @@
                 align-items: center;
                 gap: 10px;
 
+                .waiting-list {
+                    p {
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, #FFA94F);
+                        @include dimension(89px, 24px);
+                        border-radius: 5px;
+                        background-color: #FFF1EA;
+
+                        img {
+                            @include dimension(7px, 7px);
+                            margin-right: 5px;
+                        }
+                    }
+                }
+
+                .dropped {
+                    @extend .waiting-list;
+
+                    p {
+                        @include dimension(77px, 24px);
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, #EA6061);
+                        background-color: #FFE8E8;
+                    }
+                }
+
+                .solved {
+                    @extend .waiting-list;
+
+                    p {
+                        @include dimension(68px, 24px);
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, #71D68F);
+                        background-color: #EDFFEC;
+                    }
+                }
+
+                .under-review {
+                    @extend .waiting-list;
+
+                    p {
+                        @include dimension(100px, 24px);
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
+                        background-color: #ECEFFF;
+                    }
+                }
+
+                .draft {
+                    @extend .waiting-list;
+
+                    p {
+                        @include dimension(58px, 24px);
+                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                        background-color: #F1F1F5;
+                    }
+                }
+
                 .interview-planning-header-first-title {
                     @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
                     line-height: 17px;
