@@ -1,4 +1,4 @@
-<div class="modal-interview-planning-request" id="modal-interview-planning-request">
+<div class="modal-interview-planning-request" id="{{ researchRequest.id }}">
 	<div class="modal-interview-planning-request-header">
 		<div class="interview-planning-header-title">
 			<div class="interview-planning-header-first-title-container">
@@ -19,9 +19,7 @@
 		</div>
 	</div>
 
-
 	<div class="separator"></div>
-
 
 	<div class="research-plan-information-container">
 
@@ -31,12 +29,25 @@
 		</div>
 
 		<div>
-		<button id="create-request"><img src="{{ asset('build/images/icons/Path.png') }}"> Open research plan</button>
+			<button id="button-open-research-plan"><img src="{{ asset('build/images/icons/Path.png') }}">
+				Open research plan</button>
 		</div>
 
 	</div>
 
 	<div class="separator"></div>
 
+	<div>
+
+		<p>resquest id :
+			{{ researchRequest.id }}</p>
+
+		<p>resquest owner :
+			{{ researchRequest.owner }}</p>
+
+		<p>resquest coach :
+			{{ researchRequest.researchTemplate.coach }}</p>
+
+	</div>
 
 </div>
