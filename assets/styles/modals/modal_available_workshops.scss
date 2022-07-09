@@ -34,6 +34,51 @@
             margin-bottom: 0;
         }
     }
+    .research-plan-available-workshops-searchbar-content {
+        @include dimension(800px, 38px);
+        display: flex;
+        justify-content: space-between;
+        .research-plan-available-workshops-searchbar {
+            @include dimension(650px, 38px);
+            display: flex;
+            align-items: center;
+            padding: 12px 0 12px 12px;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            .research-plan-available-workshops-searchbar-icon {
+                @include dimension(15px, 15px);
+            }
+            #research-plan-available-workshops-searchbar-input {
+                @include dimension(600px, 36px);
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
+                border: transparent;
+                padding-left: 5px;
+                &::placeholder {
+                    opacity: 0.3;
+                }
+                &:focus {
+                    outline: none;
+                    opacity: 1;
+                }
+            }
+        }
+        .research-plan-available-workshops-searchbar-button {
+            @include dimension(140px, 38px);
+            @include button($primary-blue-1, $border-radius-10, none);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            .research-plan-available-workshops-searchbar-button-icon {
+                @include dimension(15px, 15px);
+            }
+            .research-plan-available-workshops-searchbar-button-text {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                margin-bottom: 0;
+            }
+        }
+
+    }
 }
 
 .research-plan-available-workshops-display {
