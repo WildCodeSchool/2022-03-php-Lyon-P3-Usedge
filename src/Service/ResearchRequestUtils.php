@@ -118,7 +118,7 @@ class ResearchRequestUtils
         }
         $researchRequest->setCreationDate($creationDate);
         $researchRequest->setStatus($dataComponent['research-request-status']);
-        $researchRequest->setProject($dataComponent['project']);
+        $researchRequest->setProject($dataComponent['request_project']);
         $researchRequest->setOwner($dataComponent['owner']);
         $entityManager->persist($researchRequest);
 
