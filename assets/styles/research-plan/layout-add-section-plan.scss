@@ -27,7 +27,7 @@
         }
     }
     img {
-        width: 15px;
+        width: 20px;
         height: 20px;
     }
 }
@@ -80,14 +80,17 @@
     justify-content: space-between;
     p {
         margin-left: 35px;
-        margin-top: 26px;
+        margin-top: 20px;
         @include textStyle($text-font, $font-size-16,
         $font-weight-600, $primary-blue-3);
         line-height: 20px;
         display: flex;
         align-items: center;
     }
-    button {
+    .button-add-objectives {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include button($primary-blue-1, $border-radius-10,
         none);
         @include dimension(171px, 42px);
@@ -96,8 +99,10 @@
         margin-right: 10px;
         margin-top: 15px;
         line-height: 18px;
-        img {
-            padding-bottom: 5px;
-        }
+            img {
+               padding-right: 5px;
+               padding-bottom: 2px;
+            }
+
     }
 }
