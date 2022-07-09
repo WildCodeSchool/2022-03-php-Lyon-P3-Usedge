@@ -16,6 +16,7 @@ import './js/homePage.js';
 import './js/add_research_template.js';
 import './js/drag_and_drop.js';
 import './js/add_research_request.js';
+import './js/add_research_plan.js';
 
 // import modal js
 import './js/modals/modal_external_link.js';
