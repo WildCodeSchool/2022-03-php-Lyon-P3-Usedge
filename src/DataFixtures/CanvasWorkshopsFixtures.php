@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\CanvasWorkshops;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -156,12 +157,16 @@ class CanvasWorkshopsFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $array = [];
         foreach (self::WORKSHOPS as $workshop) {
-            $array[] = $workshop['name'];
+            $canvaWorkshop = new CanvasWorkshops();
+            $canvaWorkshop
+                ->setName($workshop['name'])
+                ->setDescription($workshop['description'])
+                ->setImage($workshop['picture'])
+                ->setType($workshop['type']);
+
+            $manager->persist($canvaWorkshop);
         }
-        // $product = new Product();
-        // $manager->persist($product);
 
         $manager->flush();
     }
