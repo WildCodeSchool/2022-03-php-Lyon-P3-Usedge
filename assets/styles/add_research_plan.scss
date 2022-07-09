@@ -1,6 +1,6 @@
 @import '_var.scss';
 
-header {
+.header-research-plan {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,6 +33,7 @@ header {
 }
 
 .sections-container {
+    position: relative;
     .section-selected {
         .section-request {
             display: flex;

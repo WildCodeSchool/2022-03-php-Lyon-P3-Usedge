@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: flex-start;
     background-color: $primary-white-2;
-    padding: 35px 0px;
+    padding-top: 35px;
     gap: 20px;
     width: 81vw;
     .search-engine {
@@ -112,6 +112,7 @@
         justify-content: space-between;
         flex-wrap: nowrap;
         width: 100%;
+        height: 771px;
         .requests-list {
             display: flex;
             flex-direction: column;

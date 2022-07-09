@@ -3,7 +3,7 @@
 .research-plan-available-workshops-modal {
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: -2850px;
     @include dimension(900px, 1080px);
     display: flex;
     flex-direction: column;
@@ -153,5 +153,5 @@
 }
 
 .research-plan-available-workshops-display {
-    right: 0px;
+    right: -1920px;
 }
