@@ -96,6 +96,59 @@
             margin-bottom: 0;
         }
     }
+    .research-plan-available-workshops-content {
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 795px;
+        max-height: 759px;
+        padding: 0 0 40px;
+        gap: 20px;
+        .available-workshops-card {
+            @include dimension(785px, 92px);
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 15px 5px 15px 20px;
+            border: 1px solid $primary-blue-2;
+            border-radius: $border-radius-20;
+            gap: 5px;
+            .available-workshop-image-container {
+                @include dimension(99px, 60.84px);
+                display: flex;
+                align-items: center;
+                .available-workshop-image {
+                    width: 100%;
+                }
+            }
+            .available-workshop-text-container {
+                @include dimension(507px, 59px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                .available-workshop-name {
+                    @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-dark-1);
+                    letter-spacing: 0.116667px;
+                    margin-bottom: 0;
+                }
+                .available-workshop-description {
+                    @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
+                    line-height: 18px;
+                    margin-bottom: 0;
+                }
+            }
+            .available-workshop-button {
+                @include dimension(129px, 42px);
+                @include button($primary-blue-1, $border-radius-10, none);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
 }
 
 .research-plan-available-workshops-display {

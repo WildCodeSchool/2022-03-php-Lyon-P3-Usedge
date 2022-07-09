@@ -27,4 +27,19 @@
         <p class="research-plan-available-workshops-suggestions-button">Buy a feature</p>
         <p class="research-plan-available-workshops-suggestions-button">A/B Testing</p>
     </div>
+    <div class="research-plan-available-workshops-content">
+        {% for workshop in workshops %}
+            <div class="available-workshops-card">
+                <input class="available-workshop-id" type="hidden" value="{{ workshop.id }}">
+                <div class="available-workshop-image-container">
+                    <img class="available-workshop-image" src="{{ asset('' ~ workshop.image ~ '') }}"/>
+                </div>
+                <div class="available-workshop-text-container">
+                    <p class="available-workshop-name">{{ workshop.name }}</p>
+                    <p class="available-workshop-description">{{ workshop.description }}</p>
+                </div>
+                <button class="available-workshop-button">Use this template</button>
+            </div>
+        {% endfor %}
+    </div>
 </div>
