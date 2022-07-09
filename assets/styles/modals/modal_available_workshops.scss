@@ -77,7 +77,23 @@
                 margin-bottom: 0;
             }
         }
-
+    }
+    .research-plan-available-workshops-suggestions {
+        @include dimension(477px, 24px);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .research-plan-available-workshops-suggestions-text {
+            @include textStyle($text-font, $font-size-12, $font-weight-400, $primary-grey-1);
+            margin-bottom: 0;
+        }
+        .research-plan-available-workshops-suggestions-button {
+            @include button($primary-blue-2, 5px, none);
+            @include textStyle($text-font, $font-size-12, $font-weight-400, $primary-blue-1);
+            display: flex;
+            align-items: center;
+            padding: 4.5px 10px;
+        }
     }
 }
 
