@@ -3,10 +3,12 @@
     <a href=""><img src="{{ asset('build/images/icons/basket.png') }}" alt="basket"></a>
 </div>
 
-<a href="#" id="assign-workshop" class="assign-workshop">
-    <img src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
-    <p>Assign a workshop for this phase</p>
-</a>
+<button id="assign-workshop" class="assign-workshop">
+    <div class="assign-workshop-content">
+        <img class="assign-workshop-content-image" src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
+        <p class="assign-workshop-content-text">Assign a workshop for this phase</p>
+    </div>
+</button>
 
 <div id="research-plan-workshop-selected-content" class="research-plan-workshop-selected-content">
     <input id="selected-worshop-id" type="hidden" name="workshop_id">
