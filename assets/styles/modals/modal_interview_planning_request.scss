@@ -107,6 +107,17 @@
                     color: $primary-blue-1;
                 }
             }
+
+            .alert-message-is-dropped {
+                display: flex;
+                gap: 10px;
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-600, $secondary-dark-red-1);
+                    line-height: 20px;
+                    width: 100%;
+                }
+            }
         }
 
         .interview-planning-header-actions {
