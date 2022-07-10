@@ -17,4 +17,20 @@ if (document.querySelector('.assign-workshop')) {
         availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
     })
 
+    availableWorkshopButton.addEventListener('click', () => {
+        let search = workshopSearchbar.value.toLowerCase();
+        let arraySearch = search.split(' ');
+        for (let i = 0; i < availableWorkshopsCard.length; i++) {
+            availableWorkshopsCard[i].style.display = "none";
+        }
+        arraySearch.forEach(word => {
+            for (let i = 0; i < availableWorkshopsCard.length; i++) {
+                let workshopName = workshopCardTitle[i].innerHTML.toLowerCase();
+                let workshopDescription = workshopCardDescription[i].innerHTML.toLowerCase();
+                if (workshopName.includes(word) || workshopDescription.includes(word)) {
+                    availableWorkshopsCard[i].style.display = "flex";
+                }
+            }
+        })
+    });
 }
