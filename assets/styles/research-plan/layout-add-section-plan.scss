@@ -15,7 +15,7 @@
     }
 }
 .assign-workshop {
-    display: flex;
+    display: none; //flex
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,50 @@
         width: 60px;
     }
 }
+
+.research-plan-workshop-selected-content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    width: 760px;
+    min-height: 138px;
+    padding: 35px;
+    gap: 15px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: $border-radius-10;
+    .research-plan-workshop-select-edit-icon {
+        @include dimension(20px, 20px);
+        @include absolutePosition(36px, 705px);
+        cursor: pointer;
+    }
+    .research-plan-workshop-selected-image {
+        @include dimension(54px, 54px);
+    }
+    .research-plan-workshop-selected-text {
+        width: 585.99px;
+        min-height: 68px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 5px;
+        .research-plan-workshop-selected-title {
+            @include textStyle($text-font, $font-size-18, $font-weight-400, $primary-dark-1);
+            margin-bottom: 0;
+            line-height: 23px;
+            .research-plan-workshop-selected-name {
+                font-weight: $font-weight-600;
+            }
+        }
+        .research-plan-workshop-selected-description {
+            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-4);
+            letter-spacing: 0.11667px;
+            line-height: 20px;
+            margin-bottom: 0;
+        }
+    }
+}
+
 .create-recommandation {
     display: flex;
     flex-direction: column;
