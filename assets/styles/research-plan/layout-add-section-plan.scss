@@ -15,7 +15,7 @@
     }
 }
 .assign-workshop {
-    display: none; //flex
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
 
 .research-plan-workshop-selected-content {
     position: relative;
-    display: flex;
+    display: none;
     align-items: flex-start;
     width: 760px;
     min-height: 138px;
@@ -126,4 +126,12 @@
             padding-bottom: 5px;
         }
     }
+}
+
+.research-plan-workshop-selected-display-flex {
+    display: flex;
+}
+
+.assign-workshop-display-none {
+    display: none;
 }
