@@ -8,10 +8,11 @@
     <p>Assign a workshop for this phase</p>
 </a>
 
-<a href="#" class="create-recommandation">
-    <img src="{{ asset('build/images/icons/recommandation.png') }}" alt="bubble of recommendation">
-    <p>Create a recommandation note</p>
-</a>
+<button type="button" class="create-recommandation" id="text-editor-button">
+    <img id="bubble-of-recommandation" src="{{ asset('build/images/icons/recommandation.png') }}" alt="bubble of recommandation">
+    <p class="recommandation-note">Create a recommandation note</p>
+</button>
+{% include "research_plan/_create_recommandation.html.twig" %}
 
 <div class="add-objectives">
     <p>Would you like to add some objectives for this phase ? </p>

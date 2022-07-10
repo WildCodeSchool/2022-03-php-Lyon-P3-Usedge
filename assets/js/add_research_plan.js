@@ -14,6 +14,7 @@ if (document.getElementById('title-section-research-plan')) {
             buttonUntitled.value = valueInput;
             inputTitleSectionPlan.classList.remove('title-section-research-plan');
             inputTitleSectionPlan.classList.add("newTitleSection");
+            event.preventDefault();
         }
     }, true);
 

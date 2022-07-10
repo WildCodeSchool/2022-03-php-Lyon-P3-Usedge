@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "draggable": "^4.2.0",
+        "froala-editor": "^4.0.13",
         "sortablejs": "^1.15.0"
     }
 }
