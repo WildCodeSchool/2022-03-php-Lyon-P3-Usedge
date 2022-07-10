@@ -26,6 +26,10 @@ if (document.querySelector('.assign-workshop')) {
 
     availableWorkshopModalCloseButton.addEventListener('click', () => {
         availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
+        workshopSearchbar.value = '';
+        availableWorkshopsCard.forEach(card => {
+            card.classList.remove('available-workshops-card-disabled');
+        })
     });
 
     // Function used to capture the enter keytouch and simulate it as a button click.
