@@ -146,7 +146,7 @@ class CanvasWorkshopsFixtures extends Fixture
             'type' => 'workshop',
         ],
         [
-            'name' => 'Assumtins mapping',
+            'name' => 'Assumtions mapping',
             'description' => 'List assumptions by using the guide provided. Then position
                                 them to identify next your next investigation subjects.',
             'picture' => 'build/images/logo_workshop/assumtions-mapping.png',
