@@ -7,6 +7,8 @@ if (document.getElementById('text-editor-button')) {
     const validateRecommandationButton = document.getElementById('validate-recommandation-button');
     const recommandationDetails = document.getElementById('recommandation-details');
     const recommandationDetailsContainer = document.getElementById('recommandation-details-container');
+    const sendResearchPlanButton = document.getElementById('send-research-plan');
+    const buttonAddObjectives = document.getElementById('button-add-objectives');
     const FroalaEditor = require('froala-editor');
 
     textEditorButton.addEventListener('click', () => {
@@ -15,6 +17,12 @@ if (document.getElementById('text-editor-button')) {
         textEditorButton.classList.remove('create-recommandation');
         createRecommandationContainer.classList.add('create-recommandation-container');
         createRecommandationContainer.classList.remove('create-recommandation-container-none');
+        sendResearchPlanButton.classList.add('send-research-plan-disabled');
+        sendResearchPlanButton.classList.remove('send-research-plan');
+        sendResearchPlanButton.setAttribute('disabled', 'disabled');
+        buttonAddObjectives.classList.add('button-add-objectives-disabled');
+        buttonAddObjectives.classList.remove('button-add-objectives');
+        buttonAddObjectives.setAttribute('disabled', 'disabled');
         new FroalaEditor('#create-recommandation-text');
     });
 
@@ -27,6 +35,12 @@ if (document.getElementById('text-editor-button')) {
         for (const recommandationInput of recommandationInputs) {
             recommandationInput.remove();
         }
+        sendResearchPlanButton.classList.add('send-research-plan-disabled');
+        sendResearchPlanButton.classList.remove('send-research-plan');
+        sendResearchPlanButton.setAttribute('disabled', 'disabled');
+        buttonAddObjectives.classList.add('button-add-objectives-disabled');
+        buttonAddObjectives.classList.remove('button-add-objectives');
+        buttonAddObjectives.setAttribute('disabled', 'disabled');
         recommandationDetails.classList.add('recommandation-details-none');
         recommandationDetails.classList.remove('recommandation-details');
         createRecommandationContainer.classList.add('create-recommandation-container');
@@ -54,7 +68,12 @@ if (document.getElementById('text-editor-button')) {
             }
         }
         
-
+        sendResearchPlanButton.classList.remove('send-research-plan-disabled');
+        sendResearchPlanButton.classList.add('send-research-plan');
+        sendResearchPlanButton.removeAttribute('disabled');
+        buttonAddObjectives.classList.remove('button-add-objectives-disabled');
+        buttonAddObjectives.classList.add('button-add-objectives');
+        buttonAddObjectives.removeAttribute('disabled');
         recommandationDetails.classList.add('recommandation-details');
         recommandationDetails.classList.remove('recommandation-details-none');
         createRecommandationContainer.classList.add('create-recommandation-container-none');
