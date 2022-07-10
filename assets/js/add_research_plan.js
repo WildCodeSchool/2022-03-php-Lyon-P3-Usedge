@@ -21,14 +21,14 @@ if (document.querySelector('.assign-workshop')) {
         let search = workshopSearchbar.value.toLowerCase();
         let arraySearch = search.split(' ');
         for (let i = 0; i < availableWorkshopsCard.length; i++) {
-            availableWorkshopsCard[i].style.display = "none";
+            availableWorkshopsCard[i].classList.add('available-workshops-card-disabled');
         }
         arraySearch.forEach(word => {
             for (let i = 0; i < availableWorkshopsCard.length; i++) {
                 let workshopName = workshopCardTitle[i].innerHTML.toLowerCase();
                 let workshopDescription = workshopCardDescription[i].innerHTML.toLowerCase();
                 if (workshopName.includes(word) || workshopDescription.includes(word)) {
-                    availableWorkshopsCard[i].style.display = "flex";
+                    availableWorkshopsCard[i].classList.remove('available-workshops-card-disabled');
                 }
             }
         })
