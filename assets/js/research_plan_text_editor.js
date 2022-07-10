@@ -1,4 +1,3 @@
-
 if (document.getElementById('text-editor-button')) {
     
     const textEditorButton = document.getElementById('text-editor-button');
@@ -9,6 +8,7 @@ if (document.getElementById('text-editor-button')) {
     const recommandationDetailsContainer = document.getElementById('recommandation-details-container');
     const sendResearchPlanButton = document.getElementById('send-research-plan');
     const buttonAddObjectives = document.getElementById('button-add-objectives');
+    const recommandationInput = document.getElementById('recommandation-input');
     const FroalaEditor = require('froala-editor');
 
     textEditorButton.addEventListener('click', () => {
@@ -31,10 +31,8 @@ if (document.getElementById('text-editor-button')) {
         for (const recommandationDetailsParagraph of recommandationDetailsParagraphs) {
             recommandationDetailsParagraph.remove();
         }
-        const recommandationInputs = document.querySelectorAll('.recommandation-input');
-        for (const recommandationInput of recommandationInputs) {
-            recommandationInput.remove();
-        }
+        recommandationInput.value = "";
+        
         sendResearchPlanButton.classList.add('send-research-plan-disabled');
         sendResearchPlanButton.classList.remove('send-research-plan');
         sendResearchPlanButton.setAttribute('disabled', 'disabled');
@@ -51,14 +49,9 @@ if (document.getElementById('text-editor-button')) {
     validateRecommandationButton.addEventListener('click', () =>{
         const editorBody = document.querySelector('.fr-wrapper');
         const texts = editorBody.querySelectorAll('.fr-element > p');
-        let i = 1;
         for (const text of texts) {
             const newRecommandationDetailsParagraph = document.createElement('p');
-            const recommandationInput = document.createElement('input');
-            recommandationInput.type = 'hidden'
-            recommandationInput.value = text.textContent;
-            recommandationInput.setAttribute('name', 'recommandation' + i++)
-            recommandationInput.classList.add('recommandation-input');
+            recommandationInput.value = recommandationInput.value + " " + text.textContent;
             newRecommandationDetailsParagraph.classList.add('recommandation-details-paragraph');
             recommandationDetailsContainer.appendChild(newRecommandationDetailsParagraph);
             recommandationDetailsContainer.appendChild(recommandationInput);
@@ -79,9 +72,4 @@ if (document.getElementById('text-editor-button')) {
         createRecommandationContainer.classList.add('create-recommandation-container-none');
         createRecommandationContainer.classList.remove('create-recommandation-container');
     });
-    
-        
-    
-    
-
 }
