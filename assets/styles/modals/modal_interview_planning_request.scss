@@ -182,6 +182,111 @@
             gap: 5px;
         }
     }
+
+    .research-request-content-container {
+        overflow-y: scroll;
+
+        .section {
+
+            h3 {
+                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                line-height: 23px;
+                letter-spacing: 0.116667px;
+            }
+        }
+
+        .single-choice {
+
+            h3 {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                line-height: 18px;
+            }
+
+            p {
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                line-height: 20px;
+            }
+        }
+
+        .open-question {
+
+            h3 {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                line-height: 18px;
+            }
+
+            p {
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                line-height: 20px;
+            }
+        }
+
+        .date-picker {
+
+            h3 {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                line-height: 18px;
+            }
+
+            p {
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                line-height: 20px;
+            }
+        }
+
+        .external-link {
+
+            h3 {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                line-height: 18px;
+            }
+            .external-link-container {
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                
+                a {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-3);
+                    line-height: 20px;
+                }
+            }
+        }
+
+        .separator {
+            width: 800px;
+            border-bottom: 1px solid $primary-grey-5;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .multiple-choice {
+
+            h3 {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                line-height: 18px;
+            }
+
+            p {
+                /* Paragraph/Regular/Default */
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                line-height: 20px;
+            }
+        }
+
+        .evaluation-scale {
+
+            h3 {
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                line-height: 18px;
+            }
+
+            p {
+                /* Paragraph/Regular/Default */
+                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                line-height: 20px;
+            }
+        }
+    }
 }
 
 .modal-interview-planning-request-display {

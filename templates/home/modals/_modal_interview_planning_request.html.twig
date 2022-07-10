@@ -35,18 +35,6 @@
 	<div class="separator"></div>
 
 	{% include "home/_research_plan_information.html.twig" %}
-
-	<div>
-
-		<p>resquest id :
-			{{ researchRequest.id }}</p>
-
-		<p>resquest owner :
-			{{ researchRequest.owner }}</p>
-
-		<p>resquest coach :
-			{{ researchRequest.researchTemplate.coach }}</p>
-
-	</div>
+	{% include "home/_research_request_content.html.twig" %}
 
 </div>
