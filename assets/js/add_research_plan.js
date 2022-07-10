@@ -16,6 +16,7 @@ if (document.querySelector('.assign-workshop')) {
     const selectedWorkshopName = document.querySelector('.research-plan-workshop-selected-name');
     const selectedWorkshopDescription = document.querySelector('.research-plan-workshop-selected-description');
     const availableWorkshopIdInput = document.querySelector('.available-workshop-id');
+    const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
 
     assignWorkshopLink.addEventListener('click', () => {
         availableWorkshopModal.classList.add('research-plan-available-workshops-display');
@@ -53,6 +54,7 @@ if (document.querySelector('.assign-workshop')) {
             selectedWorkshopNameInput.value = workshopCardTitle[i].innerHTML;
             selectedWorkshopDescriptionInput.value = workshopCardDescription[i].innerHTML;
             selectedWorkshopIdInput.value = availableWorkshopIdInput.value;
+            selectedWorkshopDescritionTextarea.innerHTML = workshopCardDescription[i].innerHTML.replace(/\s+/g, " ");
             availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
         });
     }
