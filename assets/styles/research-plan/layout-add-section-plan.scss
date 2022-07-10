@@ -159,3 +159,9 @@
 .research-plan-workshop-select-edit-icon-display-none {
     display: none !important;
 }
+
+.no-result-paragraph {
+    @include textStyle($text-font, $font-size-18,$font-weight-600, $primary-grey-4);
+    margin-top: 20px;
+    align-self: center;
+}

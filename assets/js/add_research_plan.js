@@ -7,6 +7,7 @@ if (document.querySelector('.assign-workshop')) {
     const availableWorkshopsCard = document.querySelectorAll('.available-workshops-card');
     const workshopCardTitle = document.querySelectorAll('.available-workshop-name');
     const workshopCardDescription = document.querySelectorAll('.available-workshop-description');
+    const availableWorkshopContent = document.querySelector('.research-plan-available-workshops-content');
     const availableWorkshopSearchButton = document.getElementById('research-plan-available-workshops-searchbar-button');
     const availableWorkshopSelectButton = document.querySelectorAll('.available-workshop-button');
     const selectedWorkshopNameInput = document.getElementById('selected-workshop-name');
@@ -52,6 +53,12 @@ if (document.querySelector('.assign-workshop')) {
                 let workshopDescription = workshopCardDescription[i].innerHTML.toLowerCase();
                 if (workshopName.includes(word) || workshopDescription.includes(word)) {
                     availableWorkshopsCard[i].classList.remove('available-workshops-card-disabled');
+                } else {
+                    let noResult = document.createElement('p');
+                    noResult.innerHTML = "No result.";
+                    noResult.classList.add('no-result-paragraph');
+                    availableWorkshopContent.appendChild(noResult);
+                    break;
                 }
             }
         })
