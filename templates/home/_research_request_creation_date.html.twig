@@ -1,4 +1,4 @@
-{# Interval between the creation date and now #}
+{# Interval between the update date and now #}
 {% set difference = date( 'now' | date() ).diff(date(researchRequest.creationDate)) %}
 {% set leftYears = difference.y %}
 {% set leftDays = difference.days %}
