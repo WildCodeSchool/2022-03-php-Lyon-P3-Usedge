@@ -129,9 +129,9 @@
 }
 
 .research-plan-workshop-selected-display-flex {
-    display: flex;
+    display: flex !important;
 }
 
 .assign-workshop-display-none {
-    display: none;
+    display: none !important;
 }

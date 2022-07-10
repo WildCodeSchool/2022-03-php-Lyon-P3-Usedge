@@ -3,23 +3,24 @@
     <a href=""><img src="{{ asset('build/images/icons/basket.png') }}" alt="basket"></a>
 </div>
 
-<a href="#" class="assign-workshop">
+<a href="#" id="assign-workshop" class="assign-workshop">
     <img src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
     <p>Assign a workshop for this phase</p>
 </a>
 
-<div class="research-plan-workshop-selected-content">
-    <input type="hidden" name="workshop_name">
-    <input type="hidden" name="workshop_description">
+<div id="research-plan-workshop-selected-content" class="research-plan-workshop-selected-content">
+    <input id="selected-worshop-id" type="hidden" name="workshop_id">
+    <input id="selected-workshop-name" type="hidden" name="workshop_name">
+    <input id="selected-workshop-description" type="hidden" name="workshop_description">
     <img class="research-plan-workshop-select-edit-icon"
             src="{{ asset('build/images/icons/edit.png') }}"/>
     <img class="research-plan-workshop-selected-image" src="{{ asset('build/images/icons/session-remote.gif')}}"/>
     <div class="research-plan-workshop-selected-text">
         <p class="research-plan-workshop-selected-title">
             Workshop selected : 
-            <span class="research-plan-workshop-selected-name">Explorative interview</span>
+            <span class="research-plan-workshop-selected-name"></span>
         </p>
-        <p class="research-plan-workshop-selected-description">Cover almost all user-related topics, gather informations on users’ feelings, motivations and daily routines, or how they use products.</p>
+        <p class="research-plan-workshop-selected-description"></p>
     </div>
 </div>
 
