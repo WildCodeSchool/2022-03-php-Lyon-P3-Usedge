@@ -17,6 +17,8 @@ if (document.querySelector('.assign-workshop')) {
     const selectedWorkshopDescription = document.querySelector('.research-plan-workshop-selected-description');
     const availableWorkshopIdInput = document.querySelector('.available-workshop-id');
     const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
+    const selectedWorkshopEditIcon = document.getElementById('research-plan-workshop-select-edit-icon');
+
 
     assignWorkshopLink.addEventListener('click', () => {
         availableWorkshopModal.classList.add('research-plan-available-workshops-display');
@@ -24,7 +26,14 @@ if (document.querySelector('.assign-workshop')) {
 
     availableWorkshopModalCloseButton.addEventListener('click', () => {
         availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
-    })
+    });
+
+    // Function used to capture the enter keytouch and simulate it as a button click.
+    workshopSearchbar.addEventListener("keyup", function(e) {
+        if (e.code === 'Enter') {
+            availableWorkshopSearchButton.click();
+        }
+    });
 
     // Function used to sort the workshop by searchbar keywords
     availableWorkshopSearchButton.addEventListener('click', () => {
@@ -58,4 +67,35 @@ if (document.querySelector('.assign-workshop')) {
             availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
         });
     }
+
+    // Function used to open a textarea when the description needs to be edited
+    selectedWorkshopEditIcon.addEventListener('click', () => {
+        selectedWorkshopEditIcon.classList.add('research-plan-workshop-select-edit-icon-display-none');
+        selectedWorkshopDescription.classList.add('research-plan-workshop-selected-description-display-none');
+        selectedWorkshopDescritionTextarea.classList.add('selected-workshop-description-edit-display-block');
+    });
+
+    // Function used to close the textarea and modify the description.
+    window.addEventListener("keydown", function(event) {
+        if (event.key == "Enter") {
+            selectedWorkshopDescriptionInput.value = selectedWorkshopDescritionTextarea.value;
+            selectedWorkshopDescription.innerHTML = selectedWorkshopDescritionTextarea.value;
+            selectedWorkshopEditIcon.classList.remove('research-plan-workshop-select-edit-icon-display-none');
+            selectedWorkshopDescription.classList.remove('research-plan-workshop-selected-description-display-none');
+            selectedWorkshopDescritionTextarea.classList.remove('selected-workshop-description-edit-display-block');    
+        } else if (event.key == "Escape") {
+            selectedWorkshopDescritionTextarea.value = selectedWorkshopDescription.innerHTML.replace(/\s+/g, " ");
+            selectedWorkshopEditIcon.classList.remove('research-plan-workshop-select-edit-icon-display-none');
+            selectedWorkshopDescription.classList.remove('research-plan-workshop-selected-description-display-none');
+            selectedWorkshopDescritionTextarea.classList.remove('selected-workshop-description-edit-display-block');
+        }
+    }, true);
+
+    // Function used to resize auto the height of the textarea.
+    selectedWorkshopDescritionTextarea.addEventListener('keydown', () => {
+        setTimeout(function() {
+            selectedWorkshopDescritionTextarea.style.cssText = 'height:' + selectedWorkshopDescritionTextarea.scrollHeight + 'px';
+        });
+    });
+
 }
