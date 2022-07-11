@@ -13,7 +13,7 @@ class ResearchPlanController extends AbstractController
     public function index(ResearchRequest $researchRequest): Response
     {
         return $this->render('research_plan/research_plan.html.twig', [
-            'request' => $researchRequest,
+            'researchRequest' => $researchRequest,
         ]);
     }
 }

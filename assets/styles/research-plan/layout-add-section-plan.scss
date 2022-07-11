@@ -45,7 +45,7 @@
     img {
         width: 60px;
     }
-    p {
+    .assign-workshop-p {
         @include textStyle($text-font, $font-size-18,
         $font-weight-600, $primary-blue-1);
         margin-top: 10px;
@@ -65,7 +65,7 @@
     img {
         width: 60px;
     }
-    p {
+    .create-recommandation-p {
         @include textStyle($text-font, $font-size-18,
         $font-weight-600, $primary-blue-1);
         margin-top: 10px;
@@ -162,8 +162,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 1;
-    p {
+    .add-objectives-p {
         margin-left: 35px;
         margin-top: 20px;
         @include textStyle($text-font, $font-size-16,
