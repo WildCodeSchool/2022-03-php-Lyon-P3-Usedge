@@ -90,7 +90,7 @@ class ResearchPlanSection
         return $this->objectives;
     }
 
-    public function setObjectives(?array $objectives): self
+    public function setObjectives(array $objectives): self
     {
         $this->objectives = $objectives;
 
@@ -102,7 +102,7 @@ class ResearchPlanSection
         return $this->researchPlan;
     }
 
-    public function setResearchPlan(?ResearchPlan $researchPlan): self
+    public function setResearchPlan(ResearchPlan $researchPlan): self
     {
         $this->researchPlan = $researchPlan;
 
