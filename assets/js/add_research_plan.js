@@ -87,8 +87,8 @@ if (document.getElementById('title-section-research-plan')) {
             selectedWorkshopBuilder.classList.add('research-plan-workshop-selected-display-flex');
             selectedWorkshopName.innerHTML = workshopCardTitle[i].innerHTML;
             selectedWorkshopDescription.innerHTML = workshopCardDescription[i].innerHTML;
-            selectedWorkshopNameInput.value = workshopCardTitle[i].innerHTML;
-            selectedWorkshopDescriptionInput.value = workshopCardDescription[i].innerHTML;
+            selectedWorkshopNameInput.value = selectedWorkshopName.textContent;
+            selectedWorkshopDescriptionInput.value = selectedWorkshopDescription.textContent;
             selectedWorkshopIdInput.value = availableWorkshopIdInput.value;
             selectedWorkshopDescritionTextarea.innerHTML = workshopCardDescription[i].innerHTML.replace(/\s+/g, " ");
             availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
