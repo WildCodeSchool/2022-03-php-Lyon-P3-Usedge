@@ -36,7 +36,23 @@
 </button>
 {% include "research_plan/_create_recommandation.html.twig" %}
 
-<div class="add-objectives">
-    <p class="add-objectives-p">Would you like to add some objectives for this phase ? </p>
-    <button type="button" class="button-add-objectives-disabled" id="button-add-objectives" disabled="disabled"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Add objectives</button>
+<div class="add-objectives" id="add-objectives">
+    <div class="add-objectives-and-save">
+        <img src="{{ asset('build/images/icons/targetting.png') }}" alt="icon of objectives">
+        <p class="add-objectives-p">Would you like to add some objectives for this phase ? </p>
+    </div>
+    <p class="add-objectives-p-and-save">Objectives for this phase</p>
+    <div class="button-add-objectives" id="button-add-objectives">
+        <button id="button-select-objectives" type="button" class="button-select-objectives"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Add objectives</button>
+    </div>
+    <div class="save-objectives">
+        <input type="text" id="input-objectives" name="objectives" placeholder="For the next phase we need to ..." class="input-objectives">
+        <div class="input-example-checkbox">
+            <input type="checkbox" name="objectives" placeholder="For the next phase we need to ..." class="input-checkbox-objectives" id="input-checkbox-objectives" disabled="disabled">
+            <label for="objectives" id="input-checkbox-text-objectives" class="input-checkbox-text-objectives">Add a first item and press enter to fill in the checklist ...</label>
+        </div>
+        <div class="new-input-checkbox" id="new-input-checkbox">
+        </div>
+        <button id="button-save-objectives" type="button" class="button-save-objectives"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Save objectives</button>
+    </div>
 </div>
