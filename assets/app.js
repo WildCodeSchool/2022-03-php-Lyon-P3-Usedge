@@ -18,6 +18,9 @@ import './js/drag_and_drop.js';
 import './js/add_research_request.js';
 import './js/add_research_plan.js';
 
+//import research plan
+import './js/add_research_plan.js';
+
 // import modal js
 import './js/modals/modal_external_link.js';
 import './js/modals/modules/icons_module.js';

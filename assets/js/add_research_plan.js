@@ -1,5 +1,7 @@
-if (document.querySelector('.assign-workshop')) {
+if (document.getElementById('title-section-research-plan')) {
 
+    const titleSection = document.getElementById('title-section-research-plan');
+    const inputTitleSectionPlan = document.getElementById('title-section-research-plan');
     const assignWorkshopLink = document.querySelector('.assign-workshop');
     const availableWorkshopModalCloseButton = document.getElementById('research-plan-available-workshops-modal-close');
     const availableWorkshopModal = document.getElementById('research-plan-available-workshops-modal');
@@ -7,7 +9,6 @@ if (document.querySelector('.assign-workshop')) {
     const availableWorkshopsCard = document.querySelectorAll('.available-workshops-card');
     const workshopCardTitle = document.querySelectorAll('.available-workshop-name');
     const workshopCardDescription = document.querySelectorAll('.available-workshop-description');
-    const availableWorkshopContent = document.querySelector('.research-plan-available-workshops-content');
     const availableWorkshopSearchButton = document.getElementById('research-plan-available-workshops-searchbar-button');
     const availableWorkshopSelectButton = document.querySelectorAll('.available-workshop-button');
     const selectedWorkshopNameInput = document.getElementById('selected-workshop-name');
@@ -20,6 +21,25 @@ if (document.querySelector('.assign-workshop')) {
     const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
     const selectedWorkshopEditIcon = document.getElementById('research-plan-workshop-select-edit-icon');
 
+    titleSection.addEventListener('click', function() {
+        inputTitleSectionPlan.type = "text";
+    });
+
+    const buttonUntitled = document.getElementById('button-untitled');
+    inputTitleSectionPlan.addEventListener("keydown", function(event) {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            const valueInput = inputTitleSectionPlan.value;
+            buttonUntitled.value = valueInput;
+            inputTitleSectionPlan.classList.remove('title-section-research-plan');
+            inputTitleSectionPlan.classList.add("newTitleSection");
+        }
+    }, true);
+
+    const buttonRemoveTitle = document.getElementById('button-basket');
+    buttonRemoveTitle.addEventListener('click', function() {
+        inputTitleSectionPlan.value.remove();
+    });
 
     assignWorkshopLink.addEventListener('click', () => {
         availableWorkshopModal.classList.add('research-plan-available-workshops-display');
@@ -35,7 +55,7 @@ if (document.querySelector('.assign-workshop')) {
 
     // Function used to capture the enter keytouch and simulate it as a button click.
     workshopSearchbar.addEventListener("keyup", function(e) {
-        if (e.code === 'Enter') {
+        if (e.key === 'Enter') {
             e.preventDefault;
             availableWorkshopSearchButton.click();
         }
@@ -82,7 +102,7 @@ if (document.querySelector('.assign-workshop')) {
     });
 
     // Function used to close the textarea and modify the description.
-    window.addEventListener("keydown", function(event) {
+    selectedWorkshopDescritionTextarea.addEventListener("keydown", function(event) {
         if (event.key == "Enter") {
             event.preventDefault();
             selectedWorkshopDescriptionInput.value = selectedWorkshopDescritionTextarea.value;

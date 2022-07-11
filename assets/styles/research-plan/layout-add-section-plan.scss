@@ -4,14 +4,31 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    h1 {
+    margin-bottom: 10px;
+    .title-section-research-plan {
         @include dimension(357px, 31px);
+        border: none;
+        font-family: $title-font;
+        font-weight: $font-weight-500;
+        font-size: 24px;
+        line-height: 22px;
+        opacity: 0.3; 
+    }
+    .newTitleSection {
+        @include dimension(357px, 31px);
+        border: none;
         font-family: $title-font;
         font-weight: $font-weight-500;
         font-size: 24px;
         line-height: 22px;
         color: $primary-blue-3;
-        opacity: 0.3; 
+        &:focus {
+              outline: none;
+        }
+    }
+    img {
+        width: 20px;
+        height: 20px;
     }
 }
 .assign-workshop {
@@ -37,6 +54,11 @@
             line-height: 23px;
             letter-spacing: 0.116667px;
         }
+    }
+    .assign-workshop-p {
+        @include textStyle($text-font, $font-size-18,
+        $font-weight-600, $primary-blue-1);
+        margin-top: 10px;
     }
 }
 
@@ -105,11 +127,14 @@
     @include dimension(760px, 188px);
     @include button($primary-white-1, $border-radius-10,
     1.5px dashed $primary-blue-1);
-    @include textStyle($text-font, $font-size-18,
-    $font-weight-600, $primary-blue-1);
     line-height: 23px;
     img {
         width: 60px;
+    }
+    .create-recommandation-p {
+        @include textStyle($text-font, $font-size-18,
+        $font-weight-600, $primary-blue-1);
+        margin-top: 10px;
     }
 }
 .add-objectives {
@@ -120,32 +145,31 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    p {
+    .add-objectives-p {
         margin-left: 35px;
-        margin-top: 26px;
+        margin-top: 20px;
         @include textStyle($text-font, $font-size-16,
         $font-weight-600, $primary-blue-3);
         line-height: 20px;
         display: flex;
         align-items: center;
     }
-    button {
-        @include button($primary-white-1, $border-radius-10,
-        1.5px dashed $primary-blue-1);
+    .button-add-objectives {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include button($primary-blue-1, $border-radius-10,
+        none);
         @include dimension(171px, 42px);
+        @include textStyle($text-font, $font-size-14,
+        $font-weight-600, $primary-white-1);
         margin-right: 10px;
         margin-top: 15px;
-        background: #6580FF;
-        border-radius: 10px;
-        color: $primary-white-1;
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
         line-height: 18px;
-        img {
-            padding-bottom: 5px;
-        }
+            img {
+               padding-right: 5px;
+               padding-bottom: 2px;
+            }
     }
 }
 
