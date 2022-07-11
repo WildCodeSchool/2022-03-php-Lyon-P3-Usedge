@@ -54,12 +54,6 @@ if (document.querySelector('.assign-workshop')) {
                 let workshopDescription = workshopCardDescription[i].innerHTML.toLowerCase();
                 if (workshopName.includes(word) || workshopDescription.includes(word)) {
                     availableWorkshopsCard[i].classList.remove('available-workshops-card-disabled');
-                } else {
-                    let noResult = document.createElement('p');
-                    noResult.innerHTML = "No result.";
-                    noResult.classList.add('no-result-paragraph');
-                    availableWorkshopContent.appendChild(noResult);
-                    break;
                 }
             }
         })
