@@ -1,0 +1,20 @@
+ <div id="create-recommandation-container" class="create-recommandation-container-none">
+    <textarea id="create-recommandation-text">
+    </textarea>
+    <button type="button" class="validate-recommandation-button" id="validate-recommandation-button">
+    <img class="validate-recommandation-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
+    Save recommandation
+    </button>
+</div>
+<div id="recommandation-details" class="recommandation-details-none">
+    <div class="recommandation-equalizer-icon-container">
+        <img src="{{ asset('build/images/icons/Clear icons.png') }}">
+    </div>
+    <div class="recommandation-details-container" id="recommandation-details-container">
+        <h3 id="recommandation-title" class="recommandation-title">What do we recommend for this phase?</h3>
+    </div>
+    <button type="button" id="edit-recommandation-icon-container" class="edit-recommandation-icon-container">
+        <img src="{{ asset('build/images/icons/edit.png') }}">
+        <input type="hidden" class="recommandation-input" id="recommandation-input" name="recommandation">
+    </button>
+</div>
