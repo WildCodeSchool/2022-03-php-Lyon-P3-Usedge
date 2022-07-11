@@ -20,4 +20,17 @@ class ResearchPlanController extends AbstractController
             'researchRequest' => $researchRequest,
         ]);
     }
+
+    #[Route('/research-plan/{id}/section', name: 'research_plan_new_section', methods: ['GET', 'POST'])]
+    public function newSection(
+        ResearchRequest $researchRequest,
+        CanvasWorkshopsRepository $workshopRepository
+    ): Response {
+        $workshops = $workshopRepository->findAll();
+
+        return $this->render('research_plan/research_plan.html.twig', [
+            'workshops' => $workshops,
+            'researchRequest' => $researchRequest,
+        ]);
+    }
 }
