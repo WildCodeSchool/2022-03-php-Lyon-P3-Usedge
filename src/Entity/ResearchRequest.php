@@ -35,6 +35,9 @@ class ResearchRequest
     #[ORM\Column(type: 'string', length: 255)]
     private string $owner;
 
+    #[ORM\OneToOne(mappedBy: 'researchRequest', targetEntity: ResearchPlan::class, cascade: ['persist', 'remove'])]
+    private ResearchPlan $researchPlan;
+
     public function __construct()
     {
         $this->answerRequests = new ArrayCollection();
@@ -126,6 +129,23 @@ class ResearchRequest
     public function setOwner(string $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getResearchPlan(): ?ResearchPlan
+    {
+        return $this->researchPlan;
+    }
+
+    public function setResearchPlan(ResearchPlan $researchPlan): self
+    {
+        // set the owning side of the relation if necessary
+        if ($researchPlan->getResearchRequest() !== $this) {
+            $researchPlan->setResearchRequest($this);
+        }
+
+        $this->researchPlan = $researchPlan;
 
         return $this;
     }

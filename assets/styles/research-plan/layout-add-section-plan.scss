@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
+    width: 100%;
     .title-section-research-plan {
         @include dimension(357px, 31px);
         border: none;
@@ -32,17 +33,28 @@
     }
 }
 .assign-workshop {
+    @include dimension(760px, 188px);
+    @include button($primary-white-1, $border-radius-10, 1.5px dashed $primary-blue-1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
-    @include dimension(760px, 188px);
-    @include button($primary-white-1, $border-radius-10,
-    1.5px dashed $primary-blue-1);
-    line-height: 23px;
-    img {
-        width: 60px;
+    padding: 50px;
+    .assign-workshop-content {
+        @include dimension(256px, 88px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        .assign-workshop-content-image {
+            @include dimension(50px, 50px);
+        }
+        .assign-workshop-content-text {
+            @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-1);
+            line-height: 23px;
+            letter-spacing: 0.116667px;
+        }
     }
     .assign-workshop-p {
         @include textStyle($text-font, $font-size-18,
@@ -50,6 +62,62 @@
         margin-top: 10px;
     }
 }
+
+.research-plan-workshop-selected-content {
+    position: relative;
+    display: none;
+    align-items: flex-start;
+    width: 760px;
+    min-height: 138px;
+    padding: 35px;
+    gap: 15px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: $border-radius-10;
+    .research-plan-workshop-select-edit-icon {
+        @include dimension(20px, 20px);
+        @include absolutePosition(36px, 705px);
+        cursor: pointer;
+    }
+    .research-plan-workshop-selected-image {
+        @include dimension(54px, 54px);
+    }
+    .research-plan-workshop-selected-text {
+        width: 585.99px;
+        min-height: 68px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 5px;
+        .research-plan-workshop-selected-title {
+            @include textStyle($text-font, $font-size-18, $font-weight-400, $primary-dark-1);
+            margin-bottom: 0;
+            line-height: 23px;
+            .research-plan-workshop-selected-name {
+                font-weight: $font-weight-600;
+            }
+        }
+        .research-plan-workshop-selected-description {
+            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-4);
+            letter-spacing: 0.11667px;
+            line-height: 20px;
+            margin-bottom: 0;
+        }
+        .selected-workshop-description-edit {
+            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-4);
+            display: none;
+            width: 100%;
+            min-height: 55px;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            padding-left: 5px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
 .create-recommandation {
     display: flex;
     flex-direction: column;
@@ -64,10 +132,93 @@
     img {
         width: 60px;
     }
-    .create-recommandation-p {
+    .recommandation-note {
         @include textStyle($text-font, $font-size-18,
         $font-weight-600, $primary-blue-1);
         margin-top: 10px;
+    }
+}
+.create-recommandation-container {
+    background-color: $primary-white-1;
+    margin-top: 20px;
+    width: 760px;
+    height: 389px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .fr-box {
+        width: 100%;
+        height: 389px;
+        .fr-toolbar {
+            border: none;
+        }
+        .fr-wrapper {
+            border: none;
+            min-height: 259px;
+            max-height: 259px;
+            overflow: scroll;
+        }
+        .fr-second-toolbar {
+            display: none;
+        }
+    }
+    .validate-recommandation-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include dimension(690px, 42px);
+        @include button($primary-blue-1, $border-radius-10, 0);
+        margin-bottom: 35px;
+        color: $primary-white-1;
+        .validate-recommandation-icon {
+            margin-right: 5px;
+        }
+    }
+}
+.recommandation-details {
+    background-color: $primary-white-1;
+    margin-top: 20px;
+    width: 760px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: 10px;
+    display: flex;
+    padding: 35px;
+    gap: 15px;
+    .recommandation-equalizer-icon-container {
+        @include dimension(54px, 55px);
+    }
+    .recommandation-details-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        .recommandation-title{
+            @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-dark-1);
+            width: 100%;
+            margin: 0;
+        }
+        .recommandation-details-paragraph {
+            text-align: justify;
+            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-4);
+            margin: 0;
+            margin-top: 5px;
+            width: 100%;
+            resize: none;
+            border: none;
+        }
+    }
+    .edit-recommandation-icon-container {
+        @include dimension(20px, 20px);
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        img {
+            margin-bottom: 30px;
+            @include dimension(20px, 20px);
+        }
     }
 }
 .add-objectives {
@@ -104,4 +255,42 @@
                padding-bottom: 2px;
             }
     }
+}
+.create-recommandation-none {
+    display: none;
+}
+.create-recommandation-container-none {
+    display: none;
+}
+.recommandation-details-none {
+    display: none;
+}
+.button-add-objectives-disabled {
+    @extend .button-add-objectives;
+    @include button(transparentize($color: $primary-blue-1, $amount: 0.5) !important, $border-radius-10, none);
+}
+.research-plan-workshop-selected-display-flex {
+    display: flex !important;
+}
+
+.assign-workshop-display-none {
+    display: none !important;
+}
+
+.selected-workshop-description-edit-display-block {
+    display: block !important;
+}
+
+.research-plan-workshop-selected-description-display-none {
+    display: none !important;
+}
+
+.research-plan-workshop-select-edit-icon-display-none {
+    display: none !important;
+}
+
+.no-result-paragraph {
+    @include textStyle($text-font, $font-size-18,$font-weight-600, $primary-grey-4);
+    margin-top: 20px;
+    align-self: center;
 }
