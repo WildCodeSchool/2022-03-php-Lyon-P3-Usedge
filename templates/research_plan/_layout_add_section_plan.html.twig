@@ -3,10 +3,32 @@
     <a href="" id="button-basket"><img src="{{ asset('build/images/icons/trash-black.png') }}" alt="basket"></a>
 </div>
 
-<a href="#" class="assign-workshop">
-    <img src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
-    <p class="assign-workshop-p">Assign a workshop for this phase</p>
-</a>
+<button type="button" id="assign-workshop" class="assign-workshop">
+    <div class="assign-workshop-content">
+        <img class="assign-workshop-content-image" src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
+        <p class="assign-workshop-content-text">Assign a workshop for this phase</p>
+    </div>
+</button>
+
+<div id="research-plan-workshop-selected-content" class="research-plan-workshop-selected-content">
+    <input id="selected-worshop-id" type="hidden" name="workshop_id">
+    <input id="selected-workshop-name" type="hidden" name="workshop_name">
+    <input id="selected-workshop-description" type="hidden" name="workshop_description">
+    <img class="research-plan-workshop-select-edit-icon"
+            id="research-plan-workshop-select-edit-icon"
+            src="{{ asset('build/images/icons/edit.png') }}"/>
+    <img class="research-plan-workshop-selected-image" src="{{ asset('build/images/icons/session-remote.gif')}}"/>
+    <div class="research-plan-workshop-selected-text">
+        <p class="research-plan-workshop-selected-title">
+            Workshop selected : 
+            <span class="research-plan-workshop-selected-name"></span>
+        </p>
+        <p class="research-plan-workshop-selected-description"></p>
+        <textarea class="selected-workshop-description-edit"
+                    id="selected-workshop-description-edit">
+        </textarea>
+    </div>
+</div>
 
 <button type="button" class="create-recommandation" id="text-editor-button">
     <img id="bubble-of-recommandation" src="{{ asset('build/images/icons/recommandation.png') }}" alt="bubble of recommandation">
@@ -15,6 +37,6 @@
 {% include "research_plan/_create_recommandation.html.twig" %}
 
 <div class="add-objectives">
-    <p>Would you like to add some objectives for this phase ? </p>
+    <p class="add-objectives-p">Would you like to add some objectives for this phase ? </p>
     <button type="button" class="button-add-objectives-disabled" id="button-add-objectives" disabled="disabled"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Add objectives</button>
 </div>

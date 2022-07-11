@@ -33,17 +33,28 @@
     }
 }
 .assign-workshop {
+    @include dimension(760px, 188px);
+    @include button($primary-white-1, $border-radius-10, 1.5px dashed $primary-blue-1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
-    @include dimension(760px, 188px);
-    @include button($primary-white-1, $border-radius-10,
-    1.5px dashed $primary-blue-1);
-    line-height: 23px;
-    img {
-        width: 60px;
+    padding: 50px;
+    .assign-workshop-content {
+        @include dimension(256px, 88px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        .assign-workshop-content-image {
+            @include dimension(50px, 50px);
+        }
+        .assign-workshop-content-text {
+            @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-1);
+            line-height: 23px;
+            letter-spacing: 0.116667px;
+        }
     }
     .assign-workshop-p {
         @include textStyle($text-font, $font-size-18,
@@ -51,6 +62,62 @@
         margin-top: 10px;
     }
 }
+
+.research-plan-workshop-selected-content {
+    position: relative;
+    display: none;
+    align-items: flex-start;
+    width: 760px;
+    min-height: 138px;
+    padding: 35px;
+    gap: 15px;
+    border: 1.5px dashed $primary-blue-1;
+    border-radius: $border-radius-10;
+    .research-plan-workshop-select-edit-icon {
+        @include dimension(20px, 20px);
+        @include absolutePosition(36px, 705px);
+        cursor: pointer;
+    }
+    .research-plan-workshop-selected-image {
+        @include dimension(54px, 54px);
+    }
+    .research-plan-workshop-selected-text {
+        width: 585.99px;
+        min-height: 68px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 5px;
+        .research-plan-workshop-selected-title {
+            @include textStyle($text-font, $font-size-18, $font-weight-400, $primary-dark-1);
+            margin-bottom: 0;
+            line-height: 23px;
+            .research-plan-workshop-selected-name {
+                font-weight: $font-weight-600;
+            }
+        }
+        .research-plan-workshop-selected-description {
+            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-4);
+            letter-spacing: 0.11667px;
+            line-height: 20px;
+            margin-bottom: 0;
+        }
+        .selected-workshop-description-edit {
+            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-4);
+            display: none;
+            width: 100%;
+            min-height: 55px;
+            border: 1px solid $primary-blue-2;
+            border-radius: 8px;
+            padding-left: 5px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
 .create-recommandation {
     display: flex;
     flex-direction: column;
@@ -201,4 +268,29 @@
 .button-add-objectives-disabled {
     @extend .button-add-objectives;
     @include button(transparentize($color: $primary-blue-1, $amount: 0.5) !important, $border-radius-10, none);
+}
+.research-plan-workshop-selected-display-flex {
+    display: flex !important;
+}
+
+.assign-workshop-display-none {
+    display: none !important;
+}
+
+.selected-workshop-description-edit-display-block {
+    display: block !important;
+}
+
+.research-plan-workshop-selected-description-display-none {
+    display: none !important;
+}
+
+.research-plan-workshop-select-edit-icon-display-none {
+    display: none !important;
+}
+
+.no-result-paragraph {
+    @include textStyle($text-font, $font-size-18,$font-weight-600, $primary-grey-4);
+    margin-top: 20px;
+    align-self: center;
 }
