@@ -170,16 +170,20 @@
             margin-bottom: auto;
         }
 
-        button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @include button($primary-blue-1, $border-radius-10, 0);
-            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
-            @include dimension(189px, 42px);
-            text-align: center;
-            padding: 12px;
-            gap: 5px;
+        a {
+            text-decoration: none;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include button($primary-blue-1, $border-radius-10, 0);
+                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                @include dimension(189px, 42px);
+                text-align: center;
+                padding: 12px;
+                gap: 5px;
+            }
         }
     }
 
@@ -240,11 +244,12 @@
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
                 line-height: 18px;
             }
+
             .external-link-container {
                 display: flex;
                 align-items: baseline;
                 gap: 8px;
-                
+
                 a {
                     @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-3);
                     line-height: 20px;
