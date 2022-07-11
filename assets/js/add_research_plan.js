@@ -36,6 +36,7 @@ if (document.querySelector('.assign-workshop')) {
     // Function used to capture the enter keytouch and simulate it as a button click.
     workshopSearchbar.addEventListener("keyup", function(e) {
         if (e.code === 'Enter') {
+            e.preventDefault;
             availableWorkshopSearchButton.click();
         }
     });
@@ -89,6 +90,7 @@ if (document.querySelector('.assign-workshop')) {
     // Function used to close the textarea and modify the description.
     window.addEventListener("keydown", function(event) {
         if (event.key == "Enter") {
+            event.preventDefault();
             selectedWorkshopDescriptionInput.value = selectedWorkshopDescritionTextarea.value;
             selectedWorkshopDescription.innerHTML = selectedWorkshopDescritionTextarea.value;
             selectedWorkshopEditIcon.classList.remove('research-plan-workshop-select-edit-icon-display-none');
