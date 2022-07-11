@@ -24,7 +24,12 @@ class ResearchPlanController extends AbstractController
         $dataComponent = $checkDataUtils->trimData($request);
         //var_dump($dataComponent); die();
         if ($dataComponent) {
-            $researchPlanUtils->addResearchPlan($dataComponent);
+            $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
+            $researchPlanUtils->researchPlanCheckLength($dataComponent);
+            $errors = $researchPlanUtils->getCheckErrors();
+            if (empty($errors)) {
+                $researchPlanUtils->addResearchPlan($dataComponent);
+            }
         }
 
         $workshops = $workshopRepository->findAll();

@@ -12,17 +12,70 @@ class ResearchPlanUtils
 {
     private EntityManagerInterface $entityManager;
     private ResearchRequestRepository $resReqRepo;
-    //private array $checkErrors = [];
+    private array $checkErrors = [];
 
     public function __construct(
         EntityManagerInterface $entityManager,
-        ResearchRequestRepository $resReqRepo/*, array $checkErrors*/
+        ResearchRequestRepository $resReqRepo,
     ) {
         $this->entityManager = $entityManager;
         $this->resReqRepo = $resReqRepo;
-        //$this->checkErrors = $checkErrors;
     }
 
+    public function getCheckErrors(): array
+    {
+        return $this->checkErrors;
+    }
+
+    public function researchPlanCheckLength(array $dataComponent): array
+    {
+        if (strlen($dataComponent['research-request-coach']) > 255) {
+            $this->checkErrors[] = "The coach field exceed 255 characters.";
+        }
+
+        if (strlen($dataComponent['research-request-status']) > 255) {
+            $this->checkErrors[] = "The status field exceed 255 characters.";
+        }
+
+        if (strlen($dataComponent['research-plan-title']) > 255) {
+            $this->checkErrors[] = "The title field exceed 255 characters.";
+        }
+
+        if (strlen($dataComponent['workshop_name']) > 255) {
+            $this->checkErrors[] = "The workshop name field exceed 255 characters.";
+        }
+
+        return $this->checkErrors;
+    }
+
+    public function researchPlanCheckEmpty(array $dataComponent): array
+    {
+        if (empty($dataComponent['workshop_description'])) {
+            $this->checkErrors[] = "The workshop description field is mandatory";
+        }
+
+        if (empty($dataComponent['research-plan-recommendation'])) {
+            $this->checkErrors[] = "The recommendation field is mandatory";
+        }
+
+        if (empty($dataComponent['research-request-coach'])) {
+            $this->checkErrors[] = "The coach field is mandatory";
+        }
+
+        if (empty($dataComponent['research-request-status'])) {
+            $this->checkErrors[] = "The status field is mandatory";
+        }
+
+        if (empty($dataComponent['workshop_name'])) {
+            $this->checkErrors[] = "The workshop name field is mandatory";
+        }
+
+        if (empty($dataComponent['research-plan-title'])) {
+            $this->checkErrors[] = "The title field is mandatory";
+        }
+
+        return $this->checkErrors;
+    }
 
     public function addResearchPlan(array $dataComponent): void
     {
