@@ -157,6 +157,11 @@
                 <div class="table-scroll">
                     <table>
                         {% for researchPlan in researchPlans %}
+                        {% for researchRequest in researchRequests %}
+                        {% if researchPlan.researchRequest.status is not same as 'Draft' %}
+                            {% include "home/modals/_modal_interview_planning_request.html.twig" %}
+                        {% endif %}
+                        {% endfor %}
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
@@ -170,7 +175,12 @@
                                 </tr>
                                 <tr class="sort-choice">
                                     <td class="view-details view-requests view-project">{{ researchPlan.researchRequest.project }}</td>
-                                    <td class="view-details view-requests">No assigned request</td>
+                                    <td class="view-details view-requests">
+                                        <button type="button" id="{{ researchPlan.researchRequest.id }}" class="request-details-link">
+                                            <img src="{{ asset('build/images/icons/blue eye.png') }}">
+                                            View request
+                                        </button>
+                                    </td>
                                     <td class="view-details">
                                     <img class="coach-picture" src="https://i.pravatar.cc">{{ researchPlan.researchRequest.researchTemplate.coach }}
                                     </td>

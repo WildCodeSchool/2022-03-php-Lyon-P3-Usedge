@@ -416,6 +416,15 @@
     .validated {
         @extend .solved;
     }
+    .request-details-link {
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-1);
+        img {
+            margin-right: 10px;
+        }
+    }
 }
 
 .sort-none {
