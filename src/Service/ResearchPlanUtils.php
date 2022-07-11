@@ -28,7 +28,7 @@ class ResearchPlanUtils
         return $this->checkErrors;
     }
 
-    public function researchPlanCheckLength(array $dataComponent): array
+    public function researchPlanCheckLength(array $dataComponent): void
     {
         if (strlen($dataComponent['research-request-coach']) > 255) {
             $this->checkErrors[] = "The coach field exceed 255 characters.";
@@ -45,11 +45,9 @@ class ResearchPlanUtils
         if (strlen($dataComponent['workshop_name']) > 255) {
             $this->checkErrors[] = "The workshop name field exceed 255 characters.";
         }
-
-        return $this->checkErrors;
     }
 
-    public function researchPlanCheckEmpty(array $dataComponent): array
+    public function researchPlanCheckEmpty(array $dataComponent): void
     {
         if (empty($dataComponent['workshop_description'])) {
             $this->checkErrors[] = "The workshop description field is mandatory";
@@ -74,8 +72,6 @@ class ResearchPlanUtils
         if (empty($dataComponent['research-plan-title'])) {
             $this->checkErrors[] = "The title field is mandatory";
         }
-
-        return $this->checkErrors;
     }
 
     public function addResearchPlan(array $dataComponent): void
