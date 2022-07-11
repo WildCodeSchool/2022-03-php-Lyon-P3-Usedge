@@ -6,6 +6,7 @@
 @import 'add_research_template.scss';
 @import 'sidebar/usedge_sidebar.scss';
 @import 'add_research_request.scss';
+@import 'add_research_plan.scss';
 
 // import modals
 @import 'modals/modal_new_research_template_.scss';
@@ -58,3 +59,6 @@
 @import "research-request-components/external_link.scss";
 @import "research-request-components/open_question.scss";
 @import "cards/_research_template_home_active_card.scss";
+
+//import research plan
+@import "research-plan/layout-add-section-plan.scss";
