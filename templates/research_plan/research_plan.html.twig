@@ -26,12 +26,12 @@
         </div>
     </div>
 
-    <div class="section-form">
+    <form method="POST" class="section-form">
         <div>
             {% include 'research_plan/_layout_add_section_plan.html.twig' %}
-            <button class="send-research-plan"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
         </div>
-    </div>
+        <button class="send-research-plan-disabled" id="send-research-plan" disabled="disabled"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
+    </form>
 
 </main>
 
