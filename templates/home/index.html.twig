@@ -80,7 +80,9 @@
                 <div class="table-scroll">
                     <table>
                         {% for researchRequest in researchRequests %}
-                        {% include "home/modals/_modal_interview_planning_request.html.twig" %}
+                        {% if researchRequest.status is not same as 'Draft' %}
+                            {% include "home/modals/_modal_interview_planning_request.html.twig" %}
+                        {% endif %}
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
