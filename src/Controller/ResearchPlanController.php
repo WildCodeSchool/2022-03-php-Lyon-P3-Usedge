@@ -22,7 +22,6 @@ class ResearchPlanController extends AbstractController
         ResearchPlanUtils $researchPlanUtils
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-        //var_dump($dataComponent); die();
         if ($dataComponent) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
             $researchPlanUtils->researchPlanCheckLength($dataComponent);
