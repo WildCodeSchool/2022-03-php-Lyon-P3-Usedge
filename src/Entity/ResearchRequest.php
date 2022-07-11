@@ -35,7 +35,7 @@ class ResearchRequest
     #[ORM\Column(type: 'string', length: 255)]
     private string $owner;
 
-    #[ORM\OneToOne(mappedBy: 'researchTemplate', targetEntity: ResearchPlan::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'researchRequest', targetEntity: ResearchPlan::class, cascade: ['persist', 'remove'])]
     private ResearchPlan $researchPlan;
 
     public function __construct()
