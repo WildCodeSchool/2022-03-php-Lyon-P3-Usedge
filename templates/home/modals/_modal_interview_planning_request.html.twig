@@ -13,7 +13,7 @@
 			<p class="interview-planning-header-subtitle">
 				Updated by
 				<span>{{ researchRequest.owner }}</span>,
-				{% include "home/_research_request_creation_date.html.twig" %}
+				{% include "home/_research_request_creation_date.html.twig" %} ago
 			</p>
 			{% if researchRequest.status is same as 'Dropped' %}
 				<div class="alert-message-is-dropped">

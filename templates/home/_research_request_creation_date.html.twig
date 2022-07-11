@@ -4,6 +4,7 @@
 {% set leftDays = difference.days %}
 {% set leftHours = difference.h %}
 {% set leftMinutes = difference.i %}
+{% set leftSecondes = difference.s %}
 
 {# Set display for years #}
 {% if leftYears %}
@@ -41,6 +42,16 @@
 	{% if leftMinutes == 1 %}
 		minute
 	{% else %}
-		minute
+		minutes
+	{% endif %}
+{% endif %}
+
+{# Set display for secondes #}
+{% if leftSecondes and leftMinutes == 0 %}
+	{{ leftSecondes }}
+	{% if leftSecondes == 1 %}
+		seconde
+	{% else %}
+		secondes
 	{% endif %}
 {% endif %}
