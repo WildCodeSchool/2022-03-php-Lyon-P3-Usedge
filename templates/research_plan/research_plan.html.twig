@@ -22,12 +22,12 @@
         <div class="section-plan">
             <h1>Plan sections</h1>           
             <input type="button" class="button-untitled" id="button-untitled" value="Untitled">
-            <button type="button" class="button-add-section">+ Add a new section</button>
+            <button type="button" class="button-add-section" id="button-add-section">+ Add a new section</button>
         </div>
     </div>
 
-    <div class="section-form">
-        <div>
+    <div class="section-form" id="section-form">
+        <div id="plan-section">
             {% include 'research_plan/_layout_add_section_plan.html.twig' %}
             <button class="send-research-plan"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
         </div>
