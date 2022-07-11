@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\ResearchPlan;
 use App\Entity\ResearchPlanSection;
+use App\Entity\ResearchRequest;
 use App\Repository\ResearchRequestRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -85,7 +86,9 @@ class ResearchPlanUtils
         $researchPlanSection = new ResearchPlanSection();
         $entityManager = $this->entityManager;
 
-        $researchPlan->setResearchRequest($researchRequest);
+        if ($researchRequest instanceof ResearchRequest) {
+            $researchPlan->setResearchRequest($researchRequest);
+        }
         $researchPlan->setCoach($dataComponent['research-request-coach']);
         $researchPlan->setStatus($dataComponent['research-request-status']);
         $researchPlan->setCreationDate($creationDate);
