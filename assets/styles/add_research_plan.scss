@@ -33,6 +33,7 @@
 }
 
 .sections-container {
+    position: relative;
     .section-selected {
         .section-request {
             display: flex;
