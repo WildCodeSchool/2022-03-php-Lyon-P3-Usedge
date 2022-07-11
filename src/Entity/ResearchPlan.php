@@ -110,12 +110,7 @@ class ResearchPlan
 
     public function removeResearchPlanSection(ResearchPlanSection $researchPlanSection): self
     {
-        if ($this->researchPlanSections->removeElement($researchPlanSection)) {
-            // set the owning side to null (unless already changed)
-            if ($researchPlanSection->getResearchPlan() === $this) {
-                $researchPlanSection->setResearchPlan(null);
-            }
-        }
+        $this->researchPlanSections->removeElement($researchPlanSection);
 
         return $this;
     }
