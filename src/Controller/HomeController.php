@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\ResearchPlan;
+use App\Repository\ResearchPlanRepository;
 use App\Repository\ResearchRequestRepository;
 use App\Repository\ResearchTemplateRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,14 +16,17 @@ class HomeController extends AbstractController
     public function index(
         ResearchTemplateRepository $researchTemplates,
         ResearchRequestRepository $researchRequestRepo,
+        ResearchPlanRepository $researchPlanRepo,
     ): Response {
 
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
         $researchRequests = $researchRequestRepo->findBy([], ['id' => 'DESC']);
+        $researchPlans = $researchPlanRepo->findBy([], ['id' => 'DESC']);
 
         return $this->render('home/index.html.twig', [
             'researchTemplates' => $researchTemplateList,
             'researchRequests' => $researchRequests,
+            'researchPlans' => $researchPlans,
         ]);
     }
 }

@@ -181,7 +181,7 @@
                 }
                 #requests-type {
                     background-position-x: 100px;
-                    margin-left: 20px;
+                    margin-left: 30px;
                     width: 100%;
                 }
                 #requests-project {
@@ -195,10 +195,6 @@
                     background-position-x: 52px;
                 }
                 #status {
-                    background-position-x: 127px;
-                    justify-content: center;
-                }
-                #plans-status {
                     background-position-x: 127px;
                     justify-content: center;
                 }
@@ -390,17 +386,35 @@
     }
     #plans-type {
         background-position-x: 100px;
-        margin-left: 20px;
+        margin-left: 30px;
         width: 100%;
     }
     #plans-project {
-        background-position-x: 60px;
+        background-position-x: 135px;
+        justify-content: center;
     }
     #plans-assigned-request {
         background-position-x: 127px;
     }
     #plans-coach-assigned {
         background-position-x: 112px;
+        margin-left: 10px;
+    }
+    #plans-status {
+        background-position-x: 127px;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    .sent-to-user{
+        @extend .under-review;
+        p {
+            @include dimension(100px, 24px);
+            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
+            background-color: #ECEFFF;
+        }
+    }
+    .validated {
+        @extend .solved;
     }
 }
 
