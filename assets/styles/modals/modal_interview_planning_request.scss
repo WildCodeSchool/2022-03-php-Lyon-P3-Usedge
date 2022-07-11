@@ -272,7 +272,6 @@
             }
 
             p {
-                /* Paragraph/Regular/Default */
                 @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
                 line-height: 20px;
             }
@@ -285,10 +284,26 @@
                 line-height: 18px;
             }
 
-            p {
-                /* Paragraph/Regular/Default */
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
-                line-height: 20px;
+            .note-container {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                margin-bottom: 25px;
+
+                .stars-container {
+
+                    img {
+                        @include dimension(14px, 14px);
+                        margin-bottom: 3px;
+                    }
+                }
+
+                p {
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
             }
         }
     }

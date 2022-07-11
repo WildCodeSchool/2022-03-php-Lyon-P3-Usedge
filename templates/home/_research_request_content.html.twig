@@ -66,7 +66,46 @@
 		{% if answerRequest.name is same as 'evaluation-scale' %}
 			<div class="evaluation-scale">
 				<h3>{{ answerRequest.question }}</h3>
-				<p>{{ answerRequest.answer }}</p>
+				<div class="note-container">
+					{% if answerRequest.answer is same as 'No answer'  %}
+						<p>{{ answerRequest.answer }}</p>
+					{% else %}
+						<div class="stars-container">
+							{% if answerRequest.answer == 1 %}
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+							{% elseif answerRequest.answer == 2 %}
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+							{% elseif answerRequest.answer == 3 %}
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+							{% elseif answerRequest.answer == 4 %}
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/empty_rate.png') }}"/>
+							{% elseif answerRequest.answer == 5 %}
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+								<img src="{{ asset('build/images/icons/star-rate.png') }}"/>
+							{% endif %}
+						</div>
+						<p>{{ answerRequest.answer }}/5</p>
+					{% endif %}
+				</div>
 			</div>
 		{% endif %}
 
