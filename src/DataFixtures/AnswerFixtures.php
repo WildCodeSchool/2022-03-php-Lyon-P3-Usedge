@@ -16,6 +16,46 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             'question' => 'open_question_1'
         ],
         [
+            'answer' => 'Purpose statement...',
+            'number_order' => 1,
+            'question' => 'open_question_2'
+        ],
+        [
+            'answer' => 'Research goal...',
+            'number_order' => 1,
+            'question' => 'open_question_3'
+        ],
+        [
+            'answer' => 'Available data...',
+            'number_order' => 1,
+            'question' => 'open_question_4'
+        ],
+        [
+            'answer' => 'Research questions...',
+            'number_order' => 1,
+            'question' => 'open_question_5'
+        ],
+        [
+            'answer' => 'Add a numer...',
+            'number_order' => 1,
+            'question' => 'open_question_6'
+        ],
+        [
+            'answer' => 'French, English, Spanish...',
+            'number_order' => 1,
+            'question' => 'open_question_7'
+        ],
+        [
+            'answer' => 'Participant characteristics...',
+            'number_order' => 1,
+            'question' => 'open_question_8'
+        ],
+        [
+            'answer' => 'Note from requestor...',
+            'number_order' => 1,
+            'question' => 'open_question_9'
+        ],
+        [
             'answer' => 'Analytics',
             'number_order' => 1,
             'question' => 'multiple_choice_1'
