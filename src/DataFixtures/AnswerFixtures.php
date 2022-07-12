@@ -35,6 +35,26 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             'number_order' => 4,
             'question' => 'multiple_choice_1'
         ],
+        [
+            'answer' => 'Less than 4 weeks',
+            'number_order' => 1,
+            'question' => 'single_choice_1'
+        ],
+        [
+            'answer' => '4 to 8 weeks',
+            'number_order' => 2,
+            'question' => 'single_choice_1'
+        ],
+        [
+            'answer' => '8 to 12 weeks',
+            'number_order' => 3,
+            'question' => 'single_choice_1'
+        ],
+        [
+            'answer' => 'more than 12 weeks',
+            'number_order' => 4,
+            'question' => 'single_choice_1'
+        ],
 
     ];
 
@@ -57,6 +77,7 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
         return [
             OpenQuestionFixtures::class,
             MultipleChoiceFixtures::class,
+            SingleChoiceFixtures::class,
         ];
     }
 }
