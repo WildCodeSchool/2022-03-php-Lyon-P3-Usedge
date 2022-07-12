@@ -25,12 +25,10 @@ class SectionFixtures extends Fixture
                 ->setName('section')
                 ->setIsMandatory(false)
                 ->setTitle($sectionTitle);
-                $this->addReference('section_' . $sectionNumber, $section);
-                $sectionNumber++;
-                $manager->persist($section);
+            $this->addReference('section_' . $sectionNumber, $section);
+            $sectionNumber++;
+            $manager->persist($section);
         }
-        // $product = new Product();
-        // $manager->persist($product);
 
         $manager->flush();
     }
