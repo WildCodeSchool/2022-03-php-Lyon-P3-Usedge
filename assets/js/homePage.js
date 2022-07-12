@@ -20,7 +20,6 @@ if (document.getElementById('reasearch-plans')) {
     const buttoninterviewPlanningModalCloses = document.getElementsByClassName('interview-planning-header-close');
     const buttonsViewResearchRequest = document.getElementsByClassName('request-details-button');
     const linksViewResearchRequest = document.getElementsByClassName('request-details-link');
-    const bodySingle = document.getElementById('body');
     const planTableScroll = document.getElementById('plan-table-scroll');
 
     researchRequests.onchange = function () {
@@ -140,7 +139,6 @@ if (document.getElementById('reasearch-plans')) {
     // function used to open the view of Interview planning requests
     for (const linkViewResearchRequest of linksViewResearchRequest) {
         linkViewResearchRequest.addEventListener('click', () => {
-            bodySingle.classList.add('hide-body-homepage-overflow');
             planTableScroll.classList.add('table-scroll-none');
             const idOfButtonViewResearchRequest = linkViewResearchRequest.getAttribute('id');
             for (const modalInterviewPlanningRequest of modalInterviewPlanningRequests) {
@@ -160,7 +158,6 @@ if (document.getElementById('reasearch-plans')) {
     // function used to close the view of Interview planning requests
     for (const buttoninterviewPlanningModalClose of buttoninterviewPlanningModalCloses) {
         buttoninterviewPlanningModalClose.addEventListener('click', () => {
-            bodySingle.classList.remove('hide-body-homepage-overflow');
             planTableScroll.classList.remove('table-scroll-none');
             for (const modalInterviewPlanningRequest of modalInterviewPlanningRequests) {
                 modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
