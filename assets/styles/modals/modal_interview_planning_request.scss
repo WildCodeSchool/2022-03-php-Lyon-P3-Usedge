@@ -1,258 +1,142 @@
 @import '../_var.scss';
 
-.modal-interview-planning-request {
-    position: absolute;
-    top: 0px;
-    right: -1000px;
-    @include dimension(900px, 1080px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: $primary-white-1;
-    border-radius: 20px 0 0 20px;
-    padding: 50px;
-    gap: 20px;
-    transition: 0.3s;
+//Style of modal_interview_planning_request in the home page
+.home {
 
-    .modal-interview-planning-request-header {
-        @include dimension(800px, 44px);
+    .modal-interview-planning-request {
+        position: absolute;
+        top: 0px;
+        right: -1000px;
+        @include dimension(900px, 1080px);
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: $primary-white-1;
+        border-radius: 20px 0 0 20px;
+        padding: 50px;
+        gap: 20px;
+        transition: 0.3s;
 
-        .interview-planning-header-title {
-            @include dimension(546px, 44px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            .interview-planning-header-first-title-container {
-
-                display: flex;
-                align-items: center;
-                gap: 10px;
-
-                .waiting-list {
-                    p {
-                        margin: 0;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        @include textStyle($text-font, $font-size-14, $font-weight-400, #FFA94F);
-                        @include dimension(89px, 24px);
-                        border-radius: 5px;
-                        background-color: #FFF1EA;
-
-                        img {
-                            @include dimension(7px, 7px);
-                            margin-right: 5px;
-                        }
-                    }
-                }
-
-                .dropped {
-                    @extend .waiting-list;
-
-                    p {
-                        @include dimension(77px, 24px);
-                        @include textStyle($text-font, $font-size-14, $font-weight-400, #EA6061);
-                        background-color: #FFE8E8;
-                    }
-                }
-
-                .solved {
-                    @extend .waiting-list;
-
-                    p {
-                        @include dimension(68px, 24px);
-                        @include textStyle($text-font, $font-size-14, $font-weight-400, #71D68F);
-                        background-color: #EDFFEC;
-                    }
-                }
-
-                .under-review {
-                    @extend .waiting-list;
-
-                    p {
-                        @include dimension(100px, 24px);
-                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
-                        background-color: #ECEFFF;
-                    }
-                }
-
-                .draft {
-                    @extend .waiting-list;
-
-                    p {
-                        @include dimension(58px, 24px);
-                        @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
-                        background-color: #F1F1F5;
-                    }
-                }
-
-                .interview-planning-header-first-title {
-                    @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
-                    line-height: 17px;
-                    margin-bottom: 0;
-                }
-            }
-
-            .interview-planning-header-subtitle {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
-                margin-bottom: 0;
-                line-height: 20px;
-
-                span {
-                    color: $primary-blue-1;
-                }
-            }
-
-            .alert-message-is-dropped {
-                display: flex;
-                gap: 10px;
-
-                p {
-                    @include textStyle($text-font, $font-size-16, $font-weight-600, $secondary-dark-red-1);
-                    line-height: 20px;
-                    width: 100%;
-                }
-            }
-        }
-
-        .interview-planning-header-actions {
-            @include dimension(75px, 44px);
+        .modal-interview-planning-request-header {
+            @include dimension(800px, 44px);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0;
 
-            .interview-planning-header-options {
-                @include dimension(30px, 30px);
-                cursor: pointer;
-            }
-
-            .interview-planning-header-close {
-                @include dimension(30px, 30px);
-                cursor: pointer;
-            }
-        }
-    }
-
-    .separator {
-        width: 800px;
-        border-bottom: 1px solid $primary-grey-5;
-    }
-
-    .research-plan-information-container {
-        padding: 21px 35px;
-        width: 100%;
-        height: 106px;
-        background: $primary-white-1;
-        border: 1px solid $primary-blue-2;
-        box-shadow: 0px 0px 7px rgba(101, 128, 255, 0.2);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .research-plan-information {
-            @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-1);
-            letter-spacing: 0.116667px;
-            margin-top: auto;
-            margin-bottom: 5px;
-        }
-
-        .research-plan-information-detail {
-            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-3);
-            width: 527px;
-            font-style: normal;
-            line-height: 18px;
-            margin-bottom: auto;
-        }
-
-        a {
-            text-decoration: none;
-
-            button {
+            .interview-planning-header-title {
+                @include dimension(546px, 44px);
                 display: flex;
-                align-items: center;
+                flex-direction: column;
                 justify-content: center;
-                @include button($primary-blue-1, $border-radius-10, 0);
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
-                @include dimension(189px, 42px);
-                text-align: center;
-                padding: 12px;
-                gap: 5px;
-            }
-        }
-    }
 
-    .research-request-content-container {
-        overflow-y: scroll;
+                .interview-planning-header-first-title-container {
 
-        .section {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
 
-            h3 {
-                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
-                line-height: 23px;
-                letter-spacing: 0.116667px;
-            }
-        }
+                    .waiting-list {
+                        p {
+                            margin: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #FFA94F);
+                            @include dimension(89px, 24px);
+                            border-radius: 5px;
+                            background-color: #FFF1EA;
 
-        .single-choice {
+                            img {
+                                @include dimension(7px, 7px);
+                                margin-right: 5px;
+                            }
+                        }
+                    }
 
-            h3 {
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
-                line-height: 18px;
-            }
+                    .dropped {
+                        @extend .waiting-list;
 
-            p {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
-                line-height: 20px;
-            }
-        }
+                        p {
+                            @include dimension(77px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #EA6061);
+                            background-color: #FFE8E8;
+                        }
+                    }
 
-        .open-question {
+                    .solved {
+                        @extend .waiting-list;
 
-            h3 {
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
-                line-height: 18px;
-            }
+                        p {
+                            @include dimension(68px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #71D68F);
+                            background-color: #EDFFEC;
+                        }
+                    }
 
-            p {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
-                line-height: 20px;
-            }
-        }
+                    .under-review {
+                        @extend .waiting-list;
 
-        .date-picker {
+                        p {
+                            @include dimension(100px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
+                            background-color: #ECEFFF;
+                        }
+                    }
 
-            h3 {
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
-                line-height: 18px;
-            }
+                    .draft {
+                        @extend .waiting-list;
 
-            p {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
-                line-height: 20px;
-            }
-        }
+                        p {
+                            @include dimension(58px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                            background-color: #F1F1F5;
+                        }
+                    }
 
-        .external-link {
+                    .interview-planning-header-first-title {
+                        @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
+                        line-height: 17px;
+                        margin-bottom: 0;
+                    }
+                }
 
-            h3 {
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
-                line-height: 18px;
-            }
-
-            .external-link-container {
-                display: flex;
-                align-items: baseline;
-                gap: 8px;
-
-                a {
-                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-3);
+                .interview-planning-header-subtitle {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    margin-bottom: 0;
                     line-height: 20px;
+
+                    span {
+                        color: $primary-blue-1;
+                    }
+                }
+
+                .alert-message-is-dropped {
+                    display: flex;
+                    gap: 10px;
+
+                    p {
+                        @include textStyle($text-font, $font-size-16, $font-weight-600, $secondary-dark-red-1);
+                        line-height: 20px;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .interview-planning-header-actions {
+                @include dimension(75px, 44px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .interview-planning-header-options {
+                    @include dimension(30px, 30px);
+                    cursor: pointer;
+                }
+
+                .interview-planning-header-close {
+                    @include dimension(30px, 30px);
+                    cursor: pointer;
                 }
             }
         }
@@ -260,55 +144,495 @@
         .separator {
             width: 800px;
             border-bottom: 1px solid $primary-grey-5;
-            margin-top: 25px;
-            margin-bottom: 25px;
         }
 
-        .multiple-choice {
+        .research-plan-information-container {
+            padding: 21px 35px;
+            width: 100%;
+            height: 106px;
+            background: $primary-white-1;
+            border: 1px solid $primary-blue-2;
+            box-shadow: 0px 0px 7px rgba(101, 128, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            h3 {
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
-                line-height: 18px;
+            .research-plan-information {
+                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-1);
+                letter-spacing: 0.116667px;
+                margin-top: auto;
+                margin-bottom: 5px;
             }
 
-            p {
-                @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
-                line-height: 20px;
+            .research-plan-information-detail {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-3);
+                width: 527px;
+                font-style: normal;
+                line-height: 18px;
+                margin-bottom: auto;
+            }
+
+            a {
+                text-decoration: none;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @include button($primary-blue-1, $border-radius-10, 0);
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                    @include dimension(189px, 42px);
+                    text-align: center;
+                    padding: 12px;
+                    gap: 5px;
+                }
             }
         }
 
-        .evaluation-scale {
+        .research-request-content-container {
+            overflow-y: scroll;
 
-            h3 {
-                @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
-                line-height: 18px;
+            .section {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    line-height: 23px;
+                    letter-spacing: 0.116667px;
+                }
             }
 
-            .note-container {
-                display: flex;
-                align-items: center;
-                gap: 11px;
-                margin-bottom: 25px;
+            .single-choice {
 
-                .stars-container {
-
-                    img {
-                        @include dimension(14px, 14px);
-                        margin-bottom: 3px;
-                    }
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
                 }
 
                 p {
-                    margin-top: auto;
-                    margin-bottom: auto;
                     @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
                     line-height: 20px;
                 }
             }
+
+            .open-question {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .date-picker {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .external-link {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                .external-link-container {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 8px;
+
+                    a {
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-3);
+                        line-height: 20px;
+                    }
+                }
+            }
+
+            .separator {
+                width: 800px;
+                border-bottom: 1px solid $primary-grey-5;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            .multiple-choice {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .evaluation-scale {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                .note-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 11px;
+                    margin-bottom: 25px;
+
+                    .stars-container {
+
+                        img {
+                            @include dimension(14px, 14px);
+                            margin-bottom: 3px;
+                        }
+                    }
+
+                    p {
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                        line-height: 20px;
+                    }
+                }
+            }
         }
+    }
+
+    .modal-interview-planning-request-display {
+        right: -50px;
     }
 }
 
-.modal-interview-planning-request-display {
-    right: -50px;
+//Style of modal_interview_planning_request in the research-plan creation page
+.research-plan {
+
+    .modal-interview-planning-request {
+        position: absolute;
+        top: 0px;
+        right: -2850px;
+        /* right: -1950px; */
+        @include dimension(900px, 1080px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: $primary-white-1;
+        border-radius: 20px 0 0 20px;
+        padding: 50px;
+        gap: 20px;
+        transition: 0.3s;
+        z-index: 3;
+
+        .modal-interview-planning-request-header {
+            @include dimension(800px, 44px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+
+            .interview-planning-header-title {
+                @include dimension(546px, 44px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .interview-planning-header-first-title-container {
+
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .waiting-list {
+                        p {
+                            margin: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #FFA94F);
+                            @include dimension(89px, 24px);
+                            border-radius: 5px;
+                            background-color: #FFF1EA;
+
+                            img {
+                                @include dimension(7px, 7px);
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+
+                    .dropped {
+                        @extend .waiting-list;
+
+                        p {
+                            @include dimension(77px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #EA6061);
+                            background-color: #FFE8E8;
+                        }
+                    }
+
+                    .solved {
+                        @extend .waiting-list;
+
+                        p {
+                            @include dimension(68px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, #71D68F);
+                            background-color: #EDFFEC;
+                        }
+                    }
+
+                    .under-review {
+                        @extend .waiting-list;
+
+                        p {
+                            @include dimension(100px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
+                            background-color: #ECEFFF;
+                        }
+                    }
+
+                    .draft {
+                        @extend .waiting-list;
+
+                        p {
+                            @include dimension(58px, 24px);
+                            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
+                            background-color: #F1F1F5;
+                        }
+                    }
+
+                    .interview-planning-header-first-title {
+                        @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
+                        line-height: 17px;
+                        margin-bottom: 0;
+                    }
+                }
+
+                .interview-planning-header-subtitle {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    margin-bottom: 0;
+                    line-height: 20px;
+
+                    span {
+                        color: $primary-blue-1;
+                    }
+                }
+
+                .alert-message-is-dropped {
+                    display: flex;
+                    gap: 10px;
+
+                    p {
+                        @include textStyle($text-font, $font-size-16, $font-weight-600, $secondary-dark-red-1);
+                        line-height: 20px;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .interview-planning-header-actions {
+                @include dimension(75px, 44px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .interview-planning-header-options {
+                    @include dimension(30px, 30px);
+                    cursor: pointer;
+                }
+
+                .interview-planning-header-close {
+                    @include dimension(30px, 30px);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .separator {
+            width: 800px;
+            border-bottom: 1px solid $primary-grey-5;
+        }
+
+        .research-plan-information-container {
+            padding: 21px 35px;
+            width: 100%;
+            height: 106px;
+            background: $primary-white-1;
+            border: 1px solid $primary-blue-2;
+            box-shadow: 0px 0px 7px rgba(101, 128, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .research-plan-information {
+                @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-1);
+                letter-spacing: 0.116667px;
+                margin-top: auto;
+                margin-bottom: 5px;
+            }
+
+            .research-plan-information-detail {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-3);
+                width: 527px;
+                font-style: normal;
+                line-height: 18px;
+                margin-bottom: auto;
+            }
+
+            a {
+                text-decoration: none;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @include button($primary-blue-1, $border-radius-10, 0);
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                    @include dimension(189px, 42px);
+                    text-align: center;
+                    padding: 12px;
+                    gap: 5px;
+                }
+            }
+        }
+
+        .research-request-content-container {
+            overflow-y: scroll;
+
+            .section {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    line-height: 23px;
+                    letter-spacing: 0.116667px;
+                }
+            }
+
+            .single-choice {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .open-question {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .date-picker {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .external-link {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                .external-link-container {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 8px;
+
+                    a {
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-3);
+                        line-height: 20px;
+                    }
+                }
+            }
+
+            .separator {
+                width: 800px;
+                border-bottom: 1px solid $primary-grey-5;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            .multiple-choice {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                p {
+                    @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                    line-height: 20px;
+                }
+            }
+
+            .evaluation-scale {
+
+                h3 {
+                    @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-grey-4);
+                    line-height: 18px;
+                }
+
+                .note-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 11px;
+                    margin-bottom: 25px;
+
+                    .stars-container {
+
+                        img {
+                            @include dimension(14px, 14px);
+                            margin-bottom: 3px;
+                        }
+                    }
+
+                    p {
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-dark-1);
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-interview-planning-request-display {
+        right: -100vw;
+        /* right: -1950px; */
+    }
 }
