@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ path('app_home') }}" class="section-form">
+    <form method="POST" class="section-form">
         <input type="hidden" name="research-request-id" value="{{ researchRequest.id }}">
         <input type="hidden" name="research-request-coach" value="{{ researchRequest.researchTemplate.coach }}">
         <input type="hidden" name="research-request-status" value="Sent to user">

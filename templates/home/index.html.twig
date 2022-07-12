@@ -135,7 +135,11 @@
             <div class="plans-list-none" id="plans-list-none">
                 <div class="plans-header">
                     <div>
-                        <p class="plans-quantity">No plans available</p>
+                        {% if researchRequests is empty %}
+                            <p class="plans-quantity">No plans available</p>
+                        {% else %}
+                            <p class="requests-quantity">{{ researchPlans|length }} plans available</p>
+                        {% endif %}
                         <p>You can view here all the research plans created</p>
                     </div>
                     <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>
@@ -154,7 +158,7 @@
                         </tr>
                     </thead>
                 </table>
-                <div class="table-scroll">
+                <div class="table-scroll" id="plan-table-scroll">
                     <table>
                         {% for researchPlan in researchPlans %}
                         {% for researchRequest in researchRequests %}
@@ -165,7 +169,7 @@
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
-                                        <img class="template-icon" src="{{ asset(researchPlan.researchRequest.researchTemplate.icon)}}">
+                                        <img class="template-icon" src="{{ asset('build/images/icons/tools.png')}}">
                                         <div class="view-request-type-content">
                                         <p class="requestType">Research plan</p>
                                         <p>{{ researchPlan.creationDate|format_datetime('short', 'none', locale='fr')}}</p>

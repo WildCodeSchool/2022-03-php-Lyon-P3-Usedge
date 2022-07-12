@@ -20,19 +20,8 @@ class HomeController extends AbstractController
         ResearchTemplateRepository $researchTemplates,
         ResearchRequestRepository $researchRequestRepo,
         ResearchPlanRepository $researchPlanRepo,
-        Request $request,
-        CheckDataUtils $checkDataUtils,
-        ResearchPlanUtils $researchPlanUtils
     ): Response {
-        $dataComponent = $checkDataUtils->trimData($request);
-        if ($dataComponent) {
-            $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
-            $researchPlanUtils->researchPlanCheckLength($dataComponent);
-            $errors = $researchPlanUtils->getCheckErrors();
-            if (empty($errors)) {
-                $researchPlanUtils->addResearchPlan($dataComponent);
-            }
-        }
+
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
         $researchRequests = $researchRequestRepo->findBy([], ['id' => 'DESC']);
         $researchPlans = $researchPlanRepo->findBy([], ['id' => 'DESC']);

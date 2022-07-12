@@ -434,3 +434,10 @@
 .view-details-none {
     display: none;
 }
+.hide-body-homepage-overflow {
+    overflow: hidden;
+}
+.table-scroll-none {
+    @extend .table-scroll;
+    overflow: hidden !important;
+}

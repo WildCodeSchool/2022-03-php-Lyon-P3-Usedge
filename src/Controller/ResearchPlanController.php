@@ -17,7 +17,20 @@ class ResearchPlanController extends AbstractController
     public function index(
         ResearchRequest $researchRequest,
         CanvasWorkshopsRepository $workshopRepository,
+        Request $request,
+        CheckDataUtils $checkDataUtils,
+        ResearchPlanUtils $researchPlanUtils
     ): Response {
+
+        $dataComponent = $checkDataUtils->trimData($request);
+        if ($dataComponent) {
+            $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
+            $researchPlanUtils->researchPlanCheckLength($dataComponent);
+            $errors = $researchPlanUtils->getCheckErrors();
+            if (empty($errors)) {
+                $researchPlanUtils->addResearchPlan($dataComponent);
+            }
+        }
         $workshops = $workshopRepository->findAll();
 
         return $this->render('research_plan/research_plan.html.twig', [
