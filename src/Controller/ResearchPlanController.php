@@ -26,6 +26,7 @@ class ResearchPlanController extends AbstractController
         ResearchRequestMailer $mailer,
         ResearchPlanRepository $researchPlanRepo,
     ): Response {
+
         $dataComponent = $checkDataUtils->trimData($request);
         $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
         $researchPlanErrors = [];

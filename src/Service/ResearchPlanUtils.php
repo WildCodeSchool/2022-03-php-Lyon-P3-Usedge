@@ -82,8 +82,10 @@ class ResearchPlanUtils
         $researchPlan = new ResearchPlan();
         $entityManager = $this->entityManager;
 
-        $researchRequest->setStatus('Under review');
-        $entityManager->persist($researchRequest);
+        if ($researchRequest instanceof ResearchRequest) {
+            $researchRequest->setStatus('Under review');
+            $entityManager->persist($researchRequest);
+        }
 
         if ($researchRequest instanceof ResearchRequest) {
             $researchPlan->setResearchRequest($researchRequest);
