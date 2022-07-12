@@ -1,0 +1,41 @@
+{% extends 'base-plan.html.twig' %}
+
+{% block title %}New research plan{% endblock %}
+
+{% block body %}
+<header class="header-research-plan">
+    <div class="title-logo">
+        <img class="logo-usedge" src="{{ asset('build/images/usedge-logo.png') }}" alt="logo usedge">
+        <h1>New research plan</h1>
+    </div>
+    <button class="buttonSave" type="submit"><img src="{{ asset('build/images/icons/logout.png') }}" alt="logout">Save and continue later</button>
+</header>
+
+<main class="sections-container">
+    {% include "research_plan/modals/_modal_available_workshops.html.twig" %}
+    <div class="section-selected">
+        <div class="section-request">
+            <h1>Research request</h1>
+            <a class="link-view-request" href="#">View assigned research request</a>
+        </div>
+
+        <div class="section-plan">
+            <h1>Plan sections</h1>           
+            <input type="button" class="button-untitled" id="button-untitled" value="Untitled">
+            <button type="button" class="button-add-section">+ Add a new section</button>
+        </div>
+    </div>
+
+    <form method="POST" class="section-form">
+        <input type="hidden" name="research-request-id" value="{{ researchRequest.id }}">
+        <input type="hidden" name="research-request-coach" value="{{ researchRequest.researchTemplate.coach }}">
+        <input type="hidden" name="research-request-status" value="Sent to user">
+        <div>
+            {% include 'research_plan/_layout_add_section_plan.html.twig' %}
+        </div>
+        <button class="send-research-plan-disabled" id="send-research-plan" disabled="disabled"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
+    </form>
+
+</main>
+
+{% endblock %}

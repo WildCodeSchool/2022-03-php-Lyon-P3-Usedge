@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
+
     <main class="page-content">
         {% include "home/modals/_modal_available_templates.html.twig" %}
         <header class="header">
@@ -75,8 +76,13 @@
                             <td class="sort"></td>
                         </tr>
                     </thead>
-                    <div class="view-request-table">
+                </table>
+                <div class="table-scroll">
+                    <table>
                         {% for researchRequest in researchRequests %}
+                        {% if researchRequest.status is not same as 'Draft' %}
+                            {% include "home/modals/_modal_interview_planning_request.html.twig" %}
+                        {% endif %}
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
@@ -100,7 +106,7 @@
                                         {% if 'Draft' in researchRequest.status %}
                                             <button class="edit-request-button">Edit</button>
                                         {% else %}
-                                            <button class="request-details-button">View</button>
+                                            <button id="{{ researchRequest.id }}" class="request-details-button">View</button>
                                         {% endif %}
                                     </td>
                                     <td class="icon-see-more">
@@ -108,7 +114,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                            {% endfor %}
+                        {% endfor %}
                         {% if researchRequests is empty %}
                             <tbody class="result">
                                 <tr>
@@ -122,15 +128,18 @@
                                     <td class="view-details"></td>
                                 </tr>
                             </tbody>
-                            {% endif %}
-                       
-                    </div>
-                </table>
+                        {% endif %}   
+                    </table>
+                </div>
             </div>
             <div class="plans-list-none" id="plans-list-none">
                 <div class="plans-header">
                     <div>
-                        <p class="plans-quantity">No plans available</p>
+                        {% if researchRequests is empty %}
+                            <p class="plans-quantity">No plans available</p>
+                        {% else %}
+                            <p class="requests-quantity">{{ researchPlans|length }} plans available</p>
+                        {% endif %}
                         <p>You can view here all the research plans created</p>
                     </div>
                     <button id="create-plans"><img src="{{ asset('build/images/icons/Path.png') }}"> Create a research plan</button>
@@ -148,21 +157,72 @@
                             <td class="sort" ></td>
                         </tr>
                     </thead>
-                    <tbody class="result">
-                    <tr>
-                        <td class="view-details" id="view-plans-type">No plans available</td>
-                    </tr>
-                    <tr class="sort-choice">
-                        <td class="view-details view-plans">No project</td>
-                        <td class="view-details view-plans">No assigned request</td>
-                        <td class="view-details">No coach assigned</td>
-                        <td class="view-details">No status available</td>
-                        <td class="view-details"></td>
-                    </tr>
-                </tbody>
                 </table>
+                <div class="table-scroll" id="plan-table-scroll">
+                    <table>
+                        {% for researchPlan in researchPlans %}
+                        {% for researchRequest in researchRequests %}
+                        {% if researchPlan.researchRequest.status is not same as 'Draft' %}
+                            {% include "home/modals/_modal_interview_planning_request.html.twig" %}
+                        {% endif %}
+                        {% endfor %}
+                            <tbody class="result">
+                                <tr>
+                                    <td class="view-details view-request-type" id="view-request-type">
+                                        <img class="template-icon" src="{{ asset('build/images/icons/tools.png')}}">
+                                        <div class="view-request-type-content">
+                                        <p class="requestType">Research plan</p>
+                                        <p>{{ researchPlan.creationDate|format_datetime('short', 'none', locale='fr')}}</p>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr class="sort-choice">
+                                    <td class="view-details view-requests view-project">{{ researchPlan.researchRequest.project }}</td>
+                                    <td class="view-details view-requests">
+                                        <button type="button" id="{{ researchPlan.researchRequest.id }}" class="request-details-link">
+                                            <img src="{{ asset('build/images/icons/blue eye.png') }}">
+                                            View request
+                                        </button>
+                                    </td>
+                                    <td class="view-details">
+                                    <img class="coach-picture" src="https://i.pravatar.cc">{{ researchPlan.researchRequest.researchTemplate.coach }}
+                                    </td>
+                                    <td class="view-details color-status">
+                                        {% include "home/_research_plans_status.html.twig" %}
+                                    </td> 
+                                    <td class="view-details">                                     
+                                        {% if 'Draft' in researchPlan.status %}
+                                            <button class="edit-request-button">Edit</button>
+                                        {% else %}
+                                            <button class="request-details-button">View</button>
+                                        {% endif %}
+                                    </td>
+                                    <td class="icon-see-more">
+                                        <img src="{{ asset('build/images/icons/ic_More.png')}}">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                        {% if researchPlans is empty %}
+                            <tbody class="result">
+                                <tr>
+                                    <td class="view-details" id="view-plans-type">No plans available</td>
+                                </tr>
+                                <tr class="sort-choice">
+                                    <td class="view-details view-plans">No project</td>
+                                    <td class="view-details view-plans">No assigned request</td>
+                                    <td class="view-details">No coach assigned</td>
+                                    <td class="view-details">No status available</td>
+                                    <td class="view-details"></td>
+                                </tr>
+                            </tbody>
+                        {% endif %}
+                    </table>
+                </div>
             </div>    
         </div>
+        {% include "modals/_modal_select_request.html.twig" %}
     </main>
 
 {% endblock %}

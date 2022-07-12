@@ -1,0 +1,124 @@
+@import '_var.scss';
+@import '../../node_modules/froala-editor/css/froala_editor.pkgd.min.css';
+
+.header-research-plan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    @include absolutePosition(0px, 0px);
+    @include dimension(100%, 68px);
+    .title-logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .logo-usedge {
+            margin: 5px;
+            width: 100px;
+        }
+        h1 {
+            @include textStyle($text-font, $font-size-16,
+            $font-weight-600, $primary-grey-4);
+            padding-left: 50px;
+        }
+    }
+    .buttonSave {
+        @include textStyle($text-font, $font-size-14,
+        $font-weight-600, $primary-grey-4);
+        color: $primary-grey-1;
+        @include button($primary-white-1, $border-radius-10,
+        2px solid $primary-grey-2);
+        padding: 10px;
+    }
+}
+
+.sections-container {
+    position: relative;
+    .section-selected {
+        .section-request {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px 25px 25px;
+            gap: 10px;
+            background-color: $primary-white-1;
+            border-radius: 15px;
+            @include dimension(307px, 115px);
+            @include absolutePosition(108px, 374px);
+            h1 {
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-dark-1);
+                line-height: 23px;
+            }
+            .link-view-request {
+                text-decoration: none;
+                @include dimension(257px, 42px);
+                text-align: center;
+                background: $primary-white-1;
+                border-radius: 10px;
+                @include textStyle($text-font, $font-size-14,
+                $font-weight-600, $primary-blue-1);
+                line-height: 18px;
+            }
+        }
+        .section-plan {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px 25px 25px;
+            gap: 10px;
+            @include dimension(307px, 198px);
+            @include absolutePosition(243px, 374px);
+            background-color: $primary-white-1;
+            border-radius: 15px;
+            h1 {
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-dark-1);
+                line-height: 23px;
+            }
+            .button-untitled {
+                @include dimension(257px, 53px);
+                @include button($primary-blue-2, $border-radius-10, none);
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-blue-1);
+                line-height: 23px;
+                letter-spacing: 0.116667px;
+            }
+            .button-add-section {
+                @include dimension(257px, 53px);
+                @include button($primary-white-1, $border-radius-10, 1.5px dashed $primary-grey-4);
+                @include textStyle($text-font, $font-size-18,
+                $font-weight-600, $primary-grey-4);
+                letter-spacing: 0.116667px;
+            }
+        }
+    }
+    .section-form {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 40px;
+        gap: 19px;
+        width: 840px;
+        min-height: 923px;
+        @include absolutePosition(108px, 706px);
+        background-color: $primary-white-1;
+        border-radius: 15px;
+        .send-research-plan {
+            @include dimension(760px, 42px);
+            @include button($primary-blue-1, $border-radius-10, none);
+            @include textStyle($text-font, $font-size-14,
+            $font-weight-600, $primary-white-1);
+            align-self: flex-end;
+            padding: 10px 10px 10px 10px;  
+            img {
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+.send-research-plan-disabled {
+    @extend .send-research-plan;
+    @include button(transparentize($color: $primary-blue-1, $amount: 0.5) !important, $border-radius-10, none);
+    
+}

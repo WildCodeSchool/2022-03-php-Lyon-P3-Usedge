@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: flex-start;
     background-color: $primary-white-2;
-    padding: 35px 0px;
+    padding-top: 35px;
     gap: 20px;
     width: 81vw;
     .search-engine {
@@ -112,6 +112,7 @@
         justify-content: space-between;
         flex-wrap: nowrap;
         width: 100%;
+        height: 771px;
         .requests-list {
             display: flex;
             flex-direction: column;
@@ -120,8 +121,14 @@
             background: $primary-white-1;
             padding: 35px;
             gap: 20px;
-            overflow: scroll;
-            max-height: 790px;
+            .table-scroll {
+                width: 100%;
+                overflow: scroll;
+                max-height: 548px;
+                table {
+                    width: 100%;
+                }
+            }
             .requests-header {
                 display: flex;
                 flex-direction: row;
@@ -174,7 +181,7 @@
                 }
                 #requests-type {
                     background-position-x: 100px;
-                    margin-left: 20px;
+                    margin-left: 30px;
                     width: 100%;
                 }
                 #requests-project {
@@ -188,10 +195,6 @@
                     background-position-x: 52px;
                 }
                 #status {
-                    background-position-x: 127px;
-                    justify-content: center;
-                }
-                #plans-status {
                     background-position-x: 127px;
                     justify-content: center;
                 }
@@ -383,17 +386,44 @@
     }
     #plans-type {
         background-position-x: 100px;
-        margin-left: 20px;
+        margin-left: 30px;
         width: 100%;
     }
     #plans-project {
-        background-position-x: 60px;
+        background-position-x: 135px;
+        justify-content: center;
     }
     #plans-assigned-request {
         background-position-x: 127px;
     }
     #plans-coach-assigned {
         background-position-x: 112px;
+        margin-left: 10px;
+    }
+    #plans-status {
+        background-position-x: 127px;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    .sent-to-user{
+        @extend .under-review;
+        p {
+            @include dimension(100px, 24px);
+            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-blue-1);
+            background-color: #ECEFFF;
+        }
+    }
+    .validated {
+        @extend .solved;
+    }
+    .request-details-link {
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-blue-1);
+        img {
+            margin-right: 10px;
+        }
     }
 }
 
@@ -403,4 +433,9 @@
 
 .view-details-none {
     display: none;
+}
+
+.table-scroll-none {
+    @extend .table-scroll;
+    overflow: hidden !important;
 }
