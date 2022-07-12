@@ -241,8 +241,8 @@
     .add-objectives-p-and-save-display {
         display: none;
     }
-    .button-add-objectives {
-        .button-select-objectives {
+    .div-button-add-objectives {
+        .button-add-objectives {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -265,6 +265,10 @@
     }
 }
 
+.button-select-objectives-display {
+    display: none;
+}
+
 .add-section-new-objectives {
     display: flex;
     flex-direction: column;
@@ -282,9 +286,6 @@
         align-items: center;
     }
     .add-objectives-p-none {
-        display: none;
-    }
-    .button-add-objectives {
         display: none;
     }
     .add-objectives-p-and-save-display {
@@ -326,15 +327,15 @@
                 margin-right: 5px;
             }
             .newDivLabel {
-                font-family: 'Source Sans Pro';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 14px;
+                @include textStyle($text-font, $font-size-16,
+                $font-weight-600, $primary-blue-3);
                 line-height: 18px;
                 display: flex;
                 align-items: center;
-                color: #1D2A78;
             }
+            .remove-objectives {
+                display: none;
+            } 
         }
         .button-save-objectives {
             display: flex;
@@ -370,11 +371,33 @@
         background-color: transparent;
         border: 0;
         img {
-            margin-left: 450px;
+            margin-left: 435px;
             margin-top: 15px;
             @include dimension(20px, 20px);
         }
     }  
+}
+.remove-objectives-display {
+    background-image: url("/assets/images/icons/close.png");
+    background-position: center;
+    background-size: contain;
+    @include dimension(20px, 20px);
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    margin-left: 10px;
+}
+.newDivLabelDisplay {
+    display: none;
+}
+.all-input-hidden-validate {
+    @include textStyle($text-font, $font-size-16,
+    $font-weight-600, $primary-blue-3);
+    background-color: transparent;
+    border: 0;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
 }
 .create-recommandation-none {
     display: none;
