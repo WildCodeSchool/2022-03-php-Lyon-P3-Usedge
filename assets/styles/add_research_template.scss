@@ -194,8 +194,7 @@
                 }
             }
             .form-builder {
-                @include dimension(1122px, 950px);
-                margin-right: 38px;
+                @include dimension(58vw, 950px);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
