@@ -18,13 +18,16 @@ if (document.getElementById('title-section-research-plan')) {
     const selectedWorkshopDescription = document.querySelector('.research-plan-workshop-selected-description');
     const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
     const selectedWorkshopEditIcon = document.getElementById('research-plan-workshop-select-edit-icon');
+    const linkViewRequest = document.getElementById('link-view-request');
+    const modalInterviewPlanningRequest = document.getElementById('modal-interview-planning-request');
+    const interviewPlanningHeaderClose = document.getElementById('interview-planning-header-close');
 
-    titleSection.addEventListener('click', function() {
+    titleSection.addEventListener('click', function () {
         inputTitleSectionPlan.type = "text";
     });
 
     const buttonUntitled = document.getElementById('button-untitled');
-    inputTitleSectionPlan.addEventListener("keydown", function(event) {
+    inputTitleSectionPlan.addEventListener("keydown", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
             const valueInput = inputTitleSectionPlan.value;
@@ -36,12 +39,13 @@ if (document.getElementById('title-section-research-plan')) {
     }, true);
 
     const buttonRemoveTitle = document.getElementById('button-basket');
-    buttonRemoveTitle.addEventListener('click', function() {
+    buttonRemoveTitle.addEventListener('click', function () {
         inputTitleSectionPlan.value.remove();
     });
 
     assignWorkshopLink.addEventListener('click', () => {
         availableWorkshopModal.classList.add('research-plan-available-workshops-display');
+        modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
     });
 
     availableWorkshopModalCloseButton.addEventListener('click', () => {
@@ -53,7 +57,7 @@ if (document.getElementById('title-section-research-plan')) {
     });
 
     // Function used to capture the enter keytouch and simulate it as a button click.
-    workshopSearchbar.addEventListener("keyup", function(e) {
+    workshopSearchbar.addEventListener("keyup", function (e) {
         if (e.key === 'Enter') {
             e.preventDefault;
             availableWorkshopSearchButton.click();
@@ -100,14 +104,14 @@ if (document.getElementById('title-section-research-plan')) {
     });
 
     // Function used to close the textarea and modify the description.
-    selectedWorkshopDescritionTextarea.addEventListener("keydown", function(event) {
+    selectedWorkshopDescritionTextarea.addEventListener("keydown", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
             selectedWorkshopDescriptionInput.value = selectedWorkshopDescritionTextarea.value;
             selectedWorkshopDescription.innerHTML = selectedWorkshopDescritionTextarea.value;
             selectedWorkshopEditIcon.classList.remove('research-plan-workshop-select-edit-icon-display-none');
             selectedWorkshopDescription.classList.remove('research-plan-workshop-selected-description-display-none');
-            selectedWorkshopDescritionTextarea.classList.remove('selected-workshop-description-edit-display-block');    
+            selectedWorkshopDescritionTextarea.classList.remove('selected-workshop-description-edit-display-block');
         } else if (event.key == "Escape") {
             selectedWorkshopDescritionTextarea.value = selectedWorkshopDescription.innerHTML.replace(/\s+/g, " ");
             selectedWorkshopEditIcon.classList.remove('research-plan-workshop-select-edit-icon-display-none');
@@ -118,9 +122,19 @@ if (document.getElementById('title-section-research-plan')) {
 
     // Function used to resize auto the height of the textarea.
     selectedWorkshopDescritionTextarea.addEventListener('keydown', () => {
-        setTimeout(function() {
+        setTimeout(function () {
             selectedWorkshopDescritionTextarea.style.cssText = 'height:' + selectedWorkshopDescritionTextarea.scrollHeight + 'px';
         });
     });
 
+    // Function used to open the modal interview planning request
+    linkViewRequest.addEventListener('click', () => {
+        modalInterviewPlanningRequest.classList.toggle('modal-interview-planning-request-display');
+        availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
+    });
+
+    // Function used to close the modal interview planning request
+    interviewPlanningHeaderClose.addEventListener('click', () => {
+        modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
+    });
 }
