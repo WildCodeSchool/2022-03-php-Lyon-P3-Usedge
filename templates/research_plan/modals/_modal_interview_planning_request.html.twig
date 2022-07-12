@@ -1,10 +1,8 @@
-<div class="home">
-	<div class="modal-interview-planning-request" id="{{ researchRequest.id }}">
+<div class="research-plan">
+	<div class="modal-interview-planning-request" id="modal-interview-planning-request">
 		<div class="modal-interview-planning-request-header">
 			<div class="interview-planning-header-title">
 				<div class="interview-planning-header-first-title-container">
-
-					{% include "home/_research_request_status.html.twig" %}
 
 					<p class="interview-planning-header-first-title">
 						Interview planning requests
@@ -36,7 +34,6 @@
 
 		<div class="separator"></div>
 
-		{% include "home/_research_plan_information.html.twig" %}
 		{% include "home/_research_request_content.html.twig" %}
 
 	</div>

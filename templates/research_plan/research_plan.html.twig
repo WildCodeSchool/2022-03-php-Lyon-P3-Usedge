@@ -12,11 +12,12 @@
 </header>
 
 <main class="sections-container">
+    {% include "research_plan/modals/_modal_interview_planning_request.html.twig" %}
     {% include "research_plan/modals/_modal_available_workshops.html.twig" %}
     <div class="section-selected">
         <div class="section-request">
             <h1>Research request</h1>
-            <a class="link-view-request" href="#">View assigned research request</a>
+            <a class="link-view-request" id="link-view-request" href="#">View assigned research request</a>
         </div>
 
         <div class="section-plan">
