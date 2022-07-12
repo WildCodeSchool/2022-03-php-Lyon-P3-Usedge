@@ -5,11 +5,9 @@ namespace App\Controller;
 use App\Repository\CanvasWorkshopsRepository;
 use App\Entity\ResearchRequest;
 use App\Repository\ResearchPlanRepository;
-use App\Repository\ResearchPlanSectionRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ResearchPlanUtils;
 use App\Service\ResearchRequestMailer;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +27,7 @@ class ResearchPlanController extends AbstractController
         ResearchPlanRepository $researchPlanRepo,
     ): Response {
         $dataComponent = $checkDataUtils->trimData($request);
-        $planId = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
+        $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
         $researchPlanErrors = [];
 
         if (empty($dataComponent)) {
@@ -44,16 +42,8 @@ class ResearchPlanController extends AbstractController
         $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
         $researchPlanUtils->researchPlanCheckLength($dataComponent);
         $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-
-        if (!empty($planId)) {
-            $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
-            $researchPlanUtils->researchPlanCheckLength($dataComponent);
-            $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-            if (empty($researchPlanErrors)) {
-                $researchPlanUtils->addResearchPlanSection($dataComponent, $planId);
-            }
-        } elseif (empty($researchPlanErrors)) {
-            $researchPlanUtils->addResearchPlan($dataComponent);
+        if (empty($researchPlanErrors)) {
+            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
             $mailer->researchPlanSendMail();
         }
 
@@ -70,31 +60,17 @@ class ResearchPlanController extends AbstractController
         ResearchPlanUtils $researchPlanUtils,
         ResearchPlanRepository $researchPlanRepo,
     ): Response {
-        $planId = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
+        $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
 
         $dataComponent = $checkDataUtils->trimData($request);
-        if (!empty($planId)) {
-            if (!empty($dataComponent)) {
-                $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
-                $researchPlanUtils->researchPlanCheckLength($dataComponent);
-                $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-                if (empty($researchPlanErrors)) {
-                    $researchPlanUtils->addResearchPlanSection($dataComponent, $planId);
-                }
-            }
-        } elseif (!empty($dataComponent)) {
-            $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
-            $researchPlanUtils->researchPlanCheckLength($dataComponent);
-            $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-            if (empty($researchPlanErrors)) {
-                $researchPlanUtils->addResearchPlan($dataComponent);
-            }
-        }
+        $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+
         $workshops = $workshopRepository->findAll();
 
         return $this->render('research_plan/research_plan.html.twig', [
             'workshops' => $workshops,
             'researchRequest' => $researchRequest,
+            'researchPlan' => $researchPlan,
         ]);
     }
 }

@@ -20,7 +20,10 @@
         </div>
 
         <div class="section-plan">
-            <h1>Plan sections</h1>           
+            <h1>Plan sections</h1> 
+            {% for researchPlanSection in researchPlan.researchPlanSections %}
+                <input type="button" class="button-untitled" value="{{researchPlanSection.title}}">
+            {% endfor %}        
             <input type="button" class="button-untitled" id="button-untitled" value="Untitled">
             <button type="submit" formaction="{{path('research_plan_new_section', {id: researchRequest.id})}}"  class="button-add-section" id="button-add-section">+ Add a new section</button>
         </div>
