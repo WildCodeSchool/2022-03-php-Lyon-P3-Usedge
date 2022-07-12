@@ -34,4 +34,23 @@ class ResearchRequestMailer
         );
                 $this->mailer->send($email);
     }
+
+    public function researchPlanSendMail(): void
+    {
+        $email = new Email();
+        if (is_string($this->parameters->get('mailer_from'))) {
+            $email->from($this->parameters->get('mailer_from'));
+        }
+        if (is_string($this->parameters->get('mailer_to'))) {
+            $email->to($this->parameters->get('mailer_to'));
+        }
+        $email->subject('A new research plan has been sent !');
+        $email->html(
+            '<h1>Hello there !</h1>
+            <p>This mail confirm that you sent a new research
+            plan to your colaborator !</p>
+            <p>Best Regards</p>'
+        );
+                $this->mailer->send($email);
+    }
 }

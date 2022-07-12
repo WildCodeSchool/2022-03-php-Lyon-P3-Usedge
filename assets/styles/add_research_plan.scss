@@ -8,7 +8,7 @@
     align-items: center;
     padding: 10px 40px;
     @include absolutePosition(0px, 0px);
-    @include dimension(1920px, 68px);
+    @include dimension(100%, 68px);
     .title-logo {
         display: flex;
         flex-direction: row;

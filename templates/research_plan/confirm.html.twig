@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New research plan{% endblock %}
+
+{% block body %}
+    <header id="add-research-request-header" class="add-research-request-header">
+        <div class="add-research-request-header-logo-container">
+            <img class="add-research-request-header-logo" src="{{ asset('build/images/usedge-logo.png') }}"/>
+            <p class="add-research-request-header-title">New research plan<p>
+        </div>
+        <button form="add-research-request-form" class="add-research-request-confirm-header-button" id="add-research-request-header-button">
+            <img class="add-research-request-header-button-icon" src="{{ asset('build/images/icons/logout-dark.png') }}"/>
+            <p class="add-research-request-header-button-text">Save and continue later</p>
+        </button>
+    </header>
+    <main class="add-research-request-main-content">
+        {% if errors is defined and errors is not empty %}
+        <div class="research-request-confirm-modal" id="research-request-confirm-modal">
+            <div class="research-request-confirm-modal-content">
+                <div class="check_perspective_matte">
+                    <img src="{{ asset('build/images/icons/Error_perspective_matte.png') }}" class="icons_check_perspective_matte" id="icons_check_perspective_matte">
+                </div>
+                <div class="research-request-confirm-modal-text">
+                    {% for error in errors %}
+                        <p class="research-request-alert-modal-first-text">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <button class="research-request-alert-modal-button" onclick="history.back();"><img src="{{ asset('build/images/icons/return.png')}}">Back to research request</button>
+            </div>
+        </div>
+        {% else %}
+        <div class="research-request-confirm-modal" id="research-request-confirm-modal">
+            <div class="research-request-confirm-modal-content">
+                <div class="check_perspective_matte">
+                    <img src="{{ asset('build/images/icons/Check_perspective_matte.png') }}" class="icons_check_perspective_matte" id="icons_check_perspective_matte">
+                </div>
+                <div class="research-request-confirm-modal-text">
+                    <p class="research-request-confirm-modal-first-text">Congratulations! The research plan has been sent to the requester.</p>
+                    <p class="research-request-confirm-modal-second-text">You should receive shortly a copy of this research plan by email.</p>
+                </div>
+                <a class="research-request-confirm-modal-link" href="{{ path('app_home') }}"><button class="research-request-confirm-modal-button"><img src="{{ asset('build/images/icons/return.png')}}">Back to dashboard</button></a>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+{% endblock %}

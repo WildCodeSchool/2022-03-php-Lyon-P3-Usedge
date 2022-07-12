@@ -13,11 +13,9 @@ if (document.getElementById('title-section-research-plan')) {
     const availableWorkshopSelectButton = document.querySelectorAll('.available-workshop-button');
     const selectedWorkshopNameInput = document.getElementById('selected-workshop-name');
     const selectedWorkshopDescriptionInput = document.getElementById('selected-workshop-description');
-    const selectedWorkshopIdInput = document.getElementById('selected-worshop-id');
     const selectedWorkshopBuilder = document.getElementById('research-plan-workshop-selected-content');
     const selectedWorkshopName = document.querySelector('.research-plan-workshop-selected-name');
     const selectedWorkshopDescription = document.querySelector('.research-plan-workshop-selected-description');
-    const availableWorkshopIdInput = document.querySelector('.available-workshop-id');
     const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
     const selectedWorkshopEditIcon = document.getElementById('research-plan-workshop-select-edit-icon');
 
@@ -89,7 +87,6 @@ if (document.getElementById('title-section-research-plan')) {
             selectedWorkshopDescription.innerHTML = workshopCardDescription[i].innerHTML;
             selectedWorkshopNameInput.value = workshopCardTitle[i].innerHTML;
             selectedWorkshopDescriptionInput.value = workshopCardDescription[i].innerHTML;
-            selectedWorkshopIdInput.value = availableWorkshopIdInput.value;
             selectedWorkshopDescritionTextarea.innerHTML = workshopCardDescription[i].innerHTML.replace(/\s+/g, " ");
             availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
         });
