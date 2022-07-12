@@ -107,7 +107,6 @@ class ResearchPlanUtils
         for ($count = 1; $count <= $objectivesCounter; $count++) {
             $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
         }
-
         $researchPlanSection->setObjectives($researchPlanObjects);
 
         $entityManager->persist($researchPlanSection);
