@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\ResearchPlanSection;
 use App\Repository\CanvasWorkshopsRepository;
 use App\Entity\ResearchRequest;
 use App\Repository\ResearchPlanRepository;
+use App\Repository\ResearchPlanSectionRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ResearchPlanUtils;
 use App\Service\ResearchRequestMailer;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,12 +34,15 @@ class ResearchPlanController extends AbstractController
         $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
         $researchPlanErrors = [];
 
-        if (empty($dataComponent)) {
+        if (empty($dataComponent) & !empty($researchPlan)) {
+            return $this->redirectToRoute('research_plan_new_section', ['id' => $id]);
+        } elseif (empty($dataComponent)) {
             $workshops = $workshopRepository->findAll();
 
             return $this->render('research_plan/research_plan.html.twig', [
                 'workshops' => $workshops,
                 'researchRequest' => $researchRequest,
+                'researchPlan' => $researchPlan,
             ]);
         }
 
@@ -65,13 +71,44 @@ class ResearchPlanController extends AbstractController
 
         $dataComponent = $checkDataUtils->trimData($request);
         $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
-
         $workshops = $workshopRepository->findAll();
 
         return $this->render('research_plan/research_plan.html.twig', [
             'workshops' => $workshops,
             'researchRequest' => $researchRequest,
             'researchPlan' => $researchPlan,
+        ]);
+    }
+
+    #[Route('/research-plan/{researchRequestId}/section/{sectionId}
+        ', name: 'research_plan_edit_section', methods: ['GET', 'POST'])]
+    #[Entity('researchRequest', options: ['id' => 'researchRequestId'])]
+    #[Entity('researchPlanSection', options: ['id' => 'sectionId'])]
+    public function editSection(
+        ResearchPlanSection $researchPlanSection,
+        ResearchRequest $researchRequest,
+        CanvasWorkshopsRepository $workshopRepository,
+        Request $request,
+        CheckDataUtils $checkDataUtils,
+        ResearchPlanUtils $researchPlanUtils,
+        ResearchPlanRepository $researchPlanRepo,
+        ResearchPlanSectionRepository $resPlanSectionRepo,
+    ): Response {
+        $resRequestId = $researchRequest->getId();
+
+        $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $resRequestId]);
+        $resPlanSections = $resPlanSectionRepo->findBy(['researchPlan' => $researchPlan]);
+        $dataComponent = $checkDataUtils->trimData($request);
+        $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+
+        $workshops = $workshopRepository->findAll();
+
+        return $this->render('research_plan/research_plan_edit.html.twig', [
+            'workshops' => $workshops,
+            'researchRequest' => $researchRequest,
+            'researchPlan' => $researchPlan,
+            'resPlanSections' => $resPlanSections,
+            'researchPlanSection' => $researchPlanSection
         ]);
     }
 }

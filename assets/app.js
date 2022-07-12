@@ -20,7 +20,6 @@ import './js/add_research_plan.js';
 
 //import research plan
 import './js/add_research_plan.js';
-import './js/add_new_plan_section.js';
 import './js/research_plan_text_editor.js';
 
 // import modal js
