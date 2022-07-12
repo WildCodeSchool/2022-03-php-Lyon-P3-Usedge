@@ -27,6 +27,9 @@
     </div>
 
     <form method="POST" class="section-form">
+        <input type="hidden" name="research-request-id" value="{{ researchRequest.id }}">
+        <input type="hidden" name="research-request-coach" value="{{ researchRequest.researchTemplate.coach }}">
+        <input type="hidden" name="research-request-status" value="Sent to user">
         <div>
             {% include 'research_plan/_layout_add_section_plan.html.twig' %}
         </div>

@@ -75,7 +75,6 @@ $border-radius-20: 20px;
 }
 
 .body {
-    @include dimension(1920px, 1080px);
     overflow-x: hidden;
     display: flex;
     align-items: flex-start;
