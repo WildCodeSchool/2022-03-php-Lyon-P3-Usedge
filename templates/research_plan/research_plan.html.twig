@@ -11,7 +11,7 @@
     <button class="buttonSave" type="submit"><img src="{{ asset('build/images/icons/logout.png') }}" alt="logout">Save and continue later</button>
 </header>
 
-<main class="sections-container">
+<form method="POST" class="sections-container">
     {% include "research_plan/modals/_modal_interview_planning_request.html.twig" %}
     {% include "research_plan/modals/_modal_available_workshops.html.twig" %}
     <div class="section-selected">
@@ -21,13 +21,18 @@
         </div>
 
         <div class="section-plan">
-            <h1>Plan sections</h1>           
+            <h1>Plan sections</h1> 
+            {% if researchPlan is not empty %}
+            {% for researchPlanSection in researchPlan.researchPlanSections %}
+                <input type="submit" {# formaction="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}" #} class="button-untitled" value="{{researchPlanSection.title}}">
+            {% endfor %} 
+            {% endif %}          
             <input type="button" class="button-untitled" id="button-untitled" value="Untitled">
-            <button type="button" class="button-add-section">+ Add a new section</button>
+            <button type="submit" formaction="{{path('research_plan_new_section', {id: researchRequest.id})}}" class="button-add-section">+ Add a new section</button>
         </div>
     </div>
 
-    <form method="POST" class="section-form">
+    <div class="section-form">
         <input type="hidden" name="research-request-id" value="{{ researchRequest.id }}">
         <input type="hidden" name="research-request-coach" value="{{ researchRequest.researchTemplate.coach }}">
         <input type="hidden" name="research-request-status" value="Sent to user">
@@ -35,8 +40,8 @@
             {% include 'research_plan/_layout_add_section_plan.html.twig' %}
         </div>
         <button class="send-research-plan-disabled" id="send-research-plan" disabled="disabled"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
-    </form>
+    </div>
 
-</main>
+</form>
 
 {% endblock %}

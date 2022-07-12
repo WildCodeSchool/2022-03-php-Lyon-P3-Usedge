@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\ResearchPlan;
 use App\Entity\ResearchPlanSection;
 use App\Entity\ResearchRequest;
+use App\Repository\ResearchPlanRepository;
 use App\Repository\ResearchRequestRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -79,7 +80,6 @@ class ResearchPlanUtils
         $researchRequest = $this->resReqRepo->findOneBy(['id' => $dataComponent['research-request-id']]);
         $creationDate = new DateTime("now");
         $researchPlan = new ResearchPlan();
-        $researchPlanSection = new ResearchPlanSection();
         $entityManager = $this->entityManager;
 
         if ($researchRequest instanceof ResearchRequest) {
@@ -95,6 +95,15 @@ class ResearchPlanUtils
         $researchPlan->setCreationDate($creationDate);
         $entityManager->persist($researchPlan);
 
+        $this->addResearchPlanSection($dataComponent, $researchPlan);
+
+        $entityManager->flush();
+    }
+    public function addResearchPlanSection(array $dataComponent, ResearchPlan $researchPlan): void
+    {
+        $researchPlanSection = new ResearchPlanSection();
+        $entityManager = $this->entityManager;
+
         $researchPlanSection->setTitle($dataComponent['research-plan-title']);
         $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
         $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
@@ -103,5 +112,24 @@ class ResearchPlanUtils
         $entityManager->persist($researchPlanSection);
 
         $entityManager->flush();
+    }
+
+    public function initResearchPlan(array $dataComponent, ResearchPlan $researchPlan): void
+    {
+        if (!empty($dataComponent)) {
+            $this->researchPlanCheckEmpty($dataComponent);
+            $this->researchPlanCheckLength($dataComponent);
+            $researchPlanErrors = $this->getCheckErrors();
+            if (empty($researchPlanErrors)) {
+                $this->addResearchPlanSection($dataComponent, $researchPlan);
+            }
+        } elseif (!empty($dataComponent)) {
+            $this->researchPlanCheckEmpty($dataComponent);
+            $this->researchPlanCheckLength($dataComponent);
+            $researchPlanErrors = $this->getCheckErrors();
+            if (empty($researchPlanErrors)) {
+                $this->addResearchPlan($dataComponent);
+            }
+        }
     }
 }
