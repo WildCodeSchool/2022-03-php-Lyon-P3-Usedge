@@ -11,11 +11,11 @@ class MultipleChoiceFixtures extends Fixture
     private const MULTIPLECHOICE = [
         [
             'is_mandatory' => false,
-            'question' => 'what IT category does your project concern?',
+            'question' => 'What IT category does your project concern?',
         ],
         [
             'is_mandatory' => true,
-            'question' => 'which exercise would you prefer for your request?',
+            'question' => 'Which exercise would you prefer for your request?',
         ],
         [
             'is_mandatory' => false,

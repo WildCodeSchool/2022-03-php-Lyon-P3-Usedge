@@ -40,7 +40,7 @@ class EvaluationScaleFixtures extends Fixture
                 ->setQuestion($evaluationScaleValue['question']);
             $evaluationScale->setLowLabel($evaluationScaleValue['low_label']);
             $evaluationScale->setHighLabel($evaluationScaleValue['high_label']);
-            $this->addReference('evaluation_scale' . $evalScaleNumber, $evaluationScale);
+            $this->addReference('evaluation_scale_' . $evalScaleNumber, $evaluationScale);
             $evalScaleNumber++;
             $manager->persist($evaluationScale);
         }
