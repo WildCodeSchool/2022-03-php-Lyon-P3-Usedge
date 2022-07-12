@@ -3,6 +3,7 @@ if (document.getElementById('button-select-objectives')) {
     const buttonAddObjectives = document.getElementById('button-select-objectives');
     const sendResearchPlanButton = document.getElementById('send-research-plan');
     const addObjectivesPandSave = document.getElementById('add-objectives-p-and-save');
+    const objectivesCount = document.getElementById('objectives-count');
 
     buttonAddObjectives.addEventListener('click', () => {
 
@@ -13,14 +14,15 @@ if (document.getElementById('button-select-objectives')) {
         addObjectives.classList.remove('add-objectives');
         addObjectives.classList.add('add-section-new-objectives');
 
-        sendResearchPlanButton.setAttribute('disabled', 'disabled');
+        /* sendResearchPlanButton.setAttribute('disabled', 'disabled'); */
 
     });
 
     const inputCheckbox = document.getElementById('input-objectives');
     
     inputCheckbox.addEventListener("keydown", function(event) {
-
+        
+        
         if (event.key === "Enter") {
 
             const inputCheckbox = document.getElementById('input-objectives');
@@ -57,14 +59,8 @@ if (document.getElementById('button-select-objectives')) {
 
             inputCheckbox.value = '';
 
-            const allInputHiddenSelected = document.querySelectorAll('.all-input-hidden');
+        }
 
-            let i = 0;
-            allInputHiddenSelected.forEach(input => {
-                input.setAttribute('name', 'research-plan-objectives-' + i);
-                i++;
-            });
-        }   
     }, true);
 
 
@@ -83,8 +79,19 @@ if (document.getElementById('button-select-objectives')) {
         buttonSaveObjectives.classList.remove('button-save-objectives');
         buttonSaveObjectives.classList.add('button-save-objectives-display');
 
-        sendResearchPlanButton.classList.remove('send-research-plan-disabled');
-        sendResearchPlanButton.classList.add('send-research-plan');
+        
+        const allInputHiddenSelected = document.querySelectorAll('.all-input-hidden');
+
+        let objectives = 1;
+        objectivesCount.value = 0;
+        allInputHiddenSelected.forEach(input => {
+            input.setAttribute('name', 'research-plan-objectives-' + objectives);
+            objectivesCount.value = objectives;
+            objectives++;
+        });
+
+        /*sendResearchPlanButton.classList.remove('send-research-plan-disabled');
+        sendResearchPlanButton.classList.add('send-research-plan'); */
     });
 
 }

@@ -100,6 +100,16 @@ class ResearchPlanUtils
         $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
         $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
         $researchPlanSection->setResearchPlan($researchPlan);
+
+        $objectivesCounter = $dataComponent['objectives-count'];
+        $researchPlanObjects = [];
+
+        for ($count = 1; $count <= $objectivesCounter; $count++) {
+            $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
+        }
+
+        $researchPlanSection->setObjectives($researchPlanObjects);
+
         $entityManager->persist($researchPlanSection);
 
         $entityManager->flush();

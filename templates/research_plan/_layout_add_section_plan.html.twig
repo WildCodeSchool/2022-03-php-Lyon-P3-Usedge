@@ -42,7 +42,7 @@
         <p class="add-objectives-p" id="add-objectives"><img src="{{ asset('build/images/icons/targeting.png') }}" alt="icon of objectives">Objectives for this phase ? </p>
         <button type="button" id="edit-objectives-icon" class="edit-objectives-icon">
             <img src="{{ asset('build/images/icons/edit.png') }}">
-            <input type="hidden" class="objectives-input" id="objectives-input" name="objectives">
+            {# <input type="hidden" class="objectives-input" id="objectives-input" name="objectives"> #}
         </button>
     </div>
 
@@ -57,6 +57,7 @@
             <label for="objectives" id="input-checkbox-text-objectives" class="input-checkbox-text-objectives">Add a first item and press enter to fill in the checklist ...</label>
         </div>
         <div class="new-input-checkbox" id="new-input-checkbox">
+            <input type="hidden" name="objectives-count" id="objectives-count" value="">
         </div>
         <button id="button-save-objectives" type="button" class="button-save-objectives"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Save objectives</button>
     </div>
