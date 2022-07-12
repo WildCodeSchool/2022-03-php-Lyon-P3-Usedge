@@ -13,7 +13,7 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-
+        /*
         $faker = Factory::create();
         $names = [
             'section',
@@ -53,7 +53,7 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
                 }
             }
             $manager->flush();
-        }
+        }*/
     }
 
     public function getDependencies()

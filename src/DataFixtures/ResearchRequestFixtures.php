@@ -14,6 +14,7 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
 {
     public function load(ObjectManager $manager): void
     {
+        /*
         $faker = Factory::create();
         $status = ['Waiting list', 'Dropped', 'Solved', 'Under review', 'Draft'];
 
@@ -34,7 +35,7 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
                 $manager->persist($researchRequest);
             }
         }
-        $manager->flush();
+        $manager->flush();*/
     }
 
     public function getDependencies()
