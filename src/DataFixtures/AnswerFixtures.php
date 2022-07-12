@@ -76,6 +76,46 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             'question' => 'multiple_choice_1'
         ],
         [
+            'answer' => 'Workshop',
+            'number_order' => 1,
+            'question' => 'multiple_choice_2'
+        ],
+        [
+            'answer' => 'Canva',
+            'number_order' => 2,
+            'question' => 'multiple_choice_2'
+        ],
+        [
+            'answer' => 'Both',
+            'number_order' => 3,
+            'question' => 'multiple_choice_2'
+        ],
+        [
+            'answer' => 'UX/UI',
+            'number_order' => 1,
+            'question' => 'multiple_choice_3'
+        ],
+        [
+            'answer' => 'Cost Estimation',
+            'number_order' => 2,
+            'question' => 'multiple_choice_3'
+        ],
+        [
+            'answer' => 'Value proposal',
+            'number_order' => 3,
+            'question' => 'multiple_choice_3'
+        ],
+        [
+            'answer' => 'Feature benefits',
+            'number_order' => 4,
+            'question' => 'multiple_choice_3'
+        ],
+        [
+            'answer' => 'Ease of use',
+            'number_order' => 5,
+            'question' => 'multiple_choice_3'
+        ],
+        [
             'answer' => 'Less than 4 weeks',
             'number_order' => 1,
             'question' => 'single_choice_1'

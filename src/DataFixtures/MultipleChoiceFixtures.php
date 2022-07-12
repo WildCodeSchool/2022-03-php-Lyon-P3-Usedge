@@ -13,6 +13,14 @@ class MultipleChoiceFixtures extends Fixture
             'is_mandatory' => false,
             'question' => 'what IT category does your project concern?',
         ],
+        [
+            'is_mandatory' => true,
+            'question' => 'which exercise would you prefer for your request?',
+        ],
+        [
+            'is_mandatory' => false,
+            'question' => 'If you had the two most important specifications, what it would be?',
+        ],
     ];
 
     public function load(ObjectManager $manager): void
