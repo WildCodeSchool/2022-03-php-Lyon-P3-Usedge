@@ -21,7 +21,7 @@ class SingleChoiceFixtures extends Fixture
         foreach (self::SINGLECHOICE as $singleChoiceValue) {
             $singleChoice = new SingleChoice();
             $singleChoice
-                ->setName('multiple-choice')
+                ->setName('single-choice')
                 ->setIsMandatory($singleChoiceValue['is_mandatory'])
                 ->setQuestion($singleChoiceValue['question']);
             $this->addReference('single_choice_' . $singleChoiceNumber, $singleChoice);
