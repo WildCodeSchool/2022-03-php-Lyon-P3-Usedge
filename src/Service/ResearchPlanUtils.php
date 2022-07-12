@@ -102,4 +102,18 @@ class ResearchPlanUtils
 
         $entityManager->flush();
     }
+    public function addResearchPlanSection(array $dataComponent, ResearchPlan $researchPlan): void
+    {
+        $researchPlanSection = new ResearchPlanSection();
+        $entityManager = $this->entityManager;
+
+        $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+        $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+        $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+        $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+        $researchPlanSection->setResearchPlan($researchPlan);
+        $entityManager->persist($researchPlanSection);
+
+        $entityManager->flush();
+    }
 }
