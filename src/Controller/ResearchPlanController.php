@@ -23,6 +23,7 @@ class ResearchPlanController extends AbstractController
         ResearchPlanUtils $researchPlanUtils,
         ResearchRequestMailer $mailer
     ): Response {
+
         $dataComponent = $checkDataUtils->trimData($request);
         $researchPlanErrors = [];
         if (empty($dataComponent)) {

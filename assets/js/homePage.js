@@ -19,6 +19,8 @@ if (document.getElementById('reasearch-plans')) {
     const modalInterviewPlanningRequests = document.getElementsByClassName('modal-interview-planning-request');
     const buttoninterviewPlanningModalCloses = document.getElementsByClassName('interview-planning-header-close');
     const buttonsViewResearchRequest = document.getElementsByClassName('request-details-button');
+    const linksViewResearchRequest = document.getElementsByClassName('request-details-link');
+    const planTableScroll = document.getElementById('plan-table-scroll');
 
     researchRequests.onchange = function () {
         researchPlans.checked = true;
@@ -134,10 +136,29 @@ if (document.getElementById('reasearch-plans')) {
             }
         });
     }
+    // function used to open the view of Interview planning requests
+    for (const linkViewResearchRequest of linksViewResearchRequest) {
+        linkViewResearchRequest.addEventListener('click', () => {
+            planTableScroll.classList.add('table-scroll-none');
+            const idOfButtonViewResearchRequest = linkViewResearchRequest.getAttribute('id');
+            for (const modalInterviewPlanningRequest of modalInterviewPlanningRequests) {
+                const idOfmodalInterviewPlanningRequest = modalInterviewPlanningRequest.getAttribute('id');
+                if (idOfmodalInterviewPlanningRequest != idOfButtonViewResearchRequest) {
+                    modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
+                }
+                if (idOfmodalInterviewPlanningRequest === idOfButtonViewResearchRequest) {
+                    modalInterviewPlanningRequest.classList.add('modal-interview-planning-request-display');
+                    researchCenterAvailableTemplates.classList.remove('research-center-available-templates-display');
+                }
+            }
+        });
+    }
+
 
     // function used to close the view of Interview planning requests
     for (const buttoninterviewPlanningModalClose of buttoninterviewPlanningModalCloses) {
         buttoninterviewPlanningModalClose.addEventListener('click', () => {
+            planTableScroll.classList.remove('table-scroll-none');
             for (const modalInterviewPlanningRequest of modalInterviewPlanningRequests) {
                 modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
             }
