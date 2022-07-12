@@ -6,6 +6,7 @@ use App\Repository\CanvasWorkshopsRepository;
 use App\Entity\ResearchRequest;
 use App\Service\CheckDataUtils;
 use App\Service\ResearchPlanUtils;
+use App\Service\ResearchRequestMailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,23 +20,29 @@ class ResearchPlanController extends AbstractController
         CanvasWorkshopsRepository $workshopRepository,
         Request $request,
         CheckDataUtils $checkDataUtils,
-        ResearchPlanUtils $researchPlanUtils
+        ResearchPlanUtils $researchPlanUtils,
+        ResearchRequestMailer $mailer
     ): Response {
 
         $dataComponent = $checkDataUtils->trimData($request);
-        if ($dataComponent) {
-            $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
-            $researchPlanUtils->researchPlanCheckLength($dataComponent);
-            $errors = $researchPlanUtils->getCheckErrors();
-            if (empty($errors)) {
-                $researchPlanUtils->addResearchPlan($dataComponent);
-            }
-        }
-        $workshops = $workshopRepository->findAll();
+        $researchPlanErrors = [];
+        if (empty($dataComponent)) {
+            $workshops = $workshopRepository->findAll();
 
-        return $this->render('research_plan/research_plan.html.twig', [
-            'workshops' => $workshops,
-            'researchRequest' => $researchRequest,
-        ]);
+            return $this->render('research_plan/research_plan.html.twig', [
+                'workshops' => $workshops,
+                'researchRequest' => $researchRequest,
+            ]);
+        }
+
+        $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
+        $researchPlanUtils->researchPlanCheckLength($dataComponent);
+        $researchPlanErrors = $researchPlanUtils->getCheckErrors();
+        if (empty($researchPlanErrors)) {
+            $researchPlanUtils->addResearchPlan($dataComponent);
+            $mailer->researchPlanSendMail();
+        }
+
+        return $this->render('research_plan/confirm.html.twig', ['errors' => $researchPlanErrors]);
     }
 }

@@ -100,19 +100,21 @@
         }
     }
     .research-request-confirm-modal {
-        @include dimension(750px, 283px);
         @include absolutePosition(100px, 585px);
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        width: 750px;
+        min-height: 283px;
         padding: 0px;
         filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.08));
         border-radius: $border-radius-20;
         .research-request-confirm-modal-content {
-            @include dimension(750px, 283px);
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 750px;
+            min-height: 283px;
             padding: 50px;
             gap: 25px;
             background: #ffffff;
