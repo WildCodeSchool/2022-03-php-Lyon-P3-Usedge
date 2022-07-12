@@ -10,7 +10,6 @@ class OpenQuestionFixtures extends Fixture
 {
     private const OPENQUESTION = [
         [
-            'name' => 'open-question',
             'is_mandatory' => true,
             'question' => 'Project name',
             'helper_text' => 'You can enter the name of the entire project or a feature.'
@@ -23,12 +22,12 @@ class OpenQuestionFixtures extends Fixture
         foreach (self::OPENQUESTION as $openQuestionValue) {
             $openQuestion = new OpenQuestion();
             $openQuestion
-                ->setName($openQuestionValue['name'])
+                ->setName('open-question')
                 ->setIsMandatory($openQuestionValue['is_mandatory'])
                 ->setQuestion($openQuestionValue['question'])
                 ->setHelperText($openQuestionValue['helper_text']);
             $openQuestion->setAddAHelpertext(true);
-            $this->addReference('question_' . $openQuestionNumber, $openQuestion);
+            $this->addReference('open_question_' . $openQuestionNumber, $openQuestion);
             $openQuestionNumber++;
             $manager->persist($openQuestion);
         }

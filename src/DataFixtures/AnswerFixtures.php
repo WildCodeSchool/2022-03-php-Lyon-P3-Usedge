@@ -13,8 +13,29 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
         [
             'answer' => 'Project name...',
             'number_order' => 1,
-            'question' => '1'
-        ]
+            'question' => 'open_question_1'
+        ],
+        [
+            'answer' => 'Analytics',
+            'number_order' => 1,
+            'question' => 'multiple_choice_1'
+        ],
+        [
+            'answer' => 'Cloud computing',
+            'number_order' => 2,
+            'question' => 'multiple_choice_1'
+        ],
+        [
+            'answer' => 'Infrastructure',
+            'number_order' => 3,
+            'question' => 'multiple_choice_1'
+        ],
+        [
+            'answer' => 'Software/application development',
+            'number_order' => 4,
+            'question' => 'multiple_choice_1'
+        ],
+
     ];
 
     public function load(ObjectManager $manager): void
@@ -24,11 +45,9 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             $answer
                 ->setAnswer($answerValue['answer'])
                 ->setNumberOrder($answerValue['number_order'])
-                ->setQuestion($this->getReference('question_' . $answerValue['question']));
+                ->setQuestion($this->getReference($answerValue['question']));
             $manager->persist($answer);
         }
-        // $product = new Product();
-        // $manager->persist($product);
 
         $manager->flush();
     }
@@ -37,6 +56,7 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             OpenQuestionFixtures::class,
+            MultipleChoiceFixtures::class,
         ];
     }
 }
