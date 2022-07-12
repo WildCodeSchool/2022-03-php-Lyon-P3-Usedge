@@ -10,10 +10,22 @@ class EvaluationScaleFixtures extends Fixture
 {
     private const EVALUATIONSCALE = [
         [
-            'is_mandatory' => false,
+            'is_mandatory' => true,
             'question' => 'How would you rate your confidence on the subject?',
             'low_label' => 'Not confident',
             'high_label' => 'Total confidence',
+        ],
+        [
+            'is_mandatory' => true,
+            'question' => 'From 1 to 5, what is the progress of your idea?',
+            'low_label' => '1',
+            'high_label' => '5',
+        ],
+        [
+            'is_mandatory' => true,
+            'question' => 'What importance would you give to your research?',
+            'low_label' => 'Few',
+            'high_label' => 'A lot',
         ],
     ];
 
