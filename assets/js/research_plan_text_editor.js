@@ -28,11 +28,10 @@ if (document.getElementById('text-editor-button')) {
 
     editTextButton.addEventListener('click', () => {
         const recommandationDetailsParagraphs = document.querySelectorAll('.recommandation-details-paragraph');
+        
         for (const recommandationDetailsParagraph of recommandationDetailsParagraphs) {
             recommandationDetailsParagraph.remove();
         }
-        recommandationInput.value = "";
-        
         sendResearchPlanButton.classList.add('send-research-plan-disabled');
         sendResearchPlanButton.classList.remove('send-research-plan');
         sendResearchPlanButton.setAttribute('disabled', 'disabled');
@@ -45,10 +44,11 @@ if (document.getElementById('text-editor-button')) {
         createRecommandationContainer.classList.remove('create-recommandation-container-none');
         new FroalaEditor('#create-recommandation-text');
     });
-
+    
     validateRecommandationButton.addEventListener('click', () =>{
         const editorBody = document.querySelector('.fr-wrapper');
         const texts = editorBody.querySelectorAll('.fr-element > p');
+        recommandationInput.value = "";
         for (const text of texts) {
             const newRecommandationDetailsParagraph = document.createElement('p');
             recommandationInput.value = recommandationInput.value + " " + text.textContent;

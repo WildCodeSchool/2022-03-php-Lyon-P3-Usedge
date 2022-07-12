@@ -114,9 +114,26 @@ class ResearchPlanUtils
         $entityManager->flush();
     }
 
-    public function initResearchPlan(array $dataComponent, ResearchPlan $researchPlan): void
+    public function updateResearchPlanSection(
+        array $dataComponent,
+        ResearchPlan $researchPlan,
+        ResearchPlanSection $researchPlanSection
+    ): void {
+        $entityManager = $this->entityManager;
+
+            $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+            $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+            $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+            $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+            $researchPlanSection->setResearchPlan($researchPlan);
+            $entityManager->persist($researchPlanSection);
+
+        $entityManager->flush();
+    }
+
+    public function initResearchPlan(array $dataComponent, ?ResearchPlan $researchPlan): void
     {
-        if (!empty($dataComponent)) {
+        if (!empty($dataComponent) & !empty($researchPlan)) {
             $this->researchPlanCheckEmpty($dataComponent);
             $this->researchPlanCheckLength($dataComponent);
             $researchPlanErrors = $this->getCheckErrors();
