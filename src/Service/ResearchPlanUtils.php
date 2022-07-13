@@ -120,14 +120,13 @@ class ResearchPlanUtils
         ResearchPlanSection $researchPlanSection
     ): void {
         $entityManager = $this->entityManager;
-        if ($researchPlan instanceof ResearchPlan) {
-            $researchPlanSection->setTitle($dataComponent['research-plan-title']);
-            $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
-            $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
-            $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
-            $researchPlanSection->setResearchPlan($researchPlan);
-            $entityManager->persist($researchPlanSection);
-        }
+
+        $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+        $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+        $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+        $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+        $researchPlanSection->setResearchPlan($researchPlan);
+        $entityManager->persist($researchPlanSection);
 
         $entityManager->flush();
     }

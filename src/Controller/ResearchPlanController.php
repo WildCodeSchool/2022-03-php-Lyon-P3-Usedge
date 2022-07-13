@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ResearchPlan;
 use App\Entity\ResearchPlanSection;
 use App\Repository\CanvasWorkshopsRepository;
 use App\Entity\ResearchRequest;
@@ -105,6 +106,7 @@ class ResearchPlanController extends AbstractController
         if (
             !empty($researchPlan) &
             $researchPlanSection instanceof ResearchPlanSection &
+            $researchPlan instanceof ResearchPlan &
             !empty($dataComponent)
         ) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
