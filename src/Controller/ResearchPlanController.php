@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\ResearchPlan;
 use App\Entity\ResearchPlanSection;
 use App\Repository\CanvasWorkshopsRepository;
 use App\Entity\ResearchRequest;
 use App\Repository\ResearchPlanRepository;
+use App\Repository\ResearchPlanSectionRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ResearchPlanUtils;
 use App\Service\ResearchRequestMailer;
@@ -49,12 +49,8 @@ class ResearchPlanController extends AbstractController
         $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
         $researchPlanUtils->researchPlanCheckLength($dataComponent);
         $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-        if (
-            empty($researchPlanErrors) &
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null
-        ) {
-            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+        if (empty($researchPlanErrors)) {
+            $researchPlanUtils->addResearchPlan($dataComponent);
             $mailer->researchPlanSendMail();
         }
 
@@ -74,20 +70,9 @@ class ResearchPlanController extends AbstractController
         $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
         $dataComponent = $checkDataUtils->trimData($request);
 
-        if (
-            empty($researchPlan) &
-            empty(!$dataComponent &
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null)
-        ) {
-            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+        if (empty($researchPlan) & empty(!$dataComponent)) {
+            $researchPlanUtils->addResearchPlan($dataComponent);
             return $this->redirectToRoute('research_plan_new_section', ['id' => $id]);
-        }
-        if (
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null
-        ) {
-            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
         }
 
         $workshops = $workshopRepository->findAll();
@@ -119,8 +104,6 @@ class ResearchPlanController extends AbstractController
         if (
             !empty($researchPlan) &
             $researchPlanSection instanceof ResearchPlanSection &
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null &
             !empty($dataComponent)
         ) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
@@ -130,12 +113,8 @@ class ResearchPlanController extends AbstractController
                 $researchPlanUtils->updateResearchPlanSection($dataComponent, $researchPlan, $researchPlanSection);
             }
             return $this->redirectToRoute('research_plan_new_section', ['id' => $resRequestId]);
-        } elseif (
-            !empty($researchPlan) &
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null
-        ) {
-            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+        } elseif (!empty($researchPlan) & !empty($dataComponent)) {
+            $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
         }
 
         $workshops = $workshopRepository->findAll();
@@ -160,14 +139,16 @@ class ResearchPlanController extends AbstractController
 
         $dataComponent = $checkDataUtils->trimData($request);
         $researchPlan = $researchPlanRepo->findOneBy(['researchRequest' => $id]);
+
         if (
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null
+            !empty($dataComponent['research-plan-title']) ||
+            !empty($dataComponent['workshop_description']) ||
+            !empty($dataComponent['research-plan-recommendation'])
         ) {
-            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+            $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
             $mailer->researchPlanSendMail();
         }
-
+        $mailer->researchPlanSendMail();
         return $this->render('research_plan/confirm.html.twig');
     }
 }

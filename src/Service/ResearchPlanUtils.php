@@ -90,12 +90,14 @@ class ResearchPlanUtils
         if ($researchRequest instanceof ResearchRequest) {
             $researchPlan->setResearchRequest($researchRequest);
         }
-        $researchPlan->setCoach($dataComponent['research-request-coach']);
-        $researchPlan->setStatus($dataComponent['research-request-status']);
-        $researchPlan->setCreationDate($creationDate);
-        $entityManager->persist($researchPlan);
+        if (!empty($dataComponent)) {
+            $researchPlan->setCoach($dataComponent['research-request-coach']);
+            $researchPlan->setStatus($dataComponent['research-request-status']);
+            $researchPlan->setCreationDate($creationDate);
+            $entityManager->persist($researchPlan);
 
-        $this->addResearchPlanSection($dataComponent, $researchPlan);
+            $this->addResearchPlanSection($dataComponent, $researchPlan);
+        }
 
         $entityManager->flush();
     }
@@ -103,13 +105,14 @@ class ResearchPlanUtils
     {
         $researchPlanSection = new ResearchPlanSection();
         $entityManager = $this->entityManager;
-
-        $researchPlanSection->setTitle($dataComponent['research-plan-title']);
-        $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
-        $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
-        $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
-        $researchPlanSection->setResearchPlan($researchPlan);
-        $entityManager->persist($researchPlanSection);
+        if (!empty($dataComponent)) {
+            $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+            $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+            $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+            $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+            $researchPlanSection->setResearchPlan($researchPlan);
+            $entityManager->persist($researchPlanSection);
+        }
 
         $entityManager->flush();
     }
@@ -120,33 +123,15 @@ class ResearchPlanUtils
         ResearchPlanSection $researchPlanSection
     ): void {
         $entityManager = $this->entityManager;
-
-        $researchPlanSection->setTitle($dataComponent['research-plan-title']);
-        $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
-        $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
-        $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
-        $researchPlanSection->setResearchPlan($researchPlan);
-        $entityManager->persist($researchPlanSection);
+        if (!empty($dataComponent)) {
+            $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+            $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+            $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+            $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+            $researchPlanSection->setResearchPlan($researchPlan);
+            $entityManager->persist($researchPlanSection);
+        }
 
         $entityManager->flush();
-    }
-
-    public function initResearchPlan(array $dataComponent, ?ResearchPlan $researchPlan): void
-    {
-        if (!empty($dataComponent) & $researchPlan == null) {
-            $this->researchPlanCheckEmpty($dataComponent);
-            $this->researchPlanCheckLength($dataComponent);
-            $researchPlanErrors = $this->getCheckErrors();
-            if (empty($researchPlanErrors)) {
-                $this->addResearchPlan($dataComponent);
-            }
-        } elseif (!empty($dataComponent) & $researchPlan != null) {
-            $this->researchPlanCheckEmpty($dataComponent);
-            $this->researchPlanCheckLength($dataComponent);
-            $researchPlanErrors = $this->getCheckErrors();
-            if (empty($researchPlanErrors)) {
-                $this->addResearchPlanSection($dataComponent, $researchPlan);
-            }
-        }
     }
 }
