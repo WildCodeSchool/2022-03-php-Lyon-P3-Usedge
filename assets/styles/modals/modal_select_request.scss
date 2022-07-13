@@ -10,7 +10,7 @@
     .request-details-modal {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         @include absolutePosition(51%, 51%); /* Change values here in function of the page */
         @include dimension(700px, 796px);
         max-height: 796px;
