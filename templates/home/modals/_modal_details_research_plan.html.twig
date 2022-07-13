@@ -21,13 +21,12 @@
     </div>
     <div class="details-research-plan-separator"></div>
     <div class="details-research-plan-content">
-        
-        {# FOREACH #}
+        {% for researchPlanSection in researchPlan.researchPlanSections %}
         <div class="details-research-plan">
             <div class="details-research-plan-title">
                 <div class="details-research-plan-title-text">
                     <img class="details-research-plan-title-icon" src="{{ asset('build/images/icons/chevron-down.png') }}"/>
-                    <p class="details-research-plan-title-title">{# TITLE #}User specific exploration</p>
+                    <p class="details-research-plan-title-title">{{ researchPlanSection.title }}</p>
                 </div>
                 <img class="details-research-plan-status" src="{{ asset('build/images/icons/ongoig-status.png') }}"/>
             </div>
@@ -36,11 +35,10 @@
                 <div class="details-research-workshop-content">
                     <p class="details-research-workshop-content-title">
                         Workshop selected : 
-                        <span class="details-research-workshop-content-title-name">{# WORKSHOP NAME #}Explorative interview (Collaboration)<span>
+                        <span class="details-research-workshop-content-title-name">{{ researchPlanSection.workshopName }}<span>
                     </p>
                     <p class="details-research-workshop-content-description">
-                        {# WORKSHOP DESCRIPTION #}
-                        Cover almost all user-related topics, gather informations on users’ feelings, motivations and daily routines, or how they use products.
+                        {{ researchPlanSection.workshopDescription }}
                     </p>
                     <button class="details-research-workshop-content-button" disabled="disabled">
                         <img class="details-research-workshop-content-button-icon" src="{{ asset('build/images/icons/Path.png') }}"/>
@@ -55,9 +53,7 @@
                         Recommendation note
                     </p>
                     <p class="details-research-recommendation-content-description">
-                        {# RECOMMENDATION DESCRIPTION #}
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {{ researchPlanSection.recommendation }}
                     </p>
                 </div>
             </div>
@@ -67,16 +63,17 @@
                     <p class="details-research-objectives-content-title">
                         What are the objectives for this phase?
                     </p>
-                    {# DIV INPUT + LABEL BOUCLE #}
-                    <div class="details-research-objectives-content-objectives">
-                        <input type="checkbox" class="details-research-objectives-content-input"/>
-                        <label class="details-research-objectives-content-label">Exemple Objectives{# OBJECTIVES #}</label>
-                    </div>
+                    {% for objective in researchPlanSection.objectives %}
+                        <div class="details-research-objectives-content-objectives">
+                            <input type="checkbox" class="details-research-objectives-content-input"/>
+                            <label class="details-research-objectives-content-label">{{ objective }}</label>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
         <div class="details-research-plan-content-separator"></div>
-        {# END FOREACH #}
+        {% endfor %}
     </div>
     <button class="details-research-plan-button" disabled="disabled">Export this research plan</button>
 </div>

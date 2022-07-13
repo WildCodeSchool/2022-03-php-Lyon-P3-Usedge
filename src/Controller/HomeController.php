@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ResearchPlan;
 use App\Repository\ResearchPlanRepository;
+use App\Repository\ResearchPlanSectionRepository;
 use App\Repository\ResearchRequestRepository;
 use App\Repository\ResearchTemplateRepository;
 use App\Service\CheckDataUtils;
@@ -21,7 +22,6 @@ class HomeController extends AbstractController
         ResearchRequestRepository $researchRequestRepo,
         ResearchPlanRepository $researchPlanRepo,
     ): Response {
-
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
         $researchRequests = $researchRequestRepo->findBy([], ['id' => 'DESC']);
         $researchPlans = $researchPlanRepo->findBy([], ['id' => 'DESC']);
