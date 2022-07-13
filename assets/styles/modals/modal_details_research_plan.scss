@@ -3,7 +3,7 @@
 .research-center-details-research-plan {
     position: absolute;
     top: 0px;
-    right: -1000px; //-1000px
+    right: -1000px;
     @include dimension(900px, 1080px);
     display: flex;
     flex-direction: column;
