@@ -105,7 +105,7 @@ class ResearchPlanUtils
     {
         $researchPlanSection = new ResearchPlanSection();
         $entityManager = $this->entityManager;
-        if (!empty($dataComponent) & $researchPlan != null) {
+        if (!empty($dataComponent) && $researchPlan != null) {
             $researchPlanSection->setTitle($dataComponent['research-plan-title']);
             $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
             $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
@@ -123,7 +123,7 @@ class ResearchPlanUtils
         ?ResearchPlanSection $researchPlanSection
     ): void {
         $entityManager = $this->entityManager;
-        if (!empty($dataComponent) & $researchPlan != null) {
+        if (!empty($dataComponent) && $researchPlan != null) {
             $researchPlanSection->setTitle($dataComponent['research-plan-title']);
             $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
             $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
