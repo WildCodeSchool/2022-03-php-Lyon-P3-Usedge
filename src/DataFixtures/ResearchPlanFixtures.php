@@ -38,8 +38,6 @@ class ResearchPlanFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($researchPlan);
         }
-        // $product = new Product();
-        // $manager->persist($product);
 
         $manager->flush();
     }
