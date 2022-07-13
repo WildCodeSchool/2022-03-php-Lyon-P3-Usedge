@@ -117,7 +117,6 @@
         }
     }
 }
-
 .create-recommandation {
     display: flex;
     flex-direction: column;
@@ -254,21 +253,19 @@
             margin-right: 10px;
             margin-top: 15px;
             line-height: 18px;
-                img {
-                padding-right: 5px;
-                padding-bottom: 2px;
-                }
+            img {
+            padding-right: 5px;
+            padding-bottom: 2px;
+            }
         }
     }
     .save-objectives {
         display: none;
     }
 }
-
 .button-select-objectives-display {
     display: none;
 }
-
 .add-section-new-objectives {
     display: flex;
     flex-direction: column;
