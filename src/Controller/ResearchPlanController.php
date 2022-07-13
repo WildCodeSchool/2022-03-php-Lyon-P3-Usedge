@@ -7,7 +7,6 @@ use App\Entity\ResearchPlanSection;
 use App\Repository\CanvasWorkshopsRepository;
 use App\Entity\ResearchRequest;
 use App\Repository\ResearchPlanRepository;
-use App\Repository\ResearchPlanSectionRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ResearchPlanUtils;
 use App\Service\ResearchRequestMailer;
@@ -84,7 +83,12 @@ class ResearchPlanController extends AbstractController
             $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
             return $this->redirectToRoute('research_plan_new_section', ['id' => $id]);
         }
-        $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+        if (
+            $researchPlan instanceof ResearchPlan &
+            $researchPlan != null
+        ) {
+            $researchPlanUtils->initResearchPlan($dataComponent, $researchPlan);
+        }
 
         $workshops = $workshopRepository->findAll();
 
