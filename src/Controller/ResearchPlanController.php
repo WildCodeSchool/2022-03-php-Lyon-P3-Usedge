@@ -106,15 +106,15 @@ class ResearchPlanController extends AbstractController
         if (
             !empty($researchPlan) &
             $researchPlanSection instanceof ResearchPlanSection &
-            $researchPlan instanceof ResearchPlan &
-            $researchPlan != null &
             !empty($dataComponent)
         ) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
             $researchPlanUtils->researchPlanCheckLength($dataComponent);
             $researchPlanErrors = $researchPlanUtils->getCheckErrors();
             if (empty($researchPlanErrors)) {
-                $researchPlanUtils->updateResearchPlanSection($dataComponent, $researchPlan, $researchPlanSection);
+                if ($researchPlan instanceof ResearchPlan & $researchPlan != null) {
+                    $researchPlanUtils->updateResearchPlanSection($dataComponent, $researchPlan, $researchPlanSection);
+                }
             }
             return $this->redirectToRoute('research_plan_new_section', ['id' => $resRequestId]);
         } elseif (!empty($researchPlan)) {
