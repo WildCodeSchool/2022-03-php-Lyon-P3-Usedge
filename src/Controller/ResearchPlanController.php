@@ -109,7 +109,7 @@ class ResearchPlanController extends AbstractController
             !empty($researchPlan) &
             $researchPlanSection instanceof ResearchPlanSection &
             !empty($dataComponent) &
-            $researchPlan != null &
+            $researchPlan !== null &
             $researchPlan instanceof ResearchPlan
         ) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
@@ -122,7 +122,7 @@ class ResearchPlanController extends AbstractController
         } elseif (
             !empty($researchPlan) &
             !empty($dataComponent) &
-            $researchPlan != null &
+            $researchPlan !== null &
             $researchPlan instanceof ResearchPlan
         ) {
             $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
@@ -155,7 +155,7 @@ class ResearchPlanController extends AbstractController
             !empty($dataComponent['research-plan-title']) ||
             !empty($dataComponent['workshop_description']) ||
             !empty($dataComponent['research-plan-recommendation']) &
-            $researchPlan != null &
+            $researchPlan !== null &
             $researchPlan instanceof ResearchPlan
         ) {
             $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
