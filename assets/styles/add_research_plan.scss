@@ -68,7 +68,8 @@
             align-items: flex-start;
             padding: 15px 25px 25px;
             gap: 10px;
-            @include dimension(307px, 198px);
+            width: 307px;
+            min-height: 198px;
             @include absolutePosition(243px, 374px);
             background-color: $primary-white-1;
             border-radius: 15px;
