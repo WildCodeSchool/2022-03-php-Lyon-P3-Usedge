@@ -33,6 +33,7 @@
                 margin-bottom: 6.5px;
                 .details-research-plan-header-return-icon {
                     @include dimension(19px, 19px);
+                    cursor: pointer;
                 }
                 .details-research-plan-header-return-text {
                     @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
