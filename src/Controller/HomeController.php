@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ResearchPlanRepository;
+use App\Repository\ResearchPlanSectionRepository;
 use App\Repository\ResearchRequestRepository;
 use App\Repository\ResearchTemplateRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +18,6 @@ class HomeController extends AbstractController
         ResearchRequestRepository $researchRequestRepo,
         ResearchPlanRepository $researchPlanRepo,
     ): Response {
-
         $researchTemplateList = $researchTemplates->findBy(['status' => 'active']);
         $researchRequests = $researchRequestRepo->findBy([], ['id' => 'DESC']);
         $researchPlans = $researchPlanRepo->findBy([], ['id' => 'DESC']);
