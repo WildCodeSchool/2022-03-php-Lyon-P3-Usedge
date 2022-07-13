@@ -107,6 +107,7 @@ class ResearchPlanController extends AbstractController
             !empty($researchPlan) &
             $researchPlanSection instanceof ResearchPlanSection &
             $researchPlan instanceof ResearchPlan &
+            $researchPlan != null &
             !empty($dataComponent)
         ) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
