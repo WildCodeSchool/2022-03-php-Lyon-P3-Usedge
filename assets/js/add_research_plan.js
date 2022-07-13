@@ -102,6 +102,7 @@ if (document.getElementById('title-section-research-plan')) {
         selectedWorkshopEditIcon.classList.add('research-plan-workshop-select-edit-icon-display-none');
         selectedWorkshopDescription.classList.add('research-plan-workshop-selected-description-display-none');
         selectedWorkshopDescritionTextarea.classList.add('selected-workshop-description-edit-display-block');
+        selectedWorkshopDescritionTextarea.innerHTML = selectedWorkshopDescriptionInput.value.replace(/\s+/g, " ") ;
     });
 
     // Function used to close the textarea and modify the description.
