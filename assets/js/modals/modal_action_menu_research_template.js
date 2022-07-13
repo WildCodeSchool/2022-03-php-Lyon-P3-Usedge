@@ -27,4 +27,10 @@ if (document.getElementById('research-template-list-card')) {
         });
         i++;
     }
+    
+
+
 }
+
+
+

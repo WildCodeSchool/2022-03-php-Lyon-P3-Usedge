@@ -57,6 +57,18 @@ class ResearchTemplateController extends AbstractController
         ]);
     }
 
+    #[Route('/archive/{id}', name:'app_archive')]
+    public function archiveTemplate(
+        ResearchTemplateRepository $researchRepository,
+        ResearchTemplate $researchTemplate
+    ): Response {
+        $researchTemplate->setStatus('archive');
+
+        $researchRepository->add($researchTemplate, true);
+
+        return $this->redirectToRoute('research_template_index');
+    }
+
     #[Route('/add/{id}', name: 'add', methods: ['GET', 'POST'])]
     public function add(
         Request $request,

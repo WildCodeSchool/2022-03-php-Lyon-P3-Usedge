@@ -15,7 +15,10 @@
     padding: 40px;
     gap: 20px;
   
-    position: relative;
+    position: absolute;
+    z-index:2;
+    top: 272px;
+    left: 400px;
     width: 710px;
     height: 299px;
   
@@ -95,7 +98,7 @@
   
     /* Primary/Darker-blue */
   
-    color: #12033b;
+    color: #12033B;;
   }
   
   .second_text_delete_template {
@@ -222,7 +225,6 @@
       display: none;
   }
   
-  .actions-menu-container-flex {
+  .actions-menu-container-flex_archive {
       display: flex !important;
   }
-  
