@@ -119,8 +119,8 @@ class ResearchPlanUtils
 
     public function updateResearchPlanSection(
         array $dataComponent,
-        ResearchPlan $researchPlan,
-        ?ResearchPlanSection $researchPlanSection
+        ?ResearchPlan $researchPlan,
+        ResearchPlanSection $researchPlanSection
     ): void {
         $entityManager = $this->entityManager;
         if (!empty($dataComponent) && $researchPlan != null) {
