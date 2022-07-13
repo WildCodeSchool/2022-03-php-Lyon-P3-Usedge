@@ -117,7 +117,6 @@
         }
     }
 }
-
 .create-recommandation {
     display: flex;
     flex-direction: column;
@@ -238,23 +237,161 @@
         display: flex;
         align-items: center;
     }
-    .button-add-objectives {
+    .add-objectives-p-and-save-display {
+        display: none;
+    }
+    .div-button-add-objectives {
+        .button-add-objectives {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include button($primary-blue-1, $border-radius-10,
+            none);
+            @include dimension(171px, 42px);
+            @include textStyle($text-font, $font-size-14,
+            $font-weight-600, $primary-white-1);
+            margin-right: 10px;
+            margin-top: 15px;
+            line-height: 18px;
+            img {
+            padding-right: 5px;
+            padding-bottom: 2px;
+            }
+        }
+    }
+    .save-objectives {
+        display: none;
+    }
+}
+.button-select-objectives-display {
+    display: none;
+}
+.add-section-new-objectives {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include button($primary-white-1, $border-radius-10,
+    1.5px dashed $primary-blue-1);
+    margin-top: 20px;
+    padding: 25px 35px 35px;
+    gap: 10px;
+    p {
+        @include textStyle($text-font, $font-size-16,
+        $font-weight-600, $primary-dark-1);
+        line-height: 20px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        @include button($primary-blue-1, $border-radius-10,
-        none);
-        @include dimension(171px, 42px);
-        @include textStyle($text-font, $font-size-14,
-        $font-weight-600, $primary-white-1);
-        margin-right: 10px;
-        margin-top: 15px;
-        line-height: 18px;
-            img {
-               padding-right: 5px;
-               padding-bottom: 2px;
-            }
     }
+    .add-objectives-p-none {
+        display: none;
+    }
+    .add-objectives-p-and-save-display {
+        display: none;
+    }
+    .save-objectives {
+        .input-objectives {
+            @include dimension(690px, 42px);
+            @include button($primary-white-1, $border-radius-10,
+            1px solid $primary-white-1);
+            @include textStyle($text-font, $font-size-14,
+            $font-weight-400, $primary-dark-1);
+            margin-bottom: 10px;
+        }
+        .input-objectives-display {
+            display: none;
+        }
+        .input-example-checkbox {
+            .input-checkbox-objectives {
+                @include dimension(16px, 16px);
+            }
+            .input-checkbox-text-objectives {
+                @include textStyle($text-font, $font-size-14,
+                $font-weight-600, $primary-grey-4);
+            }
+        }
+        .input-example-display {
+            display: none;
+        }
+        .new-input-checkbox {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-right: 50px;
+            width: 580px;
+            .newDivCheck {
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+            }
+            .newDivLabel {
+                @include textStyle($text-font, $font-size-16,
+                $font-weight-600, $primary-blue-3);
+                line-height: 18px;
+                display: flex;
+                align-items: center;
+            }
+            .remove-objectives {
+                display: none;
+            } 
+        }
+        .button-save-objectives {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include button($primary-blue-1, $border-radius-10,
+            none);
+            @include dimension(171px, 42px);
+            @include textStyle($text-font, $font-size-14,
+            $font-weight-600, $primary-white-1);
+            margin-right: 10px;
+            margin-top: 15px;
+            line-height: 18px;
+            img {
+                padding-right: 5px;
+                padding-bottom: 2px;
+            }
+        }
+        .button-save-objectives-display {
+            display: none;
+        }
+    }
+}
+.add-objectives-p-and-save {
+    @include textStyle($text-font, $font-size-16,
+    $font-weight-600, $primary-blue-3);
+    line-height: 20px;
+    display: flex;
+    flex-direction: row;
+    .edit-objectives-icon {
+        @include dimension(20px, 20px);
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        img {
+            margin-left: 435px;
+            margin-top: 15px;
+            @include dimension(20px, 20px);
+        }
+    }  
+}
+.newDivLabelDisplay {
+    display: none;
+}
+.all-div-input {
+    display: flex;
+    align-items: flex-start;
+    @include dimension(500px, 42px);
+    .newDivLabel {
+        margin-left: 5px;
+    }
+}
+.all-input-hidden, .all-input-hidden-validate  {
+    @include dimension(500px, 42px);
+    @include button($primary-white-1, $border-radius-10,
+    1px solid $primary-white-1);
+    @include textStyle($text-font, $font-size-16,
+    $font-weight-600, $primary-blue-3);
 }
 .create-recommandation-none {
     display: none;
@@ -293,4 +430,15 @@
     @include textStyle($text-font, $font-size-18,$font-weight-600, $primary-grey-4);
     margin-top: 20px;
     align-self: center;
+}
+.all-div-input-edit {
+    @include dimension(580px, 42px);
+    background-image: url("/assets/images/icons/close.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
 }

@@ -97,7 +97,7 @@ class ResearchPlanSection
         return $this;
     }
 
-    public function getResearchPlan(): ?ResearchPlan
+    public function getResearchPlan(): ResearchPlan
     {
         return $this->researchPlan;
     }
