@@ -1,0 +1,253 @@
+@import '../_var.scss';
+
+.research-center-details-research-plan {
+    position: absolute;
+    top: 0px;
+    right: 0px; //-1000px
+    @include dimension(900px, 1080px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $primary-white-1;
+    border-radius: 10px 0 0 10px;
+    padding: 50px;
+    gap: 20px;
+    transition: 0.3s;
+    .research-center-details-research-plan-header {
+        @include dimension(800px, 72px);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0;
+        .details-research-plan-header-title {
+            @include dimension(546px, 44px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .details-research-plan-header-return {
+                @include dimension(381px, 19px);
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                padding: 0;
+                margin-bottom: 6.5px;
+                .details-research-plan-header-return-icon {
+                    @include dimension(19px, 19px);
+                }
+                .details-research-plan-header-return-text {
+                    @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
+                    margin-bottom: 0;
+                }
+            }
+            .details-research-plan-header-first-title {
+                @include textStyle($title-font, $font-size-18, $font-weight-500, $primary-blue-3);
+                line-height: 17px;
+                margin-bottom: 0;
+            }
+            .details-research-plan-header-subtitle {
+                @include textStyle($text-font, 15px, $font-weight-400, $primary-grey-3);
+                margin-bottom: 0;
+                line-height: 20px;
+            }
+        }
+        .details-research-plan-header-actions {
+            @include dimension(75px, 44px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .details-research-plan-header-options {
+                @include dimension(30px, 30px);
+                cursor: pointer;
+            }
+            .details-research-plan-header-close {
+                @include dimension(30px, 30px);
+                cursor: pointer;
+            }
+        }
+    }
+    .details-research-plan-separator {
+        @include dimension(800px, 0px);
+        border: 1px solid $primary-grey-5;
+    }
+    .details-research-plan-content {
+        overflow-y: scroll;
+        @include dimension(800px, 791px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 19px;
+        .details-research-plan {
+            @include dimension(795px, 743px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 19px;
+            padding: 0;
+            .details-research-plan-title {
+                @include dimension(795px, 29px);
+                display: flex;
+                align-items: center;
+                padding: 0;
+                gap: 5px;
+                .details-research-plan-title-text {
+                    @include dimension(719px, 29px);
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 0;
+                    gap: 5px;
+                    .details-research-plan-title-icon {
+                        @include dimension(30px, 30px);
+                    }
+                    .details-research-plan-title-title {
+                        @include textStyle($title-font, $font-size-18, $font-weight-400, $primary-blue-3);
+                        line-height: 17px;
+                        margin-bottom: 0;
+                    }
+                }
+                .details-research-plan-status {
+                    @include dimension(76px,24px);
+                }
+            }
+            .details-research-workshop-part {
+                @include dimension(795px, 195px);
+                box-sizing: border-box;
+                display: flex;
+                align-items: flex-start;
+                padding: 35px;
+                gap: 15px;
+                border: 1px solid $primary-blue-1;
+                border-radius: 10px;
+                .details-research-workshop-image {
+                    @include dimension(54px, 54px);
+                }
+                .details-research-workshop-content {
+                    @include dimension(656px, 125px);
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 0;
+                    gap: 5px;
+                    .details-research-workshop-content-title {
+                        @include textStyle($text-font, $font-size-18, $font-weight-400, $primary-dark-1);
+                        line-height: 23px;
+                        margin-bottom: 0;
+                        .details-research-workshop-content-title-name {
+                            font-weight: $font-weight-600 !important;
+                        }
+                    }
+                    .details-research-workshop-content-description {
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                        line-height: 20px;
+                        letter-spacing: 0.116667px;
+                        margin-bottom: 0;
+                    }
+                    .details-research-workshop-content-button {
+                        @include button($primary-blue-1, $border-radius-10, none);
+                        @include dimension(189px, 42px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 5px;
+                        .details-research-workshop-content-button-icon {
+                            @include dimension(10px, 10px);
+                        }
+                        .details-research-workshop-content-button-text {
+                            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+            .details-research-recommendation-part {
+                @include dimension(795px, 218px);
+                box-sizing: border-box;
+                display: flex;
+                align-items: flex-start;
+                padding: 35px;
+                gap: 15px;
+                border: 1px solid $primary-blue-1;
+                border-radius: 10px;
+                .details-research-recommendation-image {
+                    @include dimension(54px, 54px);
+                }
+                .details-research-recommendation-content {
+                    @include dimension(656px, 125px);
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 0;
+                    gap: 5px;
+                    .details-research-recommendation-content-title {
+                        @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-dark-1);
+                        line-height: 20px;
+                        margin-bottom: 0;
+                    }
+                    .details-research-recommendation-content-description {
+                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                        line-height: 20px;
+                        letter-spacing: 0.116667px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .details-research-objectives-part {
+                @include dimension(795px, 225px);
+                box-sizing: border-box;
+                display: flex;
+                align-items: flex-start;
+                padding: 35px;
+                gap: 15px;
+                border: 1px solid $primary-blue-1;
+                border-radius: 10px;
+                .details-research-objectives-image {
+                    @include dimension(54px, 54px);
+                }
+                .details-research-objectives-content {
+                    @include dimension(656px, 125px);
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    padding: 0;
+                    gap: 5px;
+                    .details-research-objectives-content-title {
+                        @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-dark-1);
+                        line-height: 20px;
+                        margin-bottom: 0;
+                        padding: 5px 0;
+                    }
+                    .details-research-objectives-content-objectives {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        .details-research-objectives-content-input {
+                            @include dimension(17px, 17px);
+                        }
+                        .details-research-objectives-content-label {
+                            @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-blue-3);
+                        }
+                    }
+                }
+            }
+        }
+        .details-research-plan-content-separator {
+            @include dimension(795px, 0px);
+            border: 1px solid $primary-grey-5;
+        }
+    }
+    .details-research-plan-button {
+        @include button($primary-blue-1, $border-radius-10, none);
+        @include dimension(795px, 42px);
+        @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.research-center-details-research-plan-display {
+    right: -50px;
+}

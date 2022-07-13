@@ -1,16 +1,82 @@
-<div class="research-center-available-templates" id="research-center-available-templates">
-    <div class="research-center-available-templates-header">
-        <div class="available-templates-header-title">
-            <p class="available-templates-header-first-title">
-                Select a research request template
+<div class="research-center-details-research-plan" id="research-center-details-research-plan">
+    <div class="research-center-details-research-plan-header">
+        <div class="details-research-plan-header-title">
+            <div class="details-research-plan-header-return">
+                <img class="details-research-plan-header-return-icon" src="{{ asset('build/images/icons/return-grey.png') }}"/>
+                <p class="details-research-plan-header-return-text">
+                    Back to the research request
+                </p>
+            </div>
+            <p class="details-research-plan-header-first-title">
+                Research plan assigned to your request
             </p>
-            <p class="available-templates-header-subtitle">
-                These templates will help you establish and define the objectives of your research.
+            <p class="details-research-plan-header-subtitle">
+                This element has been built upon your research request, feel free to use it as you want.
             </p>
         </div>
-        <div class="available-templates-header-actions">
-            <img src="{{ asset('build/images/icons/option-dots.png') }}"  class="available-templates-header-options" id="available-templates-header-options">
-            <img src="{{ asset('build/images/icons/close-dark-blue.png') }}"  class="available-templates-header-close" id="available-templates-header-close">
+        <div class="details-research-plan-header-actions">
+            <img src="{{ asset('build/images/icons/option-dots.png') }}"  class="details-research-plan-header-options" id="available-templates-header-options">
+            <img src="{{ asset('build/images/icons/close-dark-blue.png') }}"  class="details-research-plan-header-close" id="available-templates-header-close">
         </div>
     </div>
+    <div class="details-research-plan-separator"></div>
+    <div class="details-research-plan-content">
+        
+        {# FOREACH #}
+        <div class="details-research-plan">
+            <div class="details-research-plan-title">
+                <div class="details-research-plan-title-text">
+                    <img class="details-research-plan-title-icon" src="{{ asset('build/images/icons/chevron-down.png') }}"/>
+                    <p class="details-research-plan-title-title">{# TITLE #}User specific exploration</p>
+                </div>
+                <img class="details-research-plan-status" src="{{ asset('build/images/icons/ongoig-status.png') }}"/>
+            </div>
+            <div class="details-research-workshop-part">
+                <img class="details-research-workshop-image" src="{{ asset('build/images/icons/session-remote.gif')}}"/>
+                <div class="details-research-workshop-content">
+                    <p class="details-research-workshop-content-title">
+                        Workshop selected : 
+                        <span class="details-research-workshop-content-title-name">{# WORKSHOP NAME #}Explorative interview (Collaboration)<span>
+                    </p>
+                    <p class="details-research-workshop-content-description">
+                        {# WORKSHOP DESCRIPTION #}
+                        Cover almost all user-related topics, gather informations on users’ feelings, motivations and daily routines, or how they use products.
+                    </p>
+                    <button class="details-research-workshop-content-button" disabled="disabled">
+                        <img class="details-research-workshop-content-button-icon" src="{{ asset('build/images/icons/Path.png') }}"/>
+                        <p class="details-research-workshop-content-button-text">Start this workshop</p>
+                    </button>
+                </div>
+            </div>
+            <div class="details-research-recommendation-part">
+                <img class="details-research-recommendation-image" src="{{ asset('build/images/icons/equalizer.png')}}"/>
+                <div class="details-research-recommendation-content">
+                    <p class="details-research-recommendation-content-title">
+                        Recommendation note
+                    </p>
+                    <p class="details-research-recommendation-content-description">
+                        {# RECOMMENDATION DESCRIPTION #}
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+            <div class="details-research-objectives-part">
+                <img class="details-research-objectives-image" src="{{ asset('build/images/icons/target.png')}}"/>
+                <div class="details-research-objectives-content">
+                    <p class="details-research-objectives-content-title">
+                        What are the objectives for this phase?
+                    </p>
+                    {# DIV INPUT + LABEL BOUCLE #}
+                    <div class="details-research-objectives-content-objectives">
+                        <input type="checkbox" class="details-research-objectives-content-input"/>
+                        <label class="details-research-objectives-content-label">Exemple Objectives{# OBJECTIVES #}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details-research-plan-content-separator"></div>
+        {# END FOREACH #}
+    </div>
+    <button class="details-research-plan-button" disabled="disabled">Export this research plan</button>
 </div>
