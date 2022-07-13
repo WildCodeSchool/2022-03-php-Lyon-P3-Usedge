@@ -164,9 +164,9 @@
                         {% for researchRequest in researchRequests %}
                         {% if researchPlan.researchRequest.status is not same as 'Draft' %}
                             {% include "home/modals/_modal_interview_planning_request.html.twig" %}
-                            {% include "home/modals/_modal_details_research_plan.html.twig" %}
                         {% endif %}
                         {% endfor %}
+                        {% include "home/modals/_modal_details_research_plan.html.twig" %}
                             <tbody class="result">
                                 <tr>
                                     <td class="view-details view-request-type" id="view-request-type">
@@ -196,7 +196,7 @@
                                         {% if 'Draft' in researchPlan.status %}
                                             <button class="edit-request-button">Edit</button>
                                         {% else %}
-                                            <button class="request-details-button">View</button>
+                                            <button id="{{ researchPlan.id }}" class="request-details-button research-plan-details-button">View</button>
                                         {% endif %}
                                     </td>
                                     <td class="icon-see-more">
