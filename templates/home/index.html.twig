@@ -97,7 +97,7 @@
 
                                 <tr class="sort-choice">
                                     <td class="view-details view-requests view-project">{{ researchRequest.project }}</td>
-                                    <td class="view-details view-requests"><img class="coach-picture" src="https://i.pravatar.cc">{{ researchRequest.researchTemplate.coach }}</td>
+                                    <td class="view-details view-requests"><img class="coach-picture" src="{{ asset('build/images/icons/john-doe.png') }}">{{ researchRequest.researchTemplate.coach }}</td>
                                     <td class="view-details"><img class="owner-picture" src="https://i.pravatar.cc">{{ researchRequest.owner }}</td>
                                     <td class="view-details color-status">
                                         {% include "home/_research_request_status.html.twig" %}
@@ -186,7 +186,7 @@
                                         </button>
                                     </td>
                                     <td class="view-details">
-                                    <img class="coach-picture" src="https://i.pravatar.cc">{{ researchPlan.researchRequest.researchTemplate.coach }}
+                                    <img class="coach-picture" src="{{ asset('build/images/icons/john-doe.png') }}">{{ researchPlan.researchRequest.researchTemplate.coach }}
                                     </td>
                                     <td class="view-details color-status">
                                         {% include "home/_research_plans_status.html.twig" %}
