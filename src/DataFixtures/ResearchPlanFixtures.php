@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\ResearchPlan;
+use App\Entity\ResearchRequest;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -29,11 +30,13 @@ class ResearchPlanFixtures extends Fixture implements DependentFixtureInterface
             $researchPlan = new ResearchPlan();
             $date = new DateTime("now");
             $researchPlan
-                ->setResearchRequest($this->getReference($researchPlanValue['research_request']))
                 ->setCoach($researchPlanValue['coach'])
                 ->setStatus($researchPlanValue['status'])
                 ->setCreationDate($date);
             $this->addReference('research_plan_' . $researchPlanNumber, $researchPlan);
+            if ($this->getReference($researchPlanValue['research_request']) instanceof ResearchRequest) {
+                $researchPlan->setResearchRequest($this->getReference($researchPlanValue['research_request']));
+            }
             $researchPlanNumber++;
 
             $manager->persist($researchPlan);

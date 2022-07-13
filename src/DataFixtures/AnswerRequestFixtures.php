@@ -124,10 +124,12 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
             foreach (self::ANSWER_REQUEST_FIRST_PART as $answerRequestValue) {
                 $answerRequest = new AnswerRequest();
                 $answerRequest
-                    ->setResearchRequest($this->getReference('research_request_' . $count))
                     ->setName($answerRequestValue['name'])
                     ->setQuestion($answerRequestValue['question'])
                     ->setAnswer($answerRequestValue['answer']);
+                if ($this->getReference('research_request_' . $count) instanceof ResearchRequest) {
+                    $answerRequest->setResearchRequest($this->getReference('research_request_' . $count));
+                }
 
                 $manager->persist($answerRequest);
             }
@@ -137,10 +139,12 @@ class AnswerRequestFixtures extends Fixture implements DependentFixtureInterface
             foreach (self::ANSWER_REQUEST_SECOND_PART as $answerRequestValue) {
                 $answerRequest = new AnswerRequest();
                 $answerRequest
-                    ->setResearchRequest($this->getReference('research_request_' . $count))
                     ->setName($answerRequestValue['name'])
                     ->setQuestion($answerRequestValue['question'])
                     ->setAnswer($answerRequestValue['answer']);
+                if ($this->getReference('research_request_' . $count) instanceof ResearchRequest) {
+                    $answerRequest->setResearchRequest($this->getReference('research_request_' . $count));
+                }
 
                 $manager->persist($answerRequest);
             }

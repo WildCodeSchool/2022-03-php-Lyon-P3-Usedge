@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Answer;
+use App\Entity\SingleChoice;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -208,8 +209,10 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             $answer = new Answer();
             $answer
                 ->setAnswer($answerValue['answer'])
-                ->setNumberOrder($answerValue['number_order'])
-                ->setQuestion($this->getReference($answerValue['question']));
+                ->setNumberOrder($answerValue['number_order']);
+            if ($this->getReference($answerValue['question']) instanceof SingleChoice) {
+                $answer->setQuestion($this->getReference($answerValue['question']));
+            }
             $manager->persist($answer);
         }
 

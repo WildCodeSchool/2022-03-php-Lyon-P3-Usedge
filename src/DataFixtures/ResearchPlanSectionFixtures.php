@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ResearchPlan;
 use App\Entity\ResearchPlanSection;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -27,8 +28,11 @@ class ResearchPlanSectionFixtures extends Fixture implements DependentFixtureInt
                 'First, define the problems and expectations.',
                 'Second, hare your innovations and interact with attendees.',
                 'Last, Collect information, gather it and analyze it.'
-            ])
-            ->setResearchPlan($this->getReference('research_plan_1'));
+            ]);
+
+        if ($this->getReference('research_plan_1') instanceof ResearchPlan) {
+            $researchPlanSection->setResearchPlan($this->getReference('research_plan_1'));
+        }
 
         $manager->persist($researchPlanSection);
 

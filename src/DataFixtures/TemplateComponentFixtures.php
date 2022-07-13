@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Component;
+use App\Entity\ResearchTemplate;
 use App\Entity\TemplateComponent;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -194,10 +196,15 @@ class TemplateComponentFixtures extends Fixture implements DependentFixtureInter
     {
         foreach (self::TEMPLATE_COMPONENT as $tempComponentValue) {
             $templateComponent = new TemplateComponent();
-            $templateComponent
-                ->setResearchTemplate($this->getReference($tempComponentValue['research_template']))
-                ->setComponent($this->getReference($tempComponentValue['component']))
-                ->setNumberOrder($tempComponentValue['order_number']);
+            $templateComponent->setNumberOrder($tempComponentValue['order_number']);
+
+            if ($this->getReference($tempComponentValue['research_template']) instanceof ResearchTemplate) {
+                $templateComponent->setResearchTemplate($this->getReference($tempComponentValue['research_template']));
+            }
+
+            if ($this->getReference($tempComponentValue['component']) instanceof Component) {
+                $templateComponent->setComponent($this->getReference($tempComponentValue['component']));
+            }
 
             $manager->persist($templateComponent);
         }

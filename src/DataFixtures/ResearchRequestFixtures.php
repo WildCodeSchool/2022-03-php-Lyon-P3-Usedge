@@ -57,13 +57,18 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
             $researchRequest = new ResearchRequest();
             $date = new DateTime("now");
             $researchRequest
-                ->setResearchTemplate($this->getReference($requestValue['research_template']))
                 ->setCreationDate($date)
                 ->setStatus($requestValue['status'])
                 ->setProject($requestValue['project'])
                 ->setOwner($requestValue['owner']);
             $this->addReference('research_request_' . $requestNumber, $researchRequest);
+
+            if ($this->getReference($requestValue['research_template']) instanceof ResearchTemplate) {
+                $researchRequest->setResearchTemplate($this->getReference($requestValue['research_template']));
+            }
+
             $requestNumber++;
+
             $manager->persist($researchRequest);
         }
 
