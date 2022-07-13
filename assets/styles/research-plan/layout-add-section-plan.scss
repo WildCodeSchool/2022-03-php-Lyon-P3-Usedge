@@ -379,6 +379,8 @@
     display: none;
 }
 .all-div-input {
+    display: flex;
+    align-items: flex-start;
     @include dimension(500px, 42px);
     .newDivLabel {
         margin-left: 5px;
