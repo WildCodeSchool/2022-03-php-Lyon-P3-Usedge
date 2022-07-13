@@ -108,9 +108,7 @@ class ResearchPlanController extends AbstractController
         if (
             !empty($researchPlan) &
             $researchPlanSection instanceof ResearchPlanSection &
-            !empty($dataComponent) &
-            $researchPlan !== null &
-            $researchPlan instanceof ResearchPlan
+            !empty($dataComponent)
         ) {
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
             $researchPlanUtils->researchPlanCheckLength($dataComponent);
@@ -121,9 +119,7 @@ class ResearchPlanController extends AbstractController
             return $this->redirectToRoute('research_plan_new_section', ['id' => $resRequestId]);
         } elseif (
             !empty($researchPlan) &
-            !empty($dataComponent) &
-            $researchPlan !== null &
-            $researchPlan instanceof ResearchPlan
+            !empty($dataComponent)
         ) {
             $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
         }
@@ -154,9 +150,7 @@ class ResearchPlanController extends AbstractController
         if (
             !empty($dataComponent['research-plan-title']) ||
             !empty($dataComponent['workshop_description']) ||
-            !empty($dataComponent['research-plan-recommendation']) &
-            $researchPlan !== null &
-            $researchPlan instanceof ResearchPlan
+            !empty($dataComponent['research-plan-recommendation'])
         ) {
             $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
             $mailer->researchPlanSendMail();

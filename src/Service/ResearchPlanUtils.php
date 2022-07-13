@@ -101,7 +101,7 @@ class ResearchPlanUtils
 
         $entityManager->flush();
     }
-    public function addResearchPlanSection(array $dataComponent, ResearchPlan $researchPlan): void
+    public function addResearchPlanSection(array $dataComponent, ?ResearchPlan $researchPlan): void
     {
         $researchPlanSection = new ResearchPlanSection();
         $entityManager = $this->entityManager;
@@ -120,7 +120,7 @@ class ResearchPlanUtils
     public function updateResearchPlanSection(
         array $dataComponent,
         ResearchPlan $researchPlan,
-        ResearchPlanSection $researchPlanSection
+        ?ResearchPlanSection $researchPlanSection
     ): void {
         $entityManager = $this->entityManager;
         if (!empty($dataComponent)) {
