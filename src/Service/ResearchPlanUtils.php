@@ -133,19 +133,19 @@ class ResearchPlanUtils
 
     public function initResearchPlan(array $dataComponent, ?ResearchPlan $researchPlan): void
     {
-        if (!empty($dataComponent) & !empty($researchPlan)) {
-            $this->researchPlanCheckEmpty($dataComponent);
-            $this->researchPlanCheckLength($dataComponent);
-            $researchPlanErrors = $this->getCheckErrors();
-            if (empty($researchPlanErrors)) {
-                $this->addResearchPlanSection($dataComponent, $researchPlan);
-            }
-        } elseif (!empty($dataComponent)) {
+        if (!empty($dataComponent) & $researchPlan == null) {
             $this->researchPlanCheckEmpty($dataComponent);
             $this->researchPlanCheckLength($dataComponent);
             $researchPlanErrors = $this->getCheckErrors();
             if (empty($researchPlanErrors)) {
                 $this->addResearchPlan($dataComponent);
+            }
+        } elseif (!empty($dataComponent) & $researchPlan != null) {
+            $this->researchPlanCheckEmpty($dataComponent);
+            $this->researchPlanCheckLength($dataComponent);
+            $researchPlanErrors = $this->getCheckErrors();
+            if (empty($researchPlanErrors)) {
+                $this->addResearchPlanSection($dataComponent, $researchPlan);
             }
         }
     }
