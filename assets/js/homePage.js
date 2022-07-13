@@ -193,11 +193,4 @@ if (document.getElementById('reasearch-plans')) {
             researchPlanDetailsModals[i].classList.remove('research-center-details-research-plan-display');
         })
     }
-
-    // Function used to toggle line-through text
-    for (let i = 0; i < researchPlanDetailsInputs.length; i++) {
-        researchPlanDetailsInputs[i].addEventListener('click', () => {
-            researchPlanDetailsLabels[i].classList.toggle('details-research-objectives-content-label-done');
-        })
-    }
 }
