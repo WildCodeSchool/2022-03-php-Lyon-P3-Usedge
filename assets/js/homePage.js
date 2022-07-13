@@ -24,8 +24,6 @@ if (document.getElementById('reasearch-plans')) {
     const researchPlanDetailsButtons = document.querySelectorAll('.research-plan-details-button');
     const researchPlanDetailsModals = document.querySelectorAll('.research-center-details-research-plan');
     const researchPlanDetailsModalsClose = document.querySelectorAll('.details-research-plan-header-close');
-    const researchPlanDetailsInputs = document.querySelectorAll('.details-research-objectives-content-input');
-    const researchPlanDetailsLabels = document.querySelectorAll('.details-research-objectives-content-label');
 
     researchRequests.onchange = function () {
         researchPlans.checked = true;

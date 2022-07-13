@@ -4,7 +4,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Answer;
 use App\Entity\Component;
-use App\Entity\SingleChoice;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
