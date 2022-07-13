@@ -26,11 +26,13 @@
                 {% for researchPlanSection in researchPlan.researchPlanSections %}
                     <a href="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}">
                         <input type="button" class="button-untitled" value="{{researchPlanSection.title}}">
-                    </a> 
+                    </a>
                 {% endfor %} 
             {% endif %}          
             <input type="button" class="button-untitled" id="button-untitled" value="Untitled">
-            <button type="submit" formaction="{{path('research_plan_new_section', {id: researchRequest.id})}}" class="button-add-section">+ Add a new section</button>
+            <button type="submit" formaction="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}" class="button-add-section">
+                + Add a new section
+            </button>
         </div>
     </div>
 
@@ -39,13 +41,12 @@
         <input type="hidden" name="research-request-coach" value="{{ researchRequest.researchTemplate.coach }}">
         <input type="hidden" name="research-request-status" value="Sent to user">
         <div>
-            {% include 'research_plan/_layout_add_section_plan.html.twig' %}
+            {% include 'research_plan/_layout_edit_section_plan.html.twig' %}
         </div>
-        {% if researchPlan is not empty %}
-        <button formaction="{{path('research_plan_validation', {id: researchRequest.id})}}" class="send-research-plan send-research-plan-validation" id="send-research-plan"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>
-        {% else %}
-         <button formaction="{{ path('app_research_plan', {id: researchRequest.id}) }}" class="send-research-plan" id="send-research-plan"><img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> Send research plan to user</button>   
-        {% endif %}
+        <button formaction="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}" class="send-research-plan" id="send-research-plan">
+            <img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> 
+            Update this section
+        </button>
     </div>
 
 </form>

@@ -21,6 +21,7 @@ if (document.getElementById('title-section-research-plan')) {
     const linkViewRequest = document.getElementById('link-view-request');
     const modalInterviewPlanningRequest = document.getElementById('modal-interview-planning-request');
     const interviewPlanningHeaderClose = document.getElementById('interview-planning-header-close');
+    
 
     titleSection.addEventListener('click', function () {
         inputTitleSectionPlan.type = "text";
@@ -101,6 +102,7 @@ if (document.getElementById('title-section-research-plan')) {
         selectedWorkshopEditIcon.classList.add('research-plan-workshop-select-edit-icon-display-none');
         selectedWorkshopDescription.classList.add('research-plan-workshop-selected-description-display-none');
         selectedWorkshopDescritionTextarea.classList.add('selected-workshop-description-edit-display-block');
+        selectedWorkshopDescritionTextarea.innerHTML = selectedWorkshopDescriptionInput.value.replace(/\s+/g, " ") ;
     });
 
     // Function used to close the textarea and modify the description.
@@ -137,4 +139,16 @@ if (document.getElementById('title-section-research-plan')) {
     interviewPlanningHeaderClose.addEventListener('click', () => {
         modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
     });
+
+    //function use to send an alert before validate the form
+    if (document.querySelector('.send-research-plan-validation')) {
+        const sendResearchPlanValidation = document.querySelector('.send-research-plan-validation');
+        sendResearchPlanValidation.addEventListener('click', (event) => {
+            let comfirm = confirm('this plan will be sent, check that all fields are filled in, otherwise the last section will not be saved');
+            if (comfirm == false) {
+                event.preventDefault();
+            }
+
+        })
+    }
 }

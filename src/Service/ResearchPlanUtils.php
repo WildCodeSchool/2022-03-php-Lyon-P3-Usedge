@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\ResearchPlan;
 use App\Entity\ResearchPlanSection;
 use App\Entity\ResearchRequest;
+use App\Repository\ResearchPlanRepository;
 use App\Repository\ResearchRequestRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -79,7 +80,6 @@ class ResearchPlanUtils
         $researchRequest = $this->resReqRepo->findOneBy(['id' => $dataComponent['research-request-id']]);
         $creationDate = new DateTime("now");
         $researchPlan = new ResearchPlan();
-        $researchPlanSection = new ResearchPlanSection();
         $entityManager = $this->entityManager;
 
         if ($researchRequest instanceof ResearchRequest) {
@@ -90,26 +90,64 @@ class ResearchPlanUtils
         if ($researchRequest instanceof ResearchRequest) {
             $researchPlan->setResearchRequest($researchRequest);
         }
-        $researchPlan->setCoach($dataComponent['research-request-coach']);
-        $researchPlan->setStatus($dataComponent['research-request-status']);
-        $researchPlan->setCreationDate($creationDate);
-        $entityManager->persist($researchPlan);
 
-        $researchPlanSection->setTitle($dataComponent['research-plan-title']);
-        $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
-        $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
-        $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
-        $researchPlanSection->setResearchPlan($researchPlan);
+        if (!empty($dataComponent)) {
+            $researchPlan->setCoach($dataComponent['research-request-coach']);
+            $researchPlan->setStatus($dataComponent['research-request-status']);
+            $researchPlan->setCreationDate($creationDate);
+            $entityManager->persist($researchPlan);
 
-        $objectivesCounter = $dataComponent['objectives-count'];
-        $researchPlanObjects = [];
-
-        for ($count = 1; $count <= $objectivesCounter; $count++) {
-            $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
+            $this->addResearchPlanSection($dataComponent, $researchPlan);
         }
-        $researchPlanSection->setObjectives($researchPlanObjects);
 
-        $entityManager->persist($researchPlanSection);
+        $entityManager->flush();
+    }
+
+    public function addResearchPlanSection(array $dataComponent, ?ResearchPlan $researchPlan): void
+    {
+        $researchPlanSection = new ResearchPlanSection();
+        $entityManager = $this->entityManager;
+        if (!empty($dataComponent) && $researchPlan != null) {
+            $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+            $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+            $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+            $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+            $researchPlanSection->setResearchPlan($researchPlan);
+            $objectivesCounter = $dataComponent['objectives-count'];
+            $researchPlanObjects = [];
+
+            for ($count = 1; $count <= $objectivesCounter; $count++) {
+                $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
+            }
+            $researchPlanSection->setObjectives($researchPlanObjects);
+
+            $entityManager->persist($researchPlanSection);
+        }
+
+        $entityManager->flush();
+    }
+
+    public function updateResearchPlanSection(
+        array $dataComponent,
+        ?ResearchPlan $researchPlan,
+        ResearchPlanSection $researchPlanSection
+    ): void {
+        $entityManager = $this->entityManager;
+        if (!empty($dataComponent) && $researchPlan != null) {
+            $researchPlanSection->setTitle($dataComponent['research-plan-title']);
+            $researchPlanSection->setWorkshopName($dataComponent['workshop_name']);
+            $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
+            $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
+            $researchPlanSection->setResearchPlan($researchPlan);
+            $objectivesCounter = $dataComponent['objectives-count'];
+            $researchPlanObjects = [];
+
+            for ($count = 1; $count <= $objectivesCounter; $count++) {
+                $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
+            }
+            $researchPlanSection->setObjectives($researchPlanObjects);
+            $entityManager->persist($researchPlanSection);
+        }
 
         $entityManager->flush();
     }
