@@ -31,16 +31,15 @@ if (document.getElementById('button-add-objectives')) {
             const divCheckbox = document.getElementById('new-input-checkbox');
 
             event.preventDefault();
+
             let valueInput = inputCheckbox.value;
             let newDivParagraph = document.createElement("p");
+            newDivParagraph.setAttribute('class', 'all-div-input');
+
             let newInputHidden = document.createElement("input");
             newInputHidden.setAttribute('type', 'hidden');
             newInputHidden.setAttribute('class', 'all-input-hidden');
             newInputHidden.setAttribute('value', valueInput);
- 
-            let newButtonRemove = document.createElement("button");
-            newButtonRemove.setAttribute('type', 'hidden');
-            newButtonRemove.setAttribute('class', 'remove-objectives');
  
             checkboxCase.classList.add('input-example-display');
             checkboxValue.classList.add('input-example-display');
@@ -60,7 +59,6 @@ if (document.getElementById('button-add-objectives')) {
             newDivParagraph.appendChild(newCheckbox);
             newDivParagraph.appendChild(newLabel);
             newDivParagraph.appendChild(newInputHidden);
-            newDivParagraph.appendChild(newButtonRemove);
 
             inputCheckbox.value = '';
         }
@@ -97,11 +95,9 @@ if (document.getElementById('button-add-objectives')) {
 
     //Function to edit the objectives
     const editButton = document.getElementById('edit-objectives-icon');
-    
 
     editButton.addEventListener('click', () => {
 
-        const allRemoveObjectives = document.querySelectorAll('.remove-objectives');
         const addObjectives = document.getElementById('add-objectives');
         const allLabel = document.querySelectorAll('.newDivLabel');
         const allInputHiddenSelected = document.querySelectorAll('.all-input-hidden');
@@ -112,12 +108,10 @@ if (document.getElementById('button-add-objectives')) {
 
         addObjectives.classList.remove('add-objectives');
         addObjectives.classList.add('add-section-new-objectives');
-    
-        for (const item of allRemoveObjectives) {
-            item.classList.remove('remove-objectives');
-            item.classList.add('remove-objectives-display');
-        }
 
+        inputCheckbox.classList.add('input-objectives');
+        inputCheckbox.classList.remove('input-objectives-display');
+    
         for (const label of allLabel) {
             label.classList.remove('newDivLabel');
             label.classList.add('newDivLabelDisplay');
@@ -127,6 +121,20 @@ if (document.getElementById('button-add-objectives')) {
             input.setAttribute('type', "text");
         });
 
+        const collection = document.querySelectorAll('.all-div-input');
+
+        for (let i = 0; i < collection.length; i++) {
+            const elem = collection[i];
+            elem.classList.add('all-div-input-edit');
+            elem.classList.remove('all-div-input');
+            elem.onclick = function(event) {
+                let target =  event.target;
+                if (target === elem) {
+                    target.remove();
+                }
+            };  
+        } 
+            
         buttonSaveObjectives.classList.remove('button-save-objectives-display');
         buttonSaveObjectives.classList.add('button-save-objectives');
 
@@ -139,10 +147,11 @@ if (document.getElementById('button-add-objectives')) {
                 input.setAttribute('class', "all-input-hidden-validate");
             });
 
-            for (const item of allRemoveObjectives) {
-                item.classList.add('remove-objectives');
-                item.classList.remove('remove-objectives-display');
-            }
+            const collectionEdit = document.querySelectorAll('.all-div-input-edit');
+            for (const elem of collectionEdit) {
+                elem.classList.remove('all-div-input-edit');
+                elem.classList.add('all-div-input');
+            } 
 
             sendResearchPlanButton.classList.remove('send-research-plan-disabled');
             sendResearchPlanButton.classList.add('send-research-plan');

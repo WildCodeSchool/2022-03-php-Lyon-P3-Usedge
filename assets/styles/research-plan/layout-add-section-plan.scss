@@ -321,6 +321,7 @@
             justify-content: flex-start;
             flex-wrap: wrap;
             margin-right: 50px;
+            width: 580px;
             .newDivCheck {
                 width: 16px;
                 height: 16px;
@@ -377,27 +378,21 @@
         }
     }  
 }
-.remove-objectives-display {
-    background-image: url("/assets/images/icons/close.png");
-    background-position: center;
-    background-size: contain;
-    @include dimension(20px, 20px);
-    padding: 0;
-    background-color: transparent;
-    border: 0;
-    margin-left: 10px;
-}
 .newDivLabelDisplay {
     display: none;
 }
-.all-input-hidden-validate {
+.all-div-input {
+    @include dimension(500px, 42px);
+    .newDivLabel {
+        margin-left: 5px;
+    }
+}
+.all-input-hidden, .all-input-hidden-validate  {
+    @include dimension(500px, 42px);
+    @include button($primary-white-1, $border-radius-10,
+    1px solid $primary-white-1);
     @include textStyle($text-font, $font-size-16,
     $font-weight-600, $primary-blue-3);
-    background-color: transparent;
-    border: 0;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
 }
 .create-recommandation-none {
     display: none;
@@ -436,4 +431,15 @@
     @include textStyle($text-font, $font-size-18,$font-weight-600, $primary-grey-4);
     margin-top: 20px;
     align-self: center;
+}
+.all-div-input-edit {
+    @include dimension(580px, 42px);
+    background-image: url("/assets/images/icons/close.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
 }
