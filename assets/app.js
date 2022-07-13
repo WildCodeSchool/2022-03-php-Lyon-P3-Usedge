@@ -21,6 +21,7 @@ import './js/add_research_plan.js';
 //import research plan
 import './js/add_research_plan.js';
 import './js/research_plan_text_editor.js';
+import './js/add_objectives_research_plan.js';
 
 // import modal js
 import './js/modals/modal_external_link.js';

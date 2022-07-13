@@ -90,6 +90,7 @@ class ResearchPlanUtils
         if ($researchRequest instanceof ResearchRequest) {
             $researchPlan->setResearchRequest($researchRequest);
         }
+
         if (!empty($dataComponent)) {
             $researchPlan->setCoach($dataComponent['research-request-coach']);
             $researchPlan->setStatus($dataComponent['research-request-status']);
@@ -101,6 +102,7 @@ class ResearchPlanUtils
 
         $entityManager->flush();
     }
+
     public function addResearchPlanSection(array $dataComponent, ?ResearchPlan $researchPlan): void
     {
         $researchPlanSection = new ResearchPlanSection();
@@ -111,6 +113,14 @@ class ResearchPlanUtils
             $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
             $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
             $researchPlanSection->setResearchPlan($researchPlan);
+            $objectivesCounter = $dataComponent['objectives-count'];
+            $researchPlanObjects = [];
+
+            for ($count = 1; $count <= $objectivesCounter; $count++) {
+                $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
+            }
+            $researchPlanSection->setObjectives($researchPlanObjects);
+
             $entityManager->persist($researchPlanSection);
         }
 
@@ -129,6 +139,13 @@ class ResearchPlanUtils
             $researchPlanSection->setWorkshopDescription($dataComponent['workshop_description']);
             $researchPlanSection->setRecommendation($dataComponent['research-plan-recommendation']);
             $researchPlanSection->setResearchPlan($researchPlan);
+            $objectivesCounter = $dataComponent['objectives-count'];
+            $researchPlanObjects = [];
+
+            for ($count = 1; $count <= $objectivesCounter; $count++) {
+                $researchPlanObjects[] = $dataComponent['research-plan-objectives-' . $count];
+            }
+            $researchPlanSection->setObjectives($researchPlanObjects);
             $entityManager->persist($researchPlanSection);
         }
 

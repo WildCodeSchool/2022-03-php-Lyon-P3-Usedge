@@ -77,6 +77,11 @@ class ResearchPlanController extends AbstractController
         ) {
             $researchPlanUtils->addResearchPlan($dataComponent);
             return $this->redirectToRoute('research_plan_new_section', ['id' => $id]);
+        } elseif (
+            !empty($researchPlan) &&
+            !empty($dataComponent)
+        ) {
+            $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
         }
 
         $workshops = $workshopRepository->findAll();
