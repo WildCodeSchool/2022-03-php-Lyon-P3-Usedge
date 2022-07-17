@@ -24,11 +24,13 @@
             align-items: center;
             @include dimension(100%, 100%);
             #request-select-external-link {
-                height: 42px;
+                @include dimension(100%, 42px);
                 @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-1);
                 background-color: $primary-white-1;
                 border-radius: 8px;
-                border: 2px solid $primary-blue-2;
+                padding-left: 10px;
+                border: 1px solid $primary-blue-2;
+                outline: none;
             }
         } 
     }
