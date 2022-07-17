@@ -145,10 +145,12 @@
                 .plans-quantity {
                     margin: 0;
                     @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    letter-spacing: 0.12px;
                 }
                 .requests-quantity {
                     margin: 0;
                     @include textStyle($title-font, $font-size-18, $font-weight-600, $primary-blue-3);
+                    letter-spacing: 0.12px;
                 }
                 #create-request {
                     display: flex;
