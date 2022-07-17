@@ -14,7 +14,7 @@
             <div class="single-choice-template-answers">
                 {% for answer in templateComponent.component.answers %}
                     <div class="single-choice-template-answer">
-                        <input type="radio" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}">
+                        <input type="radio" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}" disabled="disabled">
                         <label for="answer{{templateComponent.component.id}}" class="single-choice-template-answer-label" id="single-choice-template-answer-label">
                         {{answer.answer}}
                         </label>
