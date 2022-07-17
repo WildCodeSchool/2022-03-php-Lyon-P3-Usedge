@@ -194,14 +194,14 @@
                 }
             }
             .form-builder {
-                @include dimension(58vw, 950px);
+                @include dimension(61vw, 950px);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding: 50px 50px 35px;
                 background: $primary-white-1;
                 border-radius: $border-radius-10;
-                overflow: hidden;
+                overflow-y: scroll;
                 .form-builder-component-display {
                     @include dimension(1022px, 798px);
                     padding: 2px 0;

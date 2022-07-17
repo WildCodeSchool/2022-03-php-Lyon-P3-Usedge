@@ -84,11 +84,12 @@
                 }
             }
             .evaluation-scale-modal-mandatory {
-                @include dimension(158px, 18px);
+                @include dimension(161px, 18px);
                 display: flex;
                 align-items: center;
                 padding: 0;
                 margin-bottom: 20px;
+                gap: 5px;
                 .evaluation-scale-checkbox-mandatory[type="checkbox"] {
                     @include dimension(16px, 16px);
                     border: 1px solid $primary-blue-1 !important;
