@@ -33,13 +33,20 @@ class ResearchTemplateController extends AbstractController
         $researchTemplateList = $templateRepository->findBy([], ['id' => 'DESC']);
         $dataComponent =  $checkDataUtils->trimData($request);
 
-        if (isset($dataComponent['research-template-status'])) {
-            $templateRepository->updateTemplateStatus($dataComponent);
-        }
+        if (
+            $this->isCsrfTokenValid(
+                'add' . $dataComponent['research-template-id'],
+                $dataComponent['_token' . $dataComponent['research-template-id']]
+            )
+        ) {
+            if (isset($dataComponent['research-template-status'])) {
+                $templateRepository->updateTemplateStatus($dataComponent);
+            }
 
-        if (isset($dataComponent['components-number-count'])) {
-            $orderNumber = $retrieveAnswers->retrieveOrderComponents($dataComponent);
-            $tempCompRepository->updateNumberOrder($orderNumber);
+            if (isset($dataComponent['components-number-count'])) {
+                $orderNumber = $retrieveAnswers->retrieveOrderComponents($dataComponent);
+                $tempCompRepository->updateNumberOrder($orderNumber);
+            }
         }
 
         $researchTemplate = new ResearchTemplate();
