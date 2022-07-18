@@ -47,9 +47,16 @@ class ResearchTemplateController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $templateRepository->add($researchTemplate, true);
-            $id = $researchTemplate->getId();
-            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
+            if (
+                $this->isCsrfTokenValid(
+                    'add_research_template',
+                    $dataComponent['_token_add_research_template']
+                )
+            ) {
+                $templateRepository->add($researchTemplate, true);
+                $id = $researchTemplate->getId();
+                return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->renderForm('research_template/index.html.twig', [
