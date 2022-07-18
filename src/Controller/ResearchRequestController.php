@@ -25,7 +25,13 @@ class ResearchRequestController extends AbstractController
         $dataComponent = $checkDataUtils->trimData($request);
         $requestErrors = [];
 
-        if (isset($dataComponent['project'])) {
+        if (
+            isset($dataComponent['project']) &&
+            $this->isCsrfTokenValid(
+                'add_research_request',
+                $dataComponent['_token_add_research_request']
+            )
+        ) {
             $project = $dataComponent['project'];
             $templateId = $dataComponent['template_id'];
             $requestComponents = $tempCompRepository->findBy(['researchTemplate' => $id], ['numberOrder' => 'ASC']);
