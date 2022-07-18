@@ -11,9 +11,9 @@
         align-items: flex-start;
         padding: 35px 0px;
         gap: 20px;
-        width: 1572px;
+        width: 82vw;
         .research-template-list-header {
-            @include dimension(1572px, 40px);
+            @include dimension(81vw, 40px);
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -28,7 +28,7 @@
                 }
             }
             .research-template-list-header-title {
-                @include dimension(1532px, 40px);
+                @include dimension(100%, 40px);
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -56,7 +56,7 @@
             }
             .research-template-defined-list-add-button {
                 @include button($primary-blue-1, $border-radius-10, none);
-                @include dimension(245px, 42px);
+                @include dimension(275px, 42px);
                 @include textStyle($text-font, $font-size-14, $font-weight-600, $primary-white-1);
                 display: flex;
                 justify-content: center;
@@ -70,10 +70,10 @@
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
-            width: 1572px;
+            width: 82vw;
             max-height: 967px;
             padding: 0;
-            gap: 18px;
+            gap: 15px;
             overflow-y: scroll;
         }
         .research-template-empty-list-main {

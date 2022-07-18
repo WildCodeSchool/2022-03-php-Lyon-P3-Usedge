@@ -1,0 +1,90 @@
+<div class="section-form-title">
+    <input type="text" name="research-plan-title" placeholder="Add section title here" id="title-section-research-plan" class="title-section-research-plan" value="{{researchPlanSection.title}}">
+    <a href="" id="button-basket"><img src="{{ asset('build/images/icons/trash-black.png') }}" alt="basket"></a>
+</div>
+
+<button type="button" id="assign-workshop" class="assign-workshop assign-workshop-display-none">
+    <div class="assign-workshop-content">
+        <img class="assign-workshop-content-image" src="{{ asset('build/images/icons/workshop.png') }}" alt="basket">
+        <p class="assign-workshop-content-text">Assign a workshop for this phase</p>
+    </div>
+</button>
+
+<div id="research-plan-workshop-selected-content " class="research-plan-workshop-selected-content research-plan-workshop-selected-display-flex">
+    <input id="selected-workshop-name" type="hidden" name="workshop_name" value="{{ researchPlanSection.workshopName }}">
+    <input id="selected-workshop-description" type="hidden" name="workshop_description" value="{{ researchPlanSection.workshopDescription }}">
+    <img class="research-plan-workshop-select-edit-icon"
+            id="research-plan-workshop-select-edit-icon"
+            src="{{ asset('build/images/icons/edit.png') }}"/>
+    <img class="research-plan-workshop-selected-image" src="{{ asset('build/images/icons/session-remote.gif')}}"/>
+    <div class="research-plan-workshop-selected-text">
+        <p class="research-plan-workshop-selected-title">
+            Workshop selected :  {{ researchPlanSection.workshopName }} 
+            <span class="research-plan-workshop-selected-name"></span>
+        </p>
+        <p class="research-plan-workshop-selected-description">{{ researchPlanSection.workshopDescription }}</p>
+        <textarea class="selected-workshop-description-edit"
+            id="selected-workshop-description-edit"> 
+        </textarea>
+    </div>
+</div>
+
+<button type="button" class="create-recommandation create-recommandation-none" id="text-editor-button">
+    <img id="bubble-of-recommandation" src="{{ asset('build/images/icons/recommandation.png') }}" alt="bubble of recommandation">
+    <p class="recommandation-note">Create a recommandation note</p>
+</button>
+ <div id="create-recommandation-container" class="create-recommandation-container-none">
+    <textarea id="create-recommandation-text">
+    {{ researchPlanSection.recommendation }}
+    </textarea>
+    <button type="button" class="validate-recommandation-button" id="validate-recommandation-button">
+    <img class="validate-recommandation-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
+    Save recommandation
+    </button>
+</div>
+<div id="recommandation-details" class="recommandation-details">
+    <div class="recommandation-equalizer-icon-container">
+        <img src="{{ asset('build/images/icons/Clear icons.png') }}">
+    </div>
+    <div class="recommandation-details-container" id="recommandation-details-container">
+        <h3 id="recommandation-title" class="recommandation-title">What do we recommend for this phase?</h3>
+        <p class="recommandation-details-paragraph"> {{ researchPlanSection.recommendation }}</p>
+    </div>
+    <button type="button" id="edit-recommandation-icon-container" class="edit-recommandation-icon-container">
+        <img src="{{ asset('build/images/icons/edit.png') }}">
+        <input type="hidden" class="recommandation-input" id="recommandation-input" name="research-plan-recommendation" value="{{ researchPlanSection.recommendation }}">
+    </button>
+</div>
+
+<div class="add-section-new-objectives" id="add-objectives">
+    <p class="add-objectives-p-display add-objectives-p-none" id="add-objectives-p">Would you like to add some objectives for this phase ? </p>
+    <div class="add-objectives-p-and-save"  id="add-objectives-p-and-save">
+        <p class="add-objectives-p" id="add-objectives"><img src="{{ asset('build/images/icons/targeting.png') }}" alt="icon of objectives">Objectives for this phase ? </p>
+        <button type="button" id="edit-objectives-icon" class="edit-objectives-icon">
+            <img src="{{ asset('build/images/icons/edit.png') }}" alt="edit icon">
+        </button>
+    </div>
+    <div class="div-button-add-objectives" id="div-button-add-objectives">
+        <button id="button-add-objectives" type="button" class="button-select-objectives-display" disabled="disabled"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Add objectives</button>
+    </div>
+    <div class="save-objectives">
+        <input type="text" id="input-objectives" name="objectives" placeholder="For the next phase we need to ..." class="input-objectives-display">
+        <div class="newDivLabelDisplay">
+            <input type="checkbox" name="objectives" placeholder="For the next phase we need to ..." class="input-checkbox-objectives" id="input-checkbox-objectives" disabled="disabled">
+            <label for="objectives" id="input-checkbox-text-objectives" class="input-checkbox-text-objectives">Add a first item and press enter to fill in the checklist ...</label>
+        </div>
+        <div class="new-input-checkbox" id="new-input-checkbox">
+        {% set i = 1 %}
+        {% for objective in researchPlanSection.objectives %}
+        <div class="all-div-input">
+            <input type="checkbox" class="newDivCheck">
+            <label for="checkbox" class="newDivLabel">{{ objective }}</label>
+            <input type="hidden" name="research-plan-objectives-{{ i }}"  value="{{ objective }}">
+        </div>
+        {% set i = i + 1 %}
+        {% endfor %}
+            <input type="hidden" name="objectives-count" id="objectives-count" value="{{ researchPlanSection.objectives|length }}">
+        </div>
+        <button id="button-save-objectives" type="button" class="button-save-objectives-display"><img src="{{ asset('build/images/icons/save-icon.png') }}" alt="icon validate"> Save objectives</button>
+    </div>
+</div>

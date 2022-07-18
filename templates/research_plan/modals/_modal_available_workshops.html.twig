@@ -1,0 +1,46 @@
+<div class="research-plan-available-workshops-modal" id="research-plan-available-workshops-modal">
+    <img class="research-plan-available-workshops-modal-close"
+            id="research-plan-available-workshops-modal-close"
+            src="{{ asset('build/images/icons/close-dark-blue.png') }}"/>
+    <div class="research-plan-available-workshops-header">
+        <p class="research-plan-available-workshops-header-title">Exercises available</p>
+        <p class="research-plan-available-workshops-header-subtitle">
+            Pick a workshop/canvas in the list so you can assign it to the phase considered
+        </p>
+    </div>
+    <div class="research-plan-available-workshops-searchbar-content">
+        <div class="research-plan-available-workshops-searchbar">
+            <img class="research-plan-available-workshops-searchbar-icon"
+                    src="{{ asset('build/images/icons/search-dark-grey.png') }}"/>
+            <input type="text" id="research-plan-available-workshops-searchbar-input" placeholder="Add a workshop/canvas name">
+        </div>
+        <button class="research-plan-available-workshops-searchbar-button"
+                id="research-plan-available-workshops-searchbar-button">
+            <img class="research-plan-available-workshops-searchbar-button-icon"
+                    src="{{ asset('build/images/icons/search-white.png') }}"/>
+            <p class="research-plan-available-workshops-searchbar-button-text">Search</p>
+        </button>
+    </div>
+    <div class="research-plan-available-workshops-suggestions">
+        <p class="research-plan-available-workshops-suggestions-text">Suggestions :</p>
+        <p class="research-plan-available-workshops-suggestions-button">Value proposition design</p>
+        <p class="research-plan-available-workshops-suggestions-button">Focus group</p>
+        <p class="research-plan-available-workshops-suggestions-button">Buy a feature</p>
+        <p class="research-plan-available-workshops-suggestions-button">A/B Testing</p>
+    </div>
+    <div class="research-plan-available-workshops-content">
+        {% for workshop in workshops %}
+            <div class="available-workshops-card">
+                <input class="available-workshop-id" type="hidden" value="{{ workshop.id }}">
+                <div class="available-workshop-image-container">
+                    <img class="available-workshop-image" src="{{ asset('' ~ workshop.image ~ '') }}"/>
+                </div>
+                <div class="available-workshop-text-container">
+                    <p class="available-workshop-name">{{ workshop.name }}</p>
+                    <p class="available-workshop-description">{{ workshop.description }}</p>
+                </div>
+                <button type="button" class="available-workshop-button">Use this template</button>
+            </div>
+        {% endfor %}
+    </div>
+</div>

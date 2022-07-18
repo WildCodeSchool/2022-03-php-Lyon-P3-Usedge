@@ -62,7 +62,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($evalScaleComponent);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -98,7 +98,7 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($singleChoice);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -134,7 +134,7 @@ class ComponentUtils
             }
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($multipleChoice);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -161,7 +161,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($section);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -193,17 +193,18 @@ class ComponentUtils
             $answer = new Answer();
             $answer->setAnswer($dataComponent['open-question-answer']);
             $answer->setQuestion($openQuestion);
-            $answer->setNumberOrder(4);
+            $answer->setNumberOrder(1);
             $entityManager->persist($answer);
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($openQuestion);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
         }
     }
+
     public function loadSeparator(array $dataComponent, ResearchTemplate $researchTemplate): void
     {
         $templateComponent = new TemplateComponent();
@@ -222,7 +223,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($separator);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -248,7 +249,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($datepicker);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();
@@ -275,7 +276,7 @@ class ComponentUtils
 
             $templateComponent->setResearchTemplate($researchTemplate);
             $templateComponent->setComponent($externalLink);
-            $templateComponent->setNumberOrder(1);
+            $templateComponent->setNumberOrder(count($researchTemplate->getTemplateComponents()) + 1);
             $entityManager->persist($templateComponent);
 
             $entityManager->flush();

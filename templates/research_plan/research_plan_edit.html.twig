@@ -1,0 +1,54 @@
+{% extends 'base-plan.html.twig' %}
+
+{% block title %}New research plan{% endblock %}
+
+{% block body %}
+<header class="header-research-plan">
+    <div class="title-logo">
+        <img class="logo-usedge" src="{{ asset('build/images/usedge-logo.png') }}" alt="logo usedge">
+        <h1>New research plan</h1>
+    </div>
+    <button class="buttonSave" type="submit"><img src="{{ asset('build/images/icons/logout.png') }}" alt="logout">Save and continue later</button>
+</header>
+
+<form method="POST" class="sections-container">
+    {% include "research_plan/modals/_modal_interview_planning_request.html.twig" %}
+    {% include "research_plan/modals/_modal_available_workshops.html.twig" %}
+    <div class="section-selected">
+        <div class="section-request">
+            <h1>Research request</h1>
+            <a class="link-view-request" id="link-view-request" href="#">View assigned research request</a>
+        </div>
+
+        <div class="section-plan">
+            <h1>Plan sections</h1> 
+            {% if researchPlan is not empty %}
+                {% for researchPlanSection in researchPlan.researchPlanSections %}
+                    <a href="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}">
+                        <input type="button" class="button-untitled" value="{{researchPlanSection.title}}">
+                    </a>
+                {% endfor %} 
+            {% endif %}          
+            <input type="button" class="button-untitled" id="button-untitled" value="Untitled">
+            <button type="submit" formaction="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}" class="button-add-section">
+                + Add a new section
+            </button>
+        </div>
+    </div>
+
+    <div class="section-form">
+        <input type="hidden" name="research-request-id" value="{{ researchRequest.id }}">
+        <input type="hidden" name="research-request-coach" value="{{ researchRequest.researchTemplate.coach }}">
+        <input type="hidden" name="research-request-status" value="Sent to user">
+        <div>
+            {% include 'research_plan/_layout_edit_section_plan.html.twig' %}
+        </div>
+        <button formaction="{{path('research_plan_edit_section', {researchRequestId: researchPlan.researchRequest.id, sectionId: researchPlanSection.id})}}" class="send-research-plan" id="send-research-plan">
+            <img src="{{ asset('build/images/icons/send.png') }}" alt="icon send"> 
+            Update this section
+        </button>
+    </div>
+
+</form>
+
+{% endblock %}

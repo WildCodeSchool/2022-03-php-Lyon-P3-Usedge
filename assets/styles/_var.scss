@@ -75,6 +75,7 @@ $border-radius-20: 20px;
 }
 
 .body {
+    overflow-x: hidden;
     display: flex;
     align-items: flex-start;
     background-color: $primary-white-2;

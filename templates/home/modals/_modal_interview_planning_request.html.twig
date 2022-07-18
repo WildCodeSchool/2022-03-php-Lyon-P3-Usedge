@@ -1,0 +1,43 @@
+<div class="home">
+	<div class="modal-interview-planning-request" id="{{ researchRequest.id }}">
+		<div class="modal-interview-planning-request-header">
+			<div class="interview-planning-header-title">
+				<div class="interview-planning-header-first-title-container">
+
+					{% include "home/_research_request_status.html.twig" %}
+
+					<p class="interview-planning-header-first-title">
+						Interview planning requests
+					</p>
+
+				</div>
+				<p class="interview-planning-header-subtitle">
+					Updated by
+					<span>{{ researchRequest.owner }}</span>,
+					{% include "home/_research_request_creation_date.html.twig" %}
+					ago
+				</p>
+				{% if researchRequest.status is same as 'Dropped' %}
+					<div class="alert-message-is-dropped">
+						<svg width="21" height="22" viewbox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M14 0.916748H7C3.61726 0.916748 0.875 3.78959 0.875 7.33341V14.6667C0.875 18.2106 3.61726 21.0834 7 21.0834H14C17.3827 21.0834 20.125 18.2106 20.125 14.6667V7.33341C20.125 3.78959 17.3827 0.916748 14 0.916748ZM2.625 7.33341C2.625 4.80211 4.58375 2.75008 7 2.75008H14C16.4162 2.75008 18.375 4.80211 18.375 7.33341V14.6667C18.375 17.1981 16.4162 19.2501 14 19.2501H7C4.58375 19.2501 2.625 17.1981 2.625 14.6667V7.33341Z" fill="#DA1414"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M9.11244 10.8428L7.25628 8.89826C6.91457 8.54028 6.91457 7.95988 7.25628 7.6019C7.59799 7.24392 8.15201 7.24392 8.49372 7.6019L10.3499 9.54644L12.206 7.6019C12.5477 7.24392 13.1018 7.24392 13.4435 7.6019C13.7852 7.95988 13.7852 8.54028 13.4435 8.89826L11.5873 10.8428L13.4435 12.7873C13.7852 13.1453 13.7852 13.7257 13.4435 14.0837C13.1018 14.4417 12.5477 14.4417 12.206 14.0837L10.3499 12.1392L8.49372 14.0837C8.15201 14.4417 7.59799 14.4417 7.25628 14.0837C6.91457 13.7257 6.91457 13.1453 7.25628 12.7873L9.11244 10.8428Z" fill="#DA1414"/>
+						</svg>
+						<p>This research request has been dropped, informations may not be accurate.</p>
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="interview-planning-header-actions">
+				<img src="{{ asset('build/images/icons/option-dots.png') }}" class="interview-planning-header-options" id="interview-planning-header-options">
+				<img src="{{ asset('build/images/icons/close-dark-blue.png') }}" class="interview-planning-header-close" id="interview-planning-header-close">
+			</div>
+		</div>
+
+		<div class="separator"></div>
+
+		{% include "home/_research_plan_information.html.twig" %}
+		{% include "home/_research_request_content.html.twig" %}
+
+	</div>
+</div>

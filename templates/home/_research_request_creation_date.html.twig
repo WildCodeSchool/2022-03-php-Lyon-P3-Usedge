@@ -1,0 +1,57 @@
+{# Interval between the update date and now #}
+{% set difference = date( 'now' | date() ).diff(date(researchRequest.creationDate)) %}
+{% set leftYears = difference.y %}
+{% set leftDays = difference.days %}
+{% set leftHours = difference.h %}
+{% set leftMinutes = difference.i %}
+{% set leftSecondes = difference.s %}
+
+{# Set display for years #}
+{% if leftYears %}
+	{{ leftYears }}
+	{% if leftYears == 1 %}
+		year
+	{% else %}
+		years
+	{% endif %}
+{% endif %}
+
+{# Set display for days #}
+{% if leftDays %}
+	{{ leftDays }}
+	{% if leftDays == 1 %}
+		day
+	{% else %}
+		days
+	{% endif %}
+{% endif %}
+
+{# Set display for hours #}
+{% if leftHours %}
+	{{ leftHours }}
+	{% if leftHours == 1 %}
+		hour
+	{% else %}
+		hours
+	{% endif %}
+{% endif %}
+
+{# Set display for minutes #}
+{% if leftMinutes %}
+	{{ leftMinutes }}
+	{% if leftMinutes == 1 %}
+		minute
+	{% else %}
+		minutes
+	{% endif %}
+{% endif %}
+
+{# Set display for secondes #}
+{% if leftSecondes and leftMinutes == 0 %}
+	{{ leftSecondes }}
+	{% if leftSecondes == 1 %}
+		seconde
+	{% else %}
+		secondes
+	{% endif %}
+{% endif %}

@@ -1,0 +1,99 @@
+{# Solved #}
+{% if researchRequest.status is same as 'Solved' %}
+	<div class="research-plan-information-container">
+
+		<div>
+			<p class="research-plan-information">🎉 A research plan is available for this request!</p>
+			<p class="research-plan-information-detail"><b>{{ researchRequest.researchPlan.coach }}</b> has sumbitted a new research plan, you can now view the recommandation for your user research.</p>
+		</div>
+
+		<div>
+			<a href="#">
+				<button id="button-open-research-plan">
+					<svg width="13" height="10" viewbox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M0.318742 4.64843C1.4714 1.81761 3.84952 0 6.5 0C9.15049 0 11.5286 1.81761 12.6813 4.64843C12.7729 4.87353 12.7729 5.12647 12.6813 5.35157C11.5286 8.18239 9.15049 10 6.5 10C3.84952 10 1.4714 8.18239 0.318742 5.35157C0.227086 5.12647 0.227086 4.87353 0.318742 4.64843ZM6.5 8.84354C8.63691 8.84354 10.5961 7.36672 11.5937 5C10.5961 2.63328 8.63691 1.15646 6.5 1.15646C4.36309 1.15646 2.40391 2.63328 1.40631 5C2.40391 7.36672 4.36309 8.84354 6.5 8.84354ZM6.5 7.27891C5.26327 7.27891 4.2607 6.25861 4.2607 5C4.2607 3.74139 5.26327 2.72109 6.5 2.72109C7.73673 2.72109 8.73931 3.74139 8.73931 5C8.73931 6.25861 7.73673 7.27891 6.5 7.27891ZM6.5 6.12245C7.10914 6.12245 7.60294 5.61991 7.60294 5C7.60294 4.38009 7.10914 3.87755 6.5 3.87755C5.89086 3.87755 5.39706 4.38009 5.39706 5C5.39706 5.61991 5.89086 6.12245 6.5 6.12245Z" fill="white"/>
+					</svg>
+					Open research plan</button>
+			</a>
+		</div>
+
+	</div>
+
+	<div class="separator"></div>
+
+{% endif %}
+
+{# Dropped #}
+{% if researchRequest.status is same as 'Dropped' %}
+	<div class="research-plan-information-container">
+
+		<div>
+			<p class="research-plan-information">🎉 A research plan is available for this request!</p>
+			<p class="research-plan-information-detail">[Name of coach to be added here] has sumbitted a new research plan, you can now view the recommandation for your user research.</p>
+		</div>
+
+		<div>
+			<a href="#">
+				<button id="button-open-research-plan">
+					<svg width="13" height="10" viewbox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M0.318742 4.64843C1.4714 1.81761 3.84952 0 6.5 0C9.15049 0 11.5286 1.81761 12.6813 4.64843C12.7729 4.87353 12.7729 5.12647 12.6813 5.35157C11.5286 8.18239 9.15049 10 6.5 10C3.84952 10 1.4714 8.18239 0.318742 5.35157C0.227086 5.12647 0.227086 4.87353 0.318742 4.64843ZM6.5 8.84354C8.63691 8.84354 10.5961 7.36672 11.5937 5C10.5961 2.63328 8.63691 1.15646 6.5 1.15646C4.36309 1.15646 2.40391 2.63328 1.40631 5C2.40391 7.36672 4.36309 8.84354 6.5 8.84354ZM6.5 7.27891C5.26327 7.27891 4.2607 6.25861 4.2607 5C4.2607 3.74139 5.26327 2.72109 6.5 2.72109C7.73673 2.72109 8.73931 3.74139 8.73931 5C8.73931 6.25861 7.73673 7.27891 6.5 7.27891ZM6.5 6.12245C7.10914 6.12245 7.60294 5.61991 7.60294 5C7.60294 4.38009 7.10914 3.87755 6.5 3.87755C5.89086 3.87755 5.39706 4.38009 5.39706 5C5.39706 5.61991 5.89086 6.12245 6.5 6.12245Z" fill="white"/>
+					</svg>
+					Open research plan</button>
+			</a>
+		</div>
+
+	</div>
+
+	<div class="separator"></div>
+
+{% endif %}
+
+{# Waiting list #}
+{% if researchRequest.status is same as 'Waiting list' %}
+	<div class="research-plan-information-container">
+
+		<div>
+			<p class="research-plan-information">⚠️ No research plan created yet!</p>
+			<p class="research-plan-information-detail">This request has no research plan assigned, create one now!</p>
+		</div>
+
+		<div>
+			<a href="{{path('app_research_plan', {id: researchRequest.id})}}">
+				<button id="button-open-research-plan">
+					<svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M6.625 5.375H11C11.3452 5.375 11.625 5.65482 11.625 6C11.625 6.34518 11.3452 6.625 11 6.625H6.625V11C6.625 11.3452 6.34518 11.625 6 11.625C5.65482 11.625 5.375 11.3452 5.375 11V6.625H1C0.654822 6.625 0.375 6.34518 0.375 6C0.375 5.65482 0.654822 5.375 1 5.375H5.375V1C5.375 0.654822 5.65482 0.375 6 0.375C6.34518 0.375 6.625 0.654822 6.625 1V5.375Z" fill="white"/>
+					</svg>
+					Create a research plan</button>
+			</a>
+		</div>
+
+	</div>
+
+	<div class="separator"></div>
+
+{% endif %}
+
+{# Under review #}
+{% if researchRequest.status is same as 'Under review' %}
+	<div class="research-plan-information-container">
+
+		<div>
+			<p class="research-plan-information">✏️ A new research plan is under creation for this request.</p>
+			<p class="research-plan-information-detail">You will soon get a feedback when the plan is available.</p>
+		</div>
+
+		<div>
+			<a href="#">
+				<button id="button-open-research-plan">
+					<svg width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M10.1631 4.24756L10.8598 3.55084L9.32416 2.01518L8.62744 2.7119L10.1631 4.24756ZM9.28387 5.1268L7.7482 3.59113L2.00353 9.3358L1.65009 11.2249L3.5392 10.8715L9.28387 5.1268ZM11.7762 2.70874C12.2413 3.17382 12.2413 3.92786 11.7762 4.39294L4.28234 11.8868C4.19368 11.9755 4.08029 12.0352 3.95706 12.0583L0.986347 12.6141C0.55677 12.6945 0.18053 12.3182 0.260903 11.8887L0.816713 8.91794C0.83977 8.79471 0.899549 8.68132 0.988204 8.59266L8.48206 1.09881C8.94714 0.63373 9.70118 0.63373 10.1663 1.09881L11.7762 2.70874ZM11.5062 12.625H6.49381C5.66873 12.625 5.66873 11.375 6.49381 11.375H11.5062C12.3313 11.375 12.3313 12.625 11.5062 12.625Z" fill="white"/>
+					</svg>
+					Continue editing</button>
+			</a>
+		</div>
+
+	</div>
+
+	<div class="separator"></div>
+
+{% endif %}

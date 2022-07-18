@@ -1,7 +1,7 @@
 @import '../_var.scss';
 
 .research-template-list-card {
-    @include dimension(298.4px, 309px);
+    @include dimension(290px, 309px);
     box-sizing: border-box;
     background-color: $primary-white-1;
     display: flex;

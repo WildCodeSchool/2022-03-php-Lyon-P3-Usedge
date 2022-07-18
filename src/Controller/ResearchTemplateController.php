@@ -10,6 +10,7 @@ use App\Repository\ResearchTemplateRepository;
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
 use App\Service\ComponentManager;
+use App\Service\ComponentUpdateManager;
 use App\Service\ComponentUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use App\Service\RetrieveAnswers;
@@ -91,6 +92,39 @@ class ResearchTemplateController extends AbstractController
         return $this->render('research_template/add.html.twig', [
             'researchTemplate' => $researchTemplate,
             'errors' => $validationErrors
+        ]);
+    }
+
+    #[Route('/edit/{researchTemplateId}/{componentId}', name: 'edit_component')]
+    #[Entity('researchTemplate', options: ['id' => 'researchTemplateId'])]
+    #[Entity('component', options: ['id' => 'componentId'])]
+    public function edit(
+        Request $request,
+        Component $component,
+        ResearchTemplate $researchTemplate,
+        CheckDataUtils $checkDataUtils,
+        ComponentUpdateManager $compUpdateManager,
+        ComponentUtils $componentUtils,
+    ): Response {
+
+        $dataComponent = $checkDataUtils->trimData($request);
+        $componentId = $component->getId();
+        $researchTemplateId = $researchTemplate->getId();
+
+        if (!empty($dataComponent)) {
+            $id = $compUpdateManager->updateComponent($dataComponent, $researchTemplate, $componentId);
+            return $this->redirectToRoute('research_template_add', [
+                'id' => $id,
+            ], Response::HTTP_SEE_OTHER);
+        }
+
+        $validationErrors = $componentUtils->getCheckErrors();
+
+        return $this->render('research_template/edit.html.twig', [
+            'researchTemplate' => $researchTemplate,
+            'componentId' => $componentId,
+            'researchTemplateId' => $researchTemplateId,
+            'errors' => $validationErrors,
         ]);
     }
 

@@ -1,0 +1,79 @@
+<div class="research-center-details-research-plan" id="{{ researchPlan.id }}">
+    <div class="research-center-details-research-plan-header">
+        <div class="details-research-plan-header-title">
+            <div class="details-research-plan-header-return">
+                <img class="details-research-plan-header-return-icon" id="{{ researchPlan.researchRequest.id }}" src="{{ asset('build/images/icons/return-grey.png') }}"/>
+                <p class="details-research-plan-header-return-text">
+                    Back to the research request
+                </p>
+            </div>
+            <p class="details-research-plan-header-first-title">
+                Research plan assigned to your request
+            </p>
+            <p class="details-research-plan-header-subtitle">
+                This element has been built upon your research request, feel free to use it as you want.
+            </p>
+        </div>
+        <div class="details-research-plan-header-actions">
+            <img src="{{ asset('build/images/icons/option-dots.png') }}"  class="details-research-plan-header-options" id="available-templates-header-options">
+            <img src="{{ asset('build/images/icons/close-dark-blue.png') }}"  class="details-research-plan-header-close" id="available-templates-header-close">
+        </div>
+    </div>
+    <div class="details-research-plan-separator"></div>
+    <div class="details-research-plan-content">
+        {% for researchPlanSection in researchPlan.researchPlanSections %}
+        <div class="details-research-plan">
+            <div class="details-research-plan-title">
+                <div class="details-research-plan-title-text">
+                    <img class="details-research-plan-title-icon" src="{{ asset('build/images/icons/chevron-down.png') }}"/>
+                    <p class="details-research-plan-title-title">{{ researchPlanSection.title }}</p>
+                </div>
+                <img class="details-research-plan-status" src="{{ asset('build/images/icons/ongoig-status.png') }}"/>
+            </div>
+            <div class="details-research-workshop-part">
+                <img class="details-research-workshop-image" src="{{ asset('build/images/icons/session-remote.gif')}}"/>
+                <div class="details-research-workshop-content">
+                    <p class="details-research-workshop-content-title">
+                        Workshop selected : 
+                        <span class="details-research-workshop-content-title-name">{{ researchPlanSection.workshopName }}<span>
+                    </p>
+                    <p class="details-research-workshop-content-description">
+                        {{ researchPlanSection.workshopDescription }}
+                    </p>
+                    <button class="details-research-workshop-content-button" disabled="disabled">
+                        <img class="details-research-workshop-content-button-icon" src="{{ asset('build/images/icons/Path.png') }}"/>
+                        <p class="details-research-workshop-content-button-text">Start this workshop</p>
+                    </button>
+                </div>
+            </div>
+            <div class="details-research-recommendation-part">
+                <img class="details-research-recommendation-image" src="{{ asset('build/images/icons/equalizer.png')}}"/>
+                <div class="details-research-recommendation-content">
+                    <p class="details-research-recommendation-content-title">
+                        Recommendation note
+                    </p>
+                    <p class="details-research-recommendation-content-description">
+                        {{ researchPlanSection.recommendation }}
+                    </p>
+                </div>
+            </div>
+            <div class="details-research-objectives-part">
+                <img class="details-research-objectives-image" src="{{ asset('build/images/icons/target.png')}}"/>
+                <div class="details-research-objectives-content">
+                    <p class="details-research-objectives-content-title">
+                        What are the objectives for this phase?
+                    </p>
+                    {% for objective in researchPlanSection.objectives %}
+                        <div class="details-research-objectives-content-objectives">
+                            <input type="checkbox" class="details-research-objectives-content-input" disabled/>
+                            <label class="details-research-objectives-content-label">{{ objective }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="details-research-plan-content-separator"></div>
+        {% endfor %}
+    </div>
+    <button class="details-research-plan-button" disabled="disabled">Export this research plan</button>
+</div>
