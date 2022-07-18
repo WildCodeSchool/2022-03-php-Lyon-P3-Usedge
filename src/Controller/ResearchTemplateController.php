@@ -34,6 +34,7 @@ class ResearchTemplateController extends AbstractController
         $dataComponent =  $checkDataUtils->trimData($request);
 
         if (
+            isset($dataComponent['research-template-id']) &&
             $this->isCsrfTokenValid(
                 'add' . $dataComponent['research-template-id'],
                 $dataComponent['_token' . $dataComponent['research-template-id']]
@@ -82,7 +83,13 @@ class ResearchTemplateController extends AbstractController
     ): Response {
 
         $dataComponent = $checkDataUtils->trimData($request);
-        if (!empty($dataComponent)) {
+        if (
+            !empty($dataComponent) &&
+            $this->isCsrfTokenValid(
+                'add_component',
+                $dataComponent['_token_add_component']
+            )
+        ) {
             $id = $componentManager->initComponent($dataComponent, $researchTemplate);
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
