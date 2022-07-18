@@ -296,6 +296,7 @@
             @include textStyle($text-font, $font-size-14,
             $font-weight-400, $primary-dark-1);
             margin-bottom: 10px;
+            padding-left: 10px;
         }
         .input-objectives-display {
             display: none;

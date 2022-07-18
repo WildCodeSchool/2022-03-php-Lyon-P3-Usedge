@@ -15,7 +15,7 @@
             <div class="open-question-template-answers">
                 {% for answer in templateComponent.component.answers %}
                         <textarea class="open-question-template-textarea form-control" name="answer-open_question"
-                         placeholder="{{answer.answer}}" wrap></textarea>
+                         placeholder="{{answer.answer}}" wrap disabled="disabled"></textarea>
                         <label for="answer{{templateComponent.component.id}}" 
                         class="open-question-template-answer-label" id="open-question-template-answer-label">
                         </label>

@@ -58,9 +58,9 @@ if (document.getElementById('title-section-research-plan')) {
     });
 
     // Function used to capture the enter keytouch and simulate it as a button click.
-    workshopSearchbar.addEventListener("keyup", function (e) {
+    workshopSearchbar.addEventListener("keydown", function (e) {
         if (e.key === 'Enter') {
-            e.preventDefault;
+            e.preventDefault();
             availableWorkshopSearchButton.click();
         }
     });

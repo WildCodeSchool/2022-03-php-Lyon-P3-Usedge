@@ -43,7 +43,11 @@ class ResearchRequestController extends AbstractController
             $requestErrors = $requestUtils->getCheckErrors();
             if (empty($requestErrors)) {
                 $requestUtils->addResearchRequest($dataComponent, $answerList);
-                $mailer->researchRequestSendMail();
+                if ($dataComponent['research-request-status'] === 'Waiting list') {
+                    $mailer->researchRequestSendMail();
+                } else {
+                    return $this->redirectToRoute('app_home');
+                }
             }
         }
         return $this->render('research_request/confirm.html.twig', ['errors' => $requestErrors]);

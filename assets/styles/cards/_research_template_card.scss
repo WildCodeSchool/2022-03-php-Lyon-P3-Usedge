@@ -17,7 +17,7 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 0;
-        gap: 8px;
+        gap: 7px;
         .research-template-list-card-header {
             @include dimension(258.4px, 24px);
             display: flex;
@@ -35,9 +35,14 @@
             @include textStyle($title-font, $font-size-16, $font-weight-500, $primary-blue-3);
             margin-bottom: 0;
         }
-        .research-template-list-card-description {
-            @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
-            margin-bottom: 0;
+        .research-template-list-card-description-container {
+            overflow: auto;
+            width: 100%;
+            min-height: 65px;
+            .research-template-list-card-description {
+                @include textStyle($text-font, $font-size-14, $font-weight-400, $primary-grey-4);
+                margin-bottom: 0;
+            }
         }
         .research-template-list-card-caoch {
             @include dimension(258.4px, 56px);

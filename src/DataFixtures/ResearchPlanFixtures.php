@@ -22,6 +22,11 @@ class ResearchPlanFixtures extends Fixture implements DependentFixtureInterface
             'coach' => 'Jason Brand',
             'status' => 'Draft'
         ],
+        [
+            'research_request' => 'research_request_5',
+            'coach' => 'Jason Brand',
+            'status' => 'Validated'
+        ],
     ];
     public function load(ObjectManager $manager): void
     {

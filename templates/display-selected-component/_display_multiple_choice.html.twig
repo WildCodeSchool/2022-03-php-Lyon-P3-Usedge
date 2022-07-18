@@ -14,7 +14,7 @@
             <div class="multiple-choice-template-answers">
                 {% for answer in templateComponent.component.answers %}
                     <div class="multiple-choice-template-answer">
-                        <input type="checkbox" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}">
+                        <input type="checkbox" value="{{answer.answer}}" name="answer{{templateComponent.component.id}}" disabled="disabled">
                         <label for="answer{{templateComponent.component.id}}" class="multiple-choice-template-answer-label" id="multiple-choice-template-answer-label">
                         {{answer.answer}}
                         </label>
