@@ -120,7 +120,13 @@ class ResearchTemplateController extends AbstractController
         $componentId = $component->getId();
         $researchTemplateId = $researchTemplate->getId();
 
-        if (!empty($dataComponent)) {
+        if (
+            !empty($dataComponent) &&
+            $this->isCsrfTokenValid(
+                'edit_component',
+                $dataComponent['_token_edit_component']
+            )
+        ) {
             $id = $compUpdateManager->updateComponent($dataComponent, $researchTemplate, $componentId);
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
