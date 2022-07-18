@@ -1,7 +1,7 @@
 @import '_var.scss';
 
 .add-research-request-header {
-    @include dimension (1920px, 68px);
+    @include dimension (100vw, 68px);
     background-color: $primary-white-1;
     display: flex;
     justify-content: space-between;
