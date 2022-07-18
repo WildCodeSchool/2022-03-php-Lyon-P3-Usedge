@@ -11,14 +11,9 @@ for (const buttonDeleteTemplate of buttonDeleteTemplates) {
             );
         });
         for (const fullScreenActionMenuContainerModalCloseArchive of fullScreenActionMenuContainerModalCloseArchives) {
-            fullScreenActionMenuContainerModalCloseArchive.addEventListener(
-                "click",
-                function () {
-                    actionsMenuContainerArchive.classList.remove(
-                        "actions-menu-container-flex_archive"
-                    );
-                }
-            );
+            fullScreenActionMenuContainerModalCloseArchive.addEventListener("click", function () {
+                actionsMenuContainerArchive.classList.remove("actions-menu-container-flex_archive");
+            });
         }
     }
 }

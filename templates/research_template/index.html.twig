@@ -35,7 +35,10 @@
 			{% if researchTemplates %}
 				<div class="research-template-list-main">
 				{% for researchTemplate in researchTemplates %}
+					{% if researchTemplate.status is same as 'archive' %}
+					{% else %}
 					{% include "cards/_research_template_card.html.twig" %}
+					{% endif %}
 				{% endfor %}
 				{% include "modals/_modal_new_research_template.html.twig" %}
 				</div>
