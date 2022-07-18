@@ -10,7 +10,10 @@ if (document.getElementById('evaluation-scale-button')) {
     const addEvaluationScaleName = document.getElementById('evaluation-scale-name');
     const body = document.getElementById('body');
     const draggable = require('draggable');
-    const draggableOptions = {handle: evaluationScaleDraggableHandle}
+    const draggableOptions = {
+        handle: evaluationScaleDraggableHandle,
+        limit: {x: [10,1435],y: [10, 550]}
+    };
 
     //function used to open evaluation scale creation modal
     evaluationScaleButton.addEventListener('click', () => {

@@ -22,7 +22,10 @@ if (document.getElementById('button_answer_multiple_choice')) {
     const multipleChoiceModalCloseButton = document.getElementById('multiple-choice-modal-close');
     const multipleChoiceDraggableHandle = document.getElementById('multiple-choice-handle-draggable');
     const draggable = require('draggable');
-    const draggableOptions = {handle: multipleChoiceDraggableHandle}
+    const draggableOptions = {
+        handle: multipleChoiceDraggableHandle,
+        limit: {x: [340,1755],y: [0, 590]}
+    };
 
     // Function used to open the modal
     addmultipleChoiceModalOpenButton.addEventListener('click', () => {

@@ -10,7 +10,10 @@ if (document.getElementById('add-external-link-button')) {
     const addExternalLinkName = document.getElementById('external-link-name');
     const body = document.getElementById('body');
     const draggable = require('draggable');
-    const draggableOptions = {handle: externalLinkDraggableHandle}
+    const draggableOptions = {
+        handle: externalLinkDraggableHandle,
+        limit: {x: [10,1435], y: [10, 720]}
+    };
 
     // Function used to open the modal
     addExternalLinkModalOpenButton.addEventListener('click', () => {
