@@ -12,7 +12,7 @@ if (document.getElementById('add-external-link-button')) {
     const draggable = require('draggable');
     const draggableOptions = {
         handle: externalLinkDraggableHandle,
-        limit: {x: [10,1435], y: [10, 720]}
+        limit: document.getElementById('full-screen-external-link-modal-close')
     };
 
     // Function used to open the modal

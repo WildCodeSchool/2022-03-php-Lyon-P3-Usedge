@@ -24,7 +24,7 @@ if (document.getElementById('button_answer_multiple_choice')) {
     const draggable = require('draggable');
     const draggableOptions = {
         handle: multipleChoiceDraggableHandle,
-        limit: {x: [340,1755],y: [0, 590]}
+        limit: document.getElementById('full-screen-multiple-container-modal-close')
     };
 
     // Function used to open the modal

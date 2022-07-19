@@ -12,7 +12,7 @@ if (document.getElementById('evaluation-scale-button')) {
     const draggable = require('draggable');
     const draggableOptions = {
         handle: evaluationScaleDraggableHandle,
-        limit: {x: [10,1435],y: [10, 550]}
+        limit: document.getElementById('full-screen-evaluation-scale-modal-close')
     };
 
     //function used to open evaluation scale creation modal

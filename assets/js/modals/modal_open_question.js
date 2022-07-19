@@ -15,7 +15,7 @@ if (document.getElementById('open-question-button')) {
     const draggable = require('draggable');
     const draggableOptions = {
         handle: openQuestionDraggableHandle,
-        limit: {x: [340,1755],y: [0, 620]}
+        limit: document.getElementById('full-screen-container-modal-close-open-question')
     };
 
     // Function used to open the modal

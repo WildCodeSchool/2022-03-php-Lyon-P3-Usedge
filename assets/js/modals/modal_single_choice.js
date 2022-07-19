@@ -22,7 +22,7 @@ if (document.getElementById('button_answer_single_choice')) {
     const draggable = require('draggable');
     const draggableOptions = {
         handle: singleChoiceDraggableHandle,
-        limit: {x: [340,1755],y: [0, 590]}
+        limit: document.getElementById('full-screen-single-container-modal-close')
     };
 
     // Function used to open the modal

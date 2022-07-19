@@ -11,7 +11,7 @@ if (document.getElementById('add-date-picker-button')) {
     const draggable = require('draggable');
     const draggableOptions = {
         handle: datePickerDraggableHandle,
-        limit: {x: [10,1435], y: [10, 720]}
+        limit: document.getElementById('full-screen-date-picker-modal-close')
     };
 
     // Function used to open the modal
