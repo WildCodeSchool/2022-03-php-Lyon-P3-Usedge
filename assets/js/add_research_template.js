@@ -1,35 +1,35 @@
+function changeStatusColor(selectStatusList) {
+    const valueSelectStatusList = document.getElementById('select-status').value;
+    document.getElementById('research-template-status').value = valueSelectStatusList;
+
+    selectStatusList.classList.remove('bg-green-dot', 'bg-grey-dot', 'bg-red-dot');
+
+    switch (valueSelectStatusList) {
+    case "active":
+        selectStatusList.classList.add('bg-green-dot');
+        break;
+    case "draft":
+        selectStatusList.classList.add('bg-grey-dot');
+        break;
+    case "dropped":
+        selectStatusList.classList.add('bg-red-dot');
+        break;
+    }
+}
+
 if (document.getElementById('select-status')) {
     
     const selectStatusList = document.getElementById('select-status');
-
+    
     
     //-----------------------------------------------------
     //Changing the color depending on the selected status and add the value of the template in a hidden input
     //-----------------------------------------------------
     
-    function changeStatusColor () {
-        const valueSelectStatusList = document.getElementById('select-status').value;
-        document.getElementById('research-template-status').value = valueSelectStatusList;
-    
-            selectStatusList.classList.remove('bg-green-dot', 'bg-grey-dot', 'bg-red-dot');
-    
-            switch (valueSelectStatusList) {
-            case "active":
-                selectStatusList.classList.add('bg-green-dot');
-                break;
-            case "draft":
-                selectStatusList.classList.add('bg-grey-dot');
-                break;
-            case "dropped":
-                selectStatusList.classList.add('bg-red-dot');
-                break;
-            }
-        }
-
-        changeStatusColor ();
+    changeStatusColor(selectStatusList);
 
     selectStatusList.addEventListener('change', function () {
-        changeStatusColor ();
+        changeStatusColor(selectStatusList);
     });
 
 
