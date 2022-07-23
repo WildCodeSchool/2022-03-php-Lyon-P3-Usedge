@@ -35,7 +35,7 @@
 </button>
  <div id="create-recommandation-container" class="create-recommandation-container-none">
     <textarea id="create-recommandation-text">
-    {{ researchPlanSection.recommendation }}
+        {{ researchPlanSection.recommendation }}
     </textarea>
     <button type="button" class="validate-recommandation-button" id="validate-recommandation-button">
     <img class="validate-recommandation-icon" src="{{ asset('build/images/icons/save-icon.png') }}"/>
@@ -48,7 +48,13 @@
     </div>
     <div class="recommandation-details-container" id="recommandation-details-container">
         <h3 id="recommandation-title" class="recommandation-title">What do we recommend for this phase?</h3>
-        <p class="recommandation-details-paragraph"> {{ researchPlanSection.recommendation }}</p>
+        <p class="recommandation-details-paragraph"> 
+            {% autoescape %}
+                {{ researchPlanSection.recommendation|raw }}
+            {% endautoescape %}
+                
+            
+        </p>
     </div>
     <button type="button" id="edit-recommandation-icon-container" class="edit-recommandation-icon-container">
         <img src="{{ asset('build/images/icons/edit.png') }}">

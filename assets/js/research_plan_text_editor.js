@@ -50,12 +50,12 @@ if (document.getElementById('text-editor-button')) {
         const texts = editorBody.querySelectorAll('.fr-element > p');
         recommandationInput.value = "";
         for (const text of texts) {
-            const newRecommandationDetailsParagraph = document.createElement('p');
-            recommandationInput.value = recommandationInput.value + " " + text.textContent;
+            const newRecommandationDetailsParagraph = text.cloneNode(true);
+            recommandationInput.value = recommandationInput.value + text.innerHTML + "<br>";
             newRecommandationDetailsParagraph.classList.add('recommandation-details-paragraph');
             recommandationDetailsContainer.appendChild(newRecommandationDetailsParagraph);
             recommandationDetailsContainer.appendChild(recommandationInput);
-            newRecommandationDetailsParagraph.innerHTML = text.textContent;
+            newRecommandationDetailsParagraph.innerHTML = text.innerHTML;
             if(text.textContent === "") {
                 newRecommandationDetailsParagraph.remove();
             }
