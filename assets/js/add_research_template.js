@@ -20,6 +20,7 @@ function changeStatusColor(selectStatusList) {
 if (document.getElementById('select-status')) {
     
     const selectStatusList = document.getElementById('select-status');
+    const handleOfComponents = document.getElementsByClassName('handle-template-component-draggable');
     const formBuilder = document.getElementById('form-builder');
     
     //-----------------------------------------------------
@@ -82,17 +83,45 @@ if (document.getElementById('select-status')) {
             let orderNumber = 1;
             componentCounter.value = 0;
             for (const component of componentsOrderNumber) {
-                component.name += orderNumber;            
+                component.setAttribute('name', 'component-order-number' + orderNumber);            
                 component.value = orderNumber;
                 componentCounter.value = orderNumber;
                 orderNumber++;
             }
             orderNumber = 1;
             for (const id of componentId) {
-                id.name += orderNumber;
+                id.setAttribute('name', 'research-template-component-id' + orderNumber);
                 orderNumber++;            
             }
         });
+    }
+
+    if (handleOfComponents.length > 0 ) {
+        for (const handleOfComponent of handleOfComponents) {
+            handleOfComponent.addEventListener('dragend', function(){
+                const componentsOrderNumber = document.getElementsByClassName('component-order-number');
+                const componentId = document.getElementsByClassName('research-template-component-id');
+                const componentCounter = document.getElementById('components-number-count');
+                let orderNumber = 1;
+                componentCounter.value = 0;
+                for (const component of componentsOrderNumber) {
+                    component.setAttribute('name', 'component-order-number' + orderNumber);            
+                    component.value = orderNumber;
+                    componentCounter.value = orderNumber;
+                    orderNumber++;
+                }
+                orderNumber = 1;
+                for (const id of componentId) {
+                    id.setAttribute('name', 'research-template-component-id' + orderNumber);
+                    orderNumber++;            
+                }
+                const form = new FormData(formBuilder);
+                fetch('/research-template/' ,{
+                    method: 'POST',
+                    body: form
+                })
+            });
+        }
     }
 }
 

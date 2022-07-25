@@ -1,7 +1,7 @@
 {% if "section" in templateComponent.component.name %}
 	<div class="section-title-display">
-		<div class="handle-template-component-draggable">
-			<img src="{{ asset('build/images/icons/burger.png') }}"/>
+		<div class="handle-template-component-draggable" draggable= "true">
+			<img src="{{ asset('build/images/icons/burger.png') }}" draggable= "true"/>
 		</div>
 		<div class="component-section-title">
             {% include "display-selected-component/_component_order_id_inputs.html.twig" %}

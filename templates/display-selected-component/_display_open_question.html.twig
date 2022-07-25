@@ -1,7 +1,7 @@
 {% if "open-question" in templateComponent.component.name %}
-    <div class="open-question-creation-modal" id="open-question-creation-modal" draggable="true">
-        <div class="handle-template-component-draggable">
-            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+    <div class="open-question-creation-modal" id="open-question-creation-modal">
+        <div class="handle-template-component-draggable" draggable= "true">
+            <img src="{{ asset('build/images/icons/burger.png') }}" draggable= "true"/>
         </div>
         <div class="open-question-template-content">
             {% include "display-selected-component/_component_order_id_inputs.html.twig" %}

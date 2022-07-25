@@ -1,7 +1,7 @@
 {% if "single-choice" in templateComponent.component.name %}
-    <div class="single-choice-template-creation" draggable="false">
-        <div class="handle-template-component-draggable">
-            <img src="{{ asset('build/images/icons/burger.png') }}"/>
+    <div class="single-choice-template-creation" >
+        <div class="handle-template-component-draggable" draggable= "true">
+            <img src="{{ asset('build/images/icons/burger.png') }}" draggable= "true"/>
         </div>
         <div class="single-choice-template-content">
             {% include "display-selected-component/_component_order_id_inputs.html.twig" %}
