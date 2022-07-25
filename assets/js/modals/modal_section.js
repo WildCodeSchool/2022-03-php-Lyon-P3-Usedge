@@ -10,8 +10,10 @@ if (document.getElementById('add-section-button')) {
     const addSectionName = document.getElementById('section-name');
     const body = document.getElementById('body');
     const draggable = require('draggable');
-    const draggableOptions = {handle: sectionDraggableHandle}
-
+    const draggableOptions = {
+        handle: sectionDraggableHandle,
+        limit: document.getElementById('full-screen-section-modal-close')
+    };
     // Function used to open the modal
     addSectionModalOpenButton.addEventListener('click', () => {
         FullScreenSectionModalClose.classList.add('full-screen-section-modal-display');
