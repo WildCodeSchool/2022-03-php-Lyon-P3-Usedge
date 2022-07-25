@@ -11,10 +11,8 @@ if (document.getElementById('title-section-research-plan')) {
     const workshopCardDescription = document.querySelectorAll('.available-workshop-description');
     const availableWorkshopSearchButton = document.getElementById('research-plan-available-workshops-searchbar-button');
     const availableWorkshopSelectButton = document.querySelectorAll('.available-workshop-button');
-    //const availableWorkshopSelectEditButton = document.querySelectorAll('.available-workshop-edit-button')
     const selectedWorkshopNameInput = document.getElementById('selected-workshop-name');
     const selectedWorkshopDescriptionInput = document.getElementById('selected-workshop-description');
-    //const selectedWorkshopBuilder = document.getElementById('research-plan-workshop-selected-content');
     const selectedWorkshopName = document.querySelector('.research-plan-workshop-selected-name');
     const selectedWorkshopDescription = document.querySelector('.research-plan-workshop-selected-description');
     const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
