@@ -52,9 +52,11 @@
                     <p class="details-research-recommendation-content-title">
                         Recommendation note
                     </p>
-                    <p class="details-research-recommendation-content-description">
-                        {{ researchPlanSection.recommendation }}
-                    </p>
+                    <div class="details-research-recommendation-content-description">
+                        {% autoescape %}
+                            {{ researchPlanSection.recommendation|raw }}
+                        {% endautoescape %}
+                    </div>
                 </div>
             </div>
             <div class="details-research-objectives-part">
