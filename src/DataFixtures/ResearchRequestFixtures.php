@@ -16,37 +16,37 @@ class ResearchRequestFixtures extends Fixture implements DependentFixtureInterfa
         [
             'research_template' => 'research_template_1',
             'status' => 'Solved',
-            'project' => 'WildEdge',
+            'project' => 'UX/UI Project',
             'owner' => 'David Martin',
         ],
         [
             'research_template' => 'research_template_1',
             'status' => 'Under review',
-            'project' => 'ImportScan',
+            'project' => 'UX/UI Project',
             'owner' => 'Pierre Dupont',
         ],
         [
             'research_template' => 'research_template_1',
             'status' => 'Waiting list',
-            'project' => 'We love Lyon',
+            'project' => 'Functionnality Project',
             'owner' => 'Maryline Faisant',
         ],
         [
             'research_template' => 'research_template_2',
             'status' => 'Draft',
-            'project' => 'Bd Cult',
+            'project' => 'Other Project',
             'owner' => 'Jacques Michel',
         ],
         [
             'research_template' => 'research_template_2',
             'status' => 'Dropped',
-            'project' => 'WhatElse',
+            'project' => 'Functionnality Project',
             'owner' => 'Michèle Vougeot',
         ],
         [
             'research_template' => 'research_template_2',
             'status' => 'Solved',
-            'project' => 'Unicorn Cake',
+            'project' => 'UX/UI Project',
             'owner' => 'Ophélie Judon',
         ],
     ];
