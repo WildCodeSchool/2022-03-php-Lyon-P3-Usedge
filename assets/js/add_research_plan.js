@@ -11,6 +11,7 @@ if (document.getElementById('title-section-research-plan')) {
     const workshopCardDescription = document.querySelectorAll('.available-workshop-description');
     const availableWorkshopSearchButton = document.getElementById('research-plan-available-workshops-searchbar-button');
     const availableWorkshopSelectButton = document.querySelectorAll('.available-workshop-button');
+    const availableWorkshopSelectEditButton = document.querySelectorAll('.available-workshop-edit-button')
     const selectedWorkshopNameInput = document.getElementById('selected-workshop-name');
     const selectedWorkshopDescriptionInput = document.getElementById('selected-workshop-description');
     const selectedWorkshopBuilder = document.getElementById('research-plan-workshop-selected-content');
@@ -97,12 +98,23 @@ if (document.getElementById('title-section-research-plan')) {
         });
     }
 
+    // Function used to send name + description of the workshop selected to the builder (edit).
+    for (let i = 0; i < availableWorkshopSelectEditButton.length; i++) {
+        availableWorkshopSelectEditButton[i].addEventListener('click', () => {
+            assignWorkshopLink.classList.add('assign-workshop-display-none');
+            selectedWorkshopName.innerHTML = workshopCardTitle[i].innerHTML;
+            selectedWorkshopDescription.innerHTML = workshopCardDescription[i].innerHTML;
+            selectedWorkshopNameInput.value = workshopCardTitle[i].innerHTML;
+            selectedWorkshopDescriptionInput.value = workshopCardDescription[i].innerHTML;
+            selectedWorkshopDescritionTextarea.innerHTML = workshopCardDescription[i].innerHTML.replace(/\s+/g, " ");
+            availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
+        });
+    }
+
     // Function used to open a textarea when the description needs to be edited
     selectedWorkshopEditIcon.addEventListener('click', () => {
-        selectedWorkshopEditIcon.classList.add('research-plan-workshop-select-edit-icon-display-none');
-        selectedWorkshopDescription.classList.add('research-plan-workshop-selected-description-display-none');
-        selectedWorkshopDescritionTextarea.classList.add('selected-workshop-description-edit-display-block');
-        selectedWorkshopDescritionTextarea.innerHTML = selectedWorkshopDescriptionInput.value.replace(/\s+/g, " ") ;
+        availableWorkshopModal.classList.add('research-plan-available-workshops-display');
+        modalInterviewPlanningRequest.classList.remove('modal-interview-planning-request-display');
     });
 
     // Function used to close the textarea and modify the description.
