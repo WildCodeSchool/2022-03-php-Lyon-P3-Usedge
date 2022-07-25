@@ -29,10 +29,22 @@
 						<div class="status-container-2">
 							<p>Status of this request<span>*</span></p>
 							<div>
-								<select id="select-status" class="status-list-select bg-grey-dot" aria-label="Default select example">
-									<option value="active">Active</option>
-									<option value="draft" selected="selected">Draft</option>
-									<option value="dropped">Dropped</option>
+								<select id="select-status" class="status-list-select" aria-label="Default select example">
+									{% if researchTemplate.status is same as "active" %}
+										<option value="active" selected="selected">Active</option>
+									{% else %}
+										<option value="active">Active</option>	
+									{% endif %}
+									{% if researchTemplate.status is same as "draft" %}
+										<option value="draft" selected="selected">Draft</option>
+									{% else %}
+										<option value="draft">Draft</option>
+									{% endif %}
+									{% if researchTemplate.status is same as "dropped" %}
+										<option value="dropped" selected="selected">Dropped</option>
+									{% else %}
+										<option value="dropped">Dropped</option>
+									{% endif %}
 								</select>
 							</div>
 						</div>
