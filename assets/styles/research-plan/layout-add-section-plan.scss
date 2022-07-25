@@ -325,6 +325,7 @@
                 width: 16px;
                 height: 16px;
                 margin-right: 5px;
+                margin-top: 5px;
             }
             .newDivLabel {
                 @include textStyle($text-font, $font-size-16,
@@ -332,6 +333,7 @@
                 line-height: 18px;
                 display: flex;
                 align-items: center;
+                margin-top: 5px;
             }
             .remove-objectives {
                 display: none;
@@ -395,6 +397,7 @@
     1px solid $primary-white-1);
     @include textStyle($text-font, $font-size-16,
     $font-weight-600, $primary-blue-3);
+    margin-bottom: 5px;
 }
 .create-recommandation-none {
     display: none;
@@ -436,6 +439,7 @@
 }
 .all-div-input-edit {
     margin-left: 60px;
+    margin-bottom: 5px;
     @include dimension(580px, 30px);
     background-image: url("/assets/images/icons/close.png");
     background-position: right;
