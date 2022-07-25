@@ -36,6 +36,7 @@
             {{ form_widget(form.coach) }}
         </div>
         {{ form_widget(form) }}
+        <input type="hidden" name="_token_add_research_template" value="{{ csrf_token('add_research_template') }}">
         <button type="submit" class="new-template-button">Add a new research request template</button>
     {{ form_end(form)}}
 </div>

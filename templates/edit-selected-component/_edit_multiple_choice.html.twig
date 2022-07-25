@@ -1,6 +1,7 @@
 {% if "multiple-choice" in templateComponent.component.name %}
     {% if componentId is same as templateComponent.component.id %}
         <form method="POST" class="multiple-choice-edit-form" draggable="false">
+            {% include "edit-selected-component/_csrfToken_edit_component.html.twig" %}
             <div class="handle-template-component-draggable">
                 <img src="{{ asset('build/images/icons/burger.png') }}"/>
             </div>

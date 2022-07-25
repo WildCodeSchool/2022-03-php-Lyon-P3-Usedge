@@ -50,7 +50,13 @@ class ResearchPlanController extends AbstractController
         $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
         $researchPlanUtils->researchPlanCheckLength($dataComponent);
         $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-        if (empty($researchPlanErrors)) {
+        if (
+            empty($researchPlanErrors) &&
+            $this->isCsrfTokenValid(
+                'research_plan',
+                $dataComponent['_token_research_plan']
+            )
+        ) {
             $researchPlanUtils->addResearchPlan($dataComponent);
             $mailer->researchPlanSendMail();
         }
@@ -73,13 +79,21 @@ class ResearchPlanController extends AbstractController
 
         if (
             empty($researchPlan) &&
-            empty(!$dataComponent)
+            empty(!$dataComponent) &&
+            $this->isCsrfTokenValid(
+                'research_plan',
+                $dataComponent['_token_research_plan']
+            )
         ) {
             $researchPlanUtils->addResearchPlan($dataComponent);
             return $this->redirectToRoute('research_plan_new_section', ['id' => $id]);
         } elseif (
             !empty($researchPlan) &&
-            !empty($dataComponent)
+            !empty($dataComponent) &&
+            $this->isCsrfTokenValid(
+                'research_plan',
+                $dataComponent['_token_research_plan']
+            )
         ) {
             $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
         }
@@ -118,13 +132,23 @@ class ResearchPlanController extends AbstractController
             $researchPlanUtils->researchPlanCheckEmpty($dataComponent);
             $researchPlanUtils->researchPlanCheckLength($dataComponent);
             $researchPlanErrors = $researchPlanUtils->getCheckErrors();
-            if (empty($researchPlanErrors)) {
+            if (
+                empty($researchPlanErrors) &&
+                $this->isCsrfTokenValid(
+                    'research_plan',
+                    $dataComponent['_token_research_plan']
+                )
+            ) {
                 $researchPlanUtils->updateResearchPlanSection($dataComponent, $researchPlan, $researchPlanSection);
             }
             return $this->redirectToRoute('research_plan_new_section', ['id' => $resRequestId]);
         } elseif (
             !empty($researchPlan) &&
-            !empty($dataComponent)
+            !empty($dataComponent) &&
+            $this->isCsrfTokenValid(
+                'research_plan',
+                $dataComponent['_token_research_plan']
+            )
         ) {
             $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
         }
@@ -157,8 +181,10 @@ class ResearchPlanController extends AbstractController
             !empty($dataComponent['workshop_description']) ||
             !empty($dataComponent['research-plan-recommendation'])
         ) {
-            $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
-            $mailer->researchPlanSendMail();
+            if ($this->isCsrfTokenValid('research_plan', $dataComponent['_token_research_plan'])) {
+                $researchPlanUtils->addResearchPlanSection($dataComponent, $researchPlan);
+                $mailer->researchPlanSendMail();
+            }
         }
         $mailer->researchPlanSendMail();
         return $this->render('research_plan/confirm.html.twig');

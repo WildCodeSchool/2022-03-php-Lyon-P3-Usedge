@@ -33,13 +33,21 @@ class ResearchTemplateController extends AbstractController
         $researchTemplateList = $templateRepository->findBy([], ['id' => 'DESC']);
         $dataComponent =  $checkDataUtils->trimData($request);
 
-        if (isset($dataComponent['research-template-status'])) {
-            $templateRepository->updateTemplateStatus($dataComponent);
-        }
+        if (
+            isset($dataComponent['research-template-id']) &&
+            $this->isCsrfTokenValid(
+                'add' . $dataComponent['research-template-id'],
+                $dataComponent['_token' . $dataComponent['research-template-id']]
+            )
+        ) {
+            if (isset($dataComponent['research-template-status'])) {
+                $templateRepository->updateTemplateStatus($dataComponent);
+            }
 
-        if (isset($dataComponent['components-number-count'])) {
-            $orderNumber = $retrieveAnswers->retrieveOrderComponents($dataComponent);
-            $tempCompRepository->updateNumberOrder($orderNumber);
+            if (isset($dataComponent['components-number-count'])) {
+                $orderNumber = $retrieveAnswers->retrieveOrderComponents($dataComponent);
+                $tempCompRepository->updateNumberOrder($orderNumber);
+            }
         }
 
         $researchTemplate = new ResearchTemplate();
@@ -47,9 +55,16 @@ class ResearchTemplateController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $templateRepository->add($researchTemplate, true);
-            $id = $researchTemplate->getId();
-            return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
+            if (
+                $this->isCsrfTokenValid(
+                    'add_research_template',
+                    $dataComponent['_token_add_research_template']
+                )
+            ) {
+                $templateRepository->add($researchTemplate, true);
+                $id = $researchTemplate->getId();
+                return $this->redirectToRoute('research_template_add', ['id' => $id], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->renderForm('research_template/index.html.twig', [
@@ -68,7 +83,13 @@ class ResearchTemplateController extends AbstractController
     ): Response {
 
         $dataComponent = $checkDataUtils->trimData($request);
-        if (!empty($dataComponent)) {
+        if (
+            !empty($dataComponent) &&
+            $this->isCsrfTokenValid(
+                'add_component',
+                $dataComponent['_token_add_component']
+            )
+        ) {
             $id = $componentManager->initComponent($dataComponent, $researchTemplate);
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,
@@ -99,7 +120,13 @@ class ResearchTemplateController extends AbstractController
         $componentId = $component->getId();
         $researchTemplateId = $researchTemplate->getId();
 
-        if (!empty($dataComponent)) {
+        if (
+            !empty($dataComponent) &&
+            $this->isCsrfTokenValid(
+                'edit_component',
+                $dataComponent['_token_edit_component']
+            )
+        ) {
             $id = $compUpdateManager->updateComponent($dataComponent, $researchTemplate, $componentId);
             return $this->redirectToRoute('research_template_add', [
                 'id' => $id,

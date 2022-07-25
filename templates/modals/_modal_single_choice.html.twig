@@ -1,6 +1,7 @@
 <div class="full-screen-single-container-modal-close add-name-separator" id="full-screen-single-container-modal-close">
     <div class="add-single-choice-modal" id="add-single-choice-modal">  
-        <form id="new-component-single-choice-form" method="POST">     
+        <form id="new-component-single-choice-form" method="POST">
+            {% include "modals/_csrfToken_component.html.twig" %}    
             <div class="modal_content_single_choice">
                 <div class="single-choice-modal-close add-name-separator" id="single-choice-modal-close">
 					<span class="single-choice-modal-cross"></span>
