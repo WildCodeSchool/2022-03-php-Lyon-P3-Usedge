@@ -31,11 +31,8 @@ if (document.getElementById('text-editor-button')) {
     });
 
     editTextButton.addEventListener('click', () => {
-        const recommandationDetailsParagraphs = document.querySelectorAll('.recommandation-details-paragraph');
-        
-        for (const recommandationDetailsParagraph of recommandationDetailsParagraphs) {
-            recommandationDetailsParagraph.remove();
-        }
+        const recommandationDetailParagraphContainer = document.getElementById('recommandationDetailParagraphContainer');
+        recommandationDetailParagraphContainer.remove();
         sendResearchPlanButton.classList.add('send-research-plan-disabled');
         sendResearchPlanButton.classList.remove('send-research-plan');
         sendResearchPlanButton.setAttribute('disabled', 'disabled');
@@ -50,21 +47,14 @@ if (document.getElementById('text-editor-button')) {
     });
     
     validateRecommandationButton.addEventListener('click', () =>{
-        const editorBody = document.querySelector('.fr-wrapper');
+        const editorBody = document.querySelector('.fr-element');
         recommandationInput.value = "";
         const newRecommandationDetailsParagraph = editorBody.cloneNode(true);
-        if (document.querySelector('.fr-placeholder')) {
-            const placholder = document.querySelector('.fr-placeholder');
-            placholder.remove();
-            recommandationInput.value = editorBody.innerHTML;
-        }
+        recommandationInput.value = editorBody.innerHTML;
+        newRecommandationDetailsParagraph.setAttribute('id', 'recommandationDetailParagraphContainer');
         newRecommandationDetailsParagraph.classList.add('recommandation-details-paragraph');
         recommandationDetailsContainer.appendChild(newRecommandationDetailsParagraph);
         recommandationDetailsContainer.appendChild(recommandationInput);
-        newRecommandationDetailsParagraph.innerHTML = editorBody.innerHTML;
-        if(editorBody.innerHTML === "") {
-            newRecommandationDetailsParagraph.remove();
-        }
         sendResearchPlanButton.classList.remove('send-research-plan-disabled');
         sendResearchPlanButton.classList.add('send-research-plan');
         sendResearchPlanButton.removeAttribute('disabled');
