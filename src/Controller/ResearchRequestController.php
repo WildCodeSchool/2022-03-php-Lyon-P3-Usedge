@@ -42,7 +42,13 @@ class ResearchRequestController extends AbstractController
             ]);
         }
 
-        if ($dataComponent['request_project']) {
+        if (
+            $dataComponent['request_project'] &&
+            $this->isCsrfTokenValid(
+                'add_research_request',
+                $dataComponent['_token_add_research_request']
+            )
+        ) {
             $answerList = $requestUtils->researchRequestSortAnswer($dataComponent);
             $requestUtils->researchRequestCheckDate($answerList);
             $requestUtils->researchRequestCheckURL($answerList);
