@@ -1,9 +1,4 @@
-function removeIdentButton () {
-    const outdent = document.getElementById('outdent-1');
-    const indent = document.getElementById('indent-1');
-    outdent.remove();
-    indent.remove();
-}
+
 
 if (document.getElementById('text-editor-button')) {
     
@@ -33,7 +28,6 @@ if (document.getElementById('text-editor-button')) {
         buttonAddObjectives.classList.remove('button-add-objectives');
         buttonAddObjectives.setAttribute('disabled', 'disabled');
         new FroalaEditor('#create-recommandation-text');
-        setTimeout(removeIdentButton, 1);
     });
 
     editTextButton.addEventListener('click', () => {
