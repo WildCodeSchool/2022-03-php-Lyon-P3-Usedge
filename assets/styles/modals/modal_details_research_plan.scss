@@ -187,10 +187,12 @@
                         margin-bottom: 0;
                     }
                     .details-research-recommendation-content-description {
-                        @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
-                        line-height: 20px;
-                        letter-spacing: 0.116667px;
-                        margin-bottom: 0;
+                        p {
+                            @include textStyle($text-font, $font-size-16, $font-weight-400, $primary-grey-1);
+                            line-height: 20px;
+                            letter-spacing: 0.116667px;
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }
