@@ -53,7 +53,9 @@
                         Recommendation note
                     </p>
                     <p class="details-research-recommendation-content-description">
-                        {{ researchPlanSection.recommendation }}
+                        {% autoescape %}
+                            {{ researchPlanSection.recommendation|raw }}
+                        {% endautoescape %}
                     </p>
                 </div>
             </div>
