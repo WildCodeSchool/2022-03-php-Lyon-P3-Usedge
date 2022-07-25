@@ -230,7 +230,7 @@
     justify-content: space-between;
     .add-objectives-p {
         margin-left: 35px;
-        margin-top: 20px;
+        margin-bottom: 0 !important;
         @include textStyle($text-font, $font-size-16,
         $font-weight-600, $primary-blue-3);
         line-height: 20px;
@@ -274,13 +274,14 @@
     1.5px dashed $primary-blue-1);
     margin-top: 20px;
     padding: 25px 35px 35px;
-    gap: 10px;
-    p {
+    gap: 5px;
+    .add-objectives-p {
         @include textStyle($text-font, $font-size-16,
         $font-weight-600, $primary-dark-1);
         line-height: 20px;
         display: flex;
         align-items: center;
+        margin-bottom: 5px;
     }
     .add-objectives-p-none {
         display: none;
@@ -380,15 +381,16 @@
     display: none;
 }
 .all-div-input {
+    margin-left: 60px;
     display: flex;
     align-items: flex-start;
-    @include dimension(500px, 42px);
+    @include dimension(500px, 20px);
     .newDivLabel {
         margin-left: 5px;
     }
 }
 .all-input-hidden, .all-input-hidden-validate  {
-    @include dimension(500px, 42px);
+    @include dimension(500px, 30px);
     @include button($primary-white-1, $border-radius-10,
     1px solid $primary-white-1);
     @include textStyle($text-font, $font-size-16,
@@ -433,7 +435,8 @@
     align-self: center;
 }
 .all-div-input-edit {
-    @include dimension(580px, 42px);
+    margin-left: 60px;
+    @include dimension(580px, 30px);
     background-image: url("/assets/images/icons/close.png");
     background-position: right;
     background-repeat: no-repeat;
