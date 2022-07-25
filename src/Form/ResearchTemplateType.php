@@ -66,8 +66,7 @@ class ResearchTemplateType extends AbstractType
                     'class' => 'modal-input'
                 ],
                 'choices' => [
-                    'John Doe' => 'John Doe',
-                    'Jane Doe' => 'Jane Doe',
+                    'Jason Brand' => 'Jason Brand',
                 ],
             ])
         ;
