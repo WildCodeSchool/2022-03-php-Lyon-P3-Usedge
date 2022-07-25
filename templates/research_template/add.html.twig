@@ -184,7 +184,7 @@
 				{# Form builder #}
 				<form method="post" id="form-builder" class="form-builder">
 				    <input type="hidden" name="_token{{researchTemplate.id}}" value="{{ csrf_token('add' ~ researchTemplate.id) }}">
-					<input type="hidden" name="research-template-id" value="{{ researchTemplate.id }}">
+					<input type="hidden" name="research-template-id" id="research-template-id" value="{{ researchTemplate.id }}">
 					<input type="hidden" name="components-number-count" id="components-number-count">
 					<input type="hidden" name="research-template-status" id="research-template-status" value="draft">
 					{% if researchTemplate.templateComponents.0.id is defined %}
