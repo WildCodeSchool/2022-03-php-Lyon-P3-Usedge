@@ -11,10 +11,10 @@ if (document.getElementById('title-section-research-plan')) {
     const workshopCardDescription = document.querySelectorAll('.available-workshop-description');
     const availableWorkshopSearchButton = document.getElementById('research-plan-available-workshops-searchbar-button');
     const availableWorkshopSelectButton = document.querySelectorAll('.available-workshop-button');
-    const availableWorkshopSelectEditButton = document.querySelectorAll('.available-workshop-edit-button')
+    //const availableWorkshopSelectEditButton = document.querySelectorAll('.available-workshop-edit-button')
     const selectedWorkshopNameInput = document.getElementById('selected-workshop-name');
     const selectedWorkshopDescriptionInput = document.getElementById('selected-workshop-description');
-    const selectedWorkshopBuilder = document.getElementById('research-plan-workshop-selected-content');
+    //const selectedWorkshopBuilder = document.getElementById('research-plan-workshop-selected-content');
     const selectedWorkshopName = document.querySelector('.research-plan-workshop-selected-name');
     const selectedWorkshopDescription = document.querySelector('.research-plan-workshop-selected-description');
     const selectedWorkshopDescritionTextarea = document.getElementById('selected-workshop-description-edit');
@@ -88,20 +88,10 @@ if (document.getElementById('title-section-research-plan')) {
     for (let i = 0; i < availableWorkshopSelectButton.length; i++) {
         availableWorkshopSelectButton[i].addEventListener('click', () => {
             assignWorkshopLink.classList.add('assign-workshop-display-none');
-            selectedWorkshopBuilder.classList.add('research-plan-workshop-selected-display-flex');
-            selectedWorkshopName.innerHTML = workshopCardTitle[i].innerHTML;
-            selectedWorkshopDescription.innerHTML = workshopCardDescription[i].innerHTML;
-            selectedWorkshopNameInput.value = workshopCardTitle[i].innerHTML;
-            selectedWorkshopDescriptionInput.value = workshopCardDescription[i].innerHTML;
-            selectedWorkshopDescritionTextarea.innerHTML = workshopCardDescription[i].innerHTML.replace(/\s+/g, " ");
-            availableWorkshopModal.classList.remove('research-plan-available-workshops-display');
-        });
-    }
-
-    // Function used to send name + description of the workshop selected to the builder (edit).
-    for (let i = 0; i < availableWorkshopSelectEditButton.length; i++) {
-        availableWorkshopSelectEditButton[i].addEventListener('click', () => {
-            assignWorkshopLink.classList.add('assign-workshop-display-none');
+            if(document.getElementById('research-plan-workshop-selected-content')) {
+                const selectedWorkshopBuilder = document.getElementById('research-plan-workshop-selected-content');
+                selectedWorkshopBuilder.classList.add('research-plan-workshop-selected-display-flex');
+            }
             selectedWorkshopName.innerHTML = workshopCardTitle[i].innerHTML;
             selectedWorkshopDescription.innerHTML = workshopCardDescription[i].innerHTML;
             selectedWorkshopNameInput.value = workshopCardTitle[i].innerHTML;
