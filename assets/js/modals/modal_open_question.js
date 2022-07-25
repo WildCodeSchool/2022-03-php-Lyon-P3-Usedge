@@ -13,7 +13,10 @@ if (document.getElementById('open-question-button')) {
     const newAddtHelperText = document.getElementById('checkbox-helper-text-open-question');
     const body = document.getElementById('body');
     const draggable = require('draggable');
-    const draggableOptions = {handle: openQuestionDraggableHandle}
+    const draggableOptions = {
+        handle: openQuestionDraggableHandle,
+        limit: document.getElementById('full-screen-container-modal-close-open-question')
+    };
 
     // Function used to open the modal
     openQuestionButton.addEventListener('click', () => {

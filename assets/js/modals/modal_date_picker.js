@@ -9,7 +9,10 @@ if (document.getElementById('add-date-picker-button')) {
     const adddatePickerName = document.getElementById('date-picker-name');
     const body = document.getElementById('body');
     const draggable = require('draggable');
-    const draggableOptions = {handle: datePickerDraggableHandle}
+    const draggableOptions = {
+        handle: datePickerDraggableHandle,
+        limit: document.getElementById('full-screen-date-picker-modal-close')
+    };
 
     // Function used to open the modal
     addDatePickerModalOpenButton.addEventListener('click', () => {

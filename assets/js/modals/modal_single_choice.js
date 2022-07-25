@@ -20,8 +20,10 @@ if (document.getElementById('button_answer_single_choice')) {
     const singleChoiceModalCloseButton = document.getElementById('single-choice-modal-close');
     const singleChoiceDraggableHandle = document.getElementById('single-choice-handle-draggable');
     const draggable = require('draggable');
-    const draggableOptions = {handle: singleChoiceDraggableHandle}
-
+    const draggableOptions = {
+        handle: singleChoiceDraggableHandle,
+        limit: document.getElementById('full-screen-single-container-modal-close')
+    };
 
     // Function used to open the modal
     addSingleChoiceModalOpenButton.addEventListener('click', () => {
