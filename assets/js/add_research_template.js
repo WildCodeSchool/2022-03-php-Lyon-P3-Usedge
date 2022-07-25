@@ -20,7 +20,7 @@ function changeStatusColor(selectStatusList) {
 if (document.getElementById('select-status')) {
     
     const selectStatusList = document.getElementById('select-status');
-    
+    const formBuilder = document.getElementById('form-builder');
     
     //-----------------------------------------------------
     //Changing the color depending on the selected status and add the value of the template in a hidden input
@@ -30,6 +30,11 @@ if (document.getElementById('select-status')) {
 
     selectStatusList.addEventListener('change', function () {
         changeStatusColor(selectStatusList);
+        const form = new FormData(formBuilder);
+        fetch('/research-template/' ,{
+            method: 'POST',
+            body: form
+        })
     });
 
 
