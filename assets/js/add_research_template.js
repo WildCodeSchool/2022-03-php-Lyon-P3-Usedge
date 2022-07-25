@@ -1,28 +1,35 @@
+function changeStatusColor(selectStatusList) {
+    const valueSelectStatusList = document.getElementById('select-status').value;
+    document.getElementById('research-template-status').value = valueSelectStatusList;
+
+    selectStatusList.classList.remove('bg-green-dot', 'bg-grey-dot', 'bg-red-dot');
+
+    switch (valueSelectStatusList) {
+    case "active":
+        selectStatusList.classList.add('bg-green-dot');
+        break;
+    case "draft":
+        selectStatusList.classList.add('bg-grey-dot');
+        break;
+    case "dropped":
+        selectStatusList.classList.add('bg-red-dot');
+        break;
+    }
+}
+
 if (document.getElementById('select-status')) {
     
-    const selectStatusList = document.getElementById('select-status');    
-
+    const selectStatusList = document.getElementById('select-status');
+    
+    
     //-----------------------------------------------------
-    //Changing the color depending on the selected status
+    //Changing the color depending on the selected status and add the value of the template in a hidden input
     //-----------------------------------------------------
+    
+    changeStatusColor(selectStatusList);
 
     selectStatusList.addEventListener('change', function () {
-
-        const valueSelectStatusList = document.getElementById('select-status').value;
-
-        selectStatusList.classList.remove('bg-green-dot', 'bg-grey-dot', 'bg-red-dot');
-
-        switch (valueSelectStatusList) {
-        case "active":
-            selectStatusList.classList.add('bg-green-dot');
-            break;
-        case "draft":
-            selectStatusList.classList.add('bg-grey-dot');
-            break;
-        case "dropped":
-            selectStatusList.classList.add('bg-red-dot');
-            break;
-        }
+        changeStatusColor(selectStatusList);
     });
 
 
@@ -58,12 +65,6 @@ if (document.getElementById('select-status')) {
         });
 
     }
-
-    // function used to add the value of the template in a hidden input
-
-    selectStatusList.addEventListener('change', (event) => {
-        document.getElementById('research-template-status').value = event.target.value;
-    })
     
     // function used to generate the component's order number in order to send it to the database
     if (document.getElementById('form-builder-save-button')) {
