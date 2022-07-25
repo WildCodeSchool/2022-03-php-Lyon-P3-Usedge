@@ -111,6 +111,7 @@
 									<p class="component-title-text">To add some space.</p>
 								</div>
 								<form class="component-picture-2" method="POST">
+            						{% include "modals/_csrfToken_component.html.twig" %}
 									<input type="hidden" id="separator-name" name="name" value="separator">
 									<button id="add-separator-button" class="buttonAction"><img src="{{ asset('build/images/icons/add_button.png') }}"></button>
 								</form>
@@ -182,6 +183,7 @@
 
 				{# Form builder #}
 				<form method="post" id="form-builder" class="form-builder">
+				    <input type="hidden" name="_token{{researchTemplate.id}}" value="{{ csrf_token('add' ~ researchTemplate.id) }}">
 					<input type="hidden" name="research-template-id" value="{{ researchTemplate.id }}">
 					<input type="hidden" name="components-number-count" id="components-number-count">
 					<input type="hidden" name="research-template-status" id="research-template-status" value="draft">

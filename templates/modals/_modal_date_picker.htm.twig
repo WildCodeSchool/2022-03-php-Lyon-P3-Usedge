@@ -1,6 +1,7 @@
 <div class="full-screen-date-picker-modal-close add-name-separator" id="full-screen-date-picker-modal-close">
     <div class="add-date-picker-modal" id="add-date-picker-modal">  
-        <form id="new-component-date-picker-form" method="POST">     
+        <form id="new-component-date-picker-form" method="POST">
+            {% include "modals/_csrfToken_component.html.twig" %}
             <div class="modal-content-date-picker">
                 <div class="date-picker-modal-close add-name-separator" id="date-picker-modal-close">
                     <span class="date-picker-modal-cross"></span>
