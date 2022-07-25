@@ -47,8 +47,7 @@
         <img src="{{ asset('build/images/icons/Clear icons.png') }}">
     </div>
     <div class="recommandation-details-container" id="recommandation-details-container">
-        <h3 id="recommandation-title" class="recommandation-title">What do we recommend for this phase?</h3>
-        <p class="recommandation-details-paragraph"> 
+        <h3 id="recommandation-title" class="recommandation-title">What do we recommend for this phase?</h3> 
             {% autoescape %}
                 {{ researchPlanSection.recommendation|raw }}
             {% endautoescape %}

@@ -1,3 +1,10 @@
+function removeIdentButton () {
+    const outdent = document.getElementById('outdent-1');
+    const indent = document.getElementById('indent-1');
+    outdent.remove();
+    indent.remove();
+}
+
 if (document.getElementById('text-editor-button')) {
     
     const textEditorButton = document.getElementById('text-editor-button');
@@ -9,10 +16,12 @@ if (document.getElementById('text-editor-button')) {
     const sendResearchPlanButton = document.getElementById('send-research-plan');
     const buttonAddObjectives = document.getElementById('button-add-objectives');
     const recommandationInput = document.getElementById('recommandation-input');
+    
     const FroalaEditor = require('froala-editor');
-
+    
+    
     textEditorButton.addEventListener('click', () => {
-
+        
         textEditorButton.classList.add('create-recommandation-none');
         textEditorButton.classList.remove('create-recommandation');
         createRecommandationContainer.classList.add('create-recommandation-container');
@@ -24,6 +33,7 @@ if (document.getElementById('text-editor-button')) {
         buttonAddObjectives.classList.remove('button-add-objectives');
         buttonAddObjectives.setAttribute('disabled', 'disabled');
         new FroalaEditor('#create-recommandation-text');
+        setTimeout(removeIdentButton, 1);
     });
 
     editTextButton.addEventListener('click', () => {
@@ -47,20 +57,20 @@ if (document.getElementById('text-editor-button')) {
     
     validateRecommandationButton.addEventListener('click', () =>{
         const editorBody = document.querySelector('.fr-wrapper');
-        const texts = editorBody.querySelectorAll('.fr-element > p');
         recommandationInput.value = "";
-        for (const text of texts) {
-            const newRecommandationDetailsParagraph = text.cloneNode(true);
-            recommandationInput.value = recommandationInput.value + text.innerHTML + "<br>";
-            newRecommandationDetailsParagraph.classList.add('recommandation-details-paragraph');
-            recommandationDetailsContainer.appendChild(newRecommandationDetailsParagraph);
-            recommandationDetailsContainer.appendChild(recommandationInput);
-            newRecommandationDetailsParagraph.innerHTML = text.innerHTML;
-            if(text.textContent === "") {
-                newRecommandationDetailsParagraph.remove();
-            }
+        const newRecommandationDetailsParagraph = editorBody.cloneNode(true);
+        if (document.querySelector('.fr-placeholder')) {
+            const placholder = document.querySelector('.fr-placeholder');
+            placholder.remove();
+            recommandationInput.value = editorBody.innerHTML;
         }
-        
+        newRecommandationDetailsParagraph.classList.add('recommandation-details-paragraph');
+        recommandationDetailsContainer.appendChild(newRecommandationDetailsParagraph);
+        recommandationDetailsContainer.appendChild(recommandationInput);
+        newRecommandationDetailsParagraph.innerHTML = editorBody.innerHTML;
+        if(editorBody.innerHTML === "") {
+            newRecommandationDetailsParagraph.remove();
+        }
         sendResearchPlanButton.classList.remove('send-research-plan-disabled');
         sendResearchPlanButton.classList.add('send-research-plan');
         sendResearchPlanButton.removeAttribute('disabled');

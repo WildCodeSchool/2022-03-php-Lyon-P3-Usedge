@@ -163,6 +163,9 @@
         .fr-second-toolbar {
             display: none;
         }
+        .indent_none {
+            display: none !important;
+        }
     }
     .validate-recommandation-button {
         display: flex;
@@ -198,6 +201,9 @@
             @include textStyle($text-font, $font-size-18, $font-weight-600, $primary-dark-1);
             width: 100%;
             margin: 0;
+        }
+        .fr-element {
+            width: 100%;
         }
         .recommandation-details-paragraph {
             text-align: justify;
