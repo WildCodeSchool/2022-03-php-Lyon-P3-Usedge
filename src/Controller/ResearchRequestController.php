@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ResearchRequest;
 use App\Repository\ResearchRequestRepository;
 use App\Repository\TemplateComponentRepository;
 use App\Service\CheckDataUtils;
@@ -55,7 +56,10 @@ class ResearchRequestController extends AbstractController
             $requestUtils->researchRequestCheckURL($answerList);
             $requestErrors = $requestUtils->getCheckErrors();
             if (empty($requestErrors)) {
-                $requestStatus = $resReqRepository->findOneBy([], ['id' => 'DESC'])->getStatus();
+                $requestStatus = '';
+                if ($resReqRepository->findOneBy([], ['id' => 'DESC']) instanceof ResearchRequest) {
+                    $requestStatus = $resReqRepository->findOneBy([], ['id' => 'DESC'])->getStatus();
+                }
                 $requestUtils->addResearchRequestAnswer($answerList);
                 if ($requestStatus === 'Waiting list') {
                     $mailer->researchRequestSendMail();

@@ -136,7 +136,9 @@ class ResearchRequestUtils
 
         foreach ($answerList as $answers) {
             $requestAnswers = new AnswerRequest();
-            $requestAnswers->setResearchRequest($researchRequest);
+            if ($researchRequest instanceof ResearchRequest) {
+                $requestAnswers->setResearchRequest($researchRequest);
+            }
             $requestAnswers->setName($answers['request-component-name']);
             $requestAnswers->setAnswer($answers['answer']);
             $requestAnswers->setQuestion($answers['question']);
