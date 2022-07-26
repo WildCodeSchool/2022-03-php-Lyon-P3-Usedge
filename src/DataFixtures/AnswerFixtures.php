@@ -232,6 +232,11 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             'question' => 'open_question_11'
         ],
         [
+            'answer' => 'Expected feedback...',
+            'number_order' => 1,
+            'question' => 'open_question_12'
+        ],
+        [
             'answer' => 'Youths',
             'number_order' => 1,
             'question' => 'multiple_choice_4'

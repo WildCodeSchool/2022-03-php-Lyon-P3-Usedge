@@ -66,8 +66,8 @@ class OpenQuestionFixtures extends Fixture
         ],
         [
             'is_mandatory' => true,
-            'question' => 'What part of this design are you expecting feedback on ?',
-            'helper_text' => 'You can enter the name of the entire project or a feature.'
+            'question' => 'What part of the design are you expecting feedback on ?',
+            'helper_text' => 'Please be as specific as possible.'
         ],
     ];
 
