@@ -15,11 +15,8 @@
     </header>
     <main class="add-research-request-main-content">
         <form method="POST" action="{{ path('research_request_add', {id: templateId}) }}" id="add-research-request-form" class="add-research-request-form">
-            <input type="hidden" name="template_id" value="{{ templateId }}">
-            <input type="hidden" name="request_project" value="{{ project }}">
-            <input type="hidden" name="owner" value="Dominique Dupont">
-            <input id="research-request-status" type="hidden" name="research-request-status">
-            <input type="hidden" name="_token_add_research_request" value="{{ csrf_token('add_research_request') }}">
+            <input type="hidden" name="research_request_template_id" value="{{ templateId }}">
+            <input type="hidden" name="_token_add_research_request_answer" value="{{ csrf_token('add_research_request_answer') }}">
             <div class="add-research-request-form-builder">
             {% if requestComponents %}
                 {% for requestComponent in requestComponents %}

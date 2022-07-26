@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\AnswerRequest;
 use App\Entity\ResearchRequest;
 use App\Entity\ResearchTemplate;
+use App\Repository\ResearchRequestRepository;
 use App\Repository\ResearchTemplateRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,14 +14,17 @@ class ResearchRequestUtils
 {
     private EntityManagerInterface $entityManager;
     private ResearchTemplateRepository $resTempRepository;
+    private ResearchRequestRepository $resReqRepository;
     private array $checkErrors = [];
 
     public function __construct(
         EntityManagerInterface $entityManager,
         ResearchTemplateRepository $resTempRepository,
+        ResearchRequestRepository $resReqRepository,
     ) {
         $this->entityManager = $entityManager;
         $this->resTempRepository = $resTempRepository;
+        $this->resReqRepository = $resReqRepository;
     }
 
     public function getCheckErrors(): array
@@ -106,7 +110,7 @@ class ResearchRequestUtils
         }
     }
 
-    public function addResearchRequest(array $dataComponent, array $answerList): void
+    public function addResearchRequest(array $dataComponent): void
     {
         $researchTemplate = $this->resTempRepository->findOneBy(['id' => $dataComponent['template_id']]);
         $entityManager = $this->entityManager;
@@ -118,9 +122,17 @@ class ResearchRequestUtils
         }
         $researchRequest->setCreationDate($creationDate);
         $researchRequest->setStatus($dataComponent['research-request-status']);
-        $researchRequest->setProject($dataComponent['request_project']);
+        $researchRequest->setProject($dataComponent['project']);
         $researchRequest->setOwner($dataComponent['owner']);
         $entityManager->persist($researchRequest);
+
+        $entityManager->flush();
+    }
+
+    public function addResearchRequestAnswer(array $answerList): void
+    {
+        $researchRequest = $this->resReqRepository->findOneBy([], ['id' => 'DESC']);
+        $entityManager = $this->entityManager;
 
         foreach ($answerList as $answers) {
             $requestAnswers = new AnswerRequest();
