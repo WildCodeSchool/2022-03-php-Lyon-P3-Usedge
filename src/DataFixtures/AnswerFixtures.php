@@ -201,6 +201,66 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             'number_order' => 5,
             'question' => 'single_choice_4'
         ],
+        [
+            'answer' => 'Application',
+            'number_order' => 1,
+            'question' => 'single_choice_5'
+        ],
+        [
+            'answer' => 'Website',
+            'number_order' => 2,
+            'question' => 'single_choice_5'
+        ],
+        [
+            'answer' => 'Exploitation Product',
+            'number_order' => 3,
+            'question' => 'single_choice_5'
+        ],
+        [
+            'answer' => 'Service',
+            'number_order' => 4,
+            'question' => 'single_choice_5'
+        ],
+        [
+            'answer' => 'Product name...',
+            'number_order' => 1,
+            'question' => 'open_question_10'
+        ],
+        [
+            'answer' => 'Product purpose...',
+            'number_order' => 1,
+            'question' => 'open_question_11'
+        ],
+        [
+            'answer' => 'Youths',
+            'number_order' => 1,
+            'question' => 'multiple_choice_4'
+        ],
+        [
+            'answer' => 'Adults',
+            'number_order' => 2,
+            'question' => 'multiple_choice_4'
+        ],
+        [
+            'answer' => 'Elders',
+            'number_order' => 3,
+            'question' => 'multiple_choice_4'
+        ],
+        [
+            'answer' => 'Not very',
+            'number_order' => 1,
+            'question' => 'single_choice_6'
+        ],
+        [
+            'answer' => 'Rather',
+            'number_order' => 2,
+            'question' => 'single_choice_6'
+        ],
+        [
+            'answer' => 'Very',
+            'number_order' => 3,
+            'question' => 'single_choice_6'
+        ],
     ];
 
     public function load(ObjectManager $manager): void

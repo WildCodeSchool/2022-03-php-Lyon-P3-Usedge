@@ -21,6 +21,10 @@ class MultipleChoiceFixtures extends Fixture
             'is_mandatory' => false,
             'question' => 'If you had the two most important specifications, what it would be?',
         ],
+        [
+            'is_mandatory' => false,
+            'question' => 'What segment population is concerned by your product ?',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

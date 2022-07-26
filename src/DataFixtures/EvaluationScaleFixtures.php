@@ -18,8 +18,8 @@ class EvaluationScaleFixtures extends Fixture
         [
             'is_mandatory' => true,
             'question' => 'From 1 to 5, what is the progress of your idea?',
-            'low_label' => '1',
-            'high_label' => '5',
+            'low_label' => '1 / 5',
+            'high_label' => '5 / 5',
         ],
         [
             'is_mandatory' => true,

@@ -16,7 +16,11 @@ class ExternalLinkFixtures extends Fixture
         [
             'is_mandatory' => false,
             'title' => 'Paste here the link of concerning website.'
-        ]
+        ],
+        [
+            'is_mandatory' => false,
+            'title' => 'If exists, paste here the URL of the product website.'
+        ],
     ];
 
     public function load(ObjectManager $manager): void
