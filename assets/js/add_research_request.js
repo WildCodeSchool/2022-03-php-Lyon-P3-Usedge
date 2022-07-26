@@ -3,7 +3,7 @@ if (document.getElementById('add-research-request-header')) {
     const bodyWithSideBar = document.querySelector('body');
     const newResearchRequestHeaderButton = document.getElementById('add-research-request-header-button');
     const newResearchRequestFormButton = document.getElementById('add-research-request-form-button');
-    const requiredCheckbox = document.querySelectorAll('.required');
+    const inputComponentId = document.getElementsByClassName('request-component-id');
     const requiredEvaluationScale = document.querySelectorAll('.ratinginput');
 
     bodyWithSideBar.classList.remove('body');
@@ -28,17 +28,21 @@ if (document.getElementById('add-research-request-header')) {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'Draft';
 
-        if (requiredCheckbox[0]) {
-            let countCheckboxRequired = 0;
-            requiredCheckbox.forEach(checkbox => {
-                if (checkbox.checked == true) {
-                    countCheckboxRequired++;
+        for (const componentId of inputComponentId) {
+            const id = componentId.value
+            const requiredCheckbox = document.querySelectorAll('.required' + id);
+            if (requiredCheckbox[0]) {
+                let countCheckboxRequired = 0;
+                requiredCheckbox.forEach(checkbox => {
+                    if (checkbox.checked == true) {
+                        countCheckboxRequired++;
+                    }
+                });
+                if (countCheckboxRequired === 0) {
+                    
+                    alert('All stared fields are mandatory');
+                    e.preventDefault();
                 }
-            });
-            if (countCheckboxRequired === 0) {
-                
-                alert('All stared fields are mandatory');
-                e.preventDefault();
             }
         }
 
@@ -61,18 +65,21 @@ if (document.getElementById('add-research-request-header')) {
     newResearchRequestFormButton.addEventListener('click', (e) => {
         const statusInput = document.getElementById('research-request-status');
         statusInput.value = 'Waiting list';
-
-        if (requiredCheckbox[0]) {
-            let countCheckboxRequired = 0;
-            requiredCheckbox.forEach(checkbox => {
-                if (checkbox.checked == true) {
-                    countCheckboxRequired++;
+        for (const componentId of inputComponentId) {
+            const id = componentId.value
+            const requiredCheckbox = document.querySelectorAll('.required' + id);
+            if (requiredCheckbox[0]) {
+                let countCheckboxRequired = 0;
+                requiredCheckbox.forEach(checkbox => {
+                    if (checkbox.checked == true) {
+                        countCheckboxRequired++;
+                    }
+                });
+                if (countCheckboxRequired === 0) {
+                    
+                    alert('All stared fields are mandatory');
+                    e.preventDefault();
                 }
-            });
-            if (countCheckboxRequired === 0) {
-                
-                alert('All stared fields are mandatory');
-                e.preventDefault();
             }
         }
 
