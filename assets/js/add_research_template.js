@@ -31,6 +31,11 @@ if (document.getElementById('select-status')) {
 
     selectStatusList.addEventListener('change', function () {
         changeStatusColor(selectStatusList);
+        const form = new FormData(formBuilder);
+        fetch('/research-template/' ,{
+            method: 'POST',
+            body: form
+        })
     });
 
 
