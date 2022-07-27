@@ -25,6 +25,14 @@ class SingleChoiceFixtures extends Fixture
             'is_mandatory' => true,
             'question' => 'How many requests have you already made with us?',
         ],
+        [
+            'is_mandatory' => true,
+            'question' => 'What is the type of your product ?',
+        ],
+        [
+            'is_mandatory' => false,
+            'question' => 'What is the marketing impact of the problem you are encountering?',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

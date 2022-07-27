@@ -25,7 +25,7 @@
                         <p class="research-request-alert-modal-first-text">{{ error }}</p>
                     {% endfor %}
                 </div>
-                <button class="research-request-alert-modal-button" onclick="history.back();"><img src="{{ asset('build/images/icons/return.png')}}">Back to research request</button>
+                <a class="research-request-alert-modal-button-link" href="{{ path('research_request_add', {id: templateId}) }}"><button type="button" class="research-request-alert-modal-button"><img src="{{ asset('build/images/icons/return.png')}}">Back to research request</button></a>
             </div>
         </div>
         {% else %}

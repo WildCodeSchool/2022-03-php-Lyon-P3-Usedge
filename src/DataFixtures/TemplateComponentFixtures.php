@@ -188,8 +188,91 @@ class TemplateComponentFixtures extends Fixture implements DependentFixtureInter
             'component' => 'open_question_9',
             'order_number' => 15,
         ],
-
-
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'section_1',
+            'order_number' => 1,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'single_choice_5',
+            'order_number' => 2,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'open_question_10',
+            'order_number' => 3,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'open_question_11',
+            'order_number' => 4,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'external_link_3',
+            'order_number' => 5,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'separator',
+            'order_number' => 6,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'section_6',
+            'order_number' => 7,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'open_question_12',
+            'order_number' => 8,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'open_question_3',
+            'order_number' => 9,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'multiple_choice_4',
+            'order_number' => 10,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'single_choice_6',
+            'order_number' => 11,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'evaluation_scale_2',
+            'order_number' => 12,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'date_picker_3',
+            'order_number' => 13,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'section_7',
+            'order_number' => 14,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'evaluation_scale_1',
+            'order_number' => 15,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'section_8',
+            'order_number' => 16,
+        ],
+        [
+            'research_template' => 'research_template_4',
+            'component' => 'open_question_9',
+            'order_number' => 17,
+        ],
     ];
 
     public function load(ObjectManager $manager): void

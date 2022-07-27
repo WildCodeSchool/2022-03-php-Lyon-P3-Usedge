@@ -16,7 +16,11 @@ class ExternalLinkFixtures extends Fixture
         [
             'is_mandatory' => false,
             'title' => 'Paste here the link of concerning website.'
-        ]
+        ],
+        [
+            'is_mandatory' => false,
+            'title' => 'If exists, paste here the URL of the product website.'
+        ],
     ];
 
     public function load(ObjectManager $manager): void
@@ -25,7 +29,7 @@ class ExternalLinkFixtures extends Fixture
         foreach (self::EXTERNALLINKS as $externalLinkValue) {
             $externalLink = new ExternalLink();
             $externalLink
-                ->setName('external_link')
+                ->setName('external-link')
                 ->setIsMandatory($externalLinkValue['is_mandatory'])
                 ->setTitle($externalLinkValue['title']);
             $this->addReference('external_link_' . $externalLinkNumber, $externalLink);

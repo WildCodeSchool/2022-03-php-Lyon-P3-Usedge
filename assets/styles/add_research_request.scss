@@ -163,18 +163,22 @@
                 text-align: center;
             }
         }
-        .research-request-alert-modal-button {
-            @include dimension(180px, 42px);
-            @include button($secondary-red-1, $border-radius-10, none);
-            @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-white-1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 12px;
-            gap: 5px;
-            font-style: normal;
-            line-height: 18px;
-            text-align: center;
+        .research-request-alert-modal-button-link {
+            text-decoration: none;
+            .research-request-alert-modal-button {
+                @include dimension(180px, 42px);
+                @include button($secondary-red-1, $border-radius-10, none);
+                @include textStyle($text-font, $font-size-12, $font-weight-600, $primary-white-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                gap: 5px;
+                font-style: normal;
+                line-height: 18px;
+                text-align: center;
+            }
         }
+
     }
 }
