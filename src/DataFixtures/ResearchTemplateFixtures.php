@@ -20,7 +20,7 @@ class ResearchTemplateFixtures extends Fixture
             'name' => 'Visual Alternatives',
             'description' => 'If you think, for exemple, that A/B testing
                                 can have an impact on improving your search...',
-            'icon' => 'build/images/icons/template_icon_3.png',
+            'icon' => 'build/images/icons/template_icon_2.png',
             'status' => 'active',
         ],
         [
@@ -29,6 +29,14 @@ class ResearchTemplateFixtures extends Fixture
                                 your request, answer this general form.',
             'icon' => 'build/images/icons/template_icon_4.png',
             'status' => 'dropped',
+        ],
+        [
+            'name' => 'UX/UI Design Perspective',
+            'description' => 'The main context behind any design is to consider the users needs. 
+                                This template concerns ergonomics, usability, and quality of UX/UI 
+                                as a whole.',
+            'icon' => 'build/images/icons/template_icon_3.png',
+            'status' => 'draft',
         ],
     ];
     public function load(ObjectManager $manager): void

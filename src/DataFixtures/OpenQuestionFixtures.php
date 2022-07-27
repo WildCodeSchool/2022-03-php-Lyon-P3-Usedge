@@ -54,6 +54,21 @@ class OpenQuestionFixtures extends Fixture
             'question' => 'Note from requestor',
             'helper_text' => 'Everything you want us to know.'
         ],
+        [
+            'is_mandatory' => true,
+            'question' => 'What is the name of your product ?',
+            'helper_text' => 'You can enter the name of the entire project or a feature.'
+        ],
+        [
+            'is_mandatory' => true,
+            'question' => 'What is the purpose of your product ?',
+            'helper_text' => 'Briefly describe your product.'
+        ],
+        [
+            'is_mandatory' => true,
+            'question' => 'What part of the design are you expecting feedback on ?',
+            'helper_text' => 'Please be as specific as possible.'
+        ],
     ];
 
     public function load(ObjectManager $manager): void

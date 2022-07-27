@@ -13,7 +13,10 @@ class SectionFixtures extends Fixture
         'Research objectives',
         'Research questions',
         'Research participants',
-        'Notes & additional comments'
+        'Notes & additional comments',
+        'UX/UI Design',
+        'Notes',
+        'Additional comments',
     ];
 
     public function load(ObjectManager $manager): void
