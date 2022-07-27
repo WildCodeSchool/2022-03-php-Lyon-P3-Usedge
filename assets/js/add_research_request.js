@@ -59,8 +59,6 @@ if (document.getElementById('add-research-request-header')) {
     });
 
     newResearchRequestFormButton.addEventListener('click', (e) => {
-        const statusInput = document.getElementById('research-request-status');
-        statusInput.value = 'Waiting list';
 
         if (requiredCheckbox[0]) {
             let countCheckboxRequired = 0;

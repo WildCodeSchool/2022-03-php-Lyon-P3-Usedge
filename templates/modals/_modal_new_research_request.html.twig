@@ -10,6 +10,8 @@
             <input type="hidden" name="_token_add_research_request" value="{{ csrf_token('add_research_request') }}">
             <div class="new-research-request-modal-content-select">
                 <input type="hidden" name="template_id" value="{{ researchTemplate.id }}">
+                <input type="hidden" name="owner" value="Dominique Dupont">
+                <input id="research-request-status" type="hidden" name="research-request-status" value="Waiting list">
                 <label class="new-research-request-modal-select-label" for="research-request-project">
                     Select a project <span class="red-star">*</span>
                 </label>
