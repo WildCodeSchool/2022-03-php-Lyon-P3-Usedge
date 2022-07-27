@@ -18,7 +18,7 @@
             <div class="requests-list-modal" id="requests-list">
                 <table>
                     {% for researchRequest in researchRequests %}
-                        {% if 'Waiting list' in researchRequest.status or 'Under review' in researchRequest.status %}
+                        {% if 'Waiting list' in researchRequest.status %}
                             <tbody class="request-result">
                                 <tr class="sort-choice">
                                     <td class="request-details" id="view-request-type">
